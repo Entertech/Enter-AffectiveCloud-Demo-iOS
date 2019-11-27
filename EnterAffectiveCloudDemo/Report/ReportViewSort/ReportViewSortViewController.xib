@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportViewSortViewController" customModule="Flowtime" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="ZIa-mW-kEc" id="VOM-ho-bnf"/>
+                <outlet property="tipLabel" destination="K8B-Yc-37U" id="OOd-3T-cwY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZIa-mW-kEc">
+                    <rect key="frame" x="0.0" y="104" width="414" height="632"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8B-Yc-37U">
+                    <rect key="frame" x="20" y="52" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="x26-aI-Ka9"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Drag and drop to reorder dashboard.\n Tap the switch button to hide/show data card.">
+                            <attributes>
+                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <font key="NSFont" metaFont="menu" size="14"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whl-F0-WMP">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDH-0u-NqQ">
+                            <rect key="frame" x="360" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="H6k-X7-7ta"/>
+                                <constraint firstAttribute="width" constant="44" id="mUB-RU-Jmt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <state key="normal" title="Done">
+                                <color key="titleColor" red="0.29411764709999999" green="0.36470588240000001" blue="0.80000000000000004" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="4lr-bI-gOo"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="KDH-0u-NqQ" secondAttribute="trailing" constant="10" id="KxP-cg-jGo"/>
+                        <constraint firstAttribute="height" constant="44" id="MVy-ad-hca"/>
+                        <constraint firstItem="KDH-0u-NqQ" firstAttribute="top" secondItem="Whl-F0-WMP" secondAttribute="top" id="Rn5-XR-fPB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Whl-F0-WMP" secondAttribute="trailing" id="6ad-Eb-2kB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K8B-Yc-37U" secondAttribute="trailing" constant="20" id="8B2-Ny-HJ5"/>
+                <constraint firstItem="ZIa-mW-kEc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="91X-zo-aOd"/>
+                <constraint firstItem="Whl-F0-WMP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="97b-q5-qvK"/>
+                <constraint firstItem="Whl-F0-WMP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="BAg-zb-MgN"/>
+                <constraint firstItem="ZIa-mW-kEc" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="LQI-fJ-4qh"/>
+                <constraint firstItem="K8B-Yc-37U" firstAttribute="top" secondItem="Whl-F0-WMP" secondAttribute="bottom" constant="8" id="VV0-xa-ui6"/>
+                <constraint firstItem="K8B-Yc-37U" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="WdS-Dw-2mv"/>
+                <constraint firstAttribute="trailing" secondItem="ZIa-mW-kEc" secondAttribute="trailing" id="fWO-pY-xBw"/>
+                <constraint firstItem="ZIa-mW-kEc" firstAttribute="top" secondItem="K8B-Yc-37U" secondAttribute="bottom" constant="12" id="k2z-u4-EJt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="49.275362318840585" y="34.239130434782609"/>
+        </view>
+    </objects>
+</document>

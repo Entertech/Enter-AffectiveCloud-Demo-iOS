@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="EnterAffectiveCloudDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt6-b1-ZoX">
+                                <rect key="frame" x="362" y="94" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="Noh-os-gHR"/>
+                                    <constraint firstAttribute="height" constant="32" id="PC2-BY-R4p"/>
+                                </constraints>
+                                <state key="normal" image="icon_flowtime_disconnected"/>
+                                <connections>
+                                    <action selector="connectBLE:" destination="9pv-A4-QxB" eventType="touchUpInside" id="m9b-aF-Qyp"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-Dv-RA3">
+                                <rect key="frame" x="16" y="172" width="382" height="122"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Uc-aXq">
+                                        <rect key="frame" x="260" y="0.0" width="122" height="122"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="122" id="6Aw-JI-U8s"/>
+                                            <constraint firstAttribute="width" constant="122" id="ss7-a5-bry"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双通道脑电和心率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndj-et-XNt">
+                                        <rect key="frame" x="24" y="24" width="147" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实时监测前额左右双通道脑电和心率，输出脑波频谱和心率数据。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrr-fn-sM6">
+                                        <rect key="frame" x="24" y="54" width="273" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="PDU-HP-zkr"/>
+                                            <constraint firstAttribute="width" constant="273" id="UxN-ze-611"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Ndj-et-XNt" firstAttribute="leading" secondItem="wg5-Dv-RA3" secondAttribute="leading" constant="24" id="4yp-bS-kua"/>
+                                    <constraint firstItem="qrr-fn-sM6" firstAttribute="top" secondItem="Ndj-et-XNt" secondAttribute="bottom" constant="8" id="5bi-hC-MEu"/>
+                                    <constraint firstItem="qrr-fn-sM6" firstAttribute="leading" secondItem="wg5-Dv-RA3" secondAttribute="leading" constant="24" id="TQz-ls-38R"/>
+                                    <constraint firstAttribute="trailing" secondItem="WgE-Uc-aXq" secondAttribute="trailing" id="UW2-S7-GrV"/>
+                                    <constraint firstAttribute="bottom" secondItem="WgE-Uc-aXq" secondAttribute="bottom" id="fFp-7m-EG0"/>
+                                    <constraint firstItem="Ndj-et-XNt" firstAttribute="top" secondItem="wg5-Dv-RA3" secondAttribute="top" constant="24" id="gno-x3-xmq"/>
+                                    <constraint firstItem="WgE-Uc-aXq" firstAttribute="top" secondItem="wg5-Dv-RA3" secondAttribute="top" id="rHZ-71-F3K"/>
+                                    <constraint firstAttribute="height" constant="122" id="yYq-DA-CSX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fba-zz-JiP">
+                                <rect key="frame" x="16" y="310" width="382" height="122"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow" translatesAutoresizingMaskIntoConstraints="NO" id="Lds-JL-Kpi">
+                                        <rect key="frame" x="260" y="0.0" width="122" height="122"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="122" id="Tfb-wd-6Nz"/>
+                                            <constraint firstAttribute="height" constant="122" id="fbZ-uQ-15f"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多维度实时数据" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9X-cO-O8g">
+                                        <rect key="frame" x="24" y="24" width="128.5" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="根据脑电和心率数据，实时分析专注力、放松度、压力水平等情绪情感值。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBE-Gw-fbV">
+                                        <rect key="frame" x="24" y="54" width="273" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3v2-4C-sek"/>
+                                            <constraint firstAttribute="width" constant="273" id="Sid-Fa-Q1q"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="f9X-cO-O8g" firstAttribute="top" secondItem="Fba-zz-JiP" secondAttribute="top" constant="24" id="7HH-Ui-cFQ"/>
+                                    <constraint firstItem="EBE-Gw-fbV" firstAttribute="leading" secondItem="Fba-zz-JiP" secondAttribute="leading" constant="24" id="8gT-Or-EWY"/>
+                                    <constraint firstItem="EBE-Gw-fbV" firstAttribute="top" secondItem="f9X-cO-O8g" secondAttribute="bottom" constant="8" id="P0D-vq-QKE"/>
+                                    <constraint firstItem="f9X-cO-O8g" firstAttribute="leading" secondItem="Fba-zz-JiP" secondAttribute="leading" constant="24" id="ZUh-MD-MMy"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lds-JL-Kpi" secondAttribute="bottom" id="aXJ-as-I5g"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lds-JL-Kpi" secondAttribute="trailing" id="dZM-nu-9yJ"/>
+                                    <constraint firstItem="Lds-JL-Kpi" firstAttribute="top" secondItem="Fba-zz-JiP" secondAttribute="top" id="m4K-WG-Fv8"/>
+                                    <constraint firstAttribute="height" constant="122" id="wxN-qK-LAb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsq-jx-R0v">
+                                <rect key="frame" x="16" y="448" width="382" height="122"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green" translatesAutoresizingMaskIntoConstraints="NO" id="T1M-TE-GOk">
+                                        <rect key="frame" x="260" y="0.0" width="122" height="122"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="122" id="fr2-1U-Q8a"/>
+                                            <constraint firstAttribute="height" constant="122" id="oRD-zb-ZTf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双通道脑电和心率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzv-gO-Bai">
+                                        <rect key="frame" x="24" y="24" width="147" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="呈现体验过程中的脑电、心率、专注力、放松度和压力水平等值变化趋势。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCw-I7-qmp">
+                                        <rect key="frame" x="24" y="54" width="273" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="273" id="8F0-vl-27J"/>
+                                            <constraint firstAttribute="height" constant="44" id="Ba2-r0-lpB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="7Xi-Fp-Hlc"/>
+                                    <constraint firstItem="xzv-gO-Bai" firstAttribute="leading" secondItem="Qsq-jx-R0v" secondAttribute="leading" constant="24" id="ADT-R6-ab2"/>
+                                    <constraint firstItem="xzv-gO-Bai" firstAttribute="top" secondItem="Qsq-jx-R0v" secondAttribute="top" constant="24" id="KZD-6M-r2r"/>
+                                    <constraint firstItem="HCw-I7-qmp" firstAttribute="leading" secondItem="Qsq-jx-R0v" secondAttribute="leading" constant="24" id="Qyn-m6-0Ql"/>
+                                    <constraint firstAttribute="trailing" secondItem="T1M-TE-GOk" secondAttribute="trailing" id="fYf-aO-yvi"/>
+                                    <constraint firstAttribute="bottom" secondItem="T1M-TE-GOk" secondAttribute="bottom" id="jZe-b5-eyo"/>
+                                    <constraint firstItem="T1M-TE-GOk" firstAttribute="top" secondItem="Qsq-jx-R0v" secondAttribute="top" id="tw6-01-edu"/>
+                                    <constraint firstItem="HCw-I7-qmp" firstAttribute="top" secondItem="xzv-gO-Bai" secondAttribute="bottom" constant="8" id="y4h-sK-CoH"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-a5-0D8">
+                                <rect key="frame" x="16" y="718" width="382" height="45"/>
+                                <color key="backgroundColor" red="0.29411764705882354" green="0.36470588235294116" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="vOs-me-4Ln"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="开始">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMeditation:" destination="9pv-A4-QxB" eventType="touchUpInside" id="LKB-VS-LaL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Qsq-jx-R0v" secondAttribute="trailing" constant="16" id="19O-zm-SWj"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Fba-zz-JiP" secondAttribute="trailing" constant="16" id="1IL-dY-fUU"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="ntb-a5-0D8" secondAttribute="trailing" constant="16" id="7jE-yx-TPt"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="wg5-Dv-RA3" secondAttribute="trailing" constant="16" id="ExD-Vp-mTu"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ntb-a5-0D8" secondAttribute="bottom" constant="50" id="GeG-wi-AIw"/>
+                            <constraint firstItem="Wt6-b1-ZoX" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="6" id="OT1-wP-ftF"/>
+                            <constraint firstItem="Qsq-jx-R0v" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="R0N-8L-LQL"/>
+                            <constraint firstItem="Qsq-jx-R0v" firstAttribute="top" secondItem="Fba-zz-JiP" secondAttribute="bottom" constant="16" id="SxP-1g-zzT"/>
+                            <constraint firstItem="Fba-zz-JiP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="VXd-qt-uCr"/>
+                            <constraint firstItem="Fba-zz-JiP" firstAttribute="top" secondItem="wg5-Dv-RA3" secondAttribute="bottom" constant="16" id="Vnp-ah-lSa"/>
+                            <constraint firstItem="wg5-Dv-RA3" firstAttribute="top" secondItem="Wt6-b1-ZoX" secondAttribute="bottom" constant="46" id="fQ3-RG-JRc"/>
+                            <constraint firstItem="wg5-Dv-RA3" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="nVH-ZL-n4L"/>
+                            <constraint firstItem="ntb-a5-0D8" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="tVf-Tu-jCb"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Wt6-b1-ZoX" secondAttribute="trailing" constant="20" id="ysf-8U-4D7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nca-Tf-EkN"/>
+                    <connections>
+                        <outlet property="connectionBtn" destination="Wt6-b1-ZoX" id="0Lb-pd-xmS"/>
+                        <outlet property="firstView" destination="wg5-Dv-RA3" id="RGQ-rn-7zz"/>
+                        <outlet property="secondView" destination="Fba-zz-JiP" id="fTH-Rc-Cfj"/>
+                        <outlet property="startBtn" destination="ntb-a5-0D8" id="X6M-nb-Vub"/>
+                        <outlet property="thirdView" destination="Qsq-jx-R0v" id="nMp-f8-J6N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2384" y="-337"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="TcR-Ct-ejg">
+            <objects>
+                <navigationController id="AqV-4t-gcM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="首页" image="first" id="k85-B3-G5T"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nm9-k3-7xb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="His-Fb-Lbr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6A-Ym-HpY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="-338"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="Wxp-uJ-CHs">
+            <objects>
+                <viewController id="n7C-9v-fbf" customClass="ThirdViewController" customModule="EnterAffectiveCloudDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bNa-hb-6pQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SV4-Fg-emx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SV4-Fg-emx" firstAttribute="bottom" secondItem="Ih4-iJ-w2i" secondAttribute="bottom" id="6n8-M6-2UB"/>
+                            <constraint firstItem="SV4-Fg-emx" firstAttribute="leading" secondItem="Ih4-iJ-w2i" secondAttribute="leading" id="I4x-P2-Cui"/>
+                            <constraint firstItem="SV4-Fg-emx" firstAttribute="trailing" secondItem="Ih4-iJ-w2i" secondAttribute="trailing" id="oYe-It-BB9"/>
+                            <constraint firstItem="SV4-Fg-emx" firstAttribute="top" secondItem="Ih4-iJ-w2i" secondAttribute="top" id="yMQ-fq-wsy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ih4-iJ-w2i"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="W3Q-a6-Qd3"/>
+                    <connections>
+                        <outlet property="tableView" destination="SV4-Fg-emx" id="ly8-id-DnR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZa-Me-t7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992.753623188406" y="1060.7142857142858"/>
+        </scene>
+        <!--统计-->
+        <scene sceneID="yeg-rx-39U">
+            <objects>
+                <navigationController id="JgZ-LA-DF6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="统计" image="second" id="bbb-Nb-Xm7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NZz-ex-ibL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="leJ-7Q-i0x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Al-9T-Est" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="340"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="i5Z-Lf-sP0">
+            <objects>
+                <navigationController id="s2n-MH-VcN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="third" id="Gvu-4h-cqX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="unh-4V-aYF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="n7C-9v-fbf" kind="relationship" relationship="rootViewController" id="R9J-7b-J76"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxt-Nc-mkA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="1088"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="EnterAffectiveCloudDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8z6-He-nhc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8z6-He-nhc" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="3MN-pg-TwL"/>
+                            <constraint firstItem="8z6-He-nhc" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="FkO-ql-BbI"/>
+                            <constraint firstItem="8z6-He-nhc" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="hDo-af-o6Q"/>
+                            <constraint firstItem="8z6-He-nhc" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="iXs-qI-IYb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TyH-IP-01N"/>
+                    <connections>
+                        <outlet property="tableView" destination="8z6-He-nhc" id="pkN-CL-PLT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992.753623188406" y="339.50892857142856"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AqV-4t-gcM" kind="relationship" relationship="viewControllers" id="jC4-M4-BA5"/>
+                        <segue destination="JgZ-LA-DF6" kind="relationship" relationship="viewControllers" id="oqN-Ev-1Z1"/>
+                        <segue destination="s2n-MH-VcN" kind="relationship" relationship="viewControllers" id="elT-u6-Zf0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="340"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="24" height="24"/>
+        <image name="green" width="178" height="178"/>
+        <image name="icon_flowtime_disconnected" width="32" height="32"/>
+        <image name="red" width="178" height="178"/>
+        <image name="second" width="24" height="24"/>
+        <image name="third" width="24" height="24"/>
+        <image name="yellow" width="178" height="178"/>
+    </resources>
+</document>
