@@ -75,26 +75,24 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         switch state{
         case .connected:
             meditationVC?.dismissErrorView(.network)
-            RelaxManager.shared.sessionCreate(userID: userId)
+            //RelaxManager.shared.sessionCreate(userID: userId)
         case .disconnected:
-            isWebsocketConnect = false
+            RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
         case .none:
+            RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
         }
     }
     
     func websocketConnect(client: AffectiveCloudClient) {
-       RelaxManager.shared.isWebSocketConnected = true
 
     }
     
     func websocketDisconnect(client: AffectiveCloudClient) {
-       RelaxManager.shared.isWebSocketConnected = false
     }
     
     func sessionCreateAndAuthenticate(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
-        isWebsocketConnect = true
         RelaxManager.shared.startCloudService()
         meditationVC?.brianView.showProgress()
         meditationVC?.spectrumView.showProgress()
@@ -271,6 +269,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         }
     }
     
+    var bleState: BLEConnectionState = .connecting
     //MARK: - ble delegate
     func bleConnectionStateChanged(state: BLEConnectionState, bleManager: BLEManager) {
         if state == lastConnectState {
@@ -280,9 +279,11 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         if state.isConnected {
             if !RelaxManager.shared.isWebSocketConnected {
                 if firstConnect  { //第一次连接
-                    RelaxManager.shared.start(wbDelegate: self)
                     firstConnect = false
-                } 
+                    RelaxManager.shared.start(wbDelegate: self)
+                } else {
+                    RelaxManager.shared.websocketConnect()
+                }
                 
             }
             DispatchQueue.main.async {

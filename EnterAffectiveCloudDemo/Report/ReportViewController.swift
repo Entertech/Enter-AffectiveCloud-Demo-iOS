@@ -51,7 +51,7 @@ class ReportViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        service.show()
+        service.show(object: self)
     }
     
     func loadData() {
@@ -66,7 +66,7 @@ class ReportViewController: UIViewController {
                 self.reportTitle.text = "0.0.2000"
             }
             
-            path = "\(Preference.userID)/42/121/\(startTime)" //42/121/原来为课程位置,后课程不在此引入
+            path = "\(Preference.userID)/42/121/\(startTime)"
             let fileURL = FTFileManager.shared.userReportURL(path)
             let fileManager = FileManager.default
             if fileManager.fileExists(atPath: fileURL.path) {

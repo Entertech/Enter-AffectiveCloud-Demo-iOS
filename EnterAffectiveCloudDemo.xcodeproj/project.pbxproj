@@ -26,6 +26,8 @@
 		FA3B1756238150B700D5192D /* ReportViewSortViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3B1754238150B700D5192D /* ReportViewSortViewController.xib */; };
 		FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */; };
 		FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B17582381512C00D5192D /* ReportTableViewCell.swift */; };
+		FA3D12C823965FE300E96B02 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12C723965FE300E96B02 /* Config.plist */; };
+		FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12C92396620500E96B02 /* WebSocket.plist */; };
 		FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */; };
 		FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */; };
 		FA5F0AAD237A819A00A21BF9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAC237A819A00A21BF9 /* FirstViewController.swift */; };
@@ -70,6 +72,8 @@
 		FA3B1754238150B700D5192D /* ReportViewSortViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewSortViewController.xib; sourceTree = "<group>"; };
 		FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewSortViewController.swift; sourceTree = "<group>"; };
 		FA3B17582381512C00D5192D /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
+		FA3D12C723965FE300E96B02 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		FA3D12C92396620500E96B02 /* WebSocket.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WebSocket.plist; sourceTree = "<group>"; };
 		FA5F0AA5237A819A00A21BF9 /* 心流.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "心流.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				FA5F0AB3237A819B00A21BF9 /* Assets.xcassets */,
 				FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */,
 				FA5F0AB8237A819B00A21BF9 /* Info.plist */,
+				FA3D12C723965FE300E96B02 /* Config.plist */,
+				FA3D12C92396620500E96B02 /* WebSocket.plist */,
 			);
 			path = EnterAffectiveCloudDemo;
 			sourceTree = "<group>";
@@ -340,6 +346,8 @@
 				FA3B17522381393300D5192D /* sample.report in Resources */,
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
+				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
+				FA3D12C823965FE300E96B02 /* Config.plist in Resources */,
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
 				FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */,
 				FA5F0AB2237A819A00A21BF9 /* Main.storyboard in Resources */,
@@ -571,8 +579,8 @@
 			baseConfigurationReference = 46BE6B91DB5403A6C0455CD2 /* Pods-EnterAffectiveCloudDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
@@ -585,7 +593,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
 				PRODUCT_NAME = "心流";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -596,8 +604,8 @@
 			baseConfigurationReference = E21D0A4DC3D3CB4F2FB3D033 /* Pods-EnterAffectiveCloudDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
@@ -610,7 +618,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
 				PRODUCT_NAME = "心流";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_App;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

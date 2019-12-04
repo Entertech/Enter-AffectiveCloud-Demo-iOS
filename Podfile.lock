@@ -2,22 +2,22 @@ PODS:
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
-  - EnterAffectiveCloud (1.3.4):
+  - EnterAffectiveCloud (1.3.7):
     - GzipSwift
     - HandyJSON (= 5.0.0)
     - Starscream
     - SwiftyJSON
-  - EnterAffectiveCloudUI (1.3.4):
+  - EnterAffectiveCloudUI (1.3.7):
     - Charts
-    - EnterAffectiveCloud (= 1.3.4)
+    - EnterAffectiveCloud (= 1.3.7)
     - RxSwift (= 5.0)
     - SnapKit
-  - EnterBioModuleBLE (1.2.4):
+  - EnterBioModuleBLE (1.2.5):
     - FixedDFUService
     - PromiseKit
     - RxBluetoothKit
-  - EnterBioModuleBLEUI (1.2.4):
-    - EnterBioModuleBLE (= 1.2.4)
+  - EnterBioModuleBLEUI (1.2.5):
+    - EnterBioModuleBLE (= 1.2.5)
     - SnapKit
   - FixedDFUService (4.1.2):
     - Zip (~> 1.0)
@@ -47,10 +47,10 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
-  - EnterAffectiveCloud (~> 1.3.4)
-  - EnterAffectiveCloudUI (~> 1.3.4)
-  - EnterBioModuleBLE (~> 1.2.4)
-  - EnterBioModuleBLEUI (~> 1.2.4)
+  - EnterAffectiveCloud (~> 1.3.7)
+  - EnterAffectiveCloudUI (~> 1.3.7)
+  - EnterBioModuleBLE (~> 1.2.5)
+  - EnterBioModuleBLEUI (~> 1.2.5)
   - RealmSwift
   - SnapKit
   - SVProgressHUD
@@ -78,10 +78,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  EnterAffectiveCloud: d56e3840843076e82d75b02eb1c8ae91a043b178
-  EnterAffectiveCloudUI: be36a7541096ab9c28a321335725b19be7ba6f7a
-  EnterBioModuleBLE: e9faf3ba38991a02add007bb46d6b543382bc576
-  EnterBioModuleBLEUI: 86575195b102de3dd0fc6100b8e039f6713c8172
+  EnterAffectiveCloud: c218f5c223de157fe7dbb133d48d162afc10d966
+  EnterAffectiveCloudUI: bdfbfa06ed6a405ae575f684e814d11cb580f9ab
+  EnterBioModuleBLE: 30a1028260b552573b8b12c7bcf81da7dcd6fcd1
+  EnterBioModuleBLEUI: 8c7818ea7062b32f08c8e75b1cef4db76faee8cf
   FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
@@ -96,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: d928f2e7dc35a999421169fafe8ca6487ba9655b
+PODFILE CHECKSUM: 344e818b0ac8b8821d9aca721033344d44156e28
 
 COCOAPODS: 1.8.3

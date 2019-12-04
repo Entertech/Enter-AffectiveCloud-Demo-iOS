@@ -36,6 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setup() {
         
+        var path: String = ""
+        if let plistPath = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            path = plistPath
+        } else {
+            path = Bundle.main.path(forResource: "WebSocket", ofType: "plist")!
+        }
+        let keyValue = NSMutableDictionary(contentsOfFile: path)
+        Preference.FLOWTIME_WS = keyValue?.object(forKey: "WebSocketAdderss") as! String
+        Preference.kCloudServiceAppKey = keyValue?.object(forKey: "AppKey") as! String
+        Preference.kCloudServiceAppSecret = keyValue?.object(forKey: "AppSecret") as! String
+        
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.custom)
         SVProgressHUD.setMaximumDismissTimeInterval(3.0)

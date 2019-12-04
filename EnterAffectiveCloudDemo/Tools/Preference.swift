@@ -12,9 +12,9 @@ typealias  EmptyBlock = () -> ()
 typealias ActionBlock<T> = (T) -> ()
 
 class Preference {
-    static let FLOWTIME_WS = "wss://server.affectivecloud.cn/ws/algorithm/v1/"
-    static let kCloudServiceAppKey = "6eabf68e-760e-11e9-bd82-0242ac140006"
-    static let kCloudServiceAppSecret = "68a09cf8e4e06718b037c399f040fb7e"
+    static var FLOWTIME_WS = ""
+    static var kCloudServiceAppKey = ""
+    static var kCloudServiceAppSecret = ""
     
     static let help = "https://www.notion.so/Flowtime-Help-Center-b151d8677e5c41d8af6364f44fb93369"
     static let privacy = "https://www.meetinnerpeace.com/privacy-policy"
