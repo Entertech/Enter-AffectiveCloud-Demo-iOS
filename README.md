@@ -39,3 +39,5 @@ Demo使用Cocopods管理依赖库，使用前要先对工程主目录运行pod i
 本工程需要配套蓝牙设备才能运行，相关设备请询问您的合作方
 
 ## 图示
+
+<img src="https://github.com/Entertech/Enter-AffectiveCloud-Demo-iOS/blob/master/img/IMG_0840.PNG" width="300">
