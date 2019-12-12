@@ -33,6 +33,7 @@ extension Date {
 
 struct NotificationName {
     static let kFinishWithCloudServieDB = Notification.Name("kFinishWithCloudServieKey")
+    static let biodataTagSubmitNotify = Notification.Name(rawValue: "biodataTagSubmitNotify")
 }
 
 

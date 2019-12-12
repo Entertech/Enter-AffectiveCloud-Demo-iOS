@@ -69,7 +69,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRT-a0-PK1" customClass="DrawerView" customModule="心流实验" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="450" width="414" height="896"/>
                             <subviews>
                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APm-Op-htw">
                                     <rect key="frame" x="0.0" y="52" width="414" height="844"/>
@@ -120,7 +120,7 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="EQk-8c-IId" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="13U-B0-50x"/>
                                                 <constraint firstItem="GQ0-bu-UdW" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="1C9-5x-0Ix"/>
@@ -169,7 +169,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="fik-5b-unW" firstAttribute="centerX" secondItem="uRT-a0-PK1" secondAttribute="centerX" id="0PT-EZ-fhx"/>
                                 <constraint firstAttribute="trailing" secondItem="APm-Op-htw" secondAttribute="trailing" id="2BN-BC-BPN"/>
@@ -183,10 +183,10 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="uRT-a0-PK1" firstAttribute="top" secondItem="904-Jg-OOF" secondAttribute="top" id="6Ts-XQ-JbE"/>
-                        <constraint firstAttribute="bottom" secondItem="uRT-a0-PK1" secondAttribute="bottom" id="8XS-wg-K5e"/>
                         <constraint firstItem="uRT-a0-PK1" firstAttribute="leading" secondItem="904-Jg-OOF" secondAttribute="leading" id="BWT-y4-dS1"/>
+                        <constraint firstItem="uRT-a0-PK1" firstAttribute="centerY" secondItem="904-Jg-OOF" secondAttribute="centerY" constant="450" id="R2E-ov-uMv"/>
                         <constraint firstAttribute="trailing" secondItem="uRT-a0-PK1" secondAttribute="trailing" id="l2Y-mc-0Sw"/>
+                        <constraint firstItem="uRT-a0-PK1" firstAttribute="height" secondItem="904-Jg-OOF" secondAttribute="height" id="oSi-Ct-tie"/>
                     </constraints>
                 </view>
             </subviews>

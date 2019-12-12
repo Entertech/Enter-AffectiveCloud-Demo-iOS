@@ -35,6 +35,7 @@ struct MeditationModel {
     var relaxationMax: Float = 0
     var relaxationMin: Float = 0
     var report_path: String?
+    var tagId: String?
     
     //var stopAndRestoreTime = [[Date]]()
     var duration: Int? {
@@ -61,6 +62,7 @@ extension MeditationModel {
         model.relaxationMax     = self.relaxationMax
         model.relaxationMin     = self.relaxationMin
         model.reportPath        = self.report_path
+        model.tagId             = self.tagId
         return model
     }
 }

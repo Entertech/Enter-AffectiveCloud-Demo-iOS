@@ -72,7 +72,7 @@ class AcSettiingViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(confirmBtn)
         
         //textfield
-        appIdTF.text = key
+        appIdTF.text = Preference.kCloudServiceAppKey//key
         appIdTF.delegate = self
         appIdTF.keyboardType = .default
         appIdTF.borderStyle = .roundedRect
@@ -82,7 +82,7 @@ class AcSettiingViewController: UIViewController, UITextFieldDelegate {
         appIdTF.autocorrectionType = .no
         self.view.addSubview(appIdTF)
         
-        appSecretTF.text = secret
+        appSecretTF.text = Preference.kCloudServiceAppSecret//secret
         appSecretTF.delegate = self
         appSecretTF.keyboardType = .default
         appSecretTF.borderStyle = .roundedRect

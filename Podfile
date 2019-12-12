@@ -16,6 +16,7 @@ def other
   pod 'RealmSwift'
   pod 'SVProgressHUD'
   pod 'RxCocoa'
+  pod 'Bugly'
 end
 
 

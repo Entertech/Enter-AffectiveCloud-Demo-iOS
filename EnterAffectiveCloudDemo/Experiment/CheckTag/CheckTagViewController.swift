@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import EnterAffectiveCloud
 
 @objc
 protocol ShowReportDelegate {
@@ -31,7 +32,13 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationName.biodataTagSubmitNotify.observe(sender: self, selector: #selector(submitCallback(_:)))
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationName.biodataTagSubmitNotify.remove(sender: self)
     }
     
     func setUI() {
@@ -47,6 +54,18 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
         let data = MeditationRepository.query(Preference.userID)
         if let data = data {
             reportList = data
+        }
+    }
+    
+    @objc
+    func submitCallback(_ noti: Notification) {
+        SVProgressHUD.showSuccess(withStatus: "提交成功")
+        SVProgressHUD.dismiss(withDelay: 2) {
+            if let last = self.reportList.last {
+                self.delegate?.showReport(db: last)
+            }
+            RelaxManager.shared.close()
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
@@ -74,6 +93,39 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
             let str  = formatter.string(from: e.0)
             dbModel.time?.append(str)
         }
+        
+        if let chooseDims = TimeRecord.chooseDim {
+            
+            var rec: [CSLabelSubmitJSONModel] = []
+            for (i,e) in chooseDims.enumerated() {
+                let temp = CSLabelSubmitJSONModel()
+                if let timeRecord = TimeRecord.time, let startTime = TimeRecord.startTime {
+                    let fromTime = timeRecord[i*2].0.timeIntervalSince(startTime)
+                    let toTime = timeRecord[i*2+1].0.timeIntervalSince(startTime)
+                    temp.st = Int(fromTime)
+                    temp.et = Int(toTime)
+                }
+                var dict: [String: Any] = [:]
+                dict.removeAll()
+                var tagsName:[String] = []
+                if let models = ACTagModel.shared.tagModels {
+                    let currentTag = ACTagModel.shared.currentTag
+                    if let tags = models[currentTag].tag {
+                        for index in 0..<tags.count {
+                            tagsName.append(tags[index].name_en!)
+                        }
+                    }
+                }
+                for (index,t) in e.enumerated() {
+                    dict[tagsName[index]] = t.value!
+                }
+                temp.tag = dict
+                temp.note = [""]
+                rec.append(temp)
+            }
+            RelaxManager.shared.tagSubmit(tags: rec)
+        }
+        
         TagRepository.create(dbModel.mapperToDBModel()) { (flag) in
             for (i,_) in TimeRecord.chooseDim!.enumerated() {
                 TimeRecord.chooseDim![i].removeAll()
@@ -89,14 +141,17 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         
-        SVProgressHUD.showSuccess(withStatus: "提交成功")
-        SVProgressHUD.dismiss(withDelay: 2) {
-            if let last = self.reportList.last {
-                self.delegate?.showReport(db: last)
+        SVProgressHUD.dismiss(withDelay: 10) {
+            if RelaxManager.shared.isWebSocketConnected {
+                if let last = self.reportList.last {
+                    self.delegate?.showReport(db: last)
+                }
+                RelaxManager.shared.close()
+                self.navigationController?.popViewController(animated: true)
             }
-            RelaxManager.shared.close()
-            self.navigationController?.popViewController(animated: true)
+
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

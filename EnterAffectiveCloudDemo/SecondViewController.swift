@@ -68,7 +68,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let finishTime = Date.date(dateString: record.finishTime, custom: "yyyy-MM-dd HH:mm:ss")
         cell.backgroundColor = .white
         cell.weekLabel.text = startTime!.string(custom: "yyyy.MM.dd EEE", local: Locale.init(identifier: "zh_CN"))
-        cell.minuteLabel.text = "\(Int(finishTime!.timeIntervalSince(startTime!)/60)) 分钟"
+        cell.minuteLabel.text = record.tagId//"\(Int(finishTime!.timeIntervalSince(startTime!)/60)) 分钟"
         cell.fromToLabel.text = "\(startTime!.string(custom: "hh:mma"))~\(finishTime!.string(custom: "hh:mma"))"
         let colorIndex = indexPath.row % cellColors.count
         cell.cellColor = cellColors[colorIndex]

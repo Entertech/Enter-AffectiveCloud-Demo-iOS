@@ -47,7 +47,7 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @objc
     func nextStep() {
         PersonalInfo.age = ageTF.text
-        PersonalInfo.userId = ageTF.text
+        PersonalInfo.userId = userIdTF.text
         
         let experiment = ExperimentCenterViewController()
         let vc = UINavigationController(rootViewController: experiment)

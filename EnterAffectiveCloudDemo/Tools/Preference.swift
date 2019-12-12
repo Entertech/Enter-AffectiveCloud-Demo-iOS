@@ -16,7 +16,7 @@ class Preference {
     static var kCloudServiceAppKey = ""
     static var kCloudServiceAppSecret = ""
     
-    static let help = "https://www.notion.so/Flowtime-Help-Center-b151d8677e5c41d8af6364f44fb93369"
+    static let help = "https://docs.myflowtime.cn/"
     static let privacy = "https://www.meetinnerpeace.com/privacy-policy"
     static let terms = "https://www.meetinnerpeace.com/terms-of-service"
 }
@@ -28,7 +28,7 @@ extension Preference {
 }
 
 extension Preference {
-    static let userID = 98769876
+    static var userID = 98769876
     static let meditationTime = 60
 }
 

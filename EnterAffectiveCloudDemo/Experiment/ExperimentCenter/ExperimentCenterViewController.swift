@@ -65,6 +65,9 @@ class ExperimentCenterViewController: UIViewController {
         TimeRecord.startTime = Date()
         headBar.layer.cornerRadius = 4
         headBar.layer.masksToBounds = true
+        drawerView.layer.cornerRadius = 30
+        drawerView.layer.shadowColor = UIColor.lightGray.cgColor
+        drawerView.layer.shadowRadius = 10
         drawerView?.rx_vcState.asObservable()
             .subscribe(onNext: {[weak self] (changed) in
                 guard let self = self else {return}
@@ -80,7 +83,6 @@ class ExperimentCenterViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         NotificationName.kFinishWithCloudServieDB.observe(sender: self, selector: #selector(self.finishWithCloudServiceHandle(_:)))
-        
         if isFirstTime {
             brianView.bgColor = #colorLiteral(red: 0.9490196078, green: 0.9568627451, blue: 0.9843137255, alpha: 1)
             brianView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)    //主色调
@@ -138,7 +140,7 @@ class ExperimentCenterViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        drawerView.viewShow(.hidden)
+        
         if BLEService.shared.bleManager.state.isConnected  {
             if !RelaxManager.shared.isWebSocketConnected {
                 

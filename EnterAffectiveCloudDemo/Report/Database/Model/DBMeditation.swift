@@ -44,6 +44,8 @@ class DBMeditation: Object {
     dynamic var relaxationMin: Float = 0
     @objc
     dynamic var reportPath: String?
+    @objc
+    dynamic var tagId: String?
 
 //    override static func primaryKey() -> String? {
 //        return "id"

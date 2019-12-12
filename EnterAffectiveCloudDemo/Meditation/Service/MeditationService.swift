@@ -469,6 +469,7 @@ extension MeditationService {
             self.meditationModel.attentionAverage = reportModel.attentionAvg ?? 0
             self.meditationModel.attentionMax = reportModel.attentionMax ?? 0
             self.meditationModel.attentionMin = reportModel.attentionMin ?? 0
+            self.meditationModel.tagId = PersonalInfo.userId
         } else {
             self.meditationModel.hrAverage = 0
             self.meditationModel.hrMax = 0
@@ -480,6 +481,7 @@ extension MeditationService {
             self.meditationModel.attentionAverage = 0
             self.meditationModel.attentionMax = 0
             self.meditationModel.attentionMin = 0
+            self.meditationModel.tagId = PersonalInfo.userId
         }
 
 

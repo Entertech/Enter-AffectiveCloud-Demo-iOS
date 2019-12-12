@@ -45,7 +45,7 @@ class RelaxManager: BLEBioModuleDataSource {
         client = AffectiveCloudClient(websocketURLString: Preference.FLOWTIME_WS,
                                       appKey: Preference.kCloudServiceAppKey,
                                       appSecret: Preference.kCloudServiceAppSecret,
-                                      userID: "\(Preference.userID)")
+                                      userID: PersonalInfo.userId!)
         self.client!.affectiveCloudDelegate = wbDelegate
         startCloudService()
         bioDataSubscribe()
@@ -66,8 +66,16 @@ class RelaxManager: BLEBioModuleDataSource {
     
     // start cloud services. such as .EEG and .HeartRate
     func startCloudService() {
+        var sex: String? = nil
+        var age: Int? = nil
+        if let kSex = PersonalInfo.sex {
+            sex = kSex == 0 ? "m":"f"
+        }
+        if let kAge = PersonalInfo.age {
+            age = Int(kAge)
+        }
         // 开启生物信号
-        self.client?.initBiodataServices(services: [.EEG, .HeartRate], ["eeg": 4])
+        self.client?.initBiodataServices(services: [.EEG, .HeartRate], tolerance: ["eeg": 4], sex: sex, age: age)
         
 
         // 开启情感数据
@@ -114,6 +122,10 @@ class RelaxManager: BLEBioModuleDataSource {
         // 关闭情感数据
         self.client?.close()
     }
+    
+    public func tagSubmit(tags: [CSLabelSubmitJSONModel])  {
+        self.client?.submitTag(rec: tags)
+    }
 
 
     
@@ -145,4 +157,6 @@ class RelaxManager: BLEBioModuleDataSource {
         self.client?.appendBiodata(eegData: data)
         
     }
+    
+     
 }
