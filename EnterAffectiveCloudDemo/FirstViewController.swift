@@ -10,7 +10,7 @@ import UIKit
 import EnterBioModuleBLEUI
 import SVProgressHUD
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, ShowReportDelegate {
 
     @IBOutlet weak var connectionBtn: UIButton!
     @IBOutlet weak var startBtn: UIButton!
@@ -26,7 +26,17 @@ class FirstViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setConnectionButtonImage()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let _ = TimeRecord.chooseDim, let _ = TimeRecord.time {
+            let check = CheckTagViewController()
+            check.delegate = self
+            //check.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(check, animated: true)
+        }
     }
 
     func setUI() {
@@ -47,9 +57,14 @@ class FirstViewController: UIViewController {
     }
 
     @IBAction func showMeditation(_ sender: Any) {
-        let medition = MeditationViewController()
-        medition.modalPresentationStyle = .fullScreen
-        self.present(medition, animated: true, completion: nil)
+        if BLEService.shared.bleManager.state.isConnected {
+            let experiment = PersonalViewController()
+            experiment.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(experiment, animated: true)
+        } else {
+            SVProgressHUD.showInfo(withStatus: "请先连接设备")
+        }
+        
     }
     @IBAction func connectBLE(_ sender: Any) {
         let ble = BLEService.shared.bleManager
@@ -85,6 +100,17 @@ class FirstViewController: UIViewController {
         } else {
             self.connectionBtn.setImage(UIImage(named: "icon_flowtime_disconnected"), for: .normal)
         }
+    }
+    
+    func showReport(db: DBMeditation) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5) {
+            let report = ReportViewController()
+            report.reportDB = db
+            report.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(report, animated: true)
+        }
+        
+
     }
 
 }

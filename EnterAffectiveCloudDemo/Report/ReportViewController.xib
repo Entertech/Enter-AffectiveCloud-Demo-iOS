@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportViewController" customModule="心流" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportViewController" customModule="心流实验" customModuleProvider="target">
             <connections>
                 <outlet property="attentionView" destination="WHZ-Ek-woS" id="TEm-B9-To2"/>
                 <outlet property="brainView" destination="slG-vD-AuJ" id="BL5-uo-SNc"/>
@@ -72,7 +72,7 @@
                     <rect key="frame" x="0.0" y="98" width="414" height="1902"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mk-ON-ycZ">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1860"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="2154"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4J-5W-RdG">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
@@ -82,42 +82,42 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hp-8x-Uem" customClass="HeartRateReportView" customModule="EnterAffectiveCloudUI">
-                                    <rect key="frame" x="16" y="346" width="382" height="290"/>
+                                    <rect key="frame" x="16" y="640" width="382" height="290"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="290" id="amQ-PA-rUi"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RmA-zY-HYM" customClass="HeartRateVariablityReportView" customModule="EnterAffectiveCloudUI">
-                                    <rect key="frame" x="16" y="652" width="382" height="260"/>
+                                    <rect key="frame" x="16" y="946" width="382" height="260"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="260" id="LFO-bo-jSI"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slG-vD-AuJ" customClass="BrainSpecturmReportView" customModule="EnterAffectiveCloudUI">
-                                    <rect key="frame" x="16" y="16" width="382" height="314"/>
+                                    <rect key="frame" x="16" y="310" width="382" height="314"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="314" id="7ks-kE-Vk4"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHZ-Ek-woS" customClass="AttentionReportView" customModule="EnterAffectiveCloudUI">
-                                    <rect key="frame" x="16" y="928" width="382" height="300"/>
+                                    <rect key="frame" x="16" y="1222" width="382" height="300"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="YFf-ya-VyJ"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GC-AM-r8Z" customClass="RelaxationReportView" customModule="EnterAffectiveCloudUI">
-                                    <rect key="frame" x="16" y="1244" width="382" height="300"/>
+                                    <rect key="frame" x="16" y="1538" width="382" height="300"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="qOA-md-SEp"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4w-FG-9ue" customClass="PressureReportView" customModule="EnterAffectiveCloudUI">
-                                    <rect key="frame" x="16" y="1560" width="382" height="200"/>
+                                    <rect key="frame" x="16" y="1854" width="382" height="200"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="vwC-mi-GgQ"/>
@@ -140,7 +140,7 @@
                                 <constraint firstItem="N4J-5W-RdG" firstAttribute="top" secondItem="4mk-ON-ycZ" secondAttribute="top" id="ckO-cf-SGh"/>
                                 <constraint firstAttribute="trailing" secondItem="N4J-5W-RdG" secondAttribute="trailing" id="d7R-aM-6rF"/>
                                 <constraint firstItem="RmA-zY-HYM" firstAttribute="top" secondItem="4Hp-8x-Uem" secondAttribute="bottom" constant="16" id="gjI-39-n0c"/>
-                                <constraint firstItem="slG-vD-AuJ" firstAttribute="top" secondItem="N4J-5W-RdG" secondAttribute="bottom" constant="16" id="j7h-nT-GsK"/>
+                                <constraint firstItem="slG-vD-AuJ" firstAttribute="top" secondItem="N4J-5W-RdG" secondAttribute="bottom" constant="310" id="j7h-nT-GsK"/>
                                 <constraint firstItem="RmA-zY-HYM" firstAttribute="leading" secondItem="4mk-ON-ycZ" secondAttribute="leading" constant="16" id="jgu-nh-Ilt"/>
                                 <constraint firstAttribute="trailing" secondItem="RmA-zY-HYM" secondAttribute="trailing" constant="16" id="l1J-2b-wXR"/>
                                 <constraint firstAttribute="trailing" secondItem="slG-vD-AuJ" secondAttribute="trailing" constant="16" id="nQD-6u-FcS"/>

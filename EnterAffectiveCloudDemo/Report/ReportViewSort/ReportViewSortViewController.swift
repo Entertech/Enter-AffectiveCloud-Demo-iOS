@@ -27,6 +27,10 @@ class ReportViewSortViewController: UIViewController, UITableViewDelegate, UITab
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         

@@ -16,6 +16,28 @@
 		FA060794237E2FBD00D0BB30 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060793237E2FBD00D0BB30 /* Preference.swift */; };
 		FA060796237E365900D0BB30 /* MeditationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060795237E365900D0BB30 /* MeditationService.swift */; };
 		FA060799237E37EF00D0BB30 /* MeditationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060798237E37EF00D0BB30 /* MeditationModel.swift */; };
+		FA19DF82239E178C0043F679 /* ACTagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF81239E178C0043F679 /* ACTagModel.swift */; };
+		FA19DF84239E18BC0043F679 /* ACExtexsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF83239E18BC0043F679 /* ACExtexsion.swift */; };
+		FA19DF87239E25D40043F679 /* ExperimentSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF85239E25D40043F679 /* ExperimentSettingViewController.swift */; };
+		FA19DF8A239E326F0043F679 /* TagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF89239E326F0043F679 /* TagListViewController.swift */; };
+		FA19DF8E239E46440043F679 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF8C239E46440043F679 /* PersonalViewController.swift */; };
+		FA19DF8F239E46440043F679 /* PersonalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA19DF8D239E46440043F679 /* PersonalViewController.xib */; };
+		FA19DF93239E6F9D0043F679 /* ExperimentCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF91239E6F9D0043F679 /* ExperimentCenterViewController.swift */; };
+		FA19DF94239E6F9D0043F679 /* ExperimentCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA19DF92239E6F9D0043F679 /* ExperimentCenterViewController.xib */; };
+		FA19DF98239E76E70043F679 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF96239E76E70043F679 /* RecordViewController.swift */; };
+		FA19DF99239E76E70043F679 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA19DF97239E76E70043F679 /* RecordViewController.xib */; };
+		FA19DF9D239F2AD20043F679 /* ChooseTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF9B239F2AD20043F679 /* ChooseTagViewController.swift */; };
+		FA19DF9E239F2AD20043F679 /* ChooseTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA19DF9C239F2AD20043F679 /* ChooseTagViewController.xib */; };
+		FA19DFA0239F7C380043F679 /* BtnCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DF9F239F7C380043F679 /* BtnCollectionViewCell.swift */; };
+		FA19DFA4239FC7B90043F679 /* CheckTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFA2239FC7B90043F679 /* CheckTagViewController.swift */; };
+		FA19DFA5239FC7B90043F679 /* CheckTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA19DFA3239FC7B90043F679 /* CheckTagViewController.xib */; };
+		FA19DFA8239FD8AA0043F679 /* ReChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFA7239FD8AA0043F679 /* ReChooseViewController.swift */; };
+		FA19DFAA23A082450043F679 /* TagRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFA923A082450043F679 /* TagRepository.swift */; };
+		FA19DFAC23A0829C0043F679 /* DBTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFAB23A0829C0043F679 /* DBTag.swift */; };
+		FA19DFAE23A0A00F0043F679 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFAD23A0A00F0043F679 /* BackgroundView.swift */; };
+		FA19DFB023A0A0900043F679 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFAF23A0A0900043F679 /* DrawerView.swift */; };
+		FA19DFB223A0C71A0043F679 /* TagReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFB123A0C71A0043F679 /* TagReport.swift */; };
+		FA19DFB623A0E8500043F679 /* ReportCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA19DFB423A0E8500043F679 /* ReportCheckViewController.swift */; };
 		FA2A068B237BF67000BEB75E /* BLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A068A237BF67000BEB75E /* BLEService.swift */; };
 		FA2A0694237D2A2500BEB75E /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A0692237D2A2500BEB75E /* MeditationViewController.swift */; };
 		FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A0693237D2A2500BEB75E /* MeditationViewController.xib */; };
@@ -28,6 +50,7 @@
 		FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B17582381512C00D5192D /* ReportTableViewCell.swift */; };
 		FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12C92396620500E96B02 /* WebSocket.plist */; };
 		FA3D12CD2397BBD900E96B02 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12CC2397BBD900E96B02 /* Config.plist */; };
+		FA3D12D02398D36E00E96B02 /* AcSettiingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D12CF2398D36E00E96B02 /* AcSettiingViewController.swift */; };
 		FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */; };
 		FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */; };
 		FA5F0AAD237A819A00A21BF9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAC237A819A00A21BF9 /* FirstViewController.swift */; };
@@ -62,6 +85,28 @@
 		FA060793237E2FBD00D0BB30 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		FA060795237E365900D0BB30 /* MeditationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationService.swift; sourceTree = "<group>"; };
 		FA060798237E37EF00D0BB30 /* MeditationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationModel.swift; sourceTree = "<group>"; };
+		FA19DF81239E178C0043F679 /* ACTagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACTagModel.swift; sourceTree = "<group>"; };
+		FA19DF83239E18BC0043F679 /* ACExtexsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACExtexsion.swift; sourceTree = "<group>"; };
+		FA19DF85239E25D40043F679 /* ExperimentSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentSettingViewController.swift; sourceTree = "<group>"; };
+		FA19DF89239E326F0043F679 /* TagListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListViewController.swift; sourceTree = "<group>"; };
+		FA19DF8C239E46440043F679 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		FA19DF8D239E46440043F679 /* PersonalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalViewController.xib; sourceTree = "<group>"; };
+		FA19DF91239E6F9D0043F679 /* ExperimentCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentCenterViewController.swift; sourceTree = "<group>"; };
+		FA19DF92239E6F9D0043F679 /* ExperimentCenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperimentCenterViewController.xib; sourceTree = "<group>"; };
+		FA19DF96239E76E70043F679 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		FA19DF97239E76E70043F679 /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
+		FA19DF9B239F2AD20043F679 /* ChooseTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTagViewController.swift; sourceTree = "<group>"; };
+		FA19DF9C239F2AD20043F679 /* ChooseTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseTagViewController.xib; sourceTree = "<group>"; };
+		FA19DF9F239F7C380043F679 /* BtnCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA19DFA2239FC7B90043F679 /* CheckTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTagViewController.swift; sourceTree = "<group>"; };
+		FA19DFA3239FC7B90043F679 /* CheckTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckTagViewController.xib; sourceTree = "<group>"; };
+		FA19DFA7239FD8AA0043F679 /* ReChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReChooseViewController.swift; sourceTree = "<group>"; };
+		FA19DFA923A082450043F679 /* TagRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRepository.swift; sourceTree = "<group>"; };
+		FA19DFAB23A0829C0043F679 /* DBTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTag.swift; sourceTree = "<group>"; };
+		FA19DFAD23A0A00F0043F679 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		FA19DFAF23A0A0900043F679 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		FA19DFB123A0C71A0043F679 /* TagReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagReport.swift; sourceTree = "<group>"; };
+		FA19DFB423A0E8500043F679 /* ReportCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckViewController.swift; sourceTree = "<group>"; };
 		FA2A068A237BF67000BEB75E /* BLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEService.swift; sourceTree = "<group>"; };
 		FA2A0692237D2A2500BEB75E /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 		FA2A0693237D2A2500BEB75E /* MeditationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeditationViewController.xib; sourceTree = "<group>"; };
@@ -74,7 +119,8 @@
 		FA3B17582381512C00D5192D /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		FA3D12C92396620500E96B02 /* WebSocket.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WebSocket.plist; sourceTree = "<group>"; };
 		FA3D12CC2397BBD900E96B02 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		FA5F0AA5237A819A00A21BF9 /* 心流.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "心流.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3D12CF2398D36E00E96B02 /* AcSettiingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcSettiingViewController.swift; sourceTree = "<group>"; };
+		FA5F0AA5237A819A00A21BF9 /* 心流实验.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "心流实验.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA5F0AAC237A819A00A21BF9 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +201,70 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		FA19DF80239E15280043F679 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DF81239E178C0043F679 /* ACTagModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA19DF8B239E45E80043F679 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DF8C239E46440043F679 /* PersonalViewController.swift */,
+				FA19DF8D239E46440043F679 /* PersonalViewController.xib */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		FA19DF90239E6F2A0043F679 /* ExperimentCenter */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DF91239E6F9D0043F679 /* ExperimentCenterViewController.swift */,
+				FA19DF92239E6F9D0043F679 /* ExperimentCenterViewController.xib */,
+			);
+			path = ExperimentCenter;
+			sourceTree = "<group>";
+		};
+		FA19DF95239E76BB0043F679 /* ExperimentStart */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DF96239E76E70043F679 /* RecordViewController.swift */,
+				FA19DF97239E76E70043F679 /* RecordViewController.xib */,
+			);
+			path = ExperimentStart;
+			sourceTree = "<group>";
+		};
+		FA19DF9A239F294B0043F679 /* ChooseTag */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DF9B239F2AD20043F679 /* ChooseTagViewController.swift */,
+				FA19DF9C239F2AD20043F679 /* ChooseTagViewController.xib */,
+				FA19DF9F239F7C380043F679 /* BtnCollectionViewCell.swift */,
+			);
+			path = ChooseTag;
+			sourceTree = "<group>";
+		};
+		FA19DFA1239FC7830043F679 /* CheckTag */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DFB323A0E8250043F679 /* Report */,
+				FA19DFA2239FC7B90043F679 /* CheckTagViewController.swift */,
+				FA19DFA3239FC7B90043F679 /* CheckTagViewController.xib */,
+				FA19DFA7239FD8AA0043F679 /* ReChooseViewController.swift */,
+			);
+			path = CheckTag;
+			sourceTree = "<group>";
+		};
+		FA19DFB323A0E8250043F679 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DFB423A0E8500043F679 /* ReportCheckViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		FA2A0691237D298A00BEB75E /* Meditation */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,8 +301,25 @@
 			children = (
 				FA3B17582381512C00D5192D /* ReportTableViewCell.swift */,
 				FA0404D423816C16008DB43C /* ReportListTableViewCell.swift */,
+				FA19DFB123A0C71A0043F679 /* TagReport.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FA3D12CE2398D2FD00E96B02 /* Experiment */ = {
+			isa = PBXGroup;
+			children = (
+				FA19DFA1239FC7830043F679 /* CheckTag */,
+				FA19DF9A239F294B0043F679 /* ChooseTag */,
+				FA19DF95239E76BB0043F679 /* ExperimentStart */,
+				FA19DF90239E6F2A0043F679 /* ExperimentCenter */,
+				FA19DF8B239E45E80043F679 /* Personal */,
+				FA19DF80239E15280043F679 /* Model */,
+				FA3D12CF2398D36E00E96B02 /* AcSettiingViewController.swift */,
+				FA19DF85239E25D40043F679 /* ExperimentSettingViewController.swift */,
+				FA19DF89239E326F0043F679 /* TagListViewController.swift */,
+			);
+			path = Experiment;
 			sourceTree = "<group>";
 		};
 		FA5F0A9C237A819A00A21BF9 = {
@@ -208,7 +335,7 @@
 		FA5F0AA6237A819A00A21BF9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA5F0AA5237A819A00A21BF9 /* 心流.app */,
+				FA5F0AA5237A819A00A21BF9 /* 心流实验.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +343,7 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FA3D12CE2398D2FD00E96B02 /* Experiment */,
 				FAC3D95D237FEA6D006CE2BC /* Report */,
 				FA2A0691237D298A00BEB75E /* Meditation */,
 				FA5F0AC6237BF1A400A21BF9 /* Tools */,
@@ -243,6 +371,9 @@
 				FA68EC9A237E493B00518D00 /* FTFileManager.swift */,
 				FA060793237E2FBD00D0BB30 /* Preference.swift */,
 				FA68EC98237E47C700518D00 /* SoundPlayer.swift */,
+				FA19DF83239E18BC0043F679 /* ACExtexsion.swift */,
+				FA19DFAD23A0A00F0043F679 /* BackgroundView.swift */,
+				FA19DFAF23A0A0900043F679 /* DrawerView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -257,6 +388,7 @@
 				FAAE3B232381174C004E79B4 /* DBError.swift */,
 				FAAE3B242381174C004E79B4 /* MeditationRepository.swift */,
 				FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */,
+				FA19DFA923A082450043F679 /* TagRepository.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -265,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAE3B202381174C004E79B4 /* DBMeditation.swift */,
+				FA19DFAB23A0829C0043F679 /* DBTag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,7 +434,7 @@
 			);
 			name = EnterAffectiveCloudDemo;
 			productName = EnterAffectiveCloudDemo;
-			productReference = FA5F0AA5237A819A00A21BF9 /* 心流.app */;
+			productReference = FA5F0AA5237A819A00A21BF9 /* 心流实验.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -342,6 +475,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA19DFA5239FC7B90043F679 /* CheckTagViewController.xib in Resources */,
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
 				FA3D12CD2397BBD900E96B02 /* Config.plist in Resources */,
@@ -350,9 +484,13 @@
 				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
 				FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */,
+				FA19DF9E239F2AD20043F679 /* ChooseTagViewController.xib in Resources */,
 				FA5F0AB2237A819A00A21BF9 /* Main.storyboard in Resources */,
 				FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */,
+				FA19DF8F239E46440043F679 /* PersonalViewController.xib in Resources */,
+				FA19DF99239E76E70043F679 /* RecordViewController.xib in Resources */,
 				FA3B1756238150B700D5192D /* ReportViewSortViewController.xib in Resources */,
+				FA19DF94239E6F9D0043F679 /* ExperimentCenterViewController.xib in Resources */,
 				FA0404D323816867008DB43C /* StatisticsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,12 +544,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA19DFB223A0C71A0043F679 /* TagReport.swift in Sources */,
 				FA5F0AAF237A819A00A21BF9 /* SecondViewController.swift in Sources */,
 				FA2A068B237BF67000BEB75E /* BLEService.swift in Sources */,
+				FA19DF8E239E46440043F679 /* PersonalViewController.swift in Sources */,
+				FA19DF98239E76E70043F679 /* RecordViewController.swift in Sources */,
+				FA19DFAA23A082450043F679 /* TagRepository.swift in Sources */,
 				FA5F0AAD237A819A00A21BF9 /* FirstViewController.swift in Sources */,
+				FA19DFB623A0E8500043F679 /* ReportCheckViewController.swift in Sources */,
 				FA2A0698237D2E9700BEB75E /* ErrorTipView.swift in Sources */,
 				FAAE3B292381174C004E79B4 /* RecordRepository.swift in Sources */,
 				FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */,
+				FA19DF8A239E326F0043F679 /* TagListViewController.swift in Sources */,
 				FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */,
 				FAAE3B272381174C004E79B4 /* DBMeditation.swift in Sources */,
 				FA0404D523816C16008DB43C /* ReportListTableViewCell.swift in Sources */,
@@ -422,17 +566,29 @@
 				FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */,
 				FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */,
 				FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */,
+				FA19DFAC23A0829C0043F679 /* DBTag.swift in Sources */,
 				FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */,
+				FA19DFA4239FC7B90043F679 /* CheckTagViewController.swift in Sources */,
 				FA2A069C237D438400BEB75E /* TitleTableViewCell.swift in Sources */,
 				FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */,
+				FA19DF84239E18BC0043F679 /* ACExtexsion.swift in Sources */,
 				FA060796237E365900D0BB30 /* MeditationService.swift in Sources */,
 				FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */,
+				FA3D12D02398D36E00E96B02 /* AcSettiingViewController.swift in Sources */,
+				FA19DF82239E178C0043F679 /* ACTagModel.swift in Sources */,
 				FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */,
 				FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */,
+				FA19DFA8239FD8AA0043F679 /* ReChooseViewController.swift in Sources */,
+				FA19DFAE23A0A00F0043F679 /* BackgroundView.swift in Sources */,
 				FA060792237D5D7C00D0BB30 /* RelaxManager.swift in Sources */,
 				FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */,
+				FA19DF9D239F2AD20043F679 /* ChooseTagViewController.swift in Sources */,
 				FAAE3B282381174C004E79B4 /* BaseRepository.swift in Sources */,
+				FA19DFA0239F7C380043F679 /* BtnCollectionViewCell.swift in Sources */,
+				FA19DFB023A0A0900043F679 /* DrawerView.swift in Sources */,
 				FA060799237E37EF00D0BB30 /* MeditationModel.swift in Sources */,
+				FA19DF93239E6F9D0043F679 /* ExperimentCenterViewController.swift in Sources */,
+				FA19DF87239E25D40043F679 /* ExperimentSettingViewController.swift in Sources */,
 				FA0404D223816867008DB43C /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,7 +748,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
-				PRODUCT_NAME = "心流";
+				PRODUCT_NAME = "心流实验";
 				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -617,7 +773,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
-				PRODUCT_NAME = "心流";
+				PRODUCT_NAME = "心流实验";
 				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_App;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

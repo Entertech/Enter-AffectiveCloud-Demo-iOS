@@ -42,6 +42,8 @@ class ReportViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         setLayout()
     }
     
@@ -55,10 +57,28 @@ class ReportViewController: UIViewController {
     }
     
     func loadData() {
+        brainView.infoUrlString = "https://docs.myflowtime.cn/%F0%9F%93%88%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%F0%9F%93%8A%E5%A6%82%E4%BD%95%E7%9C%8B%E8%84%91%E6%B3%A2%E9%A2%91%E8%B0%B1%E8%83%BD%E9%87%8F%E8%B6%8B%E5%8A%BF%E5%9B%BE%EF%BC%9F.html"
+        heartRateView.infoUrlString = "https://docs.myflowtime.cn/%F0%9F%93%88%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%F0%9F%93%8A%E5%A6%82%E4%BD%95%E7%9C%8B%E8%84%91%E6%B3%A2%E9%A2%91%E8%B0%B1%E8%83%BD%E9%87%8F%E8%B6%8B%E5%8A%BF%E5%9B%BE%EF%BC%9F.html"
+        hrvView.infoUrlString = "https://docs.myflowtime.cn/%F0%9F%93%88%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%F0%9F%92%93%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7%EF%BC%88HRV%EF%BC%89%E7%9A%84%E5%8F%98%E5%8C%96%E6%9B%B2%E7%BA%BF%EF%BC%9F.html"
+        
+        relaxationView.infoUrlString = "https://docs.myflowtime.cn/%F0%9F%93%88%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%E2%99%92%E5%A6%82%E4%BD%95%E7%9C%8B%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%92%8C%E6%94%BE%E6%9D%BE%E5%BA%A6%E6%9B%B2%E7%BA%BF%EF%BC%9F.html"
+        attentionView.infoUrlString = "https://docs.myflowtime.cn/%F0%9F%93%88%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%E2%99%92%E5%A6%82%E4%BD%95%E7%9C%8B%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%92%8C%E6%94%BE%E6%9D%BE%E5%BA%A6%E6%9B%B2%E7%BA%BF%EF%BC%9F.html"
+        pressureView.infoUrlString = "https://docs.myflowtime.cn/%F0%9F%93%88%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%F0%9F%93%89%E5%A6%82%E4%BD%95%E7%9C%8B%E5%8E%8B%E5%8A%9B%E6%B0%B4%E5%B9%B3%E6%9B%B2%E7%BA%BF%EF%BC%9F.html"
+        
         var path = ""
         var isSample = false
         var reader: EnterAffectiveCloudReportData?
         if let startTime = reportDB?.startTime {
+            
+            let tagView = TagReport(st: startTime)
+            tagView.btn.addTarget(self, action: #selector(tagInfo), for: .touchUpInside)
+            self.reportBackgroud.addSubview(tagView)
+            tagView.snp.makeConstraints {
+                $0.left.top.equalToSuperview().offset(16)
+                $0.right.equalToSuperview().offset(-16)
+                $0.bottom.equalTo(brainView.snp.top).offset(-16)
+            }
+            
             let meditationDate = Date.date(dateString: startTime, custom: "yyyy-MM-dd HH:mm:ss")
             if let mDate = meditationDate {
                 self.reportTitle.text = mDate.string(custom: "M.d.yyyy")
@@ -95,6 +115,15 @@ class ReportViewController: UIViewController {
         }
     }
     
+    @objc
+    private func tagInfo() {
+        if let startTime = reportDB?.startTime {
+            let check = ReportCheckViewController(data: startTime)
+            self.navigationController?.pushViewController(check, animated: true)
+        }
+        
+    }
+    
     private func reportPath() -> String {
 
         if let startTime = self.reportDB?.startTime {
@@ -122,6 +151,7 @@ class ReportViewController: UIViewController {
         let isShowArray = reportShowSwitch
         var viewArray: [UIView] = []
         
+        
         for (index, e) in boardIndex.enumerated() {
             switch e {
             case .heart:
@@ -131,7 +161,8 @@ class ReportViewController: UIViewController {
                     heartRateView.snp.remakeConstraints{
                         $0.left.equalToSuperview().offset(16)
                         $0.right.equalToSuperview().offset(-16)
-                        $0.height.equalTo(290)
+                        //$0.height.equalTo(290)
+                        $0.height.equalTo(0)
                     }
                 }
                 heartRateView.isHidden = !isShowArray[index]
@@ -153,7 +184,8 @@ class ReportViewController: UIViewController {
                     hrvView.snp.remakeConstraints{
                         $0.left.equalToSuperview().offset(16)
                         $0.right.equalToSuperview().offset(-16)
-                        $0.height.equalTo(260)
+                        //$0.height.equalTo(260)
+                        $0.height.equalTo(0)
                     }
                 }
                 heartRateView.isHidden = !isShowArray[index]
@@ -186,7 +218,8 @@ class ReportViewController: UIViewController {
                     pressureView.snp.remakeConstraints{
                         $0.left.equalToSuperview().offset(16)
                         $0.right.equalToSuperview().offset(-16)
-                        $0.height.equalTo(200)
+                        //$0.height.equalTo(200)
+                        $0.height.equalTo(0)
                     }
                 }
                 pressureView.isHidden = !isShowArray[index]
@@ -197,7 +230,7 @@ class ReportViewController: UIViewController {
         if viewArray.count > 0 {
             
             viewArray[0].snp.makeConstraints {
-                $0.top.equalTo(self.reportHeadView.snp.bottom).offset(16)
+                $0.top.equalTo(self.reportHeadView.snp.bottom).offset(310)
             }
             
             
@@ -215,6 +248,18 @@ class ReportViewController: UIViewController {
                 $0.bottom.equalToSuperview().offset(self.view.bounds.height-200).priority(.high)
                 $0.top.left.right.equalToSuperview()
                 $0.height.equalTo(121)
+            }
+        }
+        
+        if let startTime = reportDB?.startTime {
+            
+            let tagView = TagReport(st: startTime)
+            tagView.btn.addTarget(self, action: #selector(tagInfo), for: .touchUpInside)
+            self.reportBackgroud.addSubview(tagView)
+            tagView.snp.makeConstraints {
+                $0.left.top.equalToSuperview().offset(16)
+                $0.right.equalToSuperview().offset(-16)
+                $0.bottom.equalTo(brainView.snp.top).offset(-16)
             }
         }
     }

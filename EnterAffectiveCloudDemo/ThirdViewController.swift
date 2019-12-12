@@ -15,24 +15,26 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "设置"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.view.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.9764705882, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.9764705882, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         addHeaderView()
         addFooterCopyRightView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+    
     let sectionList = [""]
-    let cellIconList = [[#imageLiteral(resourceName: "Stockholm-help"), #imageLiteral(resourceName: "Stockholm-Terms of Services"), #imageLiteral(resourceName: "Stockholm-Privacy")]]
-    let cellTitlelist = [["帮助中心", "使用条款", "隐私政策"]]
+    let cellIconList = [[#imageLiteral(resourceName: "hardware version")]]
+    let cellTitlelist = [["实验选择"]]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         sectionList.count
@@ -65,7 +67,11 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            presentSafari(Preference.help)
+            
+            let vc = ExperimentSettingViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
         case (0, 1):
             presentSafari(Preference.terms)
         case (0, 2):

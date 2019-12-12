@@ -16,6 +16,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     public var meditationModel = MeditationModel()
     public var reportModel: MeditationReportModel?
     public var meditationVC: MeditationViewController?
+    public var tagVC: ExperimentCenterViewController?
     private let userId = "\(Preference.userID)"
     private var suspendTime:[(Date, Bool)] = [] //(触发时间， 是否连接)
     private var suspendArray:[(Date, Date)]?
@@ -43,8 +44,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         }
     }
     
-    public init(_ vc1: UIViewController) {
-        meditationVC = vc1 as? MeditationViewController
+    public init(_ vc1: UIViewController?) {
+        if let vc = vc1 as? MeditationViewController  {
+            meditationVC = vc
+        } else if let vcs = vc1 as? ExperimentCenterViewController {
+            tagVC = vcs
+        }
             
         if meditationModel.startTime == nil {
             meditationModel.startTime = Date()
@@ -54,6 +59,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     public func finish() {
         if self.meditationModel.finishTime == nil {
             self.meditationModel.finishTime = Date()
+            RelaxManager.shared.stop()
         }
         
         if RelaxManager.shared.isWebSocketConnected {
@@ -100,6 +106,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         meditationVC?.attentionView.showProgress()
         meditationVC?.relaxationView.showProgress()
         meditationVC?.pressureView.showProgress()
+        tagVC?.brianView.showProgress()
+        tagVC?.spectrumView.showProgress()
+        tagVC?.heartView.showProgress()
+        tagVC?.attentionView.showProgress()
+        tagVC?.relaxationView.showProgress()
+        tagVC?.pressureView.showProgress()
     }
     
     func sessionRestore(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
@@ -110,6 +122,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         meditationVC?.attentionView.showProgress()
         meditationVC?.relaxationView.showProgress()
         meditationVC?.pressureView.showProgress()
+        tagVC?.brianView.showProgress()
+        tagVC?.spectrumView.showProgress()
+        tagVC?.heartView.showProgress()
+        tagVC?.attentionView.showProgress()
+        tagVC?.relaxationView.showProgress()
+        tagVC?.pressureView.showProgress()
     }
     
     func sessionClose(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
@@ -127,7 +145,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     func biodataServicesSubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let _ = response.dataModel as? CSResponseBiodataSubscribeJSONModel {
             RelaxManager.shared.setupBLE()
-         
+        
             return
         }
     }

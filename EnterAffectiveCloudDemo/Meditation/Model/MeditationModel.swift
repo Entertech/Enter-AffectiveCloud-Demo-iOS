@@ -16,7 +16,11 @@ public enum ErrorType {
 struct MeditationModel {
     var id: Int?
     var userID: Int = 0
-    var startTime: Date?
+    var startTime: Date? {
+        willSet {
+            TimeRecord.startTime = newValue
+        }
+    }
     var finishTime: Date?
     var hrAverage: Float = 0
     var hrMax: Float = 0

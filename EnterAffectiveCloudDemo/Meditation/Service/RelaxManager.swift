@@ -67,7 +67,7 @@ class RelaxManager: BLEBioModuleDataSource {
     // start cloud services. such as .EEG and .HeartRate
     func startCloudService() {
         // 开启生物信号
-        self.client?.initBiodataServices(services: [.EEG, .HeartRate])
+        self.client?.initBiodataServices(services: [.EEG, .HeartRate], ["eeg": 4])
         
 
         // 开启情感数据
@@ -104,6 +104,10 @@ class RelaxManager: BLEBioModuleDataSource {
         // 生成报表
         self.client?.getBiodataReport(services: [.EEG, .HeartRate])
         self.client?.getAffectiveDataReport(services: [.relaxation, .attention, .pressure, .pleasure])
+    }
+    
+    public func stop() {
+        self.clearBLE()
     }
     
     private func clearCloudService() {
