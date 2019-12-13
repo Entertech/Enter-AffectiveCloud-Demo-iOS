@@ -59,15 +59,18 @@ class ExperimentCenterViewController: UIViewController {
         service?.reportModel = self.reportModel
         TimeRecord.time?.removeAll()
         TimeRecord.time = nil
+        if let dims = TimeRecord.chooseDim {
+            for i in 0..<dims.count {
+                TimeRecord.chooseDim![i].removeAll()
+            }
+        }
         TimeRecord.chooseDim?.removeAll()
         TimeRecord.chooseDim = nil
+        
         TimeRecord.tagCount = 0
         TimeRecord.startTime = Date()
         headBar.layer.cornerRadius = 4
         headBar.layer.masksToBounds = true
-        drawerView.layer.cornerRadius = 30
-        drawerView.layer.shadowColor = UIColor.lightGray.cgColor
-        drawerView.layer.shadowRadius = 10
         drawerView?.rx_vcState.asObservable()
             .subscribe(onNext: {[weak self] (changed) in
                 guard let self = self else {return}
@@ -203,16 +206,22 @@ class ExperimentCenterViewController: UIViewController {
                 SVProgressHUD.show(withStatus: "正在生成报表")
                 service?.finish()
             } else {
+                RelaxManager.shared.stopBLE()
+                RelaxManager.shared.clearCloudService()
                 cleanAll()
                 self.navigationController?.dismiss(animated: true, completion: {
                     UIViewController.currentViewController()?.navigationController?.popViewController(animated: false)
                 })
             }
         } else {
-
+            if BLEService.shared.bleManager.state.isConnected {
+                RelaxManager.shared.stopBLE()
+            }
+            
             cleanAll()
             self.navigationController?.dismiss(animated: true, completion: {
                 SVProgressHUD.show(withStatus: "情感云未连接")
+                SVProgressHUD.dismiss(withDelay: 2)
                 UIViewController.currentViewController()?.navigationController?.popViewController(animated: false)
             })
         }

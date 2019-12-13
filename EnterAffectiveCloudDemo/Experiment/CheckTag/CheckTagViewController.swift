@@ -51,7 +51,7 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func loadData() {
-        let data = MeditationRepository.query(Preference.userID)
+        let data = MeditationRepository.query(Preference.clientId)
         if let data = data {
             reportList = data
         }

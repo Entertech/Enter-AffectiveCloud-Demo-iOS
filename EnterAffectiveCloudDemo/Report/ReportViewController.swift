@@ -86,7 +86,7 @@ class ReportViewController: UIViewController {
                 self.reportTitle.text = "0.0.2000"
             }
             
-            path = "\(Preference.userID)/42/121/\(startTime)"
+            path = "\(Preference.clientId)/42/121/\(startTime)"
             let fileURL = FTFileManager.shared.userReportURL(path)
             let fileManager = FileManager.default
             if fileManager.fileExists(atPath: fileURL.path) {
@@ -127,7 +127,7 @@ class ReportViewController: UIViewController {
     private func reportPath() -> String {
 
         if let startTime = self.reportDB?.startTime {
-            return "\(Preference.userID)/42/121/\(startTime)"
+            return "\(Preference.clientId)/42/121/\(startTime)"
         }
         return Bundle.main.path(forResource: "sample", ofType: "report")!
     }

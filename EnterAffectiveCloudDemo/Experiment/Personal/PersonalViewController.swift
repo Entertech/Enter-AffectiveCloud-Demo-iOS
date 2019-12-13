@@ -27,7 +27,9 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         barButtonItem = UIBarButtonItem(title: "下一步", style: .plain, target: self, action: #selector(nextStep))
         self.navigationItem.rightBarButtonItem = barButtonItem
-        
+        if RelaxManager.shared.isWebSocketConnected {
+            RelaxManager.shared.clearCloudService()
+        }
         setUI()
     }
     

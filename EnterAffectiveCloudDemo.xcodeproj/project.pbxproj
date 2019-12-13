@@ -69,6 +69,7 @@
 		FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B232381174C004E79B4 /* DBError.swift */; };
 		FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B242381174C004E79B4 /* MeditationRepository.swift */; };
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
+		FAB14EF923A2220100B7A24E /* dfutest1.zip in Resources */ = {isa = PBXBuildFile; fileRef = FAB14EF823A2220100B7A24E /* dfutest1.zip */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,8 @@
 		FAAE3B232381174C004E79B4 /* DBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		FAAE3B242381174C004E79B4 /* MeditationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
+		FAB14EF823A2220100B7A24E /* dfutest1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dfutest1.zip; sourceTree = "<group>"; };
+		FAB14EFA23A223DA00B7A24E /* Enter-Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Enter-Bridging-header.h"; sourceTree = "<group>"; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,6 +283,8 @@
 		FA2A0696237D2E2C00BEB75E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FA19DFAD23A0A00F0043F679 /* BackgroundView.swift */,
+				FA19DFAF23A0A0900043F679 /* DrawerView.swift */,
 				FA2A0697237D2E9700BEB75E /* ErrorTipView.swift */,
 				FA2A0699237D433E00BEB75E /* DashboardIndexView.swift */,
 				FA2A069B237D438400BEB75E /* TitleTableViewCell.swift */,
@@ -358,6 +363,7 @@
 				FA5F0AB8237A819B00A21BF9 /* Info.plist */,
 				FA3D12C92396620500E96B02 /* WebSocket.plist */,
 				FA3D12CC2397BBD900E96B02 /* Config.plist */,
+				FAB14EFA23A223DA00B7A24E /* Enter-Bridging-header.h */,
 			);
 			path = EnterAffectiveCloudDemo;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 		FA5F0AC6237BF1A400A21BF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FAB14EF823A2220100B7A24E /* dfutest1.zip */,
 				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
 				FAC3D939237E77E8006CE2BC /* error_tip.mp3 */,
 				FA3B17512381393300D5192D /* sample.report */,
@@ -372,8 +379,6 @@
 				FA060793237E2FBD00D0BB30 /* Preference.swift */,
 				FA68EC98237E47C700518D00 /* SoundPlayer.swift */,
 				FA19DF83239E18BC0043F679 /* ACExtexsion.swift */,
-				FA19DFAD23A0A00F0043F679 /* BackgroundView.swift */,
-				FA19DFAF23A0A0900043F679 /* DrawerView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
+				FAB14EF923A2220100B7A24E /* dfutest1.zip in Resources */,
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
 				FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */,
 				FA19DF9E239F2AD20043F679 /* ChooseTagViewController.xib in Resources */,
@@ -737,7 +743,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -747,9 +753,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.heartflow.experiment;
 				PRODUCT_NAME = "心流实验";
-				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_dev;
+				PROVISIONING_PROFILE_SPECIFIER = Heartflow_Experiment_dev;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/EnterAffectiveCloudDemo/Enter-Bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -762,7 +769,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -772,9 +779,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.heartflow.experiment;
 				PRODUCT_NAME = "心流实验";
-				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_App;
+				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_Experiment_adhoc;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/EnterAffectiveCloudDemo/Enter-Bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

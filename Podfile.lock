@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
+  - Bugly (2.5.2)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
@@ -59,10 +60,11 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
+  - Bugly
   - "EnterAffectiveCloud (from `git@github.com:Entertech/Enter-AffectiveCloud-iOS-SDK.git`)"
   - EnterAffectiveCloudUI (~> 1.3.7)
-  - EnterBioModuleBLE (~> 1.2.5)
-  - EnterBioModuleBLEUI (~> 1.2.5)
+  - "EnterBioModuleBLE (from `git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)"
+  - "EnterBioModuleBLEUI (from `git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)"
   - RealmSwift
   - RxCocoa
   - SnapKit
@@ -71,10 +73,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - Bugly
     - Charts
     - EnterAffectiveCloudUI
-    - EnterBioModuleBLE
-    - EnterBioModuleBLEUI
     - FixedDFUService
     - GzipSwift
     - HandyJSON
@@ -95,14 +96,25 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   EnterAffectiveCloud:
     :git: "git@github.com:Entertech/Enter-AffectiveCloud-iOS-SDK.git"
+  EnterBioModuleBLE:
+    :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
+  EnterBioModuleBLEUI:
+    :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
 
 CHECKOUT OPTIONS:
   EnterAffectiveCloud:
     :commit: 0da2c209c2263d946c5df149233e562ba20f00be
     :git: "git@github.com:Entertech/Enter-AffectiveCloud-iOS-SDK.git"
+  EnterBioModuleBLE:
+    :commit: 0c9273a57950c2efc0c63692e314ae87914d9ec3
+    :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
+  EnterBioModuleBLEUI:
+    :commit: 0c9273a57950c2efc0c63692e314ae87914d9ec3
+    :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   EnterAffectiveCloud: a7eb16d0fef28972092b438101182c30897859d6
   EnterAffectiveCloudUI: bdfbfa06ed6a405ae575f684e814d11cb580f9ab
@@ -125,6 +137,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 95794d45964e508aa6b68aa6f3baf52863e9b84f
+PODFILE CHECKSUM: 3649b710379d7012e4af00d5adc8dc3df0e0d9f9
 
 COCOAPODS: 1.8.3

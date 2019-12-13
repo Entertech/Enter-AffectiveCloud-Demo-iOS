@@ -98,14 +98,14 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSl-ni-2AL" customClass="RealtimeAttentionView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="20" y="678" width="177" height="152"/>
+                                                    <rect key="frame" x="20" y="715" width="177" height="152"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="152" id="QlC-wF-RjP"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bms-nz-D15" customClass="RealtimeRelaxationView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="217" y="678" width="177" height="152"/>
+                                                    <rect key="frame" x="217" y="715" width="177" height="152"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOQ-zN-HlE" customClass="RealtimeHeartRateView" customModule="EnterAffectiveCloudUI">
@@ -116,9 +116,15 @@
                                                     </constraints>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-bu-UdW" customClass="RealtimePressureView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="20" y="850" width="177" height="152"/>
+                                                    <rect key="frame" x="20" y="887" width="177" height="152"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="情绪面板" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGN-w5-A61">
+                                                    <rect key="frame" x="20" y="678" width="70" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -133,17 +139,19 @@
                                                 <constraint firstItem="kSl-ni-2AL" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="H8j-nv-9bI"/>
                                                 <constraint firstAttribute="trailing" secondItem="TOQ-zN-HlE" secondAttribute="trailing" constant="20" id="IR8-9f-Gdx"/>
                                                 <constraint firstItem="GQ0-bu-UdW" firstAttribute="width" secondItem="kSl-ni-2AL" secondAttribute="width" id="Ler-Hp-7CF"/>
-                                                <constraint firstItem="bms-nz-D15" firstAttribute="top" secondItem="EQk-8c-IId" secondAttribute="bottom" constant="32" id="NPX-tc-FxM"/>
                                                 <constraint firstItem="EQk-8c-IId" firstAttribute="top" secondItem="cce-pw-yDN" secondAttribute="bottom" constant="16" id="RRw-RY-hS8"/>
+                                                <constraint firstItem="kSl-ni-2AL" firstAttribute="top" secondItem="dGN-w5-A61" secondAttribute="bottom" constant="16" id="Sda-MY-B4x"/>
+                                                <constraint firstItem="dGN-w5-A61" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="WIA-j2-3ks"/>
                                                 <constraint firstAttribute="trailing" secondItem="bms-nz-D15" secondAttribute="trailing" constant="20" id="bwg-yd-Xcm"/>
-                                                <constraint firstItem="kSl-ni-2AL" firstAttribute="top" secondItem="EQk-8c-IId" secondAttribute="bottom" constant="32" id="eqq-Nj-7Wk"/>
                                                 <constraint firstItem="cce-pw-yDN" firstAttribute="top" secondItem="TOQ-zN-HlE" secondAttribute="bottom" constant="32" id="fYM-ig-OrY"/>
                                                 <constraint firstItem="bms-nz-D15" firstAttribute="height" secondItem="kSl-ni-2AL" secondAttribute="height" id="hby-Ro-ayU"/>
                                                 <constraint firstAttribute="trailing" secondItem="cce-pw-yDN" secondAttribute="trailing" constant="20" id="iNG-V7-s0C"/>
                                                 <constraint firstItem="GQ0-bu-UdW" firstAttribute="top" secondItem="kSl-ni-2AL" secondAttribute="bottom" constant="20" id="k5v-92-DOT"/>
+                                                <constraint firstItem="bms-nz-D15" firstAttribute="top" secondItem="kSl-ni-2AL" secondAttribute="top" id="nku-OM-tLP"/>
                                                 <constraint firstAttribute="trailing" secondItem="EQk-8c-IId" secondAttribute="trailing" constant="20" id="oAL-AW-JVV"/>
                                                 <constraint firstItem="bms-nz-D15" firstAttribute="width" secondItem="kSl-ni-2AL" secondAttribute="width" id="oBn-TI-52q"/>
                                                 <constraint firstItem="GQ0-bu-UdW" firstAttribute="height" secondItem="kSl-ni-2AL" secondAttribute="height" id="rY3-Nm-od1"/>
+                                                <constraint firstItem="dGN-w5-A61" firstAttribute="top" secondItem="EQk-8c-IId" secondAttribute="bottom" constant="32" id="xez-uX-7Vc"/>
                                                 <constraint firstItem="Afw-9M-lAn" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="zyV-2q-zTC"/>
                                             </constraints>
                                         </view>

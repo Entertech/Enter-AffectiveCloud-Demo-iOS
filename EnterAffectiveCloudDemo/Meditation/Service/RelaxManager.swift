@@ -11,7 +11,7 @@ import EnterAffectiveCloud
 import EnterBioModuleBLE
 
 class RelaxManager: BLEBioModuleDataSource {
-    private var countEegError = 0
+
     static let shared = RelaxManager()
     let ble = BLEService.shared.bleManager
     private init() {
@@ -114,11 +114,11 @@ class RelaxManager: BLEBioModuleDataSource {
         self.client?.getAffectiveDataReport(services: [.relaxation, .attention, .pressure, .pleasure])
     }
     
-    public func stop() {
+    public func stopBLE() {
         self.clearBLE()
     }
     
-    private func clearCloudService() {
+    public func clearCloudService() {
         // 关闭情感数据
         self.client?.close()
     }
@@ -133,23 +133,50 @@ class RelaxManager: BLEBioModuleDataSource {
         self.client?.appendBiodata(hrData: data)
     }
 
+    
+    private var countEeg128 = 0 //规避128错误
+    private var countEeg255 = 0 //规避255错误
+    private var wearCheck: UInt8 = 0  //脱落检查
     // 接受脑波数据
     func bleBrainwaveDataReceived(data: Data, bleManager: BLEManager) {
-        var array = [UInt8](repeating: 0, count: 9)
-        data.copyBytes(to: &array, from: Range<Data.Index>(2...10))
+        var array = [UInt8](repeating: 0, count: 12)
+        switch bleManager.state {
+        case .connected(let wear):
+            wearCheck = wear
+        default:
+            break
+        }
         // 判断数据是否正确l， 不正确重启蓝牙服务
-        DispatchQueue.global().async {
-            if array.elementsEqual([128,0,0,128,0,0,128,0,0]) {
-                self.countEegError += 1
-            } else {
-                self.countEegError = 0
-            }
-            
-            if self.countEegError > 2 {
-                self.countEegError = 0
-                self.clearBLE()
-                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+1) {
-                    self.setupBLE()
+        if self.wearCheck == 0 { //只有当接触成功的时候判断
+            DispatchQueue.global().async {
+                
+                
+                for i in 0..<2 {
+                    data.copyBytes(to: &array, from: Range<Data.Index>(2+100*i...13+100*i))
+                    if array.elementsEqual([128,0,0,128,0,0,128,0,0,128,0,0]) {
+                        Log.printLog(message: "- 128 Attact -")
+                        self.countEeg128 += 1
+                    } else {
+                        self.countEeg128 = 0
+                    }
+                    
+                    if array.elementsEqual([255, 255, 254, 255, 255, 254, 255, 255, 254, 255, 255, 254]) {
+                        Log.printLog(message: "- 255 Attact -")
+                        self.countEeg255 += 1
+                    } else {
+                        self.countEeg255 = 0
+                    }
+                }
+                
+                
+                if self.countEeg128 > 2 || self.countEeg255 > 60{
+                    Log.printLog(message: "- Restart BLE -")
+                    self.countEeg128 = 0
+                    self.countEeg255 = 0
+                    self.clearBLE()
+                    DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+1) {
+                        self.setupBLE()
+                    }
                 }
             }
         }

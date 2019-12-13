@@ -28,7 +28,7 @@ extension Preference {
 }
 
 extension Preference {
-    static var userID = 98769876
+    static var clientId = 98769875
     static let meditationTime = 60
 }
 

@@ -68,3 +68,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 Pods
 Config.plist
+*.zip

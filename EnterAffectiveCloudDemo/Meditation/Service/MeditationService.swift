@@ -17,7 +17,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     public var reportModel: MeditationReportModel?
     public var meditationVC: MeditationViewController?
     public var tagVC: ExperimentCenterViewController?
-    private let userId = "\(Preference.userID)"
+    private let userId = "\(Preference.clientId)"
     private var suspendTime:[(Date, Bool)] = [] //(触发时间， 是否连接)
     private var suspendArray:[(Date, Date)]?
     private var firstConnect: Bool = true
@@ -59,7 +59,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     public func finish() {
         if self.meditationModel.finishTime == nil {
             self.meditationModel.finishTime = Date()
-            RelaxManager.shared.stop()
+            RelaxManager.shared.stopBLE()
         }
         
         if RelaxManager.shared.isWebSocketConnected {
@@ -313,6 +313,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
                 self.playSuccessSound()
             }
             isDeviceConnect = true
+            
         } else {
             
             isDeviceConnect = false
@@ -374,7 +375,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     private func reportPath() -> String {
 
         if let startTime = self.meditationModel.startTime {
-            return "\(Preference.userID)/42/121/\(startTime.string(custom: "yyyy-MM-dd HH:mm:ss"))"
+            return "\(Preference.clientId)/42/121/\(startTime.string(custom: "yyyy-MM-dd HH:mm:ss"))"
         }
         return "0/0/0/sample"
     }
@@ -457,7 +458,7 @@ extension MeditationService {
 
     private func meditationToDB() {
         self.meditationModel.id = -Int(Date().timeIntervalSince1970)
-        self.meditationModel.userID = Preference.userID
+        self.meditationModel.userID = Preference.clientId
         if let reportModel = self.reportModel, reportModel.heartRateAvg != 0 {
             self.meditationModel.hrAverage = reportModel.heartRateAvg ?? 0
             self.meditationModel.hrMax = reportModel.heartRateMax ?? 0

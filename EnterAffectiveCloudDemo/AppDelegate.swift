@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setup() {
-        
+        Bugly.start(withAppId: "6737790ea9")
         var path: String = ""
         if let plistPath = Bundle.main.path(forResource: "Config", ofType: "plist") {
             path = plistPath

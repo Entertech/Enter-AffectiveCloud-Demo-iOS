@@ -51,6 +51,11 @@ class DrawerView: UIView, UIGestureRecognizerDelegate {
         tapGesture?.delegate = self
         panGesture?.delegate = self
         self.layer.cornerRadius = 20
+        self.layer.shadowColor = UIColor.black.cgColor
+        
+        self.layer.shadowOffset = CGSize(width: 0, height: -5)
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 20
         vcState = .hidden
         
     }

@@ -5,8 +5,8 @@ platform :ios, '11.0'
 use_frameworks!
 
 def sdk
-  pod 'EnterBioModuleBLE', "~> 1.2.5"
-  pod 'EnterBioModuleBLEUI', "~> 1.2.5"
+  pod 'EnterBioModuleBLE', :git=> "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
+  pod 'EnterBioModuleBLEUI', :git=> "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
   pod 'EnterAffectiveCloud', :git=> "git@github.com:Entertech/Enter-AffectiveCloud-iOS-SDK.git"
   pod 'EnterAffectiveCloudUI', "~> 1.3.7"
 end

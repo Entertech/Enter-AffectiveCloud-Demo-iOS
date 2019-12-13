@@ -32,9 +32,9 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     }
     
-    let sectionList = [""]
-    let cellIconList = [[#imageLiteral(resourceName: "hardware version"),#imageLiteral(resourceName: "Stockholm-help")]]
-    let cellTitlelist = [["实验选择","帮助中心"]]
+    let sectionList = ["", ""]
+    let cellIconList = [[#imageLiteral(resourceName: "hardware version")],[#imageLiteral(resourceName: "Stockholm-help")]]
+    let cellTitlelist = [["实验选择"],["帮助中心"]]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         sectionList.count
@@ -72,10 +72,9 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
             vc.modalPresentationStyle = .fullScreen
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
-        case (0, 1):
+        case (1, 01):
             presentSafari(Preference.help)
-        case (0, 2):
-            presentSafari(Preference.privacy)
+
         default:
             presentSafari(Preference.help)
         }

@@ -72,7 +72,7 @@ class AcSettiingViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(confirmBtn)
         
         //textfield
-        appIdTF.text = Preference.kCloudServiceAppKey//key
+        appIdTF.text = key
         appIdTF.delegate = self
         appIdTF.keyboardType = .default
         appIdTF.borderStyle = .roundedRect
@@ -82,7 +82,7 @@ class AcSettiingViewController: UIViewController, UITextFieldDelegate {
         appIdTF.autocorrectionType = .no
         self.view.addSubview(appIdTF)
         
-        appSecretTF.text = Preference.kCloudServiceAppSecret//secret
+        appSecretTF.text = secret
         appSecretTF.delegate = self
         appSecretTF.keyboardType = .default
         appSecretTF.borderStyle = .roundedRect
@@ -181,7 +181,7 @@ class AcSettiingViewController: UIViewController, UITextFieldDelegate {
         let tokenRequest = TokenRequest()
         if let key = appIdTF.text, let secret = appSecretTF.text {
             SVProgressHUD.show()
-            tokenRequest.token(appKey: key, appSecret: secret, userId: "\(Preference.userID)", version: "v1")
+            tokenRequest.token(appKey: key, appSecret: secret, userId: "\(Preference.clientId)", version: "v1")
             DispatchQueue.global().async {
                 var count = 0
                 let timers = DispatchSource.makeTimerSource()
