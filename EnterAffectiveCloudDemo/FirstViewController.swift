@@ -58,9 +58,14 @@ class FirstViewController: UIViewController, ShowReportDelegate {
 
     @IBAction func showMeditation(_ sender: Any) {
         if BLEService.shared.bleManager.state.isConnected {
-            let experiment = PersonalViewController()
-            experiment.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(experiment, animated: true)
+            if ACTagModel.shared.tagModels != nil {
+                let experiment = PersonalViewController()
+                experiment.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(experiment, animated: true)
+            } else {
+                SVProgressHUD.showInfo(withStatus: "无标签信息")
+            }
+
         } else {
             SVProgressHUD.showInfo(withStatus: "请先连接设备")
         }
