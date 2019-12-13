@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             path = Bundle.main.path(forResource: "WebSocket", ofType: "plist")!
         }
         let keyValue = NSMutableDictionary(contentsOfFile: path)
-        Preference.FLOWTIME_WS = keyValue?.object(forKey: "WebSocketAdderss") as! String
+        Preference.FLOWTIME_WS = keyValue?.object(forKey: "WebSocketAddress") as! String
         Preference.kCloudServiceAppKey = keyValue?.object(forKey: "AppKey") as! String
         Preference.kCloudServiceAppSecret = keyValue?.object(forKey: "AppSecret") as! String
         
