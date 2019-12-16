@@ -30,6 +30,7 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         if RelaxManager.shared.isWebSocketConnected {
             RelaxManager.shared.clearCloudService()
         }
+        cleanAll()
         setUI()
     }
     
@@ -54,8 +55,28 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         let experiment = ExperimentCenterViewController()
         let vc = UINavigationController(rootViewController: experiment)
         vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: {
+            self.navigationController?.popToRootViewController(animated: true)
+        })
         
+    }
+    
+    func cleanAll() {
+        if let dims = TimeRecord.chooseDim {
+            for (i,_) in dims.enumerated() {
+                if let _ = TimeRecord.chooseDim  {
+                    TimeRecord.chooseDim![i].removeAll()
+                }
+                
+            }
+            TimeRecord.chooseDim?.removeAll()
+            TimeRecord.chooseDim = nil
+        }
+        TimeRecord.startTime = nil
+
+        TimeRecord.time?.removeAll()
+        TimeRecord.time = nil
+        TimeRecord.tagCount  = 0
     }
     
     // MARK: - picker
@@ -80,7 +101,7 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             bgView?.addSubview(picker)
             picker.snp.makeConstraints{
                 $0.left.right.bottom.equalToSuperview()
-                $0.height.equalTo(160)
+                $0.height.equalTo(260)
             }
             
             // 菜单栏
@@ -130,13 +151,19 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     //MARK:- textfield delegate
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == genderTF {
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5, execute: {
+            textField.resignFirstResponder()
+            userIdTF.resignFirstResponder()
+            ageTF.resignFirstResponder()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.2, execute: {
                 self.setTimerPickerView()
             })
+            return false
         }
+        return true
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -151,6 +178,12 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    
     
     //MARK:- picker Delegate
     

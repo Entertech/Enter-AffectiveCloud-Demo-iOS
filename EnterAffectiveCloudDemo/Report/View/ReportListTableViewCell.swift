@@ -12,7 +12,9 @@ class ReportListTableViewCell: UITableViewCell {
 
     init(reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
-        self.selectionStyle = .none
+        self.selectionStyle = .default
+        self.selectedBackgroundView = UIView()
+        self.selectedBackgroundView?.backgroundColor = .white
         setup()
         layout()
     }
@@ -84,7 +86,7 @@ class ReportListTableViewCell: UITableViewCell {
         cardView.addSubview(minuteLabel)
         cardView.addSubview(fromToLabel)
         cardView.addSubview(meditationTagView)
-        self.addSubview(cardView)
+        self.contentView.addSubview(cardView)
     }
 
     func layout() {

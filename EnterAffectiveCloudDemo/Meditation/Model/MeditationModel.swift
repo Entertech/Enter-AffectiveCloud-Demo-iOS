@@ -49,8 +49,8 @@ extension MeditationModel {
         let model               = DBMeditation()
         model.id                = self.id!
         model.userID            = self.userID
-        model.startTime         = self.startTime!.string(custom: "yyyy-MM-dd HH:mm:ss")
-        model.finishTime        = self.finishTime!.string(custom: "yyyy-MM-dd HH:mm:ss")
+        model.startTime         = self.startTime!.string(custom: Preference.dateFormatter)
+        model.finishTime        = self.finishTime!.string(custom: Preference.dateFormatter)
         model.hrAverage         = self.hrAverage
         model.hrMax             = self.hrMax
         model.hrMin             = self.hrMin

@@ -9,10 +9,16 @@
 import UIKit
 import SVProgressHUD
 import EnterAffectiveCloud
+import HandyJSON
 
 @objc
 protocol ShowReportDelegate {
     func showReport(db: DBMeditation)
+}
+
+struct RecFile: HandyJSON {
+    var session_id: String?
+    var rec:[CSLabelSubmitJSONModel]?
 }
 
 class CheckTagViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -21,6 +27,8 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: ShowReportDelegate?
     private var reportList: [DBMeditation] = []
+    private var isSaveTag = false
+    var service: MeditationService?
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -33,12 +41,13 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationName.biodataTagSubmitNotify.observe(sender: self, selector: #selector(submitCallback(_:)))
+        NotificationName.kFinishWithCloudServieDB.observe(sender: self, selector: #selector(self.finishWithCloudServiceHandle(_:)))
         tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationName.biodataTagSubmitNotify.remove(sender: self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setUI() {
@@ -57,43 +66,12 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @objc
-    func submitCallback(_ noti: Notification) {
-        SVProgressHUD.showSuccess(withStatus: "提交成功")
-        SVProgressHUD.dismiss(withDelay: 2) {
-            if let last = self.reportList.last {
-                self.delegate?.showReport(db: last)
-            }
-            RelaxManager.shared.close()
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
+
 
     @IBAction func submitPressed(_ sender: Any) {
-        SVProgressHUD.show()
+        SVProgressHUD.show(withStatus: "正在提交")
         
-        var dbModel = TagSaveModel()
-        dbModel.id = PersonalInfo.userId?.hashed(.md5)?.uppercased()
-        dbModel.userId = PersonalInfo.userId
-        dbModel.age = PersonalInfo.age
-        dbModel.sex = PersonalInfo.sex == 0 ? "m" : "f"
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dbModel.startTime = formatter.string(from: TimeRecord.startTime!)
-        dbModel.chooseDimName = []
-        for e in TimeRecord.chooseDim! {
-            var temp:[String] = []
-            for t in e {
-                temp.append(t.name_cn!)
-            }
-            dbModel.chooseDimName?.append(temp)
-        }
-        dbModel.time = []
-        for e in TimeRecord.time! {
-            let str  = formatter.string(from: e.0)
-            dbModel.time?.append(str)
-        }
-        
+        // 标签提交
         if let chooseDims = TimeRecord.chooseDim {
             
             var rec: [CSLabelSubmitJSONModel] = []
@@ -120,34 +98,44 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
                     dict[tagsName[index]] = t.value!
                 }
                 temp.tag = dict
-                temp.note = [""]
+                temp.note = []
                 rec.append(temp)
+                
+
             }
+
+            if !isSaveTag {
+                if let startTime = TimeRecord.startTime {
+        
+                    let session = RelaxManager.shared.sessionId
+                    var recTemp = RecFile()
+                    recTemp.session_id = session
+                    recTemp.rec = rec
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = Preference.dateFormatter
+                    
+                    let title = dateFormatter.string(from: startTime)
+                    if let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                        let fileUrl = directory.appendingPathComponent(title)
+                        //writing
+                        do {
+                            try recTemp.toJSONString()!.write(to: fileUrl, atomically: false, encoding: .utf8)
+                        }
+                        catch {
+                            /* error handling here */
+                        }
+                    }
+                }
+                isSaveTag = true
+                
+            }
+
             RelaxManager.shared.tagSubmit(tags: rec)
         }
-        
-        TagRepository.create(dbModel.mapperToDBModel()) { (flag) in
-            for (i,_) in TimeRecord.chooseDim!.enumerated() {
-                TimeRecord.chooseDim![i].removeAll()
-            }
-            TimeRecord.chooseDim!.removeAll()
-            TimeRecord.chooseDim = nil
-            
-            TimeRecord.startTime = nil
-             
-            TimeRecord.time?.removeAll()
-            TimeRecord.time = nil
-            TimeRecord.tagCount  = 0
-            
-        }
-        
-        SVProgressHUD.dismiss(withDelay: 10) {
+
+        SVProgressHUD.dismiss(withDelay: 15) {
             if RelaxManager.shared.isWebSocketConnected {
-                if let last = self.reportList.last {
-                    self.delegate?.showReport(db: last)
-                }
-                RelaxManager.shared.close()
-                self.navigationController?.popViewController(animated: true)
+                SVProgressHUD.showError(withStatus: "连接超时")
             }
 
         }
@@ -195,7 +183,6 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
             cell.detailTextLabel?.text = text
         }
         
-        
         return cell
     }
     
@@ -204,6 +191,84 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
         let reChoose = ReChooseViewController(index: indexPath.row, title: tableView.cellForRow(at: indexPath)!.textLabel!.text!)
         reChoose.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(reChoose, animated: true)
+    }
+    
+    @objc
+    func submitCallback(_ noti: Notification) {
+        let data = noti.userInfo!["biodataTagSubmit"]
+        let model = data as? AffectiveCloudResponseJSONModel
+        if let model = model {
+            if model.code == 0 {
+                SVProgressHUD.showError(withStatus: "上传成功")
+                service?.finish()
+            } else {
+                SVProgressHUD.showError(withStatus: "上传失败, 请用本地导出")
+                service?.finish()
+            }
+        }
+
+    }
+    
+    /// 情感云结束体验通知处理
+    ///
+    /// - Parameter notification:
+    @objc
+    private func finishWithCloudServiceHandle(_ notification: Notification) {
+        RelaxManager.shared.close()
+        //tag 保存数据库
+        var dbModel = TagSaveModel()
+        dbModel.id = PersonalInfo.userId?.hashed(.md5)?.uppercased()
+        dbModel.userId = PersonalInfo.userId
+        dbModel.age = PersonalInfo.age
+        dbModel.sex = PersonalInfo.sex == 0 ? "m" : "f"
+        let formatter = DateFormatter()
+        formatter.dateFormat = Preference.dateFormatter
+        dbModel.startTime = formatter.string(from: TimeRecord.startTime!)
+        dbModel.chooseDimName = []
+        for e in TimeRecord.chooseDim! {
+            var temp:[String] = []
+            for t in e {
+                temp.append(t.name_cn!)
+            }
+            dbModel.chooseDimName?.append(temp)
+        }
+        dbModel.time = []
+        for e in TimeRecord.time! {
+            let str  = formatter.string(from: e.0)
+            dbModel.time?.append(str)
+        }
+        
+        TagRepository.create(dbModel.mapperToDBModel()) { (flag) in
+            for (i,_) in TimeRecord.chooseDim!.enumerated() {
+                TimeRecord.chooseDim![i].removeAll()
+            }
+            TimeRecord.chooseDim!.removeAll()
+            TimeRecord.chooseDim = nil
+            
+            TimeRecord.startTime = nil
+             
+            TimeRecord.time?.removeAll()
+            TimeRecord.time = nil
+            TimeRecord.tagCount  = 0
+            
+        }
+        
+        SVProgressHUD.show(withStatus: "生成报表完成")
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss(withDelay: 1) {
+                self.navigationController?.dismiss(animated: true, completion: {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5) {
+                        let report = ReportViewController()
+                        let data = MeditationRepository.query(Preference.clientId)
+                        report.reportDB = data?.last
+                        report.hidesBottomBarWhenPushed = true
+                        UIViewController.currentViewController()!.navigationController?.pushViewController(report, animated: true)
+                    }
+                })
+            }
+            
+        }
     }
 
 }

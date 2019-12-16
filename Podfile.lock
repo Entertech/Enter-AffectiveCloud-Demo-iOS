@@ -106,10 +106,10 @@ CHECKOUT OPTIONS:
     :commit: 0da2c209c2263d946c5df149233e562ba20f00be
     :git: "git@github.com:Entertech/Enter-AffectiveCloud-iOS-SDK.git"
   EnterBioModuleBLE:
-    :commit: 0c9273a57950c2efc0c63692e314ae87914d9ec3
+    :commit: abebfd78d1ed34162ea4d904627716bbdbc49fbd
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
   EnterBioModuleBLEUI:
-    :commit: 0c9273a57950c2efc0c63692e314ae87914d9ec3
+    :commit: 8dc72df2196c95dbc8aa3fbbc019ce89af2be3a7
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
 
 SPEC CHECKSUMS:

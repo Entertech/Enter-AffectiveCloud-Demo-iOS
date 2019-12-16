@@ -11,6 +11,7 @@ import SafariServices
 
 class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,11 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         addHeaderView()
-        addFooterCopyRightView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        versionLabel.text = Preference.appVersion
     }
     
     let sectionList = ["", ""]
@@ -84,27 +84,6 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 30))
         view.backgroundColor = UIColor.clear
         tableView.tableHeaderView = view
-    }
-    
-    private func addFooterCopyRightView() {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 72))
-        let versionLabel = UILabel()
-        versionLabel.text = Preference.appVersion
-        versionLabel.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
-        versionLabel.font = UIFont.systemFont(ofSize: 11)
-        versionLabel.textAlignment = .center
-//        let copyrightLabel = UILabel()
-//        copyrightLabel.text = App.copyright
-//        copyrightLabel.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
-//        copyrightLabel.font = UIFont.systemFont(ofSize: 11)
-//        copyrightLabel.textAlignment = .center
-        view.addSubview(versionLabel)
-//        view.addSubview(copyrightLabel)
-        self.tableView.tableFooterView = view
-        versionLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-12)
-            $0.centerX.equalToSuperview()
-        }
     }
     
     /// Safari 显示网页

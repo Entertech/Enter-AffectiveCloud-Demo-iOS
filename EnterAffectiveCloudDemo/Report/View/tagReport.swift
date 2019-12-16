@@ -37,7 +37,6 @@ class TagReport: UIView , UITableViewDelegate, UITableViewDataSource{
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .white
-        tableView.isUserInteractionEnabled = false
         self.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.left.equalTo(16)
@@ -64,7 +63,7 @@ class TagReport: UIView , UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let query = query {
-            return query.chooseDimName.count
+            return query.chooseDimName.count >= 4 ? 4 : query.chooseDimName.count
         }
         return 0
     }
@@ -82,7 +81,7 @@ class TagReport: UIView , UITableViewDelegate, UITableViewDataSource{
         cell.accessoryType = .disclosureIndicator
         if let query = query {
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            formatter.dateFormat = Preference.dateFormatter
             let from = formatter.date(from: query.time[row*2])!
             let to = formatter.date(from: query.time[row*2+1])!
             let startTime = formatter.date(from: query.startTime)!
@@ -108,5 +107,18 @@ class TagReport: UIView , UITableViewDelegate, UITableViewDataSource{
         return cell
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let reChoose = ReChooseViewController(index: indexPath.row, title: tableView.cellForRow(at: indexPath)!.textLabel!.text!)
+        reChoose.isReport = true
+        if let query = query {
+            let chooseDims = query.chooseDimName[indexPath.row]
+            for (_, e) in chooseDims.chooseDim.enumerated() {
+                reChoose.strArray.append(e)
+            }
+        }
+        UIViewController.currentViewController()!.navigationController?.pushViewController(reChoose, animated: true)
+    }
+    
     
 }

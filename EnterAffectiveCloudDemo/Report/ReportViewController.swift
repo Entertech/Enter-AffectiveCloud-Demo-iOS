@@ -33,6 +33,8 @@ class ReportViewController: UIViewController {
     @IBOutlet weak var relaxationView: RelaxationReportView!
     @IBOutlet weak var pressureView: PressureReportView!
     @IBOutlet weak var reportBackgroud: UIView!
+    private var tagView: TagReport?
+    private var tagCount = 0
 
     
     override func viewDidLoad() {
@@ -66,20 +68,30 @@ class ReportViewController: UIViewController {
         pressureView.infoUrlString = "https://docs.myflowtime.cn/%F0%9F%93%88%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%F0%9F%93%89%E5%A6%82%E4%BD%95%E7%9C%8B%E5%8E%8B%E5%8A%9B%E6%B0%B4%E5%B9%B3%E6%9B%B2%E7%BA%BF%EF%BC%9F.html"
         
         var path = ""
-        var isSample = false
         var reader: EnterAffectiveCloudReportData?
         if let startTime = reportDB?.startTime {
             
-            let tagView = TagReport(st: startTime)
-            tagView.btn.addTarget(self, action: #selector(tagInfo), for: .touchUpInside)
-            self.reportBackgroud.addSubview(tagView)
-            tagView.snp.makeConstraints {
-                $0.left.top.equalToSuperview().offset(16)
-                $0.right.equalToSuperview().offset(-16)
-                $0.bottom.equalTo(brainView.snp.top).offset(-16)
+            tagView = TagReport(st: startTime)
+            if let query = tagView?.query {
+                tagCount = query.chooseDimName.count >= 4 ? 4 : query.chooseDimName.count
+                tagView?.btn.addTarget(self, action: #selector(tagInfo), for: .touchUpInside)
             }
+            self.reportBackgroud.addSubview(tagView!)
+            tagView?.snp.makeConstraints {
+                $0.left.equalToSuperview().offset(16)
+                $0.right.equalToSuperview().offset(-16)
+                if tagCount == 0 {
+                    $0.top.equalToSuperview()
+                    $0.height.equalTo(0)
+                } else {
+                    $0.top.equalToSuperview().offset(16)
+                    $0.height.equalTo(self.tagCount*44 + 92)
+                }
+                
+            }
+
             
-            let meditationDate = Date.date(dateString: startTime, custom: "yyyy-MM-dd HH:mm:ss")
+            let meditationDate = Date.date(dateString: startTime, custom: Preference.dateFormatter)
             if let mDate = meditationDate {
                 self.reportTitle.text = mDate.string(custom: "M.d.yyyy")
             } else {
@@ -96,13 +108,11 @@ class ReportViewController: UIViewController {
                 path = Bundle.main.path(forResource: "sample", ofType: "report")!
                 reader = ReportFileHander.readReportFile(path)
                 
-                isSample = true
             }
             
         } else {
             path = Bundle.main.path(forResource: "sample", ofType: "report")!
             reader =  ReportFileHander.readReportFile(path)
-            isSample = true
         }
         if let reader =  reader {
             service.dataOfReport = reader
@@ -230,7 +240,7 @@ class ReportViewController: UIViewController {
         if viewArray.count > 0 {
             
             viewArray[0].snp.makeConstraints {
-                $0.top.equalTo(self.reportHeadView.snp.bottom).offset(310)
+                $0.top.equalTo(self.tagView!.snp.bottom).offset(16)
             }
             
             
@@ -250,18 +260,7 @@ class ReportViewController: UIViewController {
                 $0.height.equalTo(121)
             }
         }
-        
-        if let startTime = reportDB?.startTime {
-            
-            let tagView = TagReport(st: startTime)
-            tagView.btn.addTarget(self, action: #selector(tagInfo), for: .touchUpInside)
-            self.reportBackgroud.addSubview(tagView)
-            tagView.snp.makeConstraints {
-                $0.left.top.equalToSuperview().offset(16)
-                $0.right.equalToSuperview().offset(-16)
-                $0.bottom.equalTo(brainView.snp.top).offset(-16)
-            }
-        }
+
     }
     
     private let defaultDashboardIndex: [ReportType] = [.brainwave, .heart, .hrv, .attention, .relaxation, .pressure]

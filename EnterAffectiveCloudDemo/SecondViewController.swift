@@ -17,21 +17,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.white
         tableView.backgroundColor = .white
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.allowsMultipleSelectionDuringEditing = true
         //tableView.contentInset = UIEdgeInsets(top: CGFloat(tableviewOffset), left: 0, bottom: 0, right: 0)
-        tableView.setContentOffset(CGPoint(x: 0, y: -tableviewOffset), animated: false)
+        //tableView.setContentOffset(CGPoint(x: 0, y: -tableviewOffset), animated: false)
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "分析报告"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        let rightBtn = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: #selector(deleteCell(sender:)))
+        navigationItem.setRightBarButton(rightBtn, animated: true)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         loadData()
     }
@@ -42,6 +42,37 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             reportList = data
         }
         tableView.reloadData()
+    }
+    
+    
+    @objc
+    func deleteCell(sender: UIBarButtonItem) {
+        if !tableView.isEditing {
+            sender.title = "确定"
+            tableView.setEditing(true, animated: true)
+        } else {
+            let data = MeditationRepository.query(Preference.clientId)
+            let len = data?.count ?? 0
+            do  {
+                try tableView.indexPathsForSelectedRows?.forEach({ (indexPath) in
+                    reportList.remove(at: len-indexPath.row-1)
+                    if let data = data {
+                        let record = data[len-indexPath.row-1]
+                        do {
+                            try MeditationRepository.delete(record.id)
+                        } catch {
+                            throw error
+                        }
+                        
+                    }
+                })
+            } catch {
+            }
+            
+            tableView.reloadData()
+            sender.title = "编辑"
+            tableView.setEditing(false, animated: true)
+        }
     }
     
     let cellColors: [UIColor] = [#colorLiteral(red: 0.7803921569, green: 1, blue: 0.8941176471, alpha: 1), #colorLiteral(red: 0.8980392157, green: 0.9176470588, blue: 0.968627451, alpha: 1), #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1), #colorLiteral(red: 1, green: 0.9058823529, blue: 0.9019607843, alpha: 1)]
@@ -74,7 +105,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.cellColor = cellColors[colorIndex]
         cell.literalColor = cellLiteralColor[colorIndex]
         cell.imageview.image = cellBgImages[colorIndex].randomElement()
-        cell.isMeditationRecord = record.hrAverage != 0
+        cell.isMeditationRecord = record.reportPath != nil || record.hrAverage != 0
 
         return cell
     }
@@ -84,13 +115,32 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let record = self.reportList[reportList.count-indexPath.row-1]
-        let report = ReportViewController()
-        report.reportDB = record
-        report.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(report, animated: true)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        if !tableView.isEditing {
+            let record = self.reportList[reportList.count-indexPath.row-1]
+            let report = ReportViewController()
+            report.reportDB = record
+            report.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(report, animated: true)
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+        
     }
- 
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if !tableView.isEditing {
+            return .none
+        } else {
+            return .delete
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
 }
 

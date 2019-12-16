@@ -57,7 +57,7 @@ class ReportCheckViewController: UIViewController, UITableViewDelegate, UITableV
         cell.accessoryType = .disclosureIndicator
         if let query = db {
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            formatter.dateFormat = Preference.dateFormatter
             let from = formatter.date(from: query.time[row*2])!
             let to = formatter.date(from: query.time[row*2+1])!
             let startTime = formatter.date(from: query.startTime)!

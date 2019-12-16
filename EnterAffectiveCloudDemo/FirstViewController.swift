@@ -10,7 +10,7 @@ import UIKit
 import EnterBioModuleBLEUI
 import SVProgressHUD
 
-class FirstViewController: UIViewController, ShowReportDelegate {
+class FirstViewController: UIViewController {
 
     @IBOutlet weak var connectionBtn: UIButton!
     @IBOutlet weak var startBtn: UIButton!
@@ -31,12 +31,6 @@ class FirstViewController: UIViewController, ShowReportDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let _ = TimeRecord.chooseDim, let _ = TimeRecord.time {
-            let check = CheckTagViewController()
-            check.delegate = self
-            //check.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(check, animated: true)
-        }
     }
 
     func setUI() {
@@ -67,7 +61,13 @@ class FirstViewController: UIViewController, ShowReportDelegate {
             }
 
         } else {
+            #if DEBUG
+            let experiment = PersonalViewController()
+            experiment.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(experiment, animated: true)
+            #else
             SVProgressHUD.showInfo(withStatus: "请先连接设备")
+            #endif
         }
         
     }

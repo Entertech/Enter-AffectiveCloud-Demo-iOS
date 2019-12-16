@@ -69,9 +69,9 @@
 		FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B232381174C004E79B4 /* DBError.swift */; };
 		FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B242381174C004E79B4 /* MeditationRepository.swift */; };
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
-		FAB14EF923A2220100B7A24E /* dfutest1.zip in Resources */ = {isa = PBXBuildFile; fileRef = FAB14EF823A2220100B7A24E /* dfutest1.zip */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
+		FADE9C5B23A3BAFD00C92C75 /* GiveUpFirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADE9C5A23A3BAFD00C92C75 /* GiveUpFirstResponder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,10 +142,10 @@
 		FAAE3B232381174C004E79B4 /* DBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		FAAE3B242381174C004E79B4 /* MeditationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
-		FAB14EF823A2220100B7A24E /* dfutest1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dfutest1.zip; sourceTree = "<group>"; };
 		FAB14EFA23A223DA00B7A24E /* Enter-Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Enter-Bridging-header.h"; sourceTree = "<group>"; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
+		FADE9C5A23A3BAFD00C92C75 /* GiveUpFirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiveUpFirstResponder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +268,14 @@
 			path = Report;
 			sourceTree = "<group>";
 		};
+		FA28026D23A3B84E000ECA8D /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				FADE9C5A23A3BAFD00C92C75 /* GiveUpFirstResponder.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
 		FA2A0691237D298A00BEB75E /* Meditation */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +322,7 @@
 		FA3D12CE2398D2FD00E96B02 /* Experiment */ = {
 			isa = PBXGroup;
 			children = (
+				FA28026D23A3B84E000ECA8D /* VIew */,
 				FA19DFA1239FC7830043F679 /* CheckTag */,
 				FA19DF9A239F294B0043F679 /* ChooseTag */,
 				FA19DF95239E76BB0043F679 /* ExperimentStart */,
@@ -371,7 +380,6 @@
 		FA5F0AC6237BF1A400A21BF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				FAB14EF823A2220100B7A24E /* dfutest1.zip */,
 				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
 				FAC3D939237E77E8006CE2BC /* error_tip.mp3 */,
 				FA3B17512381393300D5192D /* sample.report */,
@@ -487,7 +495,6 @@
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
-				FAB14EF923A2220100B7A24E /* dfutest1.zip in Resources */,
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
 				FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */,
 				FA19DF9E239F2AD20043F679 /* ChooseTagViewController.xib in Resources */,
@@ -553,6 +560,7 @@
 				FA19DFB223A0C71A0043F679 /* TagReport.swift in Sources */,
 				FA5F0AAF237A819A00A21BF9 /* SecondViewController.swift in Sources */,
 				FA2A068B237BF67000BEB75E /* BLEService.swift in Sources */,
+				FADE9C5B23A3BAFD00C92C75 /* GiveUpFirstResponder.swift in Sources */,
 				FA19DF8E239E46440043F679 /* PersonalViewController.swift in Sources */,
 				FA19DF98239E76E70043F679 /* RecordViewController.swift in Sources */,
 				FA19DFAA23A082450043F679 /* TagRepository.swift in Sources */,
@@ -743,7 +751,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -769,7 +777,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;

@@ -57,18 +57,7 @@ class ExperimentCenterViewController: UIViewController {
         startBtn.layer.masksToBounds = true
         service = MeditationService(self)
         service?.reportModel = self.reportModel
-        TimeRecord.time?.removeAll()
-        TimeRecord.time = nil
-        if let dims = TimeRecord.chooseDim {
-            for i in 0..<dims.count {
-                TimeRecord.chooseDim![i].removeAll()
-            }
-        }
-        TimeRecord.chooseDim?.removeAll()
-        TimeRecord.chooseDim = nil
-        
-        TimeRecord.tagCount = 0
-        TimeRecord.startTime = Date()
+
         headBar.layer.cornerRadius = 4
         headBar.layer.masksToBounds = true
         drawerView?.rx_vcState.asObservable()
@@ -135,6 +124,15 @@ class ExperimentCenterViewController: UIViewController {
             attentionView.showTip()
             relaxationView.showTip()
             pressureView.showTip()
+            
+            if BLEService.shared.bleManager.state.isConnected  {
+                if !RelaxManager.shared.isWebSocketConnected {
+                    
+                    RelaxManager.shared.start(wbDelegate: service)
+                }
+            }
+            BLEService.shared.bleManager.delegate = service
+            
             isFirstTime = false
         }
         
@@ -144,13 +142,7 @@ class ExperimentCenterViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if BLEService.shared.bleManager.state.isConnected  {
-            if !RelaxManager.shared.isWebSocketConnected {
-                
-                RelaxManager.shared.start(wbDelegate: service)
-            } 
-        }
-        BLEService.shared.bleManager.delegate = service
+
         
     }
     
@@ -177,7 +169,7 @@ class ExperimentCenterViewController: UIViewController {
             alert.addAction(okBtn)
             self.present(alert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "是否结束", message: "体验时长不足无法生成报表,确定退出?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "体验时长不足", message: "无法生成报表,确定退出?", preferredStyle: .alert)
             alert.addAction(action)
             alert.addAction(okBtn)
             self.present(alert, animated: true, completion: nil)
@@ -187,13 +179,6 @@ class ExperimentCenterViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
  
-        if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
-            if let tags = models[currentTag].tag {
-                TimeRecord.tagCount = tags.count
-            }
-        }
-        
         let recordVC = RecordViewController()
         self.navigationController?.pushViewController(recordVC, animated: true)
     }
@@ -203,14 +188,21 @@ class ExperimentCenterViewController: UIViewController {
         if RelaxManager.shared.isWebSocketConnected {
             if let times = service?.meditationModel.startTime,
                 Int(Date().timeIntervalSince(times)) > Preference.meditationTime  {
-                SVProgressHUD.show(withStatus: "正在生成报表")
-                service?.finish()
+                //SVProgressHUD.show(withStatus: "正在生成报表")
+                //service?.finish()
+                
+                if TimeRecord.tagCount > 0 {
+                    let check = CheckTagViewController()
+                    check.service = self.service
+                    self.navigationController?.pushViewController(check, animated: true)
+                } else {
+                    service?.finish()
+
+                }
             } else {
                 RelaxManager.shared.stopBLE()
                 RelaxManager.shared.clearCloudService()
-                cleanAll()
                 self.navigationController?.dismiss(animated: true, completion: {
-                    UIViewController.currentViewController()?.navigationController?.popViewController(animated: false)
                 })
             }
         } else {
@@ -218,38 +210,14 @@ class ExperimentCenterViewController: UIViewController {
                 RelaxManager.shared.stopBLE()
             }
             
-            cleanAll()
             self.navigationController?.dismiss(animated: true, completion: {
-                SVProgressHUD.show(withStatus: "情感云未连接")
+                SVProgressHUD.showError(withStatus: "情感云未连接")
                 SVProgressHUD.dismiss(withDelay: 2)
                 UIViewController.currentViewController()?.navigationController?.popViewController(animated: false)
             })
         }
     }
-    
-    func cleanAll() {
-        if let dims = TimeRecord.chooseDim {
-            for (i,_) in dims.enumerated() {
-                if let _ = TimeRecord.chooseDim  {
-                    TimeRecord.chooseDim![i].removeAll()
-                }
-                
-            }
-            TimeRecord.chooseDim?.removeAll()
-            TimeRecord.chooseDim = nil
-        }
-        
-        
-        TimeRecord.startTime = nil
-         
-        TimeRecord.time?.removeAll()
-        TimeRecord.time = nil
-        TimeRecord.tagCount  = 0
-        self.navigationController?.dismiss(animated: true, completion: {
-            UIViewController.currentViewController()?.navigationController?.popViewController(animated: false)
-        })
-    }
-    
+
     /// 情感云结束体验通知处理
     ///
     /// - Parameter notification:
@@ -259,9 +227,15 @@ class ExperimentCenterViewController: UIViewController {
         DispatchQueue.main.async {
             SVProgressHUD.dismiss()
             self.navigationController?.dismiss(animated: true, completion: {
-                UIViewController.currentViewController()?.navigationController?.popViewController(animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5) {
+                    let report = ReportViewController()
+                    let data = MeditationRepository.query(Preference.clientId)
+                    report.reportDB = data?.last
+                    report.hidesBottomBarWhenPushed = true
+                    UIViewController.currentViewController()!.navigationController?.pushViewController(report, animated: true)
+                }
             })
-            
         }
     }
 }

@@ -18,6 +18,8 @@ class RelaxManager: BLEBioModuleDataSource {
         ble.dataSource = self
     }
     
+    var sessionId = ""
+    
     var isWebSocketConnected: Bool {
         get {
             if let client = self.client {

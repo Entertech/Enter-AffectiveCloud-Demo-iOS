@@ -99,6 +99,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     }
     
     func sessionCreateAndAuthenticate(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
+        if let resp = response.dataModel as? CSResponseDataJSONModel {
+            if let sessionId = resp.sessionID {
+                RelaxManager.shared.sessionId = sessionId
+            }
+            
+        }
         RelaxManager.shared.startCloudService()
         meditationVC?.brianView.showProgress()
         meditationVC?.spectrumView.showProgress()
@@ -350,6 +356,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             
             let path = FTFileManager.shared.userReportURL(self.reportPath()).path
             ReportFileHander.createReportFile(path, museReportData)
+            self.meditationModel.report_path = path
             self.saveToDB()
         }
     }
@@ -375,7 +382,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     private func reportPath() -> String {
 
         if let startTime = self.meditationModel.startTime {
-            return "\(Preference.clientId)/42/121/\(startTime.string(custom: "yyyy-MM-dd HH:mm:ss"))"
+            return "\(Preference.clientId)/42/121/\(startTime.string(custom: Preference.dateFormatter))"
         }
         return "0/0/0/sample"
     }

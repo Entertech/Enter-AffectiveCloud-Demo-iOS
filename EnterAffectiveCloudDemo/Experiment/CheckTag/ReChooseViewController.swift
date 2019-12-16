@@ -38,8 +38,11 @@ class ReChooseViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         let foot = UIView()
+        foot.backgroundColor =  .white
         tableView.tableFooterView = foot
         navigationItem.title = self.titleNavi
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,6 +95,7 @@ class ReChooseViewController: UIViewController, UITableViewDelegate, UITableView
         }
         return ""
     }
+    
 
     // MARK: - picker
     private func setTimerPickerView() {
@@ -114,7 +118,7 @@ class ReChooseViewController: UIViewController, UITableViewDelegate, UITableView
             bgView?.addSubview(picker)
             picker.snp.makeConstraints{
                 $0.left.right.bottom.equalToSuperview()
-                $0.height.equalTo(210)
+                $0.height.equalTo(300)
             }
             
             // 菜单栏

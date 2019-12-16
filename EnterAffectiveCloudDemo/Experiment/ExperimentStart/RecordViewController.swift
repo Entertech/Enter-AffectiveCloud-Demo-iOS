@@ -14,7 +14,6 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var recordBtn: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    private var dimCount = 0
     var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +24,8 @@ class RecordViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
         if let chooseDim = TimeRecord.chooseDim {
-            if dimCount < chooseDim.count {
-                dimCount = chooseDim.count
+            if TimeRecord.tagCount < chooseDim.count {
+                TimeRecord.tagCount = chooseDim.count
                 SVProgressHUD.showSuccess(withStatus: "提交成功")
             }
         }
@@ -54,10 +53,10 @@ class RecordViewController: UIViewController {
                     let value: (Date, tagMark) = (Date(), .end)
                     TimeRecord.time?.append(value)
                     if let chooseDim = TimeRecord.chooseDim {
-                        dimCount = chooseDim.count
+                        TimeRecord.tagCount = chooseDim.count
                     } else {
                         TimeRecord.chooseDim = []
-                        dimCount = 0
+                        TimeRecord.tagCount = 0
                     }
                     let chooseTagViewController = ChooseTagViewController()
                     self.navigationController?.pushViewController(chooseTagViewController, animated: true)

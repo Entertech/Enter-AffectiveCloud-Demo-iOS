@@ -30,6 +30,7 @@ extension Preference {
 extension Preference {
     static var clientId = 98769875
     static let meditationTime = 60
+    static let dateFormatter = "yyyy-MM-dd HH:mm:ss"
 }
 
 extension Preference {
