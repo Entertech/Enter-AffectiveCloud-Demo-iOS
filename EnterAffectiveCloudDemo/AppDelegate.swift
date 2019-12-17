@@ -14,11 +14,11 @@ import EnterAffectiveCloud
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setup()
-        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         let loginVC = AcSettiingViewController()
         self.window?.rootViewController = loginVC
         self.window!.makeKeyAndVisible()

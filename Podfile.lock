@@ -109,7 +109,7 @@ CHECKOUT OPTIONS:
     :commit: abebfd78d1ed34162ea4d904627716bbdbc49fbd
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
   EnterBioModuleBLEUI:
-    :commit: 8dc72df2196c95dbc8aa3fbbc019ce89af2be3a7
+    :commit: 49a9ce4b3198b66bf3980d5ee80da6e855112728
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
 
 SPEC CHECKSUMS:

@@ -14,6 +14,7 @@
                 <outlet property="backgroundView" destination="904-Jg-OOF" id="E44-5J-orh"/>
                 <outlet property="brianView" destination="cce-pw-yDN" id="0ai-lH-ZKm"/>
                 <outlet property="drawerView" destination="uRT-a0-PK1" id="Qid-nT-fhi"/>
+                <outlet property="errorView" destination="WNs-4F-zID" id="SN1-Ck-grf"/>
                 <outlet property="headBar" destination="fik-5b-unW" id="RZG-MA-UtZ"/>
                 <outlet property="heartView" destination="TOQ-zN-HlE" id="Qw1-kg-buu"/>
                 <outlet property="pressureView" destination="GQ0-bu-UdW" id="NdZ-ks-SHh"/>
@@ -75,7 +76,7 @@
                                     <rect key="frame" x="0.0" y="52" width="414" height="844"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9a-z8-itT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实时监测" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afw-9M-lAn">
                                                     <rect key="frame" x="20" y="8" width="70" height="21"/>
@@ -84,69 +85,79 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cce-pw-yDN" customClass="RealtimeBrainwaveView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="20" y="77" width="374" height="321"/>
+                                                    <rect key="frame" x="20" y="188" width="374" height="321"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="321" id="1a2-Yu-v7y"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQk-8c-IId" customClass="RealtimeBrainwaveSpectrumView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="20" y="414" width="374" height="232"/>
+                                                    <rect key="frame" x="20" y="525" width="374" height="232"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="232" id="fli-Ds-3nZ"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSl-ni-2AL" customClass="RealtimeAttentionView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="20" y="715" width="177" height="152"/>
+                                                    <rect key="frame" x="20" y="826" width="177" height="152"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="152" id="QlC-wF-RjP"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bms-nz-D15" customClass="RealtimeRelaxationView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="217" y="715" width="177" height="152"/>
+                                                    <rect key="frame" x="217" y="826" width="177" height="152"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOQ-zN-HlE" customClass="RealtimeHeartRateView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="20" y="45" width="374" height="0.0"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOQ-zN-HlE" customClass="RealtimeHeartRateView" customModule="EnterAffectiveCloudUI">
+                                                    <rect key="frame" x="20" y="49" width="374" height="123"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" id="I7S-8C-AQg"/>
+                                                        <constraint firstAttribute="height" constant="123" id="I7S-8C-AQg"/>
                                                     </constraints>
                                                 </view>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-bu-UdW" customClass="RealtimePressureView" customModule="EnterAffectiveCloudUI">
-                                                    <rect key="frame" x="20" y="887" width="177" height="152"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-bu-UdW" customClass="RealtimePressureView" customModule="EnterAffectiveCloudUI">
+                                                    <rect key="frame" x="20" y="998" width="177" height="152"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="情绪面板" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGN-w5-A61">
-                                                    <rect key="frame" x="20" y="678" width="70" height="21"/>
+                                                    <rect key="frame" x="20" y="789" width="70" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNs-4F-zID" customClass="ErrorTipView" customModule="心流实验" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="45" width="374" height="0.0"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="750" id="bFX-Ia-KfC"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="EQk-8c-IId" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="13U-B0-50x"/>
                                                 <constraint firstItem="GQ0-bu-UdW" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="1C9-5x-0Ix"/>
-                                                <constraint firstAttribute="height" constant="1200" id="2Eg-NQ-52L"/>
+                                                <constraint firstAttribute="height" constant="1350" id="2Eg-NQ-52L"/>
                                                 <constraint firstItem="bms-nz-D15" firstAttribute="leading" secondItem="kSl-ni-2AL" secondAttribute="trailing" constant="20" id="4ek-qH-H7R"/>
                                                 <constraint firstItem="Afw-9M-lAn" firstAttribute="top" secondItem="P9a-z8-itT" secondAttribute="top" constant="8" id="7gK-hr-U7O"/>
                                                 <constraint firstItem="cce-pw-yDN" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="8i0-j5-OfX"/>
-                                                <constraint firstItem="TOQ-zN-HlE" firstAttribute="top" secondItem="Afw-9M-lAn" secondAttribute="bottom" constant="16" id="9eC-OC-Uv3"/>
+                                                <constraint firstItem="TOQ-zN-HlE" firstAttribute="top" secondItem="WNs-4F-zID" secondAttribute="bottom" constant="4" id="G0q-VF-NI2"/>
                                                 <constraint firstItem="TOQ-zN-HlE" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="H1Y-a7-83B"/>
                                                 <constraint firstItem="kSl-ni-2AL" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="H8j-nv-9bI"/>
+                                                <constraint firstItem="WNs-4F-zID" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="HHY-9b-xRZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="TOQ-zN-HlE" secondAttribute="trailing" constant="20" id="IR8-9f-Gdx"/>
                                                 <constraint firstItem="GQ0-bu-UdW" firstAttribute="width" secondItem="kSl-ni-2AL" secondAttribute="width" id="Ler-Hp-7CF"/>
                                                 <constraint firstItem="EQk-8c-IId" firstAttribute="top" secondItem="cce-pw-yDN" secondAttribute="bottom" constant="16" id="RRw-RY-hS8"/>
                                                 <constraint firstItem="kSl-ni-2AL" firstAttribute="top" secondItem="dGN-w5-A61" secondAttribute="bottom" constant="16" id="Sda-MY-B4x"/>
                                                 <constraint firstItem="dGN-w5-A61" firstAttribute="leading" secondItem="P9a-z8-itT" secondAttribute="leading" constant="20" id="WIA-j2-3ks"/>
                                                 <constraint firstAttribute="trailing" secondItem="bms-nz-D15" secondAttribute="trailing" constant="20" id="bwg-yd-Xcm"/>
-                                                <constraint firstItem="cce-pw-yDN" firstAttribute="top" secondItem="TOQ-zN-HlE" secondAttribute="bottom" constant="32" id="fYM-ig-OrY"/>
+                                                <constraint firstItem="WNs-4F-zID" firstAttribute="top" secondItem="Afw-9M-lAn" secondAttribute="bottom" constant="16" id="cmu-Fy-3S3"/>
+                                                <constraint firstItem="cce-pw-yDN" firstAttribute="top" secondItem="TOQ-zN-HlE" secondAttribute="bottom" constant="16" id="fYM-ig-OrY"/>
                                                 <constraint firstItem="bms-nz-D15" firstAttribute="height" secondItem="kSl-ni-2AL" secondAttribute="height" id="hby-Ro-ayU"/>
                                                 <constraint firstAttribute="trailing" secondItem="cce-pw-yDN" secondAttribute="trailing" constant="20" id="iNG-V7-s0C"/>
                                                 <constraint firstItem="GQ0-bu-UdW" firstAttribute="top" secondItem="kSl-ni-2AL" secondAttribute="bottom" constant="20" id="k5v-92-DOT"/>
+                                                <constraint firstAttribute="trailing" secondItem="WNs-4F-zID" secondAttribute="trailing" constant="20" id="lZa-G7-f5n"/>
                                                 <constraint firstItem="bms-nz-D15" firstAttribute="top" secondItem="kSl-ni-2AL" secondAttribute="top" id="nku-OM-tLP"/>
                                                 <constraint firstAttribute="trailing" secondItem="EQk-8c-IId" secondAttribute="trailing" constant="20" id="oAL-AW-JVV"/>
                                                 <constraint firstItem="bms-nz-D15" firstAttribute="width" secondItem="kSl-ni-2AL" secondAttribute="width" id="oBn-TI-52q"/>

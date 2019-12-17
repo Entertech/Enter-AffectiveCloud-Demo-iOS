@@ -9,10 +9,12 @@
 import UIKit
 import SVProgressHUD
 import EnterAffectiveCloudUI
+import EnterBioModuleBLEUI
 import RxSwift
 
 class ExperimentCenterViewController: UIViewController {
 
+    @IBOutlet weak var errorView: ErrorTipView!
     @IBOutlet weak var headBar: UILabel!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var backgroundView: BackgroundView!
@@ -65,7 +67,7 @@ class ExperimentCenterViewController: UIViewController {
                 guard let self = self else {return}
                 self.vcState = changed
         }).disposed(by: dispose)
-        
+        errorView.fixBtn.addTarget(self, action: #selector(dealwithError(sender:)), for: .touchUpInside)
         
     }
     
@@ -127,7 +129,7 @@ class ExperimentCenterViewController: UIViewController {
             
             if BLEService.shared.bleManager.state.isConnected  {
                 if !RelaxManager.shared.isWebSocketConnected {
-                    
+                    service?.firstConnect = false
                     RelaxManager.shared.start(wbDelegate: service)
                 }
             }
@@ -141,7 +143,9 @@ class ExperimentCenterViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        if !BLEService.shared.bleManager.state.isConnected {
+            self.showErrorView(.bluetooth)
+        }
 
         
     }
@@ -183,6 +187,105 @@ class ExperimentCenterViewController: UIViewController {
         self.navigationController?.pushViewController(recordVC, animated: true)
     }
     
+    
+    //MARK: Error
+    
+    private var isErrorShowing = false
+    private var currentErrorType: ErrorType  = .bluetooth
+    /// 显示错误视图
+    /// - Parameter errorType: 错误类型
+    public func showErrorView(_ errorType: ErrorType) {
+
+        if !isErrorShowing {
+            errorView.changeTipText(value: errorType)
+            DispatchQueue.main.async {
+                switch errorType {
+                case .bluetooth:
+                    
+                    self.currentErrorType = .bluetooth
+                    UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
+                        self.errorView.snp.updateConstraints{
+                            $0.height.equalTo(162)
+                        }
+                        self.view.layoutIfNeeded()
+                    }, completion:  {
+                        (complete) in
+                        self.isErrorShowing = true
+                        
+                    })
+                case .network:
+                    
+                    self.currentErrorType = .network
+                    UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
+                        self.errorView.snp.updateConstraints{
+                            $0.height.equalTo(162)
+                        }
+                        self.view.layoutIfNeeded()
+                    }, completion: {
+                        (complete) in
+                        self.isErrorShowing = true
+                        
+                    })
+                }
+            }
+            
+        }
+        
+    }
+    
+    /// 错误视图隐藏
+    /// - Parameter errType: 错误类型
+    public func dismissErrorView(_ errType: ErrorType) {
+        if isErrorShowing && errType == .network {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.errorView.snp.updateConstraints{
+                        $0.height.equalTo(0)
+                    }
+                    self.view.layoutIfNeeded()
+                }, completion: {
+                    (complete) in
+                    self.isErrorShowing = false
+                })
+            }
+            
+        } else {
+            
+            if isErrorShowing && currentErrorType == errType{
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.errorView.snp.updateConstraints{
+                            $0.height.equalTo(0)
+                        }
+                        self.view.layoutIfNeeded()
+                    }, completion: {
+                        (complete) in
+                        self.isErrorShowing = false
+                    })
+                }
+                
+            }
+        }
+    }
+    
+    @objc
+    func dealwithError(sender: UIButton) {
+        if currentErrorType == .bluetooth {
+            let ble = BLEService.shared.bleManager
+            let connection = BLEConnectViewController(bleManager: ble)
+            connection.cornerRadius = 6
+            connection.mainColor = UIColor(red: 0, green: 100.0/255.0, blue: 1, alpha: 1)
+
+            self.present(connection, animated: true, completion: nil)
+        } else if currentErrorType == .network {
+            
+            if !RelaxManager.shared.isWebSocketConnected {
+                RelaxManager.shared.websocketConnect()
+            }
+        }
+    }
+    
+    //MARK: Finish
     /// 结束体验
     func finishMeditation()  {
         if RelaxManager.shared.isWebSocketConnected {
@@ -194,6 +297,7 @@ class ExperimentCenterViewController: UIViewController {
                 if TimeRecord.tagCount > 0 {
                     let check = CheckTagViewController()
                     check.service = self.service
+                    BLEService.shared.bleManager.delegate = nil
                     self.navigationController?.pushViewController(check, animated: true)
                 } else {
                     service?.finish()
@@ -203,6 +307,7 @@ class ExperimentCenterViewController: UIViewController {
                 RelaxManager.shared.stopBLE()
                 RelaxManager.shared.clearCloudService()
                 self.navigationController?.dismiss(animated: true, completion: {
+                    BLEService.shared.bleManager.delegate = nil
                 })
             }
         } else {
@@ -211,6 +316,7 @@ class ExperimentCenterViewController: UIViewController {
             }
             
             self.navigationController?.dismiss(animated: true, completion: {
+                BLEService.shared.bleManager.delegate = nil
                 SVProgressHUD.showError(withStatus: "情感云未连接")
                 SVProgressHUD.dismiss(withDelay: 2)
                 UIViewController.currentViewController()?.navigationController?.popViewController(animated: false)
@@ -233,6 +339,7 @@ class ExperimentCenterViewController: UIViewController {
                     let data = MeditationRepository.query(Preference.clientId)
                     report.reportDB = data?.last
                     report.hidesBottomBarWhenPushed = true
+                    BLEService.shared.bleManager.delegate = nil
                     UIViewController.currentViewController()!.navigationController?.pushViewController(report, animated: true)
                 }
             })

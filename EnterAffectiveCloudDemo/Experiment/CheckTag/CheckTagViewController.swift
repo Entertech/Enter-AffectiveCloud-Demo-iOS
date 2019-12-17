@@ -198,12 +198,17 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
         let data = noti.userInfo!["biodataTagSubmit"]
         let model = data as? AffectiveCloudResponseJSONModel
         if let model = model {
-            if model.code == 0 {
-                SVProgressHUD.showError(withStatus: "上传成功")
-                service?.finish()
+            var str = "上传成功"
+            if model.code != 0 {
+                str = "上传失败, 请用本地导出"
+                SVProgressHUD.showError(withStatus: str)
             } else {
-                SVProgressHUD.showError(withStatus: "上传失败, 请用本地导出")
-                service?.finish()
+                SVProgressHUD.showSuccess(withStatus: str)
+            }
+            
+            SVProgressHUD.dismiss(withDelay: 2) {
+                SVProgressHUD.show(withStatus: "正在生成报表")
+                self.service?.finish()
             }
         }
 
@@ -263,6 +268,7 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
                         let data = MeditationRepository.query(Preference.clientId)
                         report.reportDB = data?.last
                         report.hidesBottomBarWhenPushed = true
+                        BLEService.shared.bleManager.delegate = nil
                         UIViewController.currentViewController()!.navigationController?.pushViewController(report, animated: true)
                     }
                 })

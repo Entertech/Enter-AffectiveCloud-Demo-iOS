@@ -24,7 +24,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //tableView.setContentOffset(CGPoint(x: 0, y: -tableviewOffset), animated: false)
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "分析报告"
-        let rightBtn = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: #selector(deleteCell(sender:)))
+        let rightBtn = UIBarButtonItem(title: "删除", style: .plain, target: self, action: #selector(deleteCell(sender:)))
         navigationItem.setRightBarButton(rightBtn, animated: true)
         
     }
@@ -50,6 +50,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if !tableView.isEditing {
             sender.title = "确定"
             tableView.setEditing(true, animated: true)
+            let leftBtn = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelDelete(sender:)))
+            navigationItem.setLeftBarButton(leftBtn, animated: true)
         } else {
             let data = MeditationRepository.query(Preference.clientId)
             let len = data?.count ?? 0
@@ -70,9 +72,17 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
             tableView.reloadData()
-            sender.title = "编辑"
+            sender.title = "删除"
+            navigationItem.leftBarButtonItem = nil
             tableView.setEditing(false, animated: true)
         }
+    }
+    
+    @objc
+    func cancelDelete(sender: UIBarButtonItem) {
+        tableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem?.title = "删除"
+        navigationItem.leftBarButtonItem = nil
     }
     
     let cellColors: [UIColor] = [#colorLiteral(red: 0.7803921569, green: 1, blue: 0.8941176471, alpha: 1), #colorLiteral(red: 0.8980392157, green: 0.9176470588, blue: 0.968627451, alpha: 1), #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1), #colorLiteral(red: 1, green: 0.9058823529, blue: 0.9019607843, alpha: 1)]

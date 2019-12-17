@@ -20,9 +20,8 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     private let userId = "\(Preference.clientId)"
     private var suspendTime:[(Date, Bool)] = [] //(触发时间， 是否连接)
     private var suspendArray:[(Date, Date)]?
-    private var firstConnect: Bool = true
+    public var firstConnect: Bool = true
     private var isGetAllReport = false
-    private var lastConnectState: BLEConnectionState = .disconnected
     ///给出中断记录
     private var isDeviceConnect: Bool = false {
         willSet {
@@ -81,13 +80,16 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         switch state{
         case .connected:
             meditationVC?.dismissErrorView(.network)
+            tagVC?.dismissErrorView(.network)
             //RelaxManager.shared.sessionCreate(userID: userId)
         case .disconnected:
             RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
+            tagVC?.showErrorView(.network)
         case .none:
             RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
+            tagVC?.showErrorView(.network)
         }
     }
     
@@ -293,7 +295,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         }
     }
     
-    var bleState: BLEConnectionState = .connecting
+    var lastConnectState: BLEConnectionState = .connecting
     //MARK: - ble delegate
     func bleConnectionStateChanged(state: BLEConnectionState, bleManager: BLEManager) {
         if state == lastConnectState {
@@ -312,7 +314,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             }
             DispatchQueue.main.async {
                 self.meditationVC?.dismissErrorView(.bluetooth)
-
+                self.tagVC?.dismissErrorView(.bluetooth)
             }
             if !isPlayed {
                 self.isPlayed = true
@@ -325,12 +327,15 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             isDeviceConnect = false
             DispatchQueue.main.async {
                 self.meditationVC?.showErrorView(.bluetooth)
+                self.tagVC?.showErrorView(.bluetooth)
                 self.isPlayed = false
                 if state == .disconnected {
                     self.playErrorSound()
                 }
             }
-            RelaxManager.shared.websocketDisconnect()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
+                RelaxManager.shared.websocketDisconnect()
+            }
 
         }
     }

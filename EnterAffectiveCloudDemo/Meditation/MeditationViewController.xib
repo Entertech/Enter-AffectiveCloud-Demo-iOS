@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeditationViewController" customModule="心流" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeditationViewController" customModule="心流实验" customModuleProvider="target">
             <connections>
                 <outlet property="attentionView" destination="jVd-mP-7kC" id="i2k-KM-HXP"/>
                 <outlet property="brainBoard" destination="gZG-fa-YKA" id="sQe-eW-Drl"/>
@@ -69,7 +69,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ke0-nI-Ga4">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Al9-8e-vJ7" customClass="ErrorTipView" customModule="心流" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Al9-8e-vJ7" customClass="ErrorTipView" customModule="心流实验" customModuleProvider="target">
                                     <rect key="frame" x="16" y="8" width="382" height="162"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>

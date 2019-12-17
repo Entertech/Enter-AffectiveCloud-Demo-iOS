@@ -171,8 +171,8 @@ class ReportViewController: UIViewController {
                     heartRateView.snp.remakeConstraints{
                         $0.left.equalToSuperview().offset(16)
                         $0.right.equalToSuperview().offset(-16)
-                        //$0.height.equalTo(290)
-                        $0.height.equalTo(0)
+                        $0.height.equalTo(290)
+                        //$0.height.equalTo(0)
                     }
                 }
                 heartRateView.isHidden = !isShowArray[index]
@@ -194,8 +194,8 @@ class ReportViewController: UIViewController {
                     hrvView.snp.remakeConstraints{
                         $0.left.equalToSuperview().offset(16)
                         $0.right.equalToSuperview().offset(-16)
-                        //$0.height.equalTo(260)
-                        $0.height.equalTo(0)
+                        $0.height.equalTo(260)
+                        //$0.height.equalTo(0)
                     }
                 }
                 heartRateView.isHidden = !isShowArray[index]
@@ -228,8 +228,8 @@ class ReportViewController: UIViewController {
                     pressureView.snp.remakeConstraints{
                         $0.left.equalToSuperview().offset(16)
                         $0.right.equalToSuperview().offset(-16)
-                        //$0.height.equalTo(200)
-                        $0.height.equalTo(0)
+                        $0.height.equalTo(200)
+                        //$0.height.equalTo(0)
                     }
                 }
                 pressureView.isHidden = !isShowArray[index]

@@ -209,7 +209,6 @@ class AcSettiingViewController: UIViewController, UITextFieldDelegate {
                                 SVProgressHUD.dismiss(withDelay: 2)
                             }
                         }
-
                     }
                 }
                 

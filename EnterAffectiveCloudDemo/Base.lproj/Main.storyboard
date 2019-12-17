@@ -353,7 +353,7 @@
         <image name="first" width="24" height="24"/>
         <image name="green" width="178" height="178"/>
         <image name="icon_flowtime_disconnected" width="32" height="32"/>
-        <image name="imagelogo" width="45" height="45"/>
+        <image name="imagelogo" width="100" height="100"/>
         <image name="red" width="178" height="178"/>
         <image name="second" width="24" height="24"/>
         <image name="third" width="24" height="24"/>
