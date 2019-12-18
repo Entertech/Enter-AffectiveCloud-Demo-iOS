@@ -227,7 +227,7 @@ class MeditationViewController: UIViewController {
             
         } else {
             
-            if isErrorViewShowing && currentErrorType == errType{
+            if isErrorViewShowing && currentErrorType == errType {
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
                         self.errorView.snp.updateConstraints{
@@ -239,7 +239,6 @@ class MeditationViewController: UIViewController {
                         self.isErrorViewShowing = false
                     })
                 }
-                
             }
         }
     }
