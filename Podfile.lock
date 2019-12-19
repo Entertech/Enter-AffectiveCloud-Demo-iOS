@@ -12,12 +12,12 @@ PODS:
     - EnterAffectiveCloud (= 1.3.7)
     - RxSwift (= 5.0)
     - SnapKit
-  - EnterBioModuleBLE (1.2.5):
+  - EnterBioModuleBLE (1.2.6):
     - FixedDFUService
     - PromiseKit
     - RxBluetoothKit
-  - EnterBioModuleBLEUI (1.2.5):
-    - EnterBioModuleBLE (= 1.2.5)
+  - EnterBioModuleBLEUI (1.2.6):
+    - EnterBioModuleBLE (= 1.2.6)
     - SnapKit
   - FixedDFUService (4.1.2):
     - Zip (~> 1.0)
@@ -49,16 +49,15 @@ PODS:
 DEPENDENCIES:
   - EnterAffectiveCloud (~> 1.3.7)
   - EnterAffectiveCloudUI (~> 1.3.7)
-  - EnterBioModuleBLE (~> 1.2.5)
-  - EnterBioModuleBLEUI (~> 1.2.5)
+  - EnterBioModuleBLE (~> 1.2.6)
+  - EnterBioModuleBLEUI (~> 1.2.6)
   - RealmSwift
   - SnapKit
   - SVProgressHUD
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Charts
-    - EnterAffectiveCloud
     - EnterAffectiveCloudUI
     - EnterBioModuleBLE
     - EnterBioModuleBLEUI
@@ -69,19 +68,21 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RxBluetoothKit
-    - RxSwift
     - SnapKit
     - Starscream
     - SVProgressHUD
     - SwiftyJSON
     - Zip
+  trunk:
+    - EnterAffectiveCloud
+    - RxSwift
 
 SPEC CHECKSUMS:
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   EnterAffectiveCloud: c218f5c223de157fe7dbb133d48d162afc10d966
   EnterAffectiveCloudUI: bdfbfa06ed6a405ae575f684e814d11cb580f9ab
-  EnterBioModuleBLE: 30a1028260b552573b8b12c7bcf81da7dcd6fcd1
-  EnterBioModuleBLEUI: 8c7818ea7062b32f08c8e75b1cef4db76faee8cf
+  EnterBioModuleBLE: a926b959874a1a1425fc1662e2b3c95e8421ba44
+  EnterBioModuleBLEUI: 6284919ea21699df9ff392052612b0288e241db0
   FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
@@ -96,6 +97,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 344e818b0ac8b8821d9aca721033344d44156e28
+PODFILE CHECKSUM: dad21db4f7e7090218a1554aef58db164e9692d9
 
 COCOAPODS: 1.8.3
