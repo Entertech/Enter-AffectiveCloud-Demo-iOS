@@ -68,16 +68,35 @@ class RelaxManager: BLEBioModuleDataSource {
     
     // start cloud services. such as .EEG and .HeartRate
     func startCloudService() {
-        var sex: String? = nil
-        var age: Int? = nil
-        if let kSex = PersonalInfo.sex {
-            sex = kSex == 0 ? "m":"f"
+        var kSex: String? = nil
+        var kAge: Int? = nil
+        var kMode: [Int]? = nil
+        var kCase: [Int]? = nil
+        if let sex = PersonalInfo.sex {
+            kSex = sex == 0 ? "m":"f"
         }
-        if let kAge = PersonalInfo.age {
-            age = Int(kAge)
+        if let age = PersonalInfo.age {
+            kAge = Int(age)
         }
+        
+        if let cases = ACTagModel.shared.tagModels {
+            if let id = cases[ACTagModel.shared.currentCase].id {
+                kCase = [id]
+            }
+            if let modeArray = cases[ACTagModel.shared.currentCase].mode {
+                var modeId: [Int] = []
+                modeArray.forEach { (mode) in
+                    modeId.append(mode.id!)
+                }
+                kMode = modeId
+                
+            }
+
+        }
+        
+        
         // 开启生物信号
-        self.client?.initBiodataServices(services: [.EEG, .HeartRate], tolerance: ["eeg": 4], sex: sex, age: age)
+        self.client?.initBiodataServices(services: [.EEG, .HeartRate], tolerance: ["eeg": 4], sex: kSex, age: kAge, mode: kMode, cases: kCase)
         
 
         // 开启情感数据

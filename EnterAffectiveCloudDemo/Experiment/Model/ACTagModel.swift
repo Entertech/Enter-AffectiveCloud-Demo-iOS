@@ -12,7 +12,7 @@ class ACTagModel {
     static let shared = ACTagModel()
     
     var tagModels: [TagModel]?
-    var currentTag: Int = 0
+    var currentCase: Int = 0
     
 }
 

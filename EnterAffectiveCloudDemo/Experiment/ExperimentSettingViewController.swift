@@ -52,7 +52,7 @@ class ExperimentSettingViewController: UIViewController, UITableViewDelegate, UI
         }
         cell.accessoryType = .detailButton
         if let models = ACTagModel.shared.tagModels {
-            if index == ACTagModel.shared.currentTag {
+            if index == ACTagModel.shared.currentCase {
                 cell.imageView?.image = #imageLiteral(resourceName: "choose")
             }
             
@@ -62,7 +62,7 @@ class ExperimentSettingViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ACTagModel.shared.currentTag = indexPath.row
+        ACTagModel.shared.currentCase = indexPath.row
         tableView.reloadData()
     }
     

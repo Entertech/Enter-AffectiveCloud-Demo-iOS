@@ -35,7 +35,7 @@ class RecordViewController: UIViewController {
     
     func setUI() {
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             titleLabel.text = models[currentTag].name_cn
         }
         

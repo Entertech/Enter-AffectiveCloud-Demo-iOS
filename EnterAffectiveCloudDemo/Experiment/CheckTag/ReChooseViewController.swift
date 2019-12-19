@@ -164,7 +164,7 @@ class ReChooseViewController: UIViewController, UITableViewDelegate, UITableView
     private func okTouchupInside() {
         
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             if let tags = models[currentTag].tag {
                 if let dim = tags[selectRow].dim {
                     TimeRecord.chooseDim![index][selectRow] = dim[picker.selectedRow(inComponent: 0)]
@@ -181,7 +181,7 @@ class ReChooseViewController: UIViewController, UITableViewDelegate, UITableView
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             if let tags = models[currentTag].tag {
                 if let dim = tags[selectRow].dim {
                     return dim.count
@@ -193,7 +193,7 @@ class ReChooseViewController: UIViewController, UITableViewDelegate, UITableView
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             if let tags = models[currentTag].tag {
                 if let dim = tags[selectRow].dim {
                     return dim[row].name_cn

@@ -87,7 +87,7 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
                 dict.removeAll()
                 var tagsName:[String] = []
                 if let models = ACTagModel.shared.tagModels {
-                    let currentTag = ACTagModel.shared.currentTag
+                    let currentTag = ACTagModel.shared.currentCase
                     if let tags = models[currentTag].tag {
                         for index in 0..<tags.count {
                             tagsName.append(tags[index].name_en!)

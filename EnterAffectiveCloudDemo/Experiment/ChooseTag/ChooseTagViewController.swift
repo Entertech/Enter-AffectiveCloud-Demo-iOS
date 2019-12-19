@@ -22,13 +22,14 @@ class ChooseTagViewController: UIViewController, UICollectionViewDelegate, UICol
     var tagCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = false
+        
         setUI()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     lazy var flow:UICollectionViewFlowLayout = {
@@ -77,7 +78,7 @@ class ChooseTagViewController: UIViewController, UICollectionViewDelegate, UICol
         if let _ = TimeRecord.chooseDim {
             var dimArray: [DimModel] = []
             if let models = ACTagModel.shared.tagModels {
-                let currentTag = ACTagModel.shared.currentTag
+                let currentTag = ACTagModel.shared.currentCase
                 if let tags = models[currentTag].tag {
                     for e in 0..<tagCount {
                         if let dims = tags[e].dim, let selectTag = selectTag {
@@ -109,7 +110,7 @@ class ChooseTagViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             if let tags = models[currentTag].tag {
                 tagCount = tags.count
                 selectTag = Array(repeating: 9999, count: tagCount)
@@ -124,7 +125,7 @@ class ChooseTagViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             if let tags = models[currentTag].tag {
                 
                 if let dims = tags[section].dim {
@@ -142,7 +143,7 @@ class ChooseTagViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView .dequeueReusableCell(withReuseIdentifier: "BtnCollectionViewCell", for: indexPath) as! BtnCollectionViewCell
         
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             if let tags = models[currentTag].tag {
                 if let dim = tags[indexPath.section].dim {
                     print("section: \(indexPath.section) row: \(indexPath.row)")
@@ -161,7 +162,7 @@ class ChooseTagViewController: UIViewController, UICollectionViewDelegate, UICol
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
             if let models = ACTagModel.shared.tagModels {
-                let currentTag = ACTagModel.shared.currentTag
+                let currentTag = ACTagModel.shared.currentCase
                 if let tags = models[currentTag].tag {
                     label.text = tags[indexPath.section].name_cn
                 }
@@ -178,7 +179,7 @@ class ChooseTagViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let models = ACTagModel.shared.tagModels {
-            let currentTag = ACTagModel.shared.currentTag
+            let currentTag = ACTagModel.shared.currentCase
             if let tags = models[currentTag].tag {
                 if let dim = tags[indexPath.section].dim {
                     for (i, _) in dim.enumerated() {
