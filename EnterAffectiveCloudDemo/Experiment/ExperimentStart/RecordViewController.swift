@@ -50,7 +50,7 @@ class RecordViewController: UIViewController {
         if let record = TimeRecord.time {
             if let last = record.last {
                 if last.1 == .start {
-                    let value: (Date, tagMark) = (Date(), .end)
+                    let value: (CGFloat, tagMark) = (0.36*CGFloat(TimeRecord.packageCount), .end)
                     TimeRecord.time?.append(value)
                     if let chooseDim = TimeRecord.chooseDim {
                         TimeRecord.tagCount = chooseDim.count
@@ -62,19 +62,19 @@ class RecordViewController: UIViewController {
                     self.navigationController?.pushViewController(chooseTagViewController, animated: true)
                     
                 } else {
-                    let value: (Date, tagMark) = (Date(), .start)
+                    let value: (CGFloat, tagMark) = (0.36*CGFloat(TimeRecord.packageCount), .start)
                     TimeRecord.time?.append(value)
                     changeUI(isStop: false)
                 }
             } else {
-                let value: (Date, tagMark) = (Date(), .start)
+                let value: (CGFloat, tagMark) = (0.36*CGFloat(TimeRecord.packageCount), .start)
                 TimeRecord.time?.append(value)
                 changeUI(isStop: false)
             }
             
         } else {
             TimeRecord.time = []
-            let value: (Date, tagMark) = (Date(), .start)
+            let value: (CGFloat, tagMark) = (0.36*CGFloat(TimeRecord.packageCount), .start)
             TimeRecord.time?.append(value)
             changeUI(isStop: false)
         }

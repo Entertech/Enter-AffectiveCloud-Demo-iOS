@@ -13,7 +13,6 @@ class ACTagModel {
     
     var tagModels: [TagModel]?
     var currentCase: Int = 0
-    
 }
 
 struct PersonalInfo {
@@ -30,9 +29,10 @@ struct TimeRecord {
     
     /// 第一个参数时间,
     static var startTime: Date?
-    static var time:[(Date, tagMark)]?
+    static var time:[(CGFloat, tagMark)]?
     static var chooseDim: [[DimModel]]?
     static var tagCount = 0
+    static var packageCount = 0
 }
 
 struct TagSaveModel {
@@ -41,7 +41,7 @@ struct TagSaveModel {
     var age: String?
     var sex: String?
     var startTime: String?
-    var time:[String]?
+    var time:[CGFloat]?
     var chooseDimName: [[String]]?
 }
 
@@ -65,7 +65,7 @@ extension TagSaveModel {
         }
         
         for e in self.time! {
-            model.time.append(e)
+            model.time.append(Float(e))
         }
 
         return model

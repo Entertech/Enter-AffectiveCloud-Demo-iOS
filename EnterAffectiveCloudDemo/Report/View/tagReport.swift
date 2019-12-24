@@ -80,13 +80,8 @@ class TagReport: UIView , UITableViewDelegate, UITableViewDataSource{
         }
         cell.accessoryType = .disclosureIndicator
         if let query = query {
-            let formatter = DateFormatter()
-            formatter.dateFormat = Preference.dateFormatter
-            let from = formatter.date(from: query.time[row*2])!
-            let to = formatter.date(from: query.time[row*2+1])!
-            let startTime = formatter.date(from: query.startTime)!
-            let fromTime = from.timeIntervalSince(startTime)
-            let toTime = to.timeIntervalSince(startTime)
+            let fromTime = query.time[row*2]
+            let toTime = query.time[row*2+1]
             let fromLeft = Int(fromTime)/60
             let fromRight = Int(fromTime)%60
             let toLeft = Int(toTime)/60

@@ -21,7 +21,7 @@ class DBTagSave: Object {
     dynamic var sex: String = ""
     @objc
     dynamic var startTime: String = ""
-    let time = List<String>()
+    let time = List<Float>()
     let chooseDimName = List<DBChooseDimName>()
 }
 

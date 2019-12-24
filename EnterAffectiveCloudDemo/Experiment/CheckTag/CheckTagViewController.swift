@@ -28,6 +28,7 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
     weak var delegate: ShowReportDelegate?
     private var reportList: [DBMeditation] = []
     private var isSaveTag = false
+    private var isSubmitSuccess = false
     var service: MeditationService?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +79,8 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
             for (i,e) in chooseDims.enumerated() {
                 let temp = CSLabelSubmitJSONModel()
                 if let timeRecord = TimeRecord.time, let startTime = TimeRecord.startTime {
-                    let fromTime = timeRecord[i*2].0.timeIntervalSince(startTime)
-                    let toTime = timeRecord[i*2+1].0.timeIntervalSince(startTime)
+                    let fromTime = timeRecord[i*2].0
+                    let toTime = timeRecord[i*2+1].0
                     temp.st = Int(fromTime)
                     temp.et = Int(toTime)
                 }
@@ -129,8 +130,16 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
                 isSaveTag = true
                 
             }
+            
+            if !isSubmitSuccess {
+                RelaxManager.shared.tagSubmit(tags: rec)
+            } else  {
+                SVProgressHUD.dismiss(withDelay: 2) {
+                    SVProgressHUD.show(withStatus: "正在生成报表")
+                    self.service?.finish()
+                }
+            }
 
-            RelaxManager.shared.tagSubmit(tags: rec)
         }
 
         SVProgressHUD.dismiss(withDelay: 15) {
@@ -162,8 +171,8 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
         }
         cell.accessoryType = .disclosureIndicator
         if let timeRecord = TimeRecord.time, let startTime = TimeRecord.startTime {
-            let fromTime = timeRecord[index*2].0.timeIntervalSince(startTime)
-            let toTime = timeRecord[index*2+1].0.timeIntervalSince(startTime)
+            let fromTime = timeRecord[index*2].0
+            let toTime = timeRecord[index*2+1].0
             let fromLeft = Int(fromTime)/60
             let fromRight = Int(fromTime)%60
             let toLeft = Int(toTime)/60
@@ -203,6 +212,7 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
                 str = "上传失败, 请用本地导出"
                 SVProgressHUD.showError(withStatus: str)
             } else {
+                isSubmitSuccess = true
                 SVProgressHUD.showSuccess(withStatus: str)
             }
             
@@ -239,8 +249,7 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
         }
         dbModel.time = []
         for e in TimeRecord.time! {
-            let str  = formatter.string(from: e.0)
-            dbModel.time?.append(str)
+            dbModel.time?.append(e.0)
         }
         
         TagRepository.create(dbModel.mapperToDBModel()) { (flag) in
@@ -255,6 +264,8 @@ class CheckTagViewController: UIViewController, UITableViewDelegate, UITableView
             TimeRecord.time?.removeAll()
             TimeRecord.time = nil
             TimeRecord.tagCount  = 0
+            
+            TimeRecord.packageCount = 0
             
         }
         

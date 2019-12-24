@@ -77,6 +77,8 @@ class PersonalViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         TimeRecord.time?.removeAll()
         TimeRecord.time = nil
         TimeRecord.tagCount  = 0
+        
+        TimeRecord.packageCount = 0
     }
     
     // MARK: - picker

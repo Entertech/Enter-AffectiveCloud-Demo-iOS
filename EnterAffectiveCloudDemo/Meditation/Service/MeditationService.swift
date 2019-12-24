@@ -151,6 +151,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     }
     
     func biodataServicesSubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
+        if let data = response.dataModel as? CSBiodataProcessJSONModel {
+            if let _ = data.eeg {
+                TimeRecord.packageCount += 1
+            }
+        }
+        
         if let _ = response.dataModel as? CSResponseBiodataSubscribeJSONModel {
             RelaxManager.shared.setupBLE()
         
