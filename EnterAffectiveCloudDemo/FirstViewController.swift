@@ -47,9 +47,14 @@ class FirstViewController: UIViewController {
     }
 
     @IBAction func showMeditation(_ sender: Any) {
-        let medition = MeditationViewController()
-        medition.modalPresentationStyle = .fullScreen
-        self.present(medition, animated: true, completion: nil)
+        if BLEService.shared.bleManager.state == .disconnected {
+            SVProgressHUD.showError(withStatus: "请先连接设备")
+        } else {
+            let medition = MeditationViewController()
+            medition.modalPresentationStyle = .fullScreen
+            self.present(medition, animated: true, completion: nil)
+        }
+
     }
     @IBAction func connectBLE(_ sender: Any) {
         let ble = BLEService.shared.bleManager

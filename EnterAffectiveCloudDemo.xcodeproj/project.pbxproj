@@ -27,8 +27,6 @@
 		FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */; };
 		FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B17582381512C00D5192D /* ReportTableViewCell.swift */; };
 		FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12C92396620500E96B02 /* WebSocket.plist */; };
-		FA3D12CD2397BBD900E96B02 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12CC2397BBD900E96B02 /* Config.plist */; };
-		FA56820423A9F66200FF1A68 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56820323A9F66200FF1A68 /* Extension.swift */; };
 		FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */; };
 		FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */; };
 		FA5F0AAD237A819A00A21BF9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAC237A819A00A21BF9 /* FirstViewController.swift */; };
@@ -74,8 +72,6 @@
 		FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewSortViewController.swift; sourceTree = "<group>"; };
 		FA3B17582381512C00D5192D /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		FA3D12C92396620500E96B02 /* WebSocket.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WebSocket.plist; sourceTree = "<group>"; };
-		FA3D12CC2397BBD900E96B02 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		FA56820323A9F66200FF1A68 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FA5F0AA5237A819A00A21BF9 /* 心流.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "心流.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,7 +227,6 @@
 				FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */,
 				FA5F0AB8237A819B00A21BF9 /* Info.plist */,
 				FA3D12C92396620500E96B02 /* WebSocket.plist */,
-				FA3D12CC2397BBD900E96B02 /* Config.plist */,
 			);
 			path = EnterAffectiveCloudDemo;
 			sourceTree = "<group>";
@@ -245,7 +240,6 @@
 				FA68EC9A237E493B00518D00 /* FTFileManager.swift */,
 				FA060793237E2FBD00D0BB30 /* Preference.swift */,
 				FA68EC98237E47C700518D00 /* SoundPlayer.swift */,
-				FA56820323A9F66200FF1A68 /* Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -347,7 +341,6 @@
 			files = (
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
-				FA3D12CD2397BBD900E96B02 /* Config.plist in Resources */,
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
@@ -436,7 +429,6 @@
 				FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */,
 				FAAE3B282381174C004E79B4 /* BaseRepository.swift in Sources */,
 				FA060799237E37EF00D0BB30 /* MeditationModel.swift in Sources */,
-				FA56820423A9F66200FF1A68 /* Extension.swift in Sources */,
 				FA0404D223816867008DB43C /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

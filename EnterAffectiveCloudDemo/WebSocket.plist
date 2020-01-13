@@ -4,7 +4,7 @@
 <dict>
     <key>AppKey</key>
     <string></string>
-    <key>WebSocketAdderss</key>
+    <key>WebSocketAddress</key>
     <string>wss://server.affectivecloud.cn/ws/algorithm/v1/</string>
     <key>AppSecret</key>
     <string></string>
