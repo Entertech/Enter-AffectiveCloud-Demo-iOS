@@ -7,7 +7,7 @@ def sdk
   pod 'EnterBioModuleBLE', :git=> "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
   pod 'EnterBioModuleBLEUI', :git=> "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
   pod 'EnterAffectiveCloud', :git=> "https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git"
-  pod 'EnterAffectiveCloudUI', "~> 1.3.7"
+  pod 'EnterAffectiveCloudUI', :git=> "https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git"
 end
 
 def other
