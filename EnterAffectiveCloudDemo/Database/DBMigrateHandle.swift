@@ -15,7 +15,7 @@ class DBMigrateHandle {
      *
      *  v1: 上线产品
      */
-    static let kShouldMigrateVersion: UInt64 = 1
+    static let kShouldMigrateVersion: UInt64 = 2
     static func shouldMigrate(for url: URL) -> Bool {
         do {
             let lastVersion = try schemaVersionAtURL(url)
@@ -33,7 +33,10 @@ class DBMigrateHandle {
             fileURL: url,
             schemaVersion: kShouldMigrateVersion,
             migrationBlock: { migrate, oldVersion in
-                //TODO: migrate content
+                if oldVersion < 2 {
+
+                }
+                finish?()
         })
 
         Realm.Configuration.defaultConfiguration = config

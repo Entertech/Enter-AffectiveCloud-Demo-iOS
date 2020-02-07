@@ -16,6 +16,23 @@
 		FA060794237E2FBD00D0BB30 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060793237E2FBD00D0BB30 /* Preference.swift */; };
 		FA060796237E365900D0BB30 /* MeditationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060795237E365900D0BB30 /* MeditationService.swift */; };
 		FA060799237E37EF00D0BB30 /* MeditationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060798237E37EF00D0BB30 /* MeditationModel.swift */; };
+		FA0D4F9023CD8EC10084EBD1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D4F8F23CD8EC10084EBD1 /* BaseView.swift */; };
+		FA0D4F9623CDC5580084EBD1 /* MeditationForPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D4F9423CDC5580084EBD1 /* MeditationForPadViewController.swift */; };
+		FA1B69BE23EA975900115FA1 /* AffectiveRealtimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B69BD23EA975900115FA1 /* AffectiveRealtimeView.swift */; };
+		FA1B69CD23EBE5BE00115FA1 /* P0-40A0-25.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C023EBE5BE00115FA1 /* P0-40A0-25.gif */; };
+		FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C123EBE5BE00115FA1 /* else.gif */; };
+		FA1B69CF23EBE5BE00115FA1 /* P78-100A75-100.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C223EBE5BE00115FA1 /* P78-100A75-100.gif */; };
+		FA1B69D023EBE5BE00115FA1 /* P45-55A75-100.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C323EBE5BE00115FA1 /* P45-55A75-100.gif */; };
+		FA1B69D123EBE5BE00115FA1 /* P55-78A75-100.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C423EBE5BE00115FA1 /* P55-78A75-100.gif */; };
+		FA1B69D223EBE5BE00115FA1 /* P0-40A25-50.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C523EBE5BE00115FA1 /* P0-40A25-50.gif */; };
+		FA1B69D323EBE5BE00115FA1 /* P60-100A25-50.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C623EBE5BE00115FA1 /* P60-100A25-50.gif */; };
+		FA1B69D423EBE5BE00115FA1 /* P22-45A75-100.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C723EBE5BE00115FA1 /* P22-45A75-100.gif */; };
+		FA1B69D523EBE5BE00115FA1 /* P60-100A0-25.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C823EBE5BE00115FA1 /* P60-100A0-25.gif */; };
+		FA1B69D623EBE5BE00115FA1 /* P0-45A50-75.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C923EBE5BE00115FA1 /* P0-45A50-75.gif */; };
+		FA1B69D723EBE5BE00115FA1 /* P0-22A75-100.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69CA23EBE5BE00115FA1 /* P0-22A75-100.gif */; };
+		FA1B69D823EBE5BE00115FA1 /* P40-60A0-25.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69CB23EBE5BE00115FA1 /* P40-60A0-25.gif */; };
+		FA1B69D923EBE5BE00115FA1 /* P75-100A50-75.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69CC23EBE5BE00115FA1 /* P75-100A50-75.gif */; };
+		FA1B69DB23EBE8F500115FA1 /* EmotionDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B69DA23EBE8F500115FA1 /* EmotionDemoView.swift */; };
 		FA2A068B237BF67000BEB75E /* BLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A068A237BF67000BEB75E /* BLEService.swift */; };
 		FA2A0694237D2A2500BEB75E /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A0692237D2A2500BEB75E /* MeditationViewController.swift */; };
 		FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A0693237D2A2500BEB75E /* MeditationViewController.xib */; };
@@ -36,6 +53,7 @@
 		FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */; };
 		FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC98237E47C700518D00 /* SoundPlayer.swift */; };
 		FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC9A237E493B00518D00 /* FTFileManager.swift */; };
+		FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88F9B623D438A8008CD669 /* Pad.storyboard */; };
 		FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1923800515004E79B4 /* ReportViewController.swift */; };
 		FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAE3B1A23800515004E79B4 /* ReportViewController.xib */; };
 		FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1E2381174C004E79B4 /* DBOperation.swift */; };
@@ -47,6 +65,27 @@
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
+		FAF16BED23CC573600A92B0B /* WearStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BEC23CC573600A92B0B /* WearStateView.swift */; };
+		FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BEE23CC5B7C00A92B0B /* Config.plist */; };
+		FAF16BF423CC737700A92B0B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF223CC737600A92B0B /* Extension.swift */; };
+		FAF16C1123CC76D400A92B0B /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF923CC76D400A92B0B /* ReportService.swift */; };
+		FAF16C1223CC76D400A92B0B /* PressureReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */; };
+		FAF16C1323CC76D400A92B0B /* PressureReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BFC23CC76D400A92B0B /* PressureReportViewController.swift */; };
+		FAF16C1423CC76D400A92B0B /* MainReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BFD23CC76D400A92B0B /* MainReportViewController.swift */; };
+		FAF16C1723CC76D400A92B0B /* HRVReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0223CC76D400A92B0B /* HRVReportViewController.swift */; };
+		FAF16C1823CC76D400A92B0B /* HRVReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0323CC76D400A92B0B /* HRVReportViewController.xib */; };
+		FAF16C1923CC76D400A92B0B /* HRReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0523CC76D400A92B0B /* HRReportViewController.swift */; };
+		FAF16C1A23CC76D400A92B0B /* HRReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0623CC76D400A92B0B /* HRReportViewController.xib */; };
+		FAF16C1C23CC76D400A92B0B /* MainReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0823CC76D400A92B0B /* MainReportViewController.xib */; };
+		FAF16C1D23CC76D400A92B0B /* BrainwaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0A23CC76D400A92B0B /* BrainwaveViewController.swift */; };
+		FAF16C1E23CC76D400A92B0B /* BrainwaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0B23CC76D400A92B0B /* BrainwaveViewController.xib */; };
+		FAF16C1F23CC76D400A92B0B /* RAndAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0D23CC76D400A92B0B /* RAndAViewController.swift */; };
+		FAF16C2023CC76D400A92B0B /* RAndAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0E23CC76D400A92B0B /* RAndAViewController.xib */; };
+		FAF16C2723CC772B00A92B0B /* StatisticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2323CC772B00A92B0B /* StatisticsReport.swift */; };
+		FAF16C2823CC772B00A92B0B /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2423CC772B00A92B0B /* IntroductionView.swift */; };
+		FAF16C2923CC772B00A92B0B /* ReportAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2523CC772B00A92B0B /* ReportAboutView.swift */; };
+		FAF16C2A23CC772B00A92B0B /* CourseReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2623CC772B00A92B0B /* CourseReport.swift */; };
+		FAF16C2C23CD5F1200A92B0B /* ReportNewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2B23CD5F1200A92B0B /* ReportNewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +100,23 @@
 		FA060793237E2FBD00D0BB30 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		FA060795237E365900D0BB30 /* MeditationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationService.swift; sourceTree = "<group>"; };
 		FA060798237E37EF00D0BB30 /* MeditationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationModel.swift; sourceTree = "<group>"; };
+		FA0D4F8F23CD8EC10084EBD1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		FA0D4F9423CDC5580084EBD1 /* MeditationForPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationForPadViewController.swift; sourceTree = "<group>"; };
+		FA1B69BD23EA975900115FA1 /* AffectiveRealtimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectiveRealtimeView.swift; sourceTree = "<group>"; };
+		FA1B69C023EBE5BE00115FA1 /* P0-40A0-25.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P0-40A0-25.gif"; sourceTree = "<group>"; };
+		FA1B69C123EBE5BE00115FA1 /* else.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = else.gif; sourceTree = "<group>"; };
+		FA1B69C223EBE5BE00115FA1 /* P78-100A75-100.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P78-100A75-100.gif"; sourceTree = "<group>"; };
+		FA1B69C323EBE5BE00115FA1 /* P45-55A75-100.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P45-55A75-100.gif"; sourceTree = "<group>"; };
+		FA1B69C423EBE5BE00115FA1 /* P55-78A75-100.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P55-78A75-100.gif"; sourceTree = "<group>"; };
+		FA1B69C523EBE5BE00115FA1 /* P0-40A25-50.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P0-40A25-50.gif"; sourceTree = "<group>"; };
+		FA1B69C623EBE5BE00115FA1 /* P60-100A25-50.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P60-100A25-50.gif"; sourceTree = "<group>"; };
+		FA1B69C723EBE5BE00115FA1 /* P22-45A75-100.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P22-45A75-100.gif"; sourceTree = "<group>"; };
+		FA1B69C823EBE5BE00115FA1 /* P60-100A0-25.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P60-100A0-25.gif"; sourceTree = "<group>"; };
+		FA1B69C923EBE5BE00115FA1 /* P0-45A50-75.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P0-45A50-75.gif"; sourceTree = "<group>"; };
+		FA1B69CA23EBE5BE00115FA1 /* P0-22A75-100.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P0-22A75-100.gif"; sourceTree = "<group>"; };
+		FA1B69CB23EBE5BE00115FA1 /* P40-60A0-25.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P40-60A0-25.gif"; sourceTree = "<group>"; };
+		FA1B69CC23EBE5BE00115FA1 /* P75-100A50-75.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P75-100A50-75.gif"; sourceTree = "<group>"; };
+		FA1B69DA23EBE8F500115FA1 /* EmotionDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDemoView.swift; sourceTree = "<group>"; };
 		FA2A068A237BF67000BEB75E /* BLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEService.swift; sourceTree = "<group>"; };
 		FA2A0692237D2A2500BEB75E /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 		FA2A0693237D2A2500BEB75E /* MeditationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeditationViewController.xib; sourceTree = "<group>"; };
@@ -84,6 +140,7 @@
 		FA5F0AC5237BD3FE00A21BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		FA68EC98237E47C700518D00 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		FA68EC9A237E493B00518D00 /* FTFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTFileManager.swift; sourceTree = "<group>"; };
+		FA88F9B623D438A8008CD669 /* Pad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pad.storyboard; sourceTree = "<group>"; };
 		FAAE3B1923800515004E79B4 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		FAAE3B1A23800515004E79B4 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		FAAE3B1E2381174C004E79B4 /* DBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBOperation.swift; sourceTree = "<group>"; };
@@ -95,6 +152,27 @@
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
+		FAF16BEC23CC573600A92B0B /* WearStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearStateView.swift; sourceTree = "<group>"; };
+		FAF16BEE23CC5B7C00A92B0B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		FAF16BF223CC737600A92B0B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		FAF16BF923CC76D400A92B0B /* ReportService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
+		FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PressureReportViewController.xib; sourceTree = "<group>"; };
+		FAF16BFC23CC76D400A92B0B /* PressureReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureReportViewController.swift; sourceTree = "<group>"; };
+		FAF16BFD23CC76D400A92B0B /* MainReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainReportViewController.swift; sourceTree = "<group>"; };
+		FAF16C0223CC76D400A92B0B /* HRVReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRVReportViewController.swift; sourceTree = "<group>"; };
+		FAF16C0323CC76D400A92B0B /* HRVReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRVReportViewController.xib; sourceTree = "<group>"; };
+		FAF16C0523CC76D400A92B0B /* HRReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRReportViewController.swift; sourceTree = "<group>"; };
+		FAF16C0623CC76D400A92B0B /* HRReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRReportViewController.xib; sourceTree = "<group>"; };
+		FAF16C0823CC76D400A92B0B /* MainReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainReportViewController.xib; sourceTree = "<group>"; };
+		FAF16C0A23CC76D400A92B0B /* BrainwaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainwaveViewController.swift; sourceTree = "<group>"; };
+		FAF16C0B23CC76D400A92B0B /* BrainwaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainwaveViewController.xib; sourceTree = "<group>"; };
+		FAF16C0D23CC76D400A92B0B /* RAndAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAndAViewController.swift; sourceTree = "<group>"; };
+		FAF16C0E23CC76D400A92B0B /* RAndAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAndAViewController.xib; sourceTree = "<group>"; };
+		FAF16C2323CC772B00A92B0B /* StatisticsReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsReport.swift; sourceTree = "<group>"; };
+		FAF16C2423CC772B00A92B0B /* IntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		FAF16C2523CC772B00A92B0B /* ReportAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportAboutView.swift; sourceTree = "<group>"; };
+		FAF16C2623CC772B00A92B0B /* CourseReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseReport.swift; sourceTree = "<group>"; };
+		FAF16C2B23CD5F1200A92B0B /* ReportNewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,9 +231,39 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		FA0D4F9323CDC5170084EBD1 /* IPAD */ = {
+			isa = PBXGroup;
+			children = (
+				FA0D4F9423CDC5580084EBD1 /* MeditationForPadViewController.swift */,
+				FA88F9B623D438A8008CD669 /* Pad.storyboard */,
+			);
+			path = IPAD;
+			sourceTree = "<group>";
+		};
+		FA1B69BF23EBE5BE00115FA1 /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B69C023EBE5BE00115FA1 /* P0-40A0-25.gif */,
+				FA1B69C123EBE5BE00115FA1 /* else.gif */,
+				FA1B69C223EBE5BE00115FA1 /* P78-100A75-100.gif */,
+				FA1B69C323EBE5BE00115FA1 /* P45-55A75-100.gif */,
+				FA1B69C423EBE5BE00115FA1 /* P55-78A75-100.gif */,
+				FA1B69C523EBE5BE00115FA1 /* P0-40A25-50.gif */,
+				FA1B69C623EBE5BE00115FA1 /* P60-100A25-50.gif */,
+				FA1B69C723EBE5BE00115FA1 /* P22-45A75-100.gif */,
+				FA1B69C823EBE5BE00115FA1 /* P60-100A0-25.gif */,
+				FA1B69C923EBE5BE00115FA1 /* P0-45A50-75.gif */,
+				FA1B69CA23EBE5BE00115FA1 /* P0-22A75-100.gif */,
+				FA1B69CB23EBE5BE00115FA1 /* P40-60A0-25.gif */,
+				FA1B69CC23EBE5BE00115FA1 /* P75-100A50-75.gif */,
+			);
+			path = gif;
+			sourceTree = "<group>";
+		};
 		FA2A0691237D298A00BEB75E /* Meditation */ = {
 			isa = PBXGroup;
 			children = (
+				FA0D4F9323CDC5170084EBD1 /* IPAD */,
 				FA06079A237E3B3100D0BB30 /* Service */,
 				FA060797237E37D400D0BB30 /* Model */,
 				FA2A0696237D2E2C00BEB75E /* view */,
@@ -171,6 +279,9 @@
 				FA2A0697237D2E9700BEB75E /* ErrorTipView.swift */,
 				FA2A0699237D433E00BEB75E /* DashboardIndexView.swift */,
 				FA2A069B237D438400BEB75E /* TitleTableViewCell.swift */,
+				FAF16BEC23CC573600A92B0B /* WearStateView.swift */,
+				FA1B69BD23EA975900115FA1 /* AffectiveRealtimeView.swift */,
+				FA1B69DA23EBE8F500115FA1 /* EmotionDemoView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -214,7 +325,10 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
-				FAC3D95D237FEA6D006CE2BC /* Report */,
+				FAAE3B1D2381174C004E79B4 /* Database */,
+				FAF16BF623CC76D400A92B0B /* Report */,
+				FAF16BEE23CC5B7C00A92B0B /* Config.plist */,
+				FAC3D95D237FEA6D006CE2BC /* ReportLast */,
 				FA2A0691237D298A00BEB75E /* Meditation */,
 				FA5F0AC6237BF1A400A21BF9 /* Tools */,
 				FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */,
@@ -234,6 +348,8 @@
 		FA5F0AC6237BF1A400A21BF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FA1B69BF23EBE5BE00115FA1 /* gif */,
+				FAF16BF223CC737600A92B0B /* Extension.swift */,
 				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
 				FAC3D939237E77E8006CE2BC /* error_tip.mp3 */,
 				FA3B17512381393300D5192D /* sample.report */,
@@ -266,17 +382,90 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		FAC3D95D237FEA6D006CE2BC /* Report */ = {
+		FAC3D95D237FEA6D006CE2BC /* ReportLast */ = {
 			isa = PBXGroup;
 			children = (
 				FA0404CF23816841008DB43C /* Statistics */,
 				FA3B175A2381513000D5192D /* View */,
 				FA3B1753238150B700D5192D /* ReportViewSort */,
-				FAAE3B1D2381174C004E79B4 /* Database */,
 				FAAE3B1923800515004E79B4 /* ReportViewController.swift */,
 				FAAE3B1A23800515004E79B4 /* ReportViewController.xib */,
 			);
+			path = ReportLast;
+			sourceTree = "<group>";
+		};
+		FAF16BF623CC76D400A92B0B /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				FAF16C2223CC76FA00A92B0B /* VIew */,
+				FAF16BFA23CC76D400A92B0B /* Pressure */,
+				FAF16C0123CC76D400A92B0B /* HRV */,
+				FAF16C0423CC76D400A92B0B /* HR */,
+				FAF16C0923CC76D400A92B0B /* Brainwave */,
+				FAF16C0C23CC76D400A92B0B /* AttentionAndRelaxation */,
+				FAF16BFD23CC76D400A92B0B /* MainReportViewController.swift */,
+				FAF16C0823CC76D400A92B0B /* MainReportViewController.xib */,
+				FAF16BF923CC76D400A92B0B /* ReportService.swift */,
+				FAF16C2B23CD5F1200A92B0B /* ReportNewModel.swift */,
+			);
 			path = Report;
+			sourceTree = "<group>";
+		};
+		FAF16BFA23CC76D400A92B0B /* Pressure */ = {
+			isa = PBXGroup;
+			children = (
+				FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */,
+				FAF16BFC23CC76D400A92B0B /* PressureReportViewController.swift */,
+			);
+			path = Pressure;
+			sourceTree = "<group>";
+		};
+		FAF16C0123CC76D400A92B0B /* HRV */ = {
+			isa = PBXGroup;
+			children = (
+				FAF16C0223CC76D400A92B0B /* HRVReportViewController.swift */,
+				FAF16C0323CC76D400A92B0B /* HRVReportViewController.xib */,
+			);
+			path = HRV;
+			sourceTree = "<group>";
+		};
+		FAF16C0423CC76D400A92B0B /* HR */ = {
+			isa = PBXGroup;
+			children = (
+				FAF16C0523CC76D400A92B0B /* HRReportViewController.swift */,
+				FAF16C0623CC76D400A92B0B /* HRReportViewController.xib */,
+			);
+			path = HR;
+			sourceTree = "<group>";
+		};
+		FAF16C0923CC76D400A92B0B /* Brainwave */ = {
+			isa = PBXGroup;
+			children = (
+				FAF16C0A23CC76D400A92B0B /* BrainwaveViewController.swift */,
+				FAF16C0B23CC76D400A92B0B /* BrainwaveViewController.xib */,
+			);
+			path = Brainwave;
+			sourceTree = "<group>";
+		};
+		FAF16C0C23CC76D400A92B0B /* AttentionAndRelaxation */ = {
+			isa = PBXGroup;
+			children = (
+				FAF16C0D23CC76D400A92B0B /* RAndAViewController.swift */,
+				FAF16C0E23CC76D400A92B0B /* RAndAViewController.xib */,
+			);
+			path = AttentionAndRelaxation;
+			sourceTree = "<group>";
+		};
+		FAF16C2223CC76FA00A92B0B /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				FAF16C2623CC772B00A92B0B /* CourseReport.swift */,
+				FAF16C2423CC772B00A92B0B /* IntroductionView.swift */,
+				FAF16C2523CC772B00A92B0B /* ReportAboutView.swift */,
+				FAF16C2323CC772B00A92B0B /* StatisticsReport.swift */,
+				FA0D4F8F23CD8EC10084EBD1 /* BaseView.swift */,
+			);
+			path = VIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,17 +528,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF16C1E23CC76D400A92B0B /* BrainwaveViewController.xib in Resources */,
+				FAF16C2023CC76D400A92B0B /* RAndAViewController.xib in Resources */,
+				FAF16C1A23CC76D400A92B0B /* HRReportViewController.xib in Resources */,
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
+				FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */,
+				FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */,
+				FA1B69D523EBE5BE00115FA1 /* P60-100A0-25.gif in Resources */,
+				FA1B69D423EBE5BE00115FA1 /* P22-45A75-100.gif in Resources */,
+				FA1B69CD23EBE5BE00115FA1 /* P0-40A0-25.gif in Resources */,
+				FA1B69D723EBE5BE00115FA1 /* P0-22A75-100.gif in Resources */,
 				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
+				FA1B69D923EBE5BE00115FA1 /* P75-100A50-75.gif in Resources */,
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
+				FA1B69CF23EBE5BE00115FA1 /* P78-100A75-100.gif in Resources */,
+				FAF16C1823CC76D400A92B0B /* HRVReportViewController.xib in Resources */,
+				FA1B69D123EBE5BE00115FA1 /* P55-78A75-100.gif in Resources */,
+				FA1B69D823EBE5BE00115FA1 /* P40-60A0-25.gif in Resources */,
+				FA1B69D223EBE5BE00115FA1 /* P0-40A25-50.gif in Resources */,
 				FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */,
 				FA5F0AB2237A819A00A21BF9 /* Main.storyboard in Resources */,
 				FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */,
+				FA1B69D323EBE5BE00115FA1 /* P60-100A25-50.gif in Resources */,
+				FA1B69D623EBE5BE00115FA1 /* P0-45A50-75.gif in Resources */,
 				FA3B1756238150B700D5192D /* ReportViewSortViewController.xib in Resources */,
+				FA1B69D023EBE5BE00115FA1 /* P45-55A75-100.gif in Resources */,
 				FA0404D323816867008DB43C /* StatisticsViewController.xib in Resources */,
+				FAF16C1C23CC76D400A92B0B /* MainReportViewController.xib in Resources */,
+				FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */,
+				FAF16C1223CC76D400A92B0B /* PressureReportViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,15 +612,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF16BED23CC573600A92B0B /* WearStateView.swift in Sources */,
+				FA1B69DB23EBE8F500115FA1 /* EmotionDemoView.swift in Sources */,
+				FAF16C1F23CC76D400A92B0B /* RAndAViewController.swift in Sources */,
 				FA5F0AAF237A819A00A21BF9 /* SecondViewController.swift in Sources */,
 				FA2A068B237BF67000BEB75E /* BLEService.swift in Sources */,
 				FA5F0AAD237A819A00A21BF9 /* FirstViewController.swift in Sources */,
 				FA2A0698237D2E9700BEB75E /* ErrorTipView.swift in Sources */,
 				FAAE3B292381174C004E79B4 /* RecordRepository.swift in Sources */,
 				FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */,
+				FAF16BF423CC737700A92B0B /* Extension.swift in Sources */,
+				FAF16C1323CC76D400A92B0B /* PressureReportViewController.swift in Sources */,
 				FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */,
 				FAAE3B272381174C004E79B4 /* DBMeditation.swift in Sources */,
+				FA0D4F9623CDC5580084EBD1 /* MeditationForPadViewController.swift in Sources */,
 				FA0404D523816C16008DB43C /* ReportListTableViewCell.swift in Sources */,
+				FAF16C2923CC772B00A92B0B /* ReportAboutView.swift in Sources */,
 				FA060794237E2FBD00D0BB30 /* Preference.swift in Sources */,
 				FA0404D723817D26008DB43C /* ThirdViewController.swift in Sources */,
 				FA2A0694237D2A2500BEB75E /* MeditationViewController.swift in Sources */,
@@ -421,11 +638,22 @@
 				FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */,
 				FA2A069C237D438400BEB75E /* TitleTableViewCell.swift in Sources */,
 				FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */,
+				FA1B69BE23EA975900115FA1 /* AffectiveRealtimeView.swift in Sources */,
+				FAF16C1723CC76D400A92B0B /* HRVReportViewController.swift in Sources */,
+				FAF16C2723CC772B00A92B0B /* StatisticsReport.swift in Sources */,
 				FA060796237E365900D0BB30 /* MeditationService.swift in Sources */,
 				FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */,
 				FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */,
 				FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */,
+				FAF16C2823CC772B00A92B0B /* IntroductionView.swift in Sources */,
+				FAF16C1423CC76D400A92B0B /* MainReportViewController.swift in Sources */,
+				FA0D4F9023CD8EC10084EBD1 /* BaseView.swift in Sources */,
+				FAF16C2C23CD5F1200A92B0B /* ReportNewModel.swift in Sources */,
+				FAF16C2A23CC772B00A92B0B /* CourseReport.swift in Sources */,
 				FA060792237D5D7C00D0BB30 /* RelaxManager.swift in Sources */,
+				FAF16C1123CC76D400A92B0B /* ReportService.swift in Sources */,
+				FAF16C1D23CC76D400A92B0B /* BrainwaveViewController.swift in Sources */,
+				FAF16C1923CC76D400A92B0B /* HRReportViewController.swift in Sources */,
 				FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */,
 				FAAE3B282381174C004E79B4 /* BaseRepository.swift in Sources */,
 				FA060799237E37EF00D0BB30 /* MeditationModel.swift in Sources */,

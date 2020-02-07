@@ -16,6 +16,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     public var meditationModel = MeditationModel()
     public var reportModel: MeditationReportModel?
     public var meditationVC: MeditationViewController?
+    public var padVC: MeditationForPadViewController?
     private let userId = "\(Preference.userID)"
     private var suspendTime:[(Date, Bool)] = [] //(触发时间， 是否连接)
     private var suspendArray:[(Date, Date)]?
@@ -45,10 +46,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     
     public init(_ vc1: UIViewController) {
         meditationVC = vc1 as? MeditationViewController
+        padVC = vc1 as? MeditationForPadViewController
             
         if meditationModel.startTime == nil {
             meditationModel.startTime = Date()
         }
+        
     }
     
     public func finish() {
@@ -75,13 +78,16 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         switch state{
         case .connected:
             meditationVC?.dismissErrorView(.network)
+            padVC?.dismissErrorView(.network)
             //RelaxManager.shared.sessionCreate(userID: userId)
         case .disconnected:
             RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
+            padVC?.showErrorView(.network)
         case .none:
             RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
+            padVC?.showErrorView(.network)
         }
     }
     
@@ -94,22 +100,52 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     
     func sessionCreateAndAuthenticate(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         RelaxManager.shared.startCloudService()
-        meditationVC?.brianView.showProgress()
+        meditationVC?.brainView.showProgress()
         meditationVC?.spectrumView.showProgress()
         meditationVC?.heartView.showProgress()
         meditationVC?.attentionView.showProgress()
         meditationVC?.relaxationView.showProgress()
         meditationVC?.pressureView.showProgress()
+        meditationVC?.arousalView.showProgress()
+        meditationVC?.coherenceView.showProgress()
+        meditationVC?.pleasureView.showProgress()
+        meditationVC?.hrvView.showProgress()
+        
+        padVC?.brainView.showProgress()
+        padVC?.spectrumView.showProgress()
+        padVC?.heartView.showProgress()
+        padVC?.attentionView.showProgress()
+        padVC?.relaxationView.showProgress()
+        padVC?.pressureView.showProgress()
+        padVC?.arousalView.showProgress()
+        padVC?.coherenceView.showProgress()
+        padVC?.pleasureView.showProgress()
+        padVC?.hrvView.showProgress()
     }
     
     func sessionRestore(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         isWebsocketConnect = true
-        meditationVC?.brianView.showProgress()
+        meditationVC?.brainView.showProgress()
         meditationVC?.spectrumView.showProgress()
         meditationVC?.heartView.showProgress()
         meditationVC?.attentionView.showProgress()
         meditationVC?.relaxationView.showProgress()
         meditationVC?.pressureView.showProgress()
+        meditationVC?.arousalView.showProgress()
+        meditationVC?.coherenceView.showProgress()
+        meditationVC?.pleasureView.showProgress()  
+        meditationVC?.hrvView.showProgress()
+        
+        padVC?.brainView.showProgress()
+        padVC?.spectrumView.showProgress()
+        padVC?.heartView.showProgress()
+        padVC?.attentionView.showProgress()
+        padVC?.relaxationView.showProgress()
+        padVC?.pressureView.showProgress()
+        padVC?.arousalView.showProgress()
+        padVC?.coherenceView.showProgress()
+        padVC?.pleasureView.showProgress()
+        padVC?.hrvView.showProgress()
     }
     
     func sessionClose(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
@@ -288,7 +324,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             }
             DispatchQueue.main.async {
                 self.meditationVC?.dismissErrorView(.bluetooth)
-
+                self.padVC?.dismissErrorView(.bluetooth)
             }
             if !isPlayed {
                 self.isPlayed = true
@@ -300,6 +336,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             isDeviceConnect = false
             DispatchQueue.main.async {
                 self.meditationVC?.showErrorView(.bluetooth)
+                self.padVC?.showErrorView(.bluetooth)
                 self.isPlayed = false
                 if state == .disconnected {
                     self.playErrorSound()
@@ -451,6 +488,7 @@ extension MeditationService {
             self.meditationModel.attentionAverage = reportModel.attentionAvg ?? 0
             self.meditationModel.attentionMax = reportModel.attentionMax ?? 0
             self.meditationModel.attentionMin = reportModel.attentionMin ?? 0
+            self.meditationModel.pressureAvg = reportModel.pressureAvg ?? 0
         } else {
             self.meditationModel.hrAverage = 0
             self.meditationModel.hrMax = 0
@@ -462,6 +500,7 @@ extension MeditationService {
             self.meditationModel.attentionAverage = 0
             self.meditationModel.attentionMax = 0
             self.meditationModel.attentionMin = 0
+            self.meditationModel.pressureAvg = 0
         }
 
 

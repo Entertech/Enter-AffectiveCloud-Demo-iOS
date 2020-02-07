@@ -10,9 +10,14 @@ import UIKit
 import EnterAffectiveCloud
 import EnterBioModuleBLE
 
+protocol CheckWearDelegate: class {
+    func checkWear(value: UInt8)
+}
+
 class RelaxManager: BLEBioModuleDataSource {
     private var countEegError = 0
     static let shared = RelaxManager()
+    public weak var delegate: CheckWearDelegate?
     let ble = BLEService.shared.bleManager
     private init() {
         ble.dataSource = self
@@ -71,7 +76,7 @@ class RelaxManager: BLEBioModuleDataSource {
         
 
         // 开启情感数据
-        self.client?.startAffectiveDataServices(services: [.attention, .relaxation, .pleasure, .pressure])
+        self.client?.startAffectiveDataServices(services: [.attention, .relaxation, .pleasure, .pressure, .coherence, .arousal])
 
     }
     
@@ -80,7 +85,7 @@ class RelaxManager: BLEBioModuleDataSource {
     }
     
     func affectiveDataSubscribe() {
-        self.client?.subscribeAffectiveDataServices(services: [.attention, .relaxation, .pressure, .pleasure])
+        self.client?.subscribeAffectiveDataServices(services: [.attention, .relaxation, .pressure, .pleasure, .coherence, .arousal])
     }
 
     //ble
@@ -119,6 +124,12 @@ class RelaxManager: BLEBioModuleDataSource {
 
     // 接受脑波数据
     func bleBrainwaveDataReceived(data: Data, bleManager: BLEManager) {
+        switch bleManager.state {
+        case .connected(let wear):
+            delegate?.checkWear(value: wear)
+        default:
+            break
+        }
         var array = [UInt8](repeating: 0, count: 9)
         data.copyBytes(to: &array, from: Range<Data.Index>(2...10))
         // 判断数据是否正确l， 不正确重启蓝牙服务

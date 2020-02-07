@@ -128,6 +128,23 @@ extension UIView {
         
     }
     
+    func paretViewController() -> UIViewController? {
+
+         var n = self.next
+         
+         while n != nil {
+             
+             if (n is UIViewController) {
+                 
+                 return n as? UIViewController
+             }
+             
+             n = n?.next
+         }
+         
+         return nil
+     }
+    
 }
 
 extension UIImage {
@@ -185,6 +202,24 @@ extension UIImage {
             return UIImage(contentsOfFile: urlStr)!
         }
         return #imageLiteral(resourceName: "img_yoga")
+    }
+    
+    class func resolveGifImage(gif: String, any: AnyClass) -> [UIImage]{
+        var images:[UIImage] = []
+        //let gifPath = Bundle.init(identifier: "cn.entertech.EnterAffectiveCloudUI")?.path(forResource: gif, ofType: "gif")
+        let gifPath = Bundle(for: any).path(forResource: gif, ofType: "gif")
+        if gifPath != nil{
+            if let gifData = try? Data(contentsOf: URL.init(fileURLWithPath: gifPath!)){
+                let gifDataSource = CGImageSourceCreateWithData(gifData as CFData, nil)
+                let gifcount = CGImageSourceGetCount(gifDataSource!)
+                for i in 0...gifcount - 1{
+                    let imageRef = CGImageSourceCreateImageAtIndex(gifDataSource!, i, nil)
+                    let image = UIImage(cgImage: imageRef!)
+                    images.append(image)
+                }
+            }
+        }
+        return images
     }
 }
 
@@ -349,5 +384,21 @@ extension UIButton {
         let actionString = action.description
         let targetName = target as? UIViewController
         print("\(targetName!.classForCoder) \(actionString)")
+    }
+}
+
+
+extension UIColor {
+    
+    /// 根据背景色创建图片
+    func image() -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(self.cgColor)
+        context?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
 }

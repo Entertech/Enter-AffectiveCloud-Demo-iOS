@@ -162,3 +162,8 @@ class FTFileManager {
         return path
     }
 }
+
+
+struct FTURLManager {
+    static let helpCenter = "https://docs.myflowtime.cn/"
+}

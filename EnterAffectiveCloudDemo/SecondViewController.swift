@@ -27,7 +27,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.setContentOffset(CGPoint(x: 0, y: -tableviewOffset), animated: false)
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "分析报告"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,11 +84,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let record = self.reportList[reportList.count-indexPath.row-1]
-        let report = ReportViewController()
-        report.reportDB = record
+        let report = MainReportViewController()
+        report.meditationDB = record
         report.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(report, animated: true)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
  
 }

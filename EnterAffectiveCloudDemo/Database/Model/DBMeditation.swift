@@ -43,6 +43,8 @@ class DBMeditation: Object {
     @objc
     dynamic var relaxationMin: Float = 0
     @objc
+    dynamic var pressureAverage: Float = 0
+    @objc
     dynamic var reportPath: String?
 
 //    override static func primaryKey() -> String? {

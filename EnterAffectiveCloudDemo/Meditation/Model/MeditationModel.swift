@@ -30,6 +30,7 @@ struct MeditationModel {
     var relaxationAverage: Float = 0
     var relaxationMax: Float = 0
     var relaxationMin: Float = 0
+    var pressureAvg: Float = 0
     var report_path: String?
     
     //var stopAndRestoreTime = [[Date]]()
@@ -56,6 +57,7 @@ extension MeditationModel {
         model.relaxationAverage = self.relaxationAverage
         model.relaxationMax     = self.relaxationMax
         model.relaxationMin     = self.relaxationMin
+        model.pressureAverage   = self.pressureAvg
         model.reportPath        = self.report_path
         return model
     }

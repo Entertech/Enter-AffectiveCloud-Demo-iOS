@@ -1,16 +1,19 @@
 PODS:
+  - Alamofire (5.0.0-rc.3)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
-  - EnterAffectiveCloud (1.3.7):
+  - EnterAffectiveCloud (1.3.9):
     - GzipSwift
-    - HandyJSON (= 5.0.0)
-    - Starscream
+    - HandyJSON
+    - Moya/RxSwift (~> 14.0.0-beta.5)
+    - RxSwift (= 5.0.0)
+    - Starscream (= 3.1.1)
     - SwiftyJSON
-  - EnterAffectiveCloudUI (1.3.7):
+  - EnterAffectiveCloudUI (1.3.9):
     - Charts
-    - EnterAffectiveCloud (= 1.3.7)
-    - RxSwift (= 5.0)
+    - EnterAffectiveCloud
+    - RxSwift
     - SnapKit
   - EnterBioModuleBLE (1.2.6):
     - FixedDFUService
@@ -22,7 +25,12 @@ PODS:
   - FixedDFUService (4.1.2):
     - Zip (~> 1.0)
   - GzipSwift (5.1.1)
-  - HandyJSON (5.0.0)
+  - HandyJSON (5.0.1)
+  - Moya/Core (14.0.0-beta.6):
+    - Alamofire (= 5.0.0-rc.3)
+  - Moya/RxSwift (14.0.0-beta.6):
+    - Moya/Core
+    - RxSwift (~> 5.0)
   - PromiseKit (6.12.0):
     - PromiseKit/CorePromise (= 6.12.0)
     - PromiseKit/Foundation (= 6.12.0)
@@ -47,45 +55,68 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
-  - EnterAffectiveCloud (~> 1.3.7)
-  - EnterAffectiveCloudUI (~> 1.3.7)
-  - EnterBioModuleBLE (~> 1.2.6)
-  - EnterBioModuleBLEUI (~> 1.2.6)
+  - EnterAffectiveCloud (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
+  - EnterAffectiveCloudUI (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
+  - EnterBioModuleBLE (from `https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)
+  - EnterBioModuleBLEUI (from `https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)
   - RealmSwift
   - SnapKit
   - SVProgressHUD
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - Alamofire
     - Charts
-    - EnterAffectiveCloudUI
-    - EnterBioModuleBLE
-    - EnterBioModuleBLEUI
     - FixedDFUService
     - GzipSwift
     - HandyJSON
+    - Moya
     - PromiseKit
     - Realm
     - RealmSwift
     - RxBluetoothKit
+    - RxSwift
     - SnapKit
     - Starscream
     - SVProgressHUD
     - SwiftyJSON
     - Zip
-  trunk:
-    - EnterAffectiveCloud
-    - RxSwift
+
+EXTERNAL SOURCES:
+  EnterAffectiveCloud:
+    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
+  EnterAffectiveCloudUI:
+    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
+  EnterBioModuleBLE:
+    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
+  EnterBioModuleBLEUI:
+    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
+
+CHECKOUT OPTIONS:
+  EnterAffectiveCloud:
+    :commit: 8f83d079998c65ac46a9eafdc1a7203575e50fd2
+    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
+  EnterAffectiveCloudUI:
+    :commit: f6697e4edff32c27f8d9efec25f5151f4008fa34
+    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
+  EnterBioModuleBLE:
+    :commit: be736054c913237d89f719bc2f2430510e767f37
+    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
+  EnterBioModuleBLEUI:
+    :commit: 5bae15d1d3f5d866a57566155f58f7311d680e91
+    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
 
 SPEC CHECKSUMS:
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  EnterAffectiveCloud: c218f5c223de157fe7dbb133d48d162afc10d966
-  EnterAffectiveCloudUI: bdfbfa06ed6a405ae575f684e814d11cb580f9ab
+  EnterAffectiveCloud: b17c7dcff34af40d726358a7084f29c6cce078dd
+  EnterAffectiveCloudUI: fa5786028bffeba8f70579896c661db27df3d330
   EnterBioModuleBLE: a926b959874a1a1425fc1662e2b3c95e8421ba44
   EnterBioModuleBLEUI: 6284919ea21699df9ff392052612b0288e241db0
   FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  Moya: d4821fbcb3e784f34d2f82869e6855057a0b85d1
   PromiseKit: c06835ba442ce5454ce3cdde470232804a6e4ff8
   Realm: 5d1453468eca02c901c50b8a356f4a98a15b57aa
   RealmSwift: 1d238caa5c64a590c669beef1a7e858a6cf55a1c
@@ -97,6 +128,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: dad21db4f7e7090218a1554aef58db164e9692d9
+PODFILE CHECKSUM: 54d60313e9456f99cb9649819ae4543ed5b0498f
 
 COCOAPODS: 1.8.3

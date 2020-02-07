@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HRVReportViewController" customModule="心流" customModuleProvider="target">
+            <connections>
+                <outlet property="aboutView" destination="Ryb-JD-biB" id="f8h-vb-QIj"/>
+                <outlet property="bg" destination="4SQ-pD-6Ya" id="Spu-Zp-x47"/>
+                <outlet property="hrvView" destination="w3I-1x-9fP" id="u1P-eC-6fI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbE-7K-ZlI">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-pD-6Ya">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3k-XG-uSZ">
+                                    <rect key="frame" x="0.0" y="8" width="414" height="250"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w3I-1x-9fP" customClass="PrivateReportChartHRV" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="250" id="Mqa-XF-Psv"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryb-JD-biB" customClass="ReportAboutView" customModule="心流" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="274" width="382" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="500" constant="128" id="KSy-yU-MsE"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Ryb-JD-biB" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="AWX-ED-1Po"/>
+                                <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="Oxv-T7-xHf"/>
+                                <constraint firstAttribute="trailing" secondItem="q3k-XG-uSZ" secondAttribute="trailing" id="WEn-at-8KI"/>
+                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="50" id="nbT-dm-0BT"/>
+                                <constraint firstItem="q3k-XG-uSZ" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" id="nxH-NN-lNq"/>
+                                <constraint firstAttribute="trailing" secondItem="Ryb-JD-biB" secondAttribute="trailing" constant="16" id="sDA-Hy-8pF"/>
+                                <constraint firstItem="q3k-XG-uSZ" firstAttribute="top" secondItem="4SQ-pD-6Ya" secondAttribute="top" constant="8" id="vol-q0-Act"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="4SQ-pD-6Ya" secondAttribute="trailing" id="M8c-2W-lmh"/>
+                        <constraint firstAttribute="bottom" secondItem="4SQ-pD-6Ya" secondAttribute="bottom" id="PER-Aj-KhE"/>
+                        <constraint firstItem="4SQ-pD-6Ya" firstAttribute="leading" secondItem="SbE-7K-ZlI" secondAttribute="leading" id="uSR-fC-YBD"/>
+                        <constraint firstItem="4SQ-pD-6Ya" firstAttribute="top" secondItem="SbE-7K-ZlI" secondAttribute="top" id="wK1-Jq-ulx"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="Dk4-wg-8Y5"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="FtJ-Xd-sge"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="4SQ-pD-6Ya" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="2KW-v8-5TA"/>
+                <constraint firstItem="SbE-7K-ZlI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3r1-p2-vV4"/>
+                <constraint firstItem="SbE-7K-ZlI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="47F-h2-f1t"/>
+                <constraint firstAttribute="bottom" secondItem="SbE-7K-ZlI" secondAttribute="bottom" id="ezQ-ih-0en"/>
+                <constraint firstItem="SbE-7K-ZlI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pVx-gm-if8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
+        </view>
+    </objects>
+</document>

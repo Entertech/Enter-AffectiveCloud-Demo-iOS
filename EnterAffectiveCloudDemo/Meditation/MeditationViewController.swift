@@ -11,18 +11,29 @@ import EnterAffectiveCloudUI
 import EnterBioModuleBLEUI
 import SVProgressHUD
 
-class MeditationViewController: UIViewController {
-
+class MeditationViewController: UIViewController, CheckWearDelegate {
+    func checkWear(value: UInt8) {
+        DispatchQueue.main.async {
+            self.wearView.wearValue = value
+        }
+    }
+    
+    @IBOutlet weak var coherenceView: RealtimeCoherenceView!
+    @IBOutlet weak var pleasureView: RealtimePleasureView!
+    
+    @IBOutlet weak var hrvView: RealtimeHRVView!
+    @IBOutlet weak var wearView: CheckWearStateView!
     @IBOutlet weak var errorView: ErrorTipView!
     @IBOutlet weak var heartView: RealtimeHeartRateView!
     @IBOutlet weak var heartBoard: UIView!
     @IBOutlet weak var brainBoard: UIView!
-    @IBOutlet weak var brianView: RealtimeBrainwaveView!
+    @IBOutlet weak var brainView: RealtimeBrainwaveView!
     @IBOutlet weak var spectrumView: RealtimeBrainwaveSpectrumView!
     @IBOutlet weak var emotionBoard: UIView!
     @IBOutlet weak var attentionView: RealtimeAttentionView!
     @IBOutlet weak var relaxationView: RealtimeRelaxationView!
     @IBOutlet weak var pressureView: RealtimePressureView!
+    @IBOutlet weak var arousalView: RealtimeArousalView!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     private var isFirstTime = true
@@ -38,15 +49,17 @@ class MeditationViewController: UIViewController {
         service = MeditationService(self)
         service?.reportModel = self.reportModel
         // Do any additional setup after loading the view.
+        RelaxManager.shared.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         if isFirstTime {
-            brianView.bgColor = #colorLiteral(red: 0.9490196078, green: 0.9568627451, blue: 0.9843137255, alpha: 1)
-            brianView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)    //主色调
-            brianView.textColor = .black    //文字颜色
+            self.view.backgroundColor = UIColor.colorWithHexString(hexColor: "f1f4f6")
+            brainView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)    //主色调
+            brainView.textColor = .black    //文字颜色
+            brainView.bgColor = .white
             var leftArray: [Float] = []
             for _ in 0...200 {
                 let random: Int = Int(arc4random_uniform(200))
@@ -57,12 +70,12 @@ class MeditationViewController: UIViewController {
                 let random: Int = Int(arc4random_uniform(200))
                 rightArray.append(Float(random - 100))
             }
-            brianView.observe(with: leftArray, right: rightArray)//开始观察
+            brainView.observe(with: leftArray, right: rightArray)//开始观察
             
             spectrumView.bgColor = #colorLiteral(red: 0.9490196078, green: 0.9568627451, blue: 0.9843137255, alpha: 1)
             spectrumView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
             spectrumView.observe(with: (0.1, 0.28, 0.59, 0.02, 0.1))
-            
+            spectrumView.bgColor = .white
             
             heartView.bgColor = #colorLiteral(red: 1, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
             heartView.mainColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
@@ -71,23 +84,48 @@ class MeditationViewController: UIViewController {
             
             attentionView.bgColor = #colorLiteral(red: 0.7803921569, green: 1, blue: 0.8941176471, alpha: 1)
             attentionView.mainColor = #colorLiteral(red: 0.3725490196, green: 0.7764705882, blue: 0.5843137255, alpha: 1)
+            attentionView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
             attentionView.observe(with:39)
             
             relaxationView.bgColor = #colorLiteral(red: 0.8980392157, green: 0.9176470588, blue: 0.968627451, alpha: 1)
             relaxationView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
+            relaxationView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
             relaxationView.observe(with: 69)
             
             pressureView.bgColor = #colorLiteral(red: 1, green: 0.9058823529, blue: 0.9019607843, alpha: 1)
             pressureView.mainColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
-            pressureView.observe()
+            pressureView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            pressureView.observe(with: 3.6)
             
-            brianView.showTip()
+            arousalView.bgColor = #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1)
+            arousalView.mainColor = #colorLiteral(red: 0.968627451, green: 0.7803921569, blue: 0.4941176471, alpha: 1)
+            arousalView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            arousalView.observe(with: 1.2)
+            
+            coherenceView.bgColor = #colorLiteral(red: 0.8980392157, green: 0.9176470588, blue: 0.968627451, alpha: 1)
+            coherenceView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
+            coherenceView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            coherenceView.observe(with: 28)
+            
+            pleasureView.bgColor = #colorLiteral(red: 0.7803921569, green: 1, blue: 0.8941176471, alpha: 1)
+            pleasureView.mainColor = #colorLiteral(red: 0.3725490196, green: 0.7764705882, blue: 0.5843137255, alpha: 1)
+            pleasureView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            pleasureView.observe(with: 3.3)
+            
+            brainView.showTip()
             spectrumView.showTip()
             heartView.showTip()
             attentionView.showTip()
             relaxationView.showTip()
+            arousalView.showTip()
+            coherenceView.showTip()
+            pleasureView.showTip()
             pressureView.showTip()
+            hrvView.showTip()   
             isFirstTime = false
+            
+            hrvView.observe()
+            hrvView.cornerRadius = 8
         }
         NotificationName.kFinishWithCloudServieDB.observe(sender: self, selector: #selector(self.finishWithCloudServiceHandle(_:)))
         if BLEService.shared.bleManager.state.isConnected {
@@ -101,7 +139,7 @@ class MeditationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        BLEService.shared.bleManager.delegate = service
         if BLEService.shared.bleManager.state.isConnected  {
             if !RelaxManager.shared.isWebSocketConnected {
                 
@@ -110,14 +148,12 @@ class MeditationViewController: UIViewController {
                 dismissErrorView(.network)
             }
         }
-        BLEService.shared.bleManager.delegate = service
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if RelaxManager.shared.isWebSocketConnected {
-            RelaxManager.shared.close()
-        }
+
         NotificationName.kFinishWithCloudServieDB.remove(sender: self)
         BLEService.shared.bleManager.delegate = nil
     }
@@ -323,14 +359,20 @@ class MeditationViewController: UIViewController {
         
         DispatchQueue.main.async {
             SVProgressHUD.dismiss()
+            if RelaxManager.shared.isWebSocketConnected {
+                RelaxManager.shared.close()
+            }
             self.isEnd = true
             self.dismiss(animated: true) {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
-                    let reportVC = ReportViewController()
-                    reportVC.reportDB = self.service?.meditationModel.mapperToDBModel()
-                    reportVC.modalPresentationStyle = .fullScreen
-                    reportVC.hidesBottomBarWhenPushed = true
-                    UIViewController.currentViewController()!.navigationController?.pushViewController(reportVC, animated: true)
+
+                    let data = MeditationRepository.query(Preference.userID)
+                    if let data = data {
+                        let report = MainReportViewController()
+                        report.meditationDB = data.last
+                        report.hidesBottomBarWhenPushed = true
+                        UIViewController.currentViewController()?.navigationController?.pushViewController(report, animated: true)
+                    }
                 }
             }
             
