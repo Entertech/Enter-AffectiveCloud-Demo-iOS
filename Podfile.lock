@@ -3,24 +3,24 @@ PODS:
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
-  - EnterAffectiveCloud (1.3.9):
+  - EnterAffectiveCloud (1.4.0):
     - GzipSwift
     - HandyJSON
     - Moya/RxSwift (~> 14.0.0-beta.5)
     - RxSwift (= 5.0.0)
     - Starscream (= 3.1.1)
     - SwiftyJSON
-  - EnterAffectiveCloudUI (1.3.9):
+  - EnterAffectiveCloudUI (1.4.0):
     - Charts
-    - EnterAffectiveCloud
+    - EnterAffectiveCloud (= 1.4.0)
     - RxSwift
     - SnapKit
-  - EnterBioModuleBLE (1.2.6):
+  - EnterBioModuleBLE (1.2.7):
     - FixedDFUService
     - PromiseKit
     - RxBluetoothKit
-  - EnterBioModuleBLEUI (1.2.6):
-    - EnterBioModuleBLE (= 1.2.6)
+  - EnterBioModuleBLEUI (1.2.7):
+    - EnterBioModuleBLE (= 1.2.7)
     - SnapKit
   - FixedDFUService (4.1.2):
     - Zip (~> 1.0)
@@ -31,20 +31,20 @@ PODS:
   - Moya/RxSwift (14.0.0-beta.6):
     - Moya/Core
     - RxSwift (~> 5.0)
-  - PromiseKit (6.12.0):
-    - PromiseKit/CorePromise (= 6.12.0)
-    - PromiseKit/Foundation (= 6.12.0)
-    - PromiseKit/UIKit (= 6.12.0)
-  - PromiseKit/CorePromise (6.12.0)
-  - PromiseKit/Foundation (6.12.0):
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.12.0):
+  - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
-  - Realm (4.1.0):
-    - Realm/Headers (= 4.1.0)
-  - Realm/Headers (4.1.0)
-  - RealmSwift (4.1.0):
-    - Realm (= 4.1.0)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
   - RxBluetoothKit (5.3.0):
     - RxSwift (~> 5.0)
   - RxSwift (5.0.0)
@@ -55,10 +55,10 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
-  - EnterAffectiveCloud (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
-  - EnterAffectiveCloudUI (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
-  - EnterBioModuleBLE (from `https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)
-  - EnterBioModuleBLEUI (from `https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)
+  - EnterAffectiveCloud (~> 1.4.0)
+  - EnterAffectiveCloudUI (~> 1.4.0)
+  - EnterBioModuleBLE (~> 1.2.7)
+  - EnterBioModuleBLEUI (~> 1.2.7)
   - RealmSwift
   - SnapKit
   - SVProgressHUD
@@ -67,6 +67,10 @@ SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
     - Charts
+    - EnterAffectiveCloud
+    - EnterAffectiveCloudUI
+    - EnterBioModuleBLE
+    - EnterBioModuleBLEUI
     - FixedDFUService
     - GzipSwift
     - HandyJSON
@@ -82,44 +86,20 @@ SPEC REPOS:
     - SwiftyJSON
     - Zip
 
-EXTERNAL SOURCES:
-  EnterAffectiveCloud:
-    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
-  EnterAffectiveCloudUI:
-    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
-  EnterBioModuleBLE:
-    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
-  EnterBioModuleBLEUI:
-    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
-
-CHECKOUT OPTIONS:
-  EnterAffectiveCloud:
-    :commit: 8f83d079998c65ac46a9eafdc1a7203575e50fd2
-    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
-  EnterAffectiveCloudUI:
-    :commit: f6697e4edff32c27f8d9efec25f5151f4008fa34
-    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
-  EnterBioModuleBLE:
-    :commit: be736054c913237d89f719bc2f2430510e767f37
-    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
-  EnterBioModuleBLEUI:
-    :commit: 5bae15d1d3f5d866a57566155f58f7311d680e91
-    :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
-
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  EnterAffectiveCloud: b17c7dcff34af40d726358a7084f29c6cce078dd
-  EnterAffectiveCloudUI: fa5786028bffeba8f70579896c661db27df3d330
-  EnterBioModuleBLE: a926b959874a1a1425fc1662e2b3c95e8421ba44
-  EnterBioModuleBLEUI: 6284919ea21699df9ff392052612b0288e241db0
+  EnterAffectiveCloud: 9f7b4ca2b75ce83c71801d36706a093d1e2f7bfd
+  EnterAffectiveCloudUI: 19c9d813fcb4aabb84ae8fbb4fbcdc003657f1d9
+  EnterBioModuleBLE: e46203f28dd74ec7336e9d23d08fc32e5cbc681e
+  EnterBioModuleBLEUI: 77bfe1a0cda7b8d34b208a769dab1e94cc0ae060
   FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
   HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
   Moya: d4821fbcb3e784f34d2f82869e6855057a0b85d1
-  PromiseKit: c06835ba442ce5454ce3cdde470232804a6e4ff8
-  Realm: 5d1453468eca02c901c50b8a356f4a98a15b57aa
-  RealmSwift: 1d238caa5c64a590c669beef1a7e858a6cf55a1c
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   RxBluetoothKit: 0e781978e8a0df70ac3c611dcf44800b76c69f8a
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
@@ -128,6 +108,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 54d60313e9456f99cb9649819ae4543ed5b0498f
+PODFILE CHECKSUM: c217fbb24034235d9a5fc927804bc30142b944e6
 
 COCOAPODS: 1.8.3

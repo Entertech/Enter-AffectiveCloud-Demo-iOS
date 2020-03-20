@@ -12,7 +12,7 @@ import EnterAffectiveCloudUI
 class BrainwaveViewController: UIViewController {
 
     
-    @IBOutlet weak var brainView: PrivateChartBrainSpectrum!
+    @IBOutlet weak var brainView: AffectiveChartBrainSpectrumView!
     @IBOutlet weak var aboutView: ReportAboutView!
     
     var service: ReportService?

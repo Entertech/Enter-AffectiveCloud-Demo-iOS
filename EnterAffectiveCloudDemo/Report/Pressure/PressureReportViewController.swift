@@ -12,7 +12,7 @@ import EnterAffectiveCloudUI
 class PressureReportViewController: UIViewController {
 
     @IBOutlet weak var bg: UIView!
-    @IBOutlet weak var pressureView: PrivateReportChartPressure!
+    @IBOutlet weak var pressureView: AffectiveChartPressureView!
     @IBOutlet weak var aboutView: ReportAboutView!
     
     var service: ReportService?

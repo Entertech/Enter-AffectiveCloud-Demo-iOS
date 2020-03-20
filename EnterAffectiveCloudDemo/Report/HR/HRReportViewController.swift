@@ -13,7 +13,7 @@ class HRReportViewController: UIViewController {
 
     @IBOutlet weak var bg: UIView!
 
-    @IBOutlet weak var hrView: PrivateReportChartHR!
+    @IBOutlet weak var hrView: AffectiveChartHeartRateView!
     @IBOutlet weak var aboutView: ReportAboutView!
     
     var service: ReportService?

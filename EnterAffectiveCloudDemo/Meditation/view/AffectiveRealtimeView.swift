@@ -36,6 +36,53 @@ class AffectiveRealtimeView: UIView {
         }
     }
     
+    public var attentionValue: Float = 0 {
+        willSet {
+            attentionArray.append(newValue)
+            if attentionArray.count > 200 {
+                attentionArray.remove(at: 0)
+            }
+            setNeedsDisplay()
+        }
+    }
+    
+    public var relaxationValue: Float = 0 {
+        willSet {
+            relaxationArray.append(newValue)
+            if relaxationArray.count > 200 {
+                relaxationArray.remove(at: 0)
+            }
+        }
+    }
+    
+    public var arousalValue: Float = 0 {
+        willSet {
+            arousalArray.append(newValue)
+            if arousalArray.count > 200 {
+                arousalArray.remove(at: 0)
+            }
+        }
+
+    }
+    
+    public var pleasureValue: Float = 0 {
+        willSet {
+            pleasureArray.append(newValue)
+            if pleasureArray.count > 200 {
+                pleasureArray.remove(at: 0)
+            }
+        }
+    }
+    
+    public var pressureValue: Float = 0 {
+        willSet {
+            pressureArray.append(newValue)
+            if pressureArray.count > 200 {
+                pressureArray.remove(at: 0)
+            }
+        }
+    }
+    
     private enum AffectiveType: Int {
         case pressure = 4
         case pleasure = 3

@@ -166,6 +166,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
          
             return
         }
+
     }
     
     func biodataServicesUnsubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
@@ -233,9 +234,39 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             print(message)
         }
     }
-    
+    private var pleasures: (Int, Int) = (0, 0)
     func affectiveDataSubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
+        if let data = response.dataModel as? CSAffectiveSubscribeProcessJsonModel {
+            
+            
+            if let attention = data.attention?.attention {
+                padVC?.affectiveLineView.attentionValue = attention
+            }
+            if let relaxation = data.relaxation?.relaxation {
+                padVC?.affectiveLineView.relaxationValue = relaxation
+            }
+            if let pressure = data.pressure?.pressure {
+                padVC?.affectiveLineView.pressureValue = pressure
+            }
+            if let arousal = data.arousal?.arousal {
+                padVC?.affectiveLineView.arousalValue = arousal
+                pleasures.1 = Int(arousal)
+            }
+//            if let coherence = data.coherence?.coherence {
+//
+//            }
+            if let pleasure = data.pleasure?.pleasure {
+                padVC?.affectiveLineView.pleasureValue = pleasure
+                pleasures.0 = Int(pleasure)
+            }
+            if pleasures.0 != 0 && pleasures.1 != 0 {
 
+                padVC?.emotionView.emotionValue = pleasures
+                pleasures.0 = 0
+                pleasures.1 = 0
+            }
+            
+        }
     }
     
     func affectiveDataUnsubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {

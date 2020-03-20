@@ -12,7 +12,7 @@ import EnterAffectiveCloudUI
 class HRVReportViewController: UIViewController {
 
     @IBOutlet weak var bg: UIView!
-    @IBOutlet weak var hrvView: PrivateReportChartHRV!
+    @IBOutlet weak var hrvView: AffectiveChartHRVView!
     @IBOutlet weak var aboutView: ReportAboutView!
     
     var service: ReportService?

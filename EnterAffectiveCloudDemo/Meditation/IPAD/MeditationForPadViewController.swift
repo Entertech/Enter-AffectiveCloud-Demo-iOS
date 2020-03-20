@@ -312,7 +312,7 @@ class MeditationForPadViewController: UIViewController, CheckWearDelegate {
                 let report = MainReportViewController()
                 report.meditationDB = data.last
                 report.hidesBottomBarWhenPushed = true
-                UIViewController.currentViewController()?.navigationController?.pushViewController(report, animated: true)
+                self.navigationController?.pushViewController(report, animated: true)
             }
         }
     }

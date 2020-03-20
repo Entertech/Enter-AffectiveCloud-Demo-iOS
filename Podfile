@@ -1,14 +1,14 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 source 'git@github.com:EnterTech/PodSpecs.git'
 
-platform :ios, '11.0'
+platform :ios, '11.2'
 use_frameworks!
 
 def sdk
-  pod 'EnterBioModuleBLE', :git=> "https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
-  pod 'EnterBioModuleBLEUI', :git=> "https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
-  pod 'EnterAffectiveCloud', :git=> "https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git"
-  pod 'EnterAffectiveCloudUI', :git=> "https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git"
+  pod 'EnterBioModuleBLE', '~> 1.2.7'
+  pod 'EnterBioModuleBLEUI', '~> 1.2.7'
+  pod 'EnterAffectiveCloud', '~> 1.4.0'
+  pod 'EnterAffectiveCloudUI', '~> 1.4.0'
 end
 
 def other
