@@ -1,58 +1,59 @@
 PODS:
-  - Alamofire (5.0.0-rc.3)
+  - Alamofire (5.0.4)
   - Bugly (2.5.2)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
-  - EnterAffectiveCloud (1.3.7):
+  - EnterAffectiveCloud (1.4.1):
     - GzipSwift
-    - HandyJSON (= 5.0.0)
-    - Moya/RxSwift (= 14.0.0-beta.5)
-    - Starscream
+    - HandyJSON
+    - Moya/RxSwift (~> 14.0.0)
+    - RxSwift (~> 5.0.0)
+    - Starscream (= 3.1.1)
     - SwiftyJSON
-  - EnterAffectiveCloudUI (1.3.7):
+  - EnterAffectiveCloudUI (1.4.1):
     - Charts
-    - EnterAffectiveCloud (= 1.3.7)
-    - RxSwift (= 5.0)
+    - EnterAffectiveCloud (~> 1.4.1)
+    - RxSwift
     - SnapKit
-  - EnterBioModuleBLE (1.2.5):
+  - EnterBioModuleBLE (1.2.6):
     - FixedDFUService
     - PromiseKit
     - RxBluetoothKit
-  - EnterBioModuleBLEUI (1.2.5):
-    - EnterBioModuleBLE (= 1.2.5)
+  - EnterBioModuleBLEUI (1.2.6):
+    - EnterBioModuleBLE (= 1.2.6)
     - SnapKit
   - FixedDFUService (4.1.2):
     - Zip (~> 1.0)
   - GzipSwift (5.1.1)
-  - HandyJSON (5.0.0)
-  - Moya/Core (14.0.0-beta.5):
-    - Alamofire (= 5.0.0-rc.3)
-  - Moya/RxSwift (14.0.0-beta.5):
+  - HandyJSON (5.0.1)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
     - Moya/Core
     - RxSwift (~> 5.0)
-  - PromiseKit (6.12.0):
-    - PromiseKit/CorePromise (= 6.12.0)
-    - PromiseKit/Foundation (= 6.12.0)
-    - PromiseKit/UIKit (= 6.12.0)
-  - PromiseKit/CorePromise (6.12.0)
-  - PromiseKit/Foundation (6.12.0):
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.12.0):
+  - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
-  - Realm (4.1.0):
-    - Realm/Headers (= 4.1.0)
-  - Realm/Headers (4.1.0)
-  - RealmSwift (4.1.0):
-    - Realm (= 4.1.0)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
   - RxBluetoothKit (5.3.0):
     - RxSwift (~> 5.0)
-  - RxCocoa (5.0.1):
+  - RxCocoa (5.1.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxRelay (5.0.1):
+  - RxRelay (5.1.0):
     - RxSwift (~> 5)
-  - RxSwift (5.0.0)
+  - RxSwift (5.0.1)
   - SnapKit (5.0.1)
   - Starscream (3.1.1)
   - SVProgressHUD (2.2.5)
@@ -62,7 +63,7 @@ PODS:
 DEPENDENCIES:
   - Bugly
   - EnterAffectiveCloud (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
-  - EnterAffectiveCloudUI (~> 1.3.7)
+  - EnterAffectiveCloudUI (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
   - "EnterBioModuleBLE (from `git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)"
   - "EnterBioModuleBLEUI (from `git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)"
   - RealmSwift
@@ -75,7 +76,6 @@ SPEC REPOS:
     - Alamofire
     - Bugly
     - Charts
-    - EnterAffectiveCloudUI
     - FixedDFUService
     - GzipSwift
     - HandyJSON
@@ -86,16 +86,17 @@ SPEC REPOS:
     - RxBluetoothKit
     - RxCocoa
     - RxRelay
+    - RxSwift
     - SnapKit
     - Starscream
     - SVProgressHUD
     - SwiftyJSON
     - Zip
-  trunk:
-    - RxSwift
 
 EXTERNAL SOURCES:
   EnterAffectiveCloud:
+    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
+  EnterAffectiveCloudUI:
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
@@ -104,40 +105,43 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EnterAffectiveCloud:
-    :commit: 53381455962f0aa3d0f73e314bc3f424de6e509c
+    :commit: f824b969efc9148a86dc402cd93f76f31164eece
+    :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
+  EnterAffectiveCloudUI:
+    :commit: f824b969efc9148a86dc402cd93f76f31164eece
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
-    :commit: abebfd78d1ed34162ea4d904627716bbdbc49fbd
+    :commit: 5bae15d1d3f5d866a57566155f58f7311d680e91
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
   EnterBioModuleBLEUI:
-    :commit: 49a9ce4b3198b66bf3980d5ee80da6e855112728
+    :commit: 5bae15d1d3f5d866a57566155f58f7311d680e91
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
 
 SPEC CHECKSUMS:
-  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Alamofire: 0fe5fd24b4298dc377a6550da7d5f1b30e286fcb
   Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  EnterAffectiveCloud: a7eb16d0fef28972092b438101182c30897859d6
-  EnterAffectiveCloudUI: bdfbfa06ed6a405ae575f684e814d11cb580f9ab
-  EnterBioModuleBLE: 30a1028260b552573b8b12c7bcf81da7dcd6fcd1
-  EnterBioModuleBLEUI: 8c7818ea7062b32f08c8e75b1cef4db76faee8cf
+  EnterAffectiveCloud: 449ca0bf474a0ac1d0ed32f6ad430e3b070302e5
+  EnterAffectiveCloudUI: 9e02d8c7d96f6e4f805105d44d9f980bd634d574
+  EnterBioModuleBLE: a926b959874a1a1425fc1662e2b3c95e8421ba44
+  EnterBioModuleBLEUI: 6284919ea21699df9ff392052612b0288e241db0
   FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
-  Moya: 2c16c3fe92eda302070213452281b59198f946d8
-  PromiseKit: c06835ba442ce5454ce3cdde470232804a6e4ff8
-  Realm: 5d1453468eca02c901c50b8a356f4a98a15b57aa
-  RealmSwift: 1d238caa5c64a590c669beef1a7e858a6cf55a1c
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   RxBluetoothKit: 0e781978e8a0df70ac3c611dcf44800b76c69f8a
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
+  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 360e2d2f6b541876567bc408559cfee97c53900f
+PODFILE CHECKSUM: b245d83e9b73bb2f4726995546e3c2c69b61a49a
 
 COCOAPODS: 1.8.3
