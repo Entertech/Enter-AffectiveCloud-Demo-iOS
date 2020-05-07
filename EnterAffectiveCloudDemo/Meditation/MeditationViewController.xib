@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +36,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdt-SR-tJN">
-                    <rect key="frame" x="362" y="6" width="32" height="32"/>
+                    <rect key="frame" x="362" y="50" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="awn-z8-0yQ"/>
                         <constraint firstAttribute="width" constant="32" id="jun-Sc-vYr"/>
@@ -47,13 +49,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实时监测" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AO-MA-hJa">
-                    <rect key="frame" x="16" y="229" width="98" height="29"/>
+                    <rect key="frame" x="16" y="106" width="98" height="29"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tug-UH-CO7">
-                    <rect key="frame" x="365" y="233.5" width="33" height="32"/>
+                    <rect key="frame" x="365" y="110.5" width="33" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="33" id="IgQ-To-bYG"/>
                         <constraint firstAttribute="height" constant="32" id="aLO-UT-hbS"/>
@@ -67,7 +69,7 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYh-9k-PcC">
-                    <rect key="frame" x="0.0" y="266" width="414" height="1231"/>
+                    <rect key="frame" x="0.0" y="143" width="414" height="1354"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ke0-nI-Ga4">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
@@ -253,11 +255,11 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="meJ-1C-rxI"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="iTW-pA-nGt"/>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fib-cB-u00" customClass="CheckWearStateView" customModule="心流" customModuleProvider="target">
-                    <rect key="frame" x="16" y="54" width="382" height="151"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fib-cB-u00">
+                    <rect key="frame" x="16" y="82" width="382" height="0.0"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="151" id="q0q-pi-lHe"/>
+                        <constraint firstAttribute="height" id="q0q-pi-lHe"/>
                     </constraints>
                 </view>
             </subviews>
@@ -270,7 +272,7 @@
                 <constraint firstItem="Tug-UH-CO7" firstAttribute="centerY" secondItem="0AO-MA-hJa" secondAttribute="centerY" constant="6" id="HQ3-Gy-Q9r"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tug-UH-CO7" secondAttribute="trailing" constant="16" id="Ktv-Jg-Y5f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zdt-SR-tJN" secondAttribute="trailing" constant="20" id="TBt-dJ-AAk"/>
-                <constraint firstItem="fib-cB-u00" firstAttribute="top" secondItem="zdt-SR-tJN" secondAttribute="bottom" constant="16" id="bCM-0A-SKH"/>
+                <constraint firstItem="fib-cB-u00" firstAttribute="top" secondItem="zdt-SR-tJN" secondAttribute="bottom" id="bCM-0A-SKH"/>
                 <constraint firstItem="CYh-9k-PcC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fJ3-Cf-7FE"/>
                 <constraint firstItem="CYh-9k-PcC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ioj-nf-zfl"/>
                 <constraint firstItem="zdt-SR-tJN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="6" id="kYk-OI-hiC"/>

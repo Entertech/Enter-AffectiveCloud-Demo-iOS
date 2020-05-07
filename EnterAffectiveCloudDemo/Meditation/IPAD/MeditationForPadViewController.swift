@@ -13,13 +13,7 @@ import EnterBioModuleBLE
 import SVProgressHUD
 
 
-class MeditationForPadViewController: UIViewController, CheckWearDelegate {
-    
-    func checkWear(value: UInt8) {
-        DispatchQueue.main.async {
-            self.wearView.wearValue = value
-        }
-    }
+class MeditationForPadViewController: UIViewController {
 
     @IBOutlet weak var affectiveLineView: AffectiveRealtimeView!
     @IBOutlet weak var emotionView: EmotionDemoView!
@@ -32,9 +26,7 @@ class MeditationForPadViewController: UIViewController, CheckWearDelegate {
     @IBOutlet weak var relaxationView: RealtimeRelaxationView!
     @IBOutlet weak var spectrumView: RealtimeBrainwaveSpectrumView!
     @IBOutlet weak var brainView: RealtimeBrainwaveView!
-    @IBOutlet weak var wearView: CheckWearStateView!
     @IBOutlet weak var heartView: RealtimeHeartRateView!
-    @IBOutlet weak var stateView: CheckWearStateView!
     @IBOutlet weak var hrvView: RealtimeHRVView!
     
     private var isErrorViewShowing: Bool = true
@@ -47,8 +39,6 @@ class MeditationForPadViewController: UIViewController, CheckWearDelegate {
         errorView.fixBtn.addTarget(self, action: #selector(errorConnect(sender:)), for: .touchUpInside)
         service?.reportModel = self.reportModel
         service = MeditationService(self)
-        RelaxManager.shared.delegate = self
-        
         setNavigation()
         setUI()
     }
@@ -60,8 +50,6 @@ class MeditationForPadViewController: UIViewController, CheckWearDelegate {
         heartView.textColor = #colorLiteral(red: 0.2588235294, green: 0.2823529412, blue: 0.4196078431, alpha: 1)
         heartView.mainColor = #colorLiteral(red: 0.4980392157, green: 0.3490196078, blue: 0.3764705882, alpha: 1)
         heartView.minAndMaxOnBottom = true
-        
-        wearView.isNeedExpand = false
         
         brainView.bgColor = .white
         brainView.mainColor = #colorLiteral(red: 0.137254902, green: 0.137254902, blue: 0.137254902, alpha: 1)

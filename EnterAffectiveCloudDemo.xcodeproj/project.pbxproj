@@ -65,7 +65,6 @@
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
-		FAF16BED23CC573600A92B0B /* WearStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BEC23CC573600A92B0B /* WearStateView.swift */; };
 		FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BEE23CC5B7C00A92B0B /* Config.plist */; };
 		FAF16BF423CC737700A92B0B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF223CC737600A92B0B /* Extension.swift */; };
 		FAF16C1123CC76D400A92B0B /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF923CC76D400A92B0B /* ReportService.swift */; };
@@ -152,7 +151,6 @@
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
-		FAF16BEC23CC573600A92B0B /* WearStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearStateView.swift; sourceTree = "<group>"; };
 		FAF16BEE23CC5B7C00A92B0B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FAF16BF223CC737600A92B0B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FAF16BF923CC76D400A92B0B /* ReportService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 				FA2A0697237D2E9700BEB75E /* ErrorTipView.swift */,
 				FA2A0699237D433E00BEB75E /* DashboardIndexView.swift */,
 				FA2A069B237D438400BEB75E /* TitleTableViewCell.swift */,
-				FAF16BEC23CC573600A92B0B /* WearStateView.swift */,
 				FA1B69BD23EA975900115FA1 /* AffectiveRealtimeView.swift */,
 				FA1B69DA23EBE8F500115FA1 /* EmotionDemoView.swift */,
 			);
@@ -612,7 +609,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF16BED23CC573600A92B0B /* WearStateView.swift in Sources */,
 				FA1B69DB23EBE8F500115FA1 /* EmotionDemoView.swift in Sources */,
 				FAF16C1F23CC76D400A92B0B /* RAndAViewController.swift in Sources */,
 				FA5F0AAF237A819A00A21BF9 /* SecondViewController.swift in Sources */,

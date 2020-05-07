@@ -11,18 +11,12 @@ import EnterAffectiveCloudUI
 import EnterBioModuleBLEUI
 import SVProgressHUD
 
-class MeditationViewController: UIViewController, CheckWearDelegate {
-    func checkWear(value: UInt8) {
-        DispatchQueue.main.async {
-            self.wearView.wearValue = value
-        }
-    }
+class MeditationViewController: UIViewController {
     
     @IBOutlet weak var coherenceView: RealtimeCoherenceView!
     @IBOutlet weak var pleasureView: RealtimePleasureView!
     
     @IBOutlet weak var hrvView: RealtimeHRVView!
-    @IBOutlet weak var wearView: CheckWearStateView!
     @IBOutlet weak var errorView: ErrorTipView!
     @IBOutlet weak var heartView: RealtimeHeartRateView!
     @IBOutlet weak var heartBoard: UIView!
@@ -49,7 +43,6 @@ class MeditationViewController: UIViewController, CheckWearDelegate {
         service = MeditationService(self)
         service?.reportModel = self.reportModel
         // Do any additional setup after loading the view.
-        RelaxManager.shared.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -173,18 +166,11 @@ class MeditationViewController: UIViewController, CheckWearDelegate {
            switch e {
            case .heart:
                viewArray[index] = heartBoard
-
-
            case .brainwave:
                viewArray[index] = brainBoard
-
-
            case .emotion:
                viewArray[index] = emotionBoard
-
-
            }
-
         }
         viewArray[1].snp.updateConstraints{
             $0.top.equalTo(self.errorView.snp.bottom).offset(16+viewArray[0].bounds.height+24)
@@ -196,7 +182,6 @@ class MeditationViewController: UIViewController, CheckWearDelegate {
 
         viewArray[2].snp.updateConstraints{
             $0.top.equalTo(self.errorView.snp.bottom).offset(16+viewArray[1].bounds.height+24+viewArray[0].bounds.height+24)
-
         }
         self.view.layoutIfNeeded()
     }
