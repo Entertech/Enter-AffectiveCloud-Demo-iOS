@@ -27,7 +27,6 @@
                 <outlet property="scrollView" destination="CYh-9k-PcC" id="QLd-RA-EsE"/>
                 <outlet property="spectrumView" destination="tLh-cM-kHe" id="Slb-YY-zOI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="wearView" destination="fib-cB-u00" id="eAB-NP-cO4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
