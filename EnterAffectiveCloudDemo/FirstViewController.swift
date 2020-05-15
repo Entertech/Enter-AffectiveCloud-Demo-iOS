@@ -73,7 +73,7 @@ class FirstViewController: UIViewController {
             //controller.state = .check
             self.navigationController?.pushViewController(controller, animated: true)
         } else {
-            let controller = FlowtimeIntroductionViewController()
+            let controller = FlowtimeConnectTipViewController()
             controller.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(controller, animated: true)
         }
