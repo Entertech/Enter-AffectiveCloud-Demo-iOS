@@ -5,20 +5,29 @@ platform :ios, '11.2'
 use_frameworks!
 
 def sdk
-  pod 'EnterBioModuleBLE', '~> 1.2.7'
-  pod 'EnterBioModuleBLEUI', '~> 1.2.7'
-  pod 'EnterAffectiveCloud', '~> 1.4.0'
-  pod 'EnterAffectiveCloudUI', '~> 1.4.0'
+  pod 'EnterBioModuleBLE', :git => 'https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git'
+  pod 'EnterBioModuleBLEUI', :git => 'https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git'
+  pod 'EnterAffectiveCloud', :git => 'https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git', :branch => 'develop_test'
+  pod 'EnterAffectiveCloudUI', :git => 'https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git', :branch => 'develop_test'
 end
 
 def other
   pod 'SnapKit'
   pod 'RealmSwift'
   pod 'SVProgressHUD'
+  pod "FluentDarkModeKit"
+  pod 'lottie-ios'
+  pod 'QuickTableViewController'
 end
 
 
 target 'EnterAffectiveCloudDemo' do
   sdk
   other
+end
+
+target 'Networking' do
+  pod 'Alamofire', '~> 5.0.0'
+  pod 'HandyJSON'
+  pod 'Moya/RxSwift', '~> 14.0.0'
 end

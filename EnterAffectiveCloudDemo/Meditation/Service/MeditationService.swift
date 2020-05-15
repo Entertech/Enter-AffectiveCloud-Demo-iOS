@@ -10,9 +10,8 @@ import UIKit
 import EnterAffectiveCloud
 import EnterBioModuleBLE
 
-class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
-    
-    
+class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, CheckWearDelegate{
+
     public var meditationModel = MeditationModel()
     public var reportModel: MeditationReportModel?
     public var meditationVC: MeditationViewController?
@@ -22,36 +21,32 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     private var suspendArray:[(Date, Date)]?
     private var firstConnect: Bool = true
     private var isGetAllReport = false
-    private var lastConnectState: BLEConnectionState = .disconnected
-    ///给出中断记录
-    private var isDeviceConnect: Bool = false {
-        willSet {
-            if newValue && isWebsocketConnect {
-                suspendTime.append((Date(), true))
-            } else {
-                suspendTime.append((Date(), false))
-            }
-        }
-    }
-    ///给出中断记录
-    private var isWebsocketConnect: Bool = false {
-        willSet {
-            if newValue && isDeviceConnect {
-                suspendTime.append((Date(), true))
-            } else {
-                suspendTime.append((Date(), false))
-            }
-        }
-    }
     
     public init(_ vc1: UIViewController) {
         meditationVC = vc1 as? MeditationViewController
         padVC = vc1 as? MeditationForPadViewController
-            
         if meditationModel.startTime == nil {
             meditationModel.startTime = Date()
         }
         
+    }
+    
+    private var qualityCount = 0
+    private var qualityArray: [Float] = []
+    private var bIsPoorError = false //当前是否有错误提示
+    public var bIsQualityPoor: Bool { //统计报表的信号质量
+        get {
+            var poorCount = 0
+            for e in self.qualityArray {
+                if e < 2 {
+                    poorCount += 1
+                }
+            }
+            if self.qualityArray.count == 0 {
+                return true
+            }
+            return poorCount * 100 / self.qualityArray.count > 80
+        }
     }
     
     public func finish() {
@@ -73,7 +68,6 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     }
     
     //MARK: - CSResponseDelegate methods
-
     func websocketState(client: AffectiveCloudClient, state: CSState) {
         switch state{
         case .connected:
@@ -81,6 +75,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             padVC?.dismissErrorView(.network)
             //RelaxManager.shared.sessionCreate(userID: userId)
         case .disconnected:
+            suspendTime.append((Date(), false))
             RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
             padVC?.showErrorView(.network)
@@ -99,6 +94,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     }
     
     func sessionCreateAndAuthenticate(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
+        suspendTime.append((Date(), true))
         RelaxManager.shared.startCloudService()
         meditationVC?.brainView.showProgress()
         meditationVC?.spectrumView.showProgress()
@@ -124,7 +120,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     }
     
     func sessionRestore(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
-        isWebsocketConnect = true
+        suspendTime.append((Date(), true))
         meditationVC?.brainView.showProgress()
         meditationVC?.spectrumView.showProgress()
         meditationVC?.heartView.showProgress()
@@ -165,6 +161,47 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             RelaxManager.shared.setupBLE()
          
             return
+        }
+        
+        if let data = response.dataModel as? CSBiodataProcessJSONModel {
+            if let eeg = data.eeg {
+                
+                if let quality = eeg.quality {
+                    qualityArray.append(quality)
+                    if quality < 2 {
+                        if qualityCount >= 64 && !self.meditationVC!.isErrorViewShowing {//连续收到15秒弱数
+                            self.bIsPoorError = true
+                            qualityCount += 1
+                            self.playErrorSound()
+                            DispatchQueue.main.async {
+                                self.meditationVC?.showErrorView(.poor)
+                            }
+                        }
+                        qualityCount += 1
+                        
+                    } else {
+                        if self.meditationVC!.isErrorViewShowing {
+                            self.playSuccessSound()
+                            DispatchQueue.main.async {
+                                self.meditationVC?.dismissErrorView(.poor)
+                                self.meditationVC?.brainView.showProgress()
+                                self.meditationVC?.spectrumView.showProgress()
+                                self.meditationVC?.heartView.showProgress()
+                                self.meditationVC?.attentionView.showProgress()
+                                self.meditationVC?.relaxationView.showProgress()
+                                self.meditationVC?.pressureView.showProgress()
+                                self.meditationVC?.arousalView.showProgress()
+                                self.meditationVC?.coherenceView.showProgress()
+                                self.meditationVC?.pleasureView.showProgress()
+                                self.meditationVC?.hrvView.showProgress()
+                            }
+                        }
+                        self.bIsPoorError = false
+                        qualityCount = 0
+                    }
+                    
+                }
+            }
         }
 
     }
@@ -312,6 +349,14 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
                 }
                 reportModel?.arousalAvg = arousal.average
             }
+            if let coherence = report.coherence {
+                if var list = coherence.list {
+                    addZeroToArray(array: &list, interval: 0.8)
+                    reportModel?.coherence = list
+                }
+                reportModel?.coherenceAvg = coherence.average
+            }
+            
         }
         if self.isReceiveAll() {
             endup()
@@ -339,10 +384,6 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     var bleState: BLEConnectionState = .connecting
     //MARK: - ble delegate
     func bleConnectionStateChanged(state: BLEConnectionState, bleManager: BLEManager) {
-        if state == lastConnectState {
-            return
-        }
-        lastConnectState = state
         if state.isConnected {
             if !RelaxManager.shared.isWebSocketConnected {
                 if firstConnect  { //第一次连接
@@ -361,10 +402,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
                 self.isPlayed = true
                 self.playSuccessSound()
             }
-            isDeviceConnect = true
         } else {
-            
-            isDeviceConnect = false
             DispatchQueue.main.async {
                 self.meditationVC?.showErrorView(.bluetooth)
                 self.padVC?.showErrorView(.bluetooth)
@@ -377,6 +415,26 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
 
         }
     }
+    // MARK: - 佩戴检测delegate
+    var sensorStateCount = 0 // 统计有多少次佩戴检测失败
+    var bIsWear = false //是否佩戴了
+    func checkWear(value: UInt8) {
+        if value == 0 {
+            bIsWear = true
+            sensorStateCount = 0
+        } else {
+            sensorStateCount += 1
+            bIsWear = false
+            if sensorStateCount >= 3 && !self.meditationVC!.isErrorViewShowing {
+                sensorStateCount = 0
+                self.playErrorSound()
+                DispatchQueue.main.async {
+                    self.meditationVC?.showErrorView(.poor)
+                    self.meditationVC?.setErrorMessage(text: "蓝牙连接断开")
+                }
+            }
+        }
+    }
     
     private func isReceiveAll() -> Bool {
         if let _ = reportModel?.alphaWave,
@@ -384,6 +442,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             let _ = reportModel?.attention,
             let _ = reportModel?.relaxation,
             let _ = reportModel?.pressure,
+            let _ = reportModel?.coherence,
             let _ = reportModel?.pleasure {
             return true
         } else {
@@ -404,21 +463,23 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     }
     
     private func playErrorSound() {
-        guard let path = Bundle.main.path(forResource: "error_tip", ofType: "mp3") else { return }
-        if let url = URL(string: path) {
-            let player = SoundPlayer(url, soundID: 1)
-            player.play()
+        //guard let path = Bundle.main.path(forResource: "error_tip", ofType: "mp3") else { return }
+        guard let url = Bundle.main.url(forResource: "error_tip", withExtension: "mp3") else {
+            return
         }
+        let player = SoundPlayer(url, soundID: 1)
+        player.play()
     }
     
     // sound handle
     private var isPlayed = false
     private func playSuccessSound() {
-        guard let path = Bundle.main.path(forResource: "success_tip", ofType: "mp3") else { return }
-        if let url = URL(string: path) {
-            let player = SoundPlayer(url, soundID: 0)
-            player.play()
+        //guard let path = Bundle.main.path(forResource: "success_tip", ofType: "mp3") else { return }
+        guard let url = Bundle.main.url(forResource: "success_tip", withExtension: "mp3") else {
+            return
         }
+        let player = SoundPlayer(url, soundID: 0)
+        player.play()
     }
     
     private func reportPath() -> String {
@@ -433,24 +494,24 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
     ///
     /// - Returns: 0.断开时间   1.连接时间
     private func getSuspendArray() -> [(Date, Date)] {
-        var startIndex = 0
         var suspendInterval: [(Date, Date)] = []
-        var tempDisconnect: Date?
-        for (i,e) in suspendTime.enumerated() {
-            if startIndex == 0 {
-                if e.1 {
-                    startIndex = i
-                }
-            } else {
-                if let temp = tempDisconnect {
-                    if e.1 {
-                        suspendInterval.append((temp, e.0))
-                        tempDisconnect = nil
-                    }
+        var lastState: Bool = true
+        var disconnectTime: Date?
+        var connectTime: Date?
+        for (_,e) in suspendTime.enumerated() {
+            if e.1 != lastState  {
+                lastState = e.1
+                if !e.1 {
+                    disconnectTime = e.0
                 } else {
-                    if !e.1 {
-                        tempDisconnect = e.0
-                    }
+                    connectTime = e.0
+                }
+                
+                if let dTime = disconnectTime, let cTime = connectTime {
+                    let suspend = (dTime, cTime)
+                    suspendInterval.append(suspend)
+                    disconnectTime = nil
+                    connectTime = nil
                 }
             }
         }
@@ -490,7 +551,6 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
             
         }
     }
-        
 }
 
 
@@ -520,6 +580,7 @@ extension MeditationService {
             self.meditationModel.attentionMax = reportModel.attentionMax ?? 0
             self.meditationModel.attentionMin = reportModel.attentionMin ?? 0
             self.meditationModel.pressureAvg = reportModel.pressureAvg ?? 0
+            self.meditationModel.coherenceAvg = reportModel.coherenceAvg ?? 0
         } else {
             self.meditationModel.hrAverage = 0
             self.meditationModel.hrMax = 0
@@ -532,6 +593,7 @@ extension MeditationService {
             self.meditationModel.attentionMax = 0
             self.meditationModel.attentionMin = 0
             self.meditationModel.pressureAvg = 0
+            self.meditationModel.coherenceAvg = 0
         }
 
 

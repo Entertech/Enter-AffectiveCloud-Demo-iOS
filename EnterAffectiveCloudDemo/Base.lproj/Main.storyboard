@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -194,7 +194,7 @@
         <!--首页-->
         <scene sceneID="TcR-Ct-ejg">
             <objects>
-                <navigationController id="AqV-4t-gcM" sceneMemberID="viewController">
+                <navigationController id="AqV-4t-gcM" customClass="BaseNavigationViewController" customModule="心流" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="first" id="k85-B3-G5T"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nm9-k3-7xb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -242,7 +242,7 @@
         <!--统计-->
         <scene sceneID="yeg-rx-39U">
             <objects>
-                <navigationController id="JgZ-LA-DF6" sceneMemberID="viewController">
+                <navigationController id="JgZ-LA-DF6" customClass="BaseNavigationViewController" customModule="心流" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="统计" image="second" id="bbb-Nb-Xm7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NZz-ex-ibL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -259,7 +259,7 @@
         <!--我的-->
         <scene sceneID="i5Z-Lf-sP0">
             <objects>
-                <navigationController id="s2n-MH-VcN" sceneMemberID="viewController">
+                <navigationController id="s2n-MH-VcN" customClass="BaseNavigationViewController" customModule="心流" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" image="third" id="Gvu-4h-cqX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="unh-4V-aYF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -280,25 +280,10 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8z6-He-nhc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="8z6-He-nhc" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="3MN-pg-TwL"/>
-                            <constraint firstItem="8z6-He-nhc" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="FkO-ql-BbI"/>
-                            <constraint firstItem="8z6-He-nhc" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="hDo-af-o6Q"/>
-                            <constraint firstItem="8z6-He-nhc" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="iXs-qI-IYb"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" id="TyH-IP-01N"/>
-                    <connections>
-                        <outlet property="tableView" destination="8z6-He-nhc" id="pkN-CL-PLT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

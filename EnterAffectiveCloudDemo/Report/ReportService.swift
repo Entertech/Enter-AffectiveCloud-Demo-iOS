@@ -79,6 +79,11 @@ class ReportService: NSObject {
         } else {
             vc?.view6.value = 0
         }
+        if let cAvg = fileModel.coherenceAvg {
+            vc?.view7.value = cAvg
+        } else {
+            vc?.view7.value = 0
+        }
         
     }
     
@@ -112,6 +117,8 @@ class ReportService: NSObject {
                         fileModel.relaxationMin = Int(e.value)
                     case .pressureAverage:
                         fileModel.pressureAvg = Int(e.value)
+                    case .coherenceAverage:
+                        fileModel.coherenceAvg = Int(e.value)
                     default:
                         break
                     }
@@ -207,6 +214,21 @@ class ReportService: NSObject {
                         let arrayTemp = e.bodyDatas.to(arrayType: Float.self)
                         if let array = arrayTemp {
                             fileModel.pressure = array
+                        }
+                    case .coherence:
+                        let arrayTemp = e.bodyDatas.to(arrayType: Float.self)?.map({ (value) -> Int in
+                            var tmp = 0
+                            if value > 100 {
+                                tmp = 100
+                            } else if value < 0 {
+                                tmp = 0
+                            } else {
+                                tmp = Int(value)
+                            }
+                            return tmp
+                        })
+                        if let array = arrayTemp {
+                            fileModel.coherence = array
                         }
                         
                     default:

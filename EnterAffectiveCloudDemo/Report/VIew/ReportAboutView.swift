@@ -22,6 +22,7 @@ class ReportAboutView: BaseView {
         case hr
         case relaxation
         case pressure
+        case coherence
     }
     
     var icon: AboutIcon = .blue {

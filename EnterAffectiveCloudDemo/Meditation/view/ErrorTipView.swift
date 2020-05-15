@@ -118,6 +118,18 @@ class ErrorTipView: UIView {
                 range: NSMakeRange(0, attributedText.length))
             
             tipLabel.attributedText = attributedText
+        case .poor:
+            titleLabel.text = "信号质量差"
+            let attributedText = NSMutableAttributedString(string:"您可能没有佩戴好设备，请点击按钮根据指引正确佩戴")
+            let style = NSMutableParagraphStyle()
+            style.alignment = .left
+            style.lineSpacing = 5
+            attributedText.addAttribute(
+                kCTParagraphStyleAttributeName as NSAttributedString.Key,
+                value: style,
+                range: NSMakeRange(0, attributedText.length))
+            
+            tipLabel.attributedText = attributedText
         default:
             break
         }

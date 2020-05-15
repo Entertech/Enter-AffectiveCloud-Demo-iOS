@@ -29,7 +29,7 @@ class MeditationForPadViewController: UIViewController {
     @IBOutlet weak var heartView: RealtimeHeartRateView!
     @IBOutlet weak var hrvView: RealtimeHRVView!
     
-    private var isErrorViewShowing: Bool = true
+    public var isErrorViewShowing: Bool = true
     private var currentErrorType: ErrorType = .network
     private var service: MeditationService?
     private let reportModel = MeditationReportModel()
@@ -181,7 +181,6 @@ class MeditationForPadViewController: UIViewController {
             DispatchQueue.main.async {
                 switch errorType {
                 case .bluetooth:
-                    
                     self.currentErrorType = .bluetooth
                     UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
                         self.errorView.snp.updateConstraints{
@@ -194,7 +193,6 @@ class MeditationForPadViewController: UIViewController {
                         
                     })
                 case .network:
-                    
                     self.currentErrorType = .network
                     UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
                         self.errorView.snp.updateConstraints{
@@ -206,6 +204,8 @@ class MeditationForPadViewController: UIViewController {
                         self.isErrorViewShowing = true
                         
                     })
+                case .poor:
+                    break
                 }
             }
             

@@ -24,13 +24,17 @@ class MainReportViewController: UIViewController {
     @IBOutlet weak var view5: PrivateReportRelaxationAndAttention!
     @IBOutlet weak var head6: PrivateReportViewHead!
     @IBOutlet weak var view6: PrivateReportPressure!
+    @IBOutlet weak var head7: PrivateReportViewHead!
+    @IBOutlet weak var view7: ReportCoherence!
     @IBOutlet weak var bg: UIView!
     @IBOutlet weak var bg2: UIView!
     @IBOutlet weak var bg3: UIView!
     @IBOutlet weak var bg4: UIView!
     @IBOutlet weak var bg5: UIView!
     @IBOutlet weak var bg6: UIView!
+    @IBOutlet weak var bg7: UIView!
     
+    @IBOutlet weak var btn7: UIButton!
     @IBOutlet weak var btn6: UIButton!
     @IBOutlet weak var btn5: UIButton!
     @IBOutlet weak var bt4: UIButton!
@@ -38,9 +42,11 @@ class MainReportViewController: UIViewController {
     @IBOutlet weak var btn3: UIButton!
     var service: ReportService = ReportService()
     var meditationDB: DBMeditation?
+    var pViewController: UIViewController? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = Colors.bg2
+        bg.backgroundColor = Colors.bg2
         head2.image = #imageLiteral(resourceName: "icon_report_brain")
         head2.titleText = "脑电波频谱"
         btn2.addTarget(self, action: #selector(showBrain), for: .touchUpInside)
@@ -61,12 +67,18 @@ class MainReportViewController: UIViewController {
         head6.titleText = "压力值"
         btn6.addTarget(self, action: #selector(showPressure), for: .touchUpInside)
         
+        head7.image = #imageLiteral(resourceName: "icon_report_heart")
+        head7.titleText = "和谐度"
+        btn6.addTarget(self, action: #selector(showPressure), for: .touchUpInside)
+        
         setShadow(view: bg2)
         setShadow(view: bg3)
         setShadow(view: bg4)
         setShadow(view: bg5)
         setShadow(view: bg6)
+        setShadow(view: bg7)
         service.vc = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +114,10 @@ class MainReportViewController: UIViewController {
         let vc = BrainwaveViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
+        if let p = pViewController {
+            p.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -111,6 +127,10 @@ class MainReportViewController: UIViewController {
         let vc = HRVReportViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
+        if let p = pViewController {
+            p.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -119,6 +139,10 @@ class MainReportViewController: UIViewController {
         let vc = HRReportViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
+        if let p = pViewController {
+            p.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -127,6 +151,10 @@ class MainReportViewController: UIViewController {
         let vc = RAndAViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
+        if let p = pViewController {
+            p.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -135,7 +163,21 @@ class MainReportViewController: UIViewController {
         let vc = PressureReportViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
+        if let p = pViewController {
+            p.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    @IBAction func showConherence(_ sender: Any) {
+        let vc = CoherenceReportViewController()
+        vc.service = service
+        vc.hidesBottomBarWhenPushed = true
+        if let p = pViewController {
+            p.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

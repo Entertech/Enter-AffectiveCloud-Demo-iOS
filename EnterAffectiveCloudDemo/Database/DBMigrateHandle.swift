@@ -15,7 +15,7 @@ class DBMigrateHandle {
      *
      *  v1: 上线产品
      */
-    static let kShouldMigrateVersion: UInt64 = 2
+    static let kShouldMigrateVersion: UInt64 = 3
     static func shouldMigrate(for url: URL) -> Bool {
         do {
             let lastVersion = try schemaVersionAtURL(url)

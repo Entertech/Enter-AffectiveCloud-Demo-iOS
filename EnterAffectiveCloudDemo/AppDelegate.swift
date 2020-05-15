@@ -54,8 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setup() {
+        _ = BluetoothContext.shared //蓝牙
         
-        var path: String = ""
+        var path: String = "" //websocket
         if let plistPath = Bundle.main.path(forResource: "Config", ofType: "plist") {
             path = plistPath
         } else {
@@ -66,16 +67,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Preference.kCloudServiceAppKey = keyValue?.object(forKey: "AppKey") as! String
         Preference.kCloudServiceAppSecret = keyValue?.object(forKey: "AppSecret") as! String
         
-        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultMaskType(.clear)  //SVP
         SVProgressHUD.setDefaultStyle(.custom)
         SVProgressHUD.setMaximumDismissTimeInterval(3.0)
         SVProgressHUD.setMinimumSize(CGSize(width: 150, height: 120))
         SVProgressHUD.setBackgroundColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8))
         SVProgressHUD.setForegroundColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
-        let realmURL = FTFileManager.shared.realmURL()
+        
+        let realmURL = FTFileManager.shared.realmURL()  //Realm
         if DBMigrateHandle.shouldMigrate(for: realmURL) {
+            //TODO: migrate
             DBMigrateHandle.migrate(url: realmURL) {
-                
+                print("migrate")
             }
         } else {
             DBOperation.config(realmURL, version: DBMigrateHandle.kShouldMigrateVersion)

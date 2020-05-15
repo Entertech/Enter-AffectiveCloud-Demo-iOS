@@ -50,22 +50,33 @@ class FirstViewController: UIViewController {
         if BLEService.shared.bleManager.state == .disconnected {
             SVProgressHUD.showError(withStatus: "请先连接设备")
         } else {
-            let medition = MeditationViewController()
-            medition.modalPresentationStyle = .fullScreen
-            self.present(medition, animated: true, completion: nil)
+            let controller = SensorCheckViewController()
+            controller.state = .check
+            let navigation = UINavigationController(rootViewController: controller)
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true, completion: nil)
+            //self.navigationController?.pushViewController(navigation, animated: true)
+            
+//            let medition = MeditationViewController()
+//            medition.modalPresentationStyle = .fullScreen
+//            self.present(medition, animated: true, completion: nil)
         }
+        
+
 
     }
     @IBAction func connectBLE(_ sender: Any) {
-        let ble = BLEService.shared.bleManager
-        let connection = BLEConnectViewController(bleManager: ble)
-//        connection.firmwareVersion  = "2.2.2"
-//        connection.firmwareURL = Bundle.main.url(forResource: "dfutest3", withExtension: "zip")
-//        connection.firmwareUpdateLog = "1.请在此输入日志信息。\n2.更新内容1。\n3.更新内容2。"
-        connection.cornerRadius = 6
-        connection.mainColor = UIColor(red: 0, green: 100.0/255.0, blue: 1, alpha: 1)
-
-        self.present(connection, animated: true, completion: nil)
+        if Preference.haveFlowtimeConnectedBefore {
+            
+            let controller = DeviceStatusViewController()
+            controller.hidesBottomBarWhenPushed = true
+            //controller.state = .check
+            self.navigationController?.pushViewController(controller, animated: true)
+        } else {
+            let controller = FlowtimeIntroductionViewController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     public func setConnectionButtonImage() {

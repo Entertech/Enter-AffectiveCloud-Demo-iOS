@@ -402,3 +402,52 @@ extension UIColor {
         return image!
     }
 }
+
+extension String {
+    public func HexToColor() -> UIColor {
+        return UIColor.colorWithHexString(hexColor: self)
+    }
+}
+
+extension UIAlertController {
+    func present(in viewController: UIViewController? = nil, _ completion: (() -> Void)? = nil) {
+
+        if UIDevice.current.userInterfaceIdiom == .pad && self.preferredStyle == .actionSheet {
+            let popPresenter = self.popoverPresentationController;
+            popPresenter?.permittedArrowDirections = .down
+            popPresenter?.sourceView = self.view;
+            popPresenter?.sourceRect = CGRect(x: self.view.bounds.width/2, y: self.view.bounds.height, width: 0, height: 0)
+        }
+        let mainWindow = UIApplication.shared.delegate!.window!
+        (viewController ??
+            mainWindow?.rootViewController)?.present(self, animated: true, completion: completion)
+    }
+}
+
+
+extension UILabel {
+    func setLine(space: CGFloat) {
+        guard let txt = self.text else { return }
+        let attributeString = NSMutableAttributedString(string: txt)
+        let attributeStyle = NSMutableParagraphStyle()
+        attributeStyle.lineSpacing = space
+        attributeString.addAttribute(NSAttributedString.Key.paragraphStyle, value: attributeStyle, range:NSMakeRange(0, attributeString.length))
+        self.attributedText = attributeString
+        self.sizeToFit()
+    }
+
+    func setWord(space: CGFloat) {
+        guard let txt = self.text else { return }
+        let attributeString = NSMutableAttributedString(string: txt, attributes: [NSAttributedString.Key.kern: space])
+        let attributeStyle = NSMutableParagraphStyle()
+        attributeString.addAttribute(NSAttributedString.Key.paragraphStyle, value: attributeStyle, range: NSRange(location: 0, length: attributeString.length))
+        self.attributedText = attributeString
+        self.sizeToFit()
+    }
+
+    func setSapce(_ lineSpace: CGFloat, wordSpace: CGFloat) {
+        self.setLine(space: lineSpace)
+        self.setWord(space: wordSpace)
+    }
+}
+

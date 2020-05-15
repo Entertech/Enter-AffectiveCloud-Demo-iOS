@@ -83,6 +83,9 @@ class ReportNewModel: NSObject {
     public var relaxationMax: Int?
     public var relaxationMin: Int?
     
+    public var coherenceAvg: Int?
+    public var coherence: [Int]?
+    
     var pressureAvg: Int?
     var pressure: [Float]?
     

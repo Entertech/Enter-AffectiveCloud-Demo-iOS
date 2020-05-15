@@ -11,6 +11,7 @@ import EnterAffectiveCloud
 public enum ErrorType {
     case network
     case bluetooth
+    case poor
 }
 
 struct MeditationModel {
@@ -31,6 +32,7 @@ struct MeditationModel {
     var relaxationMax: Float = 0
     var relaxationMin: Float = 0
     var pressureAvg: Float = 0
+    var coherenceAvg: Float = 0
     var report_path: String?
     
     //var stopAndRestoreTime = [[Date]]()
@@ -58,6 +60,7 @@ extension MeditationModel {
         model.relaxationMax     = self.relaxationMax
         model.relaxationMin     = self.relaxationMin
         model.pressureAverage   = self.pressureAvg
+        model.coherenceAverage  = self.coherenceAvg
         model.reportPath        = self.report_path
         return model
     }
@@ -224,6 +227,15 @@ struct MeditationReportModel: MeditationReportProtocol {
         }
     } //激活度
     
+    var coherence: [Float]? {
+        willSet {
+            if let data = newValue?.withUnsafeBufferPointer({Data(buffer: $0)}) {
+                let digital = ReportDigital(type: .coherence, length: Float32(newValue!.count), data: data)
+                digitals.append(digital)
+            }
+        }
+    }
+    
     var attentionAvg: Float? {
         willSet {
             if let value = newValue {
@@ -341,6 +353,14 @@ struct MeditationReportModel: MeditationReportProtocol {
         willSet {
             if let value = newValue {
                 let scalar = ReportScalar(type: .activateMax, value: value)
+                scalars.append(scalar)
+            }
+        }
+    }
+    var coherenceAvg: Float? {
+        willSet {
+            if let value = newValue {
+                let scalar = ReportScalar(type: .coherenceAverage, value: value)
                 scalars.append(scalar)
             }
         }

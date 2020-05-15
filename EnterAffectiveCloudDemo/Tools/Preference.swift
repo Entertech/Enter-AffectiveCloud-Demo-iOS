@@ -33,5 +33,83 @@ extension Preference {
 }
 
 
+extension Preference {
+    /// 当前的硬件版本号 1.0.1 记录101
+    static var currnetFirmwareVersion: Int {
+        get {
+            //return Defaults[.currnetFirmwareVersion]
+            return UserDefaults.standard.integer(forKey: "currnetFirmwareVersion")
+        }
+        set {
+            //Defaults[.currnetFirmwareVersion] = newValue
+            UserDefaults.standard.set(newValue, forKey: "currnetFirmwareVersion")
+        }
+    }
+}
+
+
+
+extension Preference {
+    /// 需要更新的硬件版本号 1.0.1 记录101
+    static var updateFirmwareVersion: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "updateFirmwareVersion")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "updateFirmwareVersion")
+        }
+    }
+}
+
+
+
+extension Preference {
+    /// 是否做好硬件升级准备
+    static var firmwareUpdateTip: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "firmwareUpdateTip")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "firmwareUpdateTip")
+        }
+    }
+}
+
+extension Preference {
+    
+    static var appUpdateLevel: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "appUpdateLevel")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "appUpdateLevel")
+        }
+    }
+}
+
+extension Preference {
+    
+    static var deviceStatusGuide: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "deviceStatusGuide")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "deviceStatusGuide")
+        }
+    }
+}
+
+
+extension Preference {
+    
+    static var haveFlowtimeConnectedBefore: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "haveFlowtimeConnectedBefore")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "haveFlowtimeConnectedBefore")
+        }
+    }
+}
 
 

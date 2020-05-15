@@ -33,8 +33,8 @@ class MeditationViewController: UIViewController {
     private var isFirstTime = true
     private var isEnd = false
     private let dashboardIndexView = DashboardIndexView()
-    private var isErrorViewShowing: Bool = true
-    private var currentErrorType: ErrorType = .network
+    public var isErrorViewShowing: Bool = false
+    private var currentErrorType: ErrorType = .bluetooth
     private var service: MeditationService?
     private var reportModel: MeditationReportModel = MeditationReportModel()
     override func viewDidLoad() {
@@ -47,7 +47,10 @@ class MeditationViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        RelaxManager.shared.delegate = service
+        BLEService.shared.bleManager.delegate = service
         if isFirstTime {
             self.view.backgroundColor = UIColor.colorWithHexString(hexColor: "f1f4f6")
             brainView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)    //主色调
@@ -74,6 +77,8 @@ class MeditationViewController: UIViewController {
             heartView.mainColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
             heartView.textColor = #colorLiteral(red: 0.3921568627, green: 0.3921568627, blue: 0.3921568627, alpha: 1)
             heartView.observe(with: 65)
+            
+            hrvView.lineColor = Colors.yellowPrimary
             
             attentionView.bgColor = #colorLiteral(red: 0.7803921569, green: 1, blue: 0.8941176471, alpha: 1)
             attentionView.mainColor = #colorLiteral(red: 0.3725490196, green: 0.7764705882, blue: 0.5843137255, alpha: 1)
@@ -132,7 +137,7 @@ class MeditationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        BLEService.shared.bleManager.delegate = service
+        
         if BLEService.shared.bleManager.state.isConnected  {
             if !RelaxManager.shared.isWebSocketConnected {
                 
@@ -146,9 +151,9 @@ class MeditationViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         NotificationName.kFinishWithCloudServieDB.remove(sender: self)
         BLEService.shared.bleManager.delegate = nil
+        RelaxManager.shared.delegate = nil
     }
 
 
@@ -197,8 +202,8 @@ class MeditationViewController: UIViewController {
             DispatchQueue.main.async {
                 switch errorType {
                 case .bluetooth:
-                    
                     self.currentErrorType = .bluetooth
+                    self.setErrorMessage(text: "蓝牙连接断开")
                     UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
                         self.errorView.snp.updateConstraints{
                             $0.height.equalTo(162)
@@ -210,8 +215,8 @@ class MeditationViewController: UIViewController {
                         
                     })
                 case .network:
-                    
                     self.currentErrorType = .network
+                    self.setErrorMessage(text: "网络连接错误")
                     UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
                         self.errorView.snp.updateConstraints{
                             $0.height.equalTo(162)
@@ -222,80 +227,104 @@ class MeditationViewController: UIViewController {
                         self.isErrorViewShowing = true
                         
                     })
+                case .poor:
+                    self.currentErrorType = .poor
+                    self.setErrorMessage(text: "信号质量差")
+                    UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
+                        self.errorView.snp.updateConstraints{
+                            $0.height.equalTo(162)
+                        }
+                        self.view.layoutIfNeeded()
+                    }, completion:  {
+                        (complete) in
+                        self.isErrorViewShowing = true
+                        
+                    })
                 }
+                
             }
             
+        } else {
+            if currentErrorType == .poor {
+                currentErrorType = errorType
+                errorView.changeTipText(value: errorType)
+                if errorType == .bluetooth {
+                    self.setErrorMessage(text: "蓝牙连接断开")
+                } else if errorType == .network {
+                    self.setErrorMessage(text: "网络连接错误")
+                }
+            } else if currentErrorType == .network && errorType == .bluetooth{
+                currentErrorType = errorType
+                errorView.changeTipText(value: errorType)
+                self.setErrorMessage(text: "蓝牙连接断开")
+            }
         }
         
+    }
+    
+    func setErrorMessage(text: String) {
+        self.brainView.showTip(text: text)
+        self.spectrumView.showTip(text: text)
+        self.heartView.showTip(text: text)
+        self.attentionView.showTip(text: text)
+        self.relaxationView.showTip(text: text)
+        self.pressureView.showTip(text: text)
+        self.arousalView.showTip(text: text)
+        self.coherenceView.showTip(text: text)
+        self.pleasureView.showTip(text: text)
+        self.hrvView.showTip(text: text)
     }
     
     
     /// 错误视图隐藏
     /// - Parameter errType: 错误类型
     public func dismissErrorView(_ errType: ErrorType) {
-        if isErrorViewShowing && errType == .network {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.errorView.snp.updateConstraints{
-                        $0.height.equalTo(0)
-                    }
-                    self.view.layoutIfNeeded()
-                }, completion: {
-                    (complete) in
-                    self.isErrorViewShowing = false
-                })
-            }
-            
-        } else {
-            
-            if isErrorViewShowing && currentErrorType == errType {
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                        self.errorView.snp.updateConstraints{
-                            $0.height.equalTo(0)
-                        }
-                        self.view.layoutIfNeeded()
-                    }, completion: {
-                        (complete) in
-                        self.isErrorViewShowing = false
-                    })
+        if errType == .bluetooth && (currentErrorType == .poor || currentErrorType == .network) {
+            return
+        }
+        if errType == .network && currentErrorType == .poor {
+            return
+        }
+        self.isErrorViewShowing = false
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                self.errorView.snp.updateConstraints{
+                    $0.height.equalTo(0)
                 }
-            }
+                self.view.layoutIfNeeded()
+            }, completion: {
+                (complete) in
+                
+            })
         }
-    }
-    
-    /// 情感云断开提示后，点击的处理逻辑
-    func dealErrorEvent(_ error: ErrorType) {
-        if error == .bluetooth {
-            try? BLEService.shared.bleManager.scanAndConnect(completion: nil)
-        } else if error == .network {
-            if !RelaxManager.shared.isWebSocketConnected {
-                RelaxManager.shared.websocketConnect()
-            }
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
-                RelaxManager.shared.sessionRestore()
-            }
-        }
+       
     }
     
     /// 结束体验
     func finishMeditation()  {
+        
         if RelaxManager.shared.isWebSocketConnected {
             if let times = service?.meditationModel.startTime,
                 Int(Date().timeIntervalSince(times)) > Preference.meditationTime  {
                 SVProgressHUD.show(withStatus: "正在生成报表")
                 service?.finish()
             } else {
-                self.dismiss(animated: true) {
+                self.navigationController?.dismiss(animated: true, completion: {
                     SVProgressHUD.showError(withStatus: "体验时常过短,无报表生成")
-                }
+                })
+                
+                RelaxManager.shared.close()
             }
         } else {
-
-            self.dismiss(animated: true) {
-
-            }
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    /// 连接设备逻辑
+    func connectMethod() {
+        let controller = DeviceStatusViewController()
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
     @IBAction func editBtnPressed(_ sender: UIButton) {
@@ -305,7 +334,7 @@ class MeditationViewController: UIViewController {
             dashboardIndexView.snp.makeConstraints {
                 $0.left.right.equalToSuperview()
                 $0.height.equalTo(800)
-                $0.top.equalTo(self.editBtn.snp.bottom).offset(8)
+                $0.top.equalTo(self.editBtn.snp.bottom)
             }
         } else {
             sender.setTitle("编辑", for: .normal)
@@ -347,8 +376,9 @@ class MeditationViewController: UIViewController {
             if RelaxManager.shared.isWebSocketConnected {
                 RelaxManager.shared.close()
             }
+            
             self.isEnd = true
-            self.dismiss(animated: true) {
+            self.navigationController?.dismiss(animated: true) {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
 
                     let data = MeditationRepository.query(Preference.userID)
@@ -364,22 +394,27 @@ class MeditationViewController: UIViewController {
         }
     }
     
+    /// 异常按钮处理
     @objc func errorConnect(sender: UIButton){
         sender.isEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2, execute: {
+            sender.isEnabled = true
+        })
         if !BLEService.shared.bleManager.state.isConnected {
-            let ble = BLEService.shared.bleManager
-            let connection = BLEConnectViewController(bleManager: ble)
-            connection.cornerRadius = 6
-            connection.mainColor = UIColor(red: 0, green: 100.0/255.0, blue: 1, alpha: 1)
-
-            self.present(connection, animated: true, completion: nil)
+            connectMethod()
         } else {
             if !RelaxManager.shared.isWebSocketConnected {
                 RelaxManager.shared.websocketConnect()
                 Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
                     RelaxManager.shared.sessionRestore()
-                    sender.isEnabled = true
+
                 }
+                return
+            }
+            if currentErrorType == .poor {
+                let checkVC = SensorCheckViewController()
+                checkVC.state = .fix
+                self.navigationController?.pushViewController(checkVC, animated: true)
             }
             
         }
