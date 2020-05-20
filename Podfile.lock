@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.0.5)
+  - Bugly (2.5.4)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
@@ -59,6 +60,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0)
+  - Bugly
   - EnterAffectiveCloud (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`, branch `develop_test`)
   - EnterAffectiveCloudUI (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`, branch `develop_test`)
   - EnterBioModuleBLE (from `https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)
@@ -75,6 +77,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
+    - Bugly
     - Charts
     - FixedDFUService
     - FluentDarkModeKit
@@ -108,7 +111,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EnterAffectiveCloud:
-    :commit: ded10bb5a7017b9f441bda31b427848b5bdce369
+    :commit: c275db490766223dce158d443c659c622d7d8ca0
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
     :commit: c275db490766223dce158d443c659c622d7d8ca0
@@ -122,6 +125,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Bugly: 4edda9bb0e3017fd453612189069757195fa23ca
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   EnterAffectiveCloud: 449ca0bf474a0ac1d0ed32f6ad430e3b070302e5
   EnterAffectiveCloudUI: aaf48df4c5d516b454c3825867094e6bfb89fea3
@@ -145,6 +149,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 8abffcd5d44d4fdf4f26b73aa6e350bc05b9a654
+PODFILE CHECKSUM: 18d9772745e8e7f1e9c7e6209a9c51d5d2d8160b
 
 COCOAPODS: 1.8.3

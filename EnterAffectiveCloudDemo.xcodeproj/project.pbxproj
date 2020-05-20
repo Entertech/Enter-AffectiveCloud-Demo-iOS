@@ -43,6 +43,16 @@
 		FA3ADDAA246BE97900ADA921 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDA9246BE97900ADA921 /* BaseViewController.swift */; };
 		FA3ADDB2246D277000ADA921 /* CoherenceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDB0246D277000ADA921 /* CoherenceReportViewController.swift */; };
 		FA3ADDB3246D277000ADA921 /* CoherenceReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDB1246D277000ADA921 /* CoherenceReportViewController.xib */; };
+		FA3ADDB8247262E900ADA921 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3ADDB5247262E900ADA921 /* libmtasdk.a */; };
+		FA3ADDBD2473AB9400ADA921 /* Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDBC2473AB9400ADA921 /* Hook.swift */; };
+		FA3ADDC02473BC4400ADA921 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDBF2473BC4400ADA921 /* RemoteConfig.swift */; };
+		FA3ADDC42473D0EB00ADA921 /* FileWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDC32473D0EB00ADA921 /* FileWebService.swift */; };
+		FA3ADDC62473D14700ADA921 /* FileWebProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDC52473D14700ADA921 /* FileWebProtocol.swift */; };
+		FA3ADDC92473E24700ADA921 /* FirmwareUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDC72473E24700ADA921 /* FirmwareUpdateViewController.xib */; };
+		FA3ADDCA2473E24700ADA921 /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDC82473E24700ADA921 /* FirmwareUpdateViewController.swift */; };
+		FA3ADDCF2473E3F900ADA921 /* bg_animation_premium.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDCD2473E3F900ADA921 /* bg_animation_premium.json */; };
+		FA3ADDD02473E3F900ADA921 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDCE2473E3F900ADA921 /* loading.json */; };
+		FA3ADDD22474CEAD00ADA921 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDD12474CEAD00ADA921 /* Downloader.swift */; };
 		FA3B17522381393300D5192D /* sample.report in Resources */ = {isa = PBXBuildFile; fileRef = FA3B17512381393300D5192D /* sample.report */; };
 		FA3B1756238150B700D5192D /* ReportViewSortViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3B1754238150B700D5192D /* ReportViewSortViewController.xib */; };
 		FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */; };
@@ -71,18 +81,12 @@
 		FA84F2972463E43100D480A6 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA84F2902463E43100D480A6 /* Networking.framework */; };
 		FA84F2982463E43100D480A6 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA84F2902463E43100D480A6 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA84F2A22463E68E00D480A6 /* RxSwift+HandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2A12463E68E00D480A6 /* RxSwift+HandyJSON.swift */; };
-		FA84F2A62463E8D600D480A6 /* FirmwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2A32463E8D600D480A6 /* FirmwareUpdate.swift */; };
-		FA84F2A72463E8D600D480A6 /* AppUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2A42463E8D600D480A6 /* AppUpdateModel.swift */; };
 		FA84F2AA2463E9AC00D480A6 /* LogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2A92463E9AC00D480A6 /* LogModel.swift */; };
 		FA84F2AC2463EAD900D480A6 /* LogTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2AB2463EAD900D480A6 /* LogTokenModel.swift */; };
 		FA84F2B12463EBBC00D480A6 /* LogTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2AD2463EBBC00D480A6 /* LogTokenRequest.swift */; };
-		FA84F2B22463EBBC00D480A6 /* FirmwareUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2AE2463EBBC00D480A6 /* FirmwareUpdateRequest.swift */; };
-		FA84F2B32463EBBC00D480A6 /* AppUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2AF2463EBBC00D480A6 /* AppUpdateRequest.swift */; };
 		FA84F2B42463EBBC00D480A6 /* LogSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2B02463EBBC00D480A6 /* LogSendRequest.swift */; };
 		FA84F2B92463EBF200D480A6 /* LogTokenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2B52463EBF200D480A6 /* LogTokenProtocol.swift */; };
-		FA84F2BA2463EBF200D480A6 /* FirmwareUpdateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2B62463EBF200D480A6 /* FirmwareUpdateProtocol.swift */; };
 		FA84F2BB2463EBF200D480A6 /* LogProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2B72463EBF200D480A6 /* LogProtocol.swift */; };
-		FA84F2BC2463EBF200D480A6 /* AppUpdateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2B82463EBF200D480A6 /* AppUpdateProtocol.swift */; };
 		FA84F2C3246A367800D480A6 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C2246A367800D480A6 /* GuideView.swift */; };
 		FA84F2C5246A3B5100D480A6 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */; };
 		FA84F2C7246A3BB600D480A6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C6246A3BB600D480A6 /* TokenManager.swift */; };
@@ -195,6 +199,19 @@
 		FA3ADDA9246BE97900ADA921 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FA3ADDB0246D277000ADA921 /* CoherenceReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoherenceReportViewController.swift; sourceTree = "<group>"; };
 		FA3ADDB1246D277000ADA921 /* CoherenceReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoherenceReportViewController.xib; sourceTree = "<group>"; };
+		FA3ADDB5247262E900ADA921 /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
+		FA3ADDB6247262E900ADA921 /* MTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTA.h; sourceTree = "<group>"; };
+		FA3ADDB7247262E900ADA921 /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
+		FA3ADDBB2472640300ADA921 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		FA3ADDBC2473AB9400ADA921 /* Hook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hook.swift; sourceTree = "<group>"; };
+		FA3ADDBF2473BC4400ADA921 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
+		FA3ADDC32473D0EB00ADA921 /* FileWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWebService.swift; sourceTree = "<group>"; };
+		FA3ADDC52473D14700ADA921 /* FileWebProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWebProtocol.swift; sourceTree = "<group>"; };
+		FA3ADDC72473E24700ADA921 /* FirmwareUpdateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirmwareUpdateViewController.xib; sourceTree = "<group>"; };
+		FA3ADDC82473E24700ADA921 /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
+		FA3ADDCD2473E3F900ADA921 /* bg_animation_premium.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bg_animation_premium.json; sourceTree = "<group>"; };
+		FA3ADDCE2473E3F900ADA921 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		FA3ADDD12474CEAD00ADA921 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		FA3B17512381393300D5192D /* sample.report */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.report; sourceTree = "<group>"; };
 		FA3B1754238150B700D5192D /* ReportViewSortViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewSortViewController.xib; sourceTree = "<group>"; };
 		FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewSortViewController.swift; sourceTree = "<group>"; };
@@ -226,18 +243,12 @@
 		FA84F2922463E43100D480A6 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		FA84F2932463E43100D480A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA84F2A12463E68E00D480A6 /* RxSwift+HandyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+HandyJSON.swift"; sourceTree = "<group>"; };
-		FA84F2A32463E8D600D480A6 /* FirmwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdate.swift; sourceTree = "<group>"; };
-		FA84F2A42463E8D600D480A6 /* AppUpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdateModel.swift; sourceTree = "<group>"; };
 		FA84F2A92463E9AC00D480A6 /* LogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogModel.swift; sourceTree = "<group>"; };
 		FA84F2AB2463EAD900D480A6 /* LogTokenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTokenModel.swift; sourceTree = "<group>"; };
 		FA84F2AD2463EBBC00D480A6 /* LogTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTokenRequest.swift; sourceTree = "<group>"; };
-		FA84F2AE2463EBBC00D480A6 /* FirmwareUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateRequest.swift; sourceTree = "<group>"; };
-		FA84F2AF2463EBBC00D480A6 /* AppUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdateRequest.swift; sourceTree = "<group>"; };
 		FA84F2B02463EBBC00D480A6 /* LogSendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSendRequest.swift; sourceTree = "<group>"; };
 		FA84F2B52463EBF200D480A6 /* LogTokenProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTokenProtocol.swift; sourceTree = "<group>"; };
-		FA84F2B62463EBF200D480A6 /* FirmwareUpdateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateProtocol.swift; sourceTree = "<group>"; };
 		FA84F2B72463EBF200D480A6 /* LogProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogProtocol.swift; sourceTree = "<group>"; };
-		FA84F2B82463EBF200D480A6 /* AppUpdateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdateProtocol.swift; sourceTree = "<group>"; };
 		FA84F2C2246A367800D480A6 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
 		FA84F2C6246A3BB600D480A6 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA84F2972463E43100D480A6 /* Networking.framework in Frameworks */,
+				FA3ADDB8247262E900ADA921 /* libmtasdk.a in Frameworks */,
 				E8ABA7C39DD4B04D1A48F289 /* Pods_EnterAffectiveCloudDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +378,8 @@
 		FA1B69BF23EBE5BE00115FA1 /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				FA3ADDCD2473E3F900ADA921 /* bg_animation_premium.json */,
+				FA3ADDCE2473E3F900ADA921 /* loading.json */,
 				FA84F2D3246A832800D480A6 /* welldone.json */,
 				FA84F2D1246A831200D480A6 /* checking.json */,
 				FA84F2852463B01500D480A6 /* 连接中.json */,
@@ -428,6 +442,24 @@
 			path = Coherence;
 			sourceTree = "<group>";
 		};
+		FA3ADDB4247262A100ADA921 /* MTA */ = {
+			isa = PBXGroup;
+			children = (
+				FA3ADDB5247262E900ADA921 /* libmtasdk.a */,
+				FA3ADDB6247262E900ADA921 /* MTA.h */,
+				FA3ADDB7247262E900ADA921 /* MTAConfig.h */,
+			);
+			path = MTA;
+			sourceTree = "<group>";
+		};
+		FA3ADDBE2473BC1F00ADA921 /* Remote Config */ = {
+			isa = PBXGroup;
+			children = (
+				FA3ADDBF2473BC4400ADA921 /* RemoteConfig.swift */,
+			);
+			path = "Remote Config";
+			sourceTree = "<group>";
+		};
 		FA3B1753238150B700D5192D /* ReportViewSort */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +501,7 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FA3ADDB4247262A100ADA921 /* MTA */,
 				FA3ADDA8246BE92C00ADA921 /* BaseViewController */,
 				FA84F2C1246A355200D480A6 /* View */,
 				FA84F2752463A66800D480A6 /* Connection */,
@@ -483,6 +516,7 @@
 				FA5F0AAC237A819A00A21BF9 /* FirstViewController.swift */,
 				FA5F0AAE237A819A00A21BF9 /* SecondViewController.swift */,
 				FA0404D623817D26008DB43C /* ThirdViewController.swift */,
+				FA3ADDBB2472640300ADA921 /* Bridge-Header.h */,
 				FA5F0AB0237A819A00A21BF9 /* Main.storyboard */,
 				FA5F0AB3237A819B00A21BF9 /* Assets.xcassets */,
 				FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */,
@@ -495,6 +529,7 @@
 		FA5F0AC6237BF1A400A21BF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FA3ADDBE2473BC1F00ADA921 /* Remote Config */,
 				FA1B69BF23EBE5BE00115FA1 /* gif */,
 				FAF16BF223CC737600A92B0B /* Extension.swift */,
 				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
@@ -505,6 +540,7 @@
 				FA68EC98237E47C700518D00 /* SoundPlayer.swift */,
 				FA84F2782463A8A600D480A6 /* Colors.swift */,
 				FA84F2D7246A9AE500D480A6 /* Device+Extension.swift */,
+				FA3ADDBC2473AB9400ADA921 /* Hook.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -512,6 +548,8 @@
 		FA84F2752463A66800D480A6 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				FA3ADDC82473E24700ADA921 /* FirmwareUpdateViewController.swift */,
+				FA3ADDC72473E24700ADA921 /* FirmwareUpdateViewController.xib */,
 				FA84F2D5246A9A3000D480A6 /* BLEViewController.swift */,
 				FA84F2CB246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift */,
 				FA84F2C9246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib */,
@@ -554,8 +592,6 @@
 			children = (
 				FA84F2AB2463EAD900D480A6 /* LogTokenModel.swift */,
 				FA84F2A92463E9AC00D480A6 /* LogModel.swift */,
-				FA84F2A42463E8D600D480A6 /* AppUpdateModel.swift */,
-				FA84F2A32463E8D600D480A6 /* FirmwareUpdate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -563,10 +599,10 @@
 		FA84F29E2463E63700D480A6 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				FA84F2AF2463EBBC00D480A6 /* AppUpdateRequest.swift */,
-				FA84F2AE2463EBBC00D480A6 /* FirmwareUpdateRequest.swift */,
 				FA84F2B02463EBBC00D480A6 /* LogSendRequest.swift */,
 				FA84F2AD2463EBBC00D480A6 /* LogTokenRequest.swift */,
+				FA3ADDC32473D0EB00ADA921 /* FileWebService.swift */,
+				FA3ADDD12474CEAD00ADA921 /* Downloader.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -574,10 +610,9 @@
 		FA84F29F2463E64700D480A6 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				FA84F2B82463EBF200D480A6 /* AppUpdateProtocol.swift */,
-				FA84F2B62463EBF200D480A6 /* FirmwareUpdateProtocol.swift */,
 				FA84F2B72463EBF200D480A6 /* LogProtocol.swift */,
 				FA84F2B52463EBF200D480A6 /* LogTokenProtocol.swift */,
+				FA3ADDC52473D14700ADA921 /* FileWebProtocol.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -840,9 +875,12 @@
 				FA1B69D323EBE5BE00115FA1 /* P60-100A25-50.gif in Resources */,
 				FA1B69D623EBE5BE00115FA1 /* P0-45A50-75.gif in Resources */,
 				FA3B1756238150B700D5192D /* ReportViewSortViewController.xib in Resources */,
+				FA3ADDD02473E3F900ADA921 /* loading.json in Resources */,
+				FA3ADDC92473E24700ADA921 /* FirmwareUpdateViewController.xib in Resources */,
 				FA3ADDB3246D277000ADA921 /* CoherenceReportViewController.xib in Resources */,
 				FA1B69D023EBE5BE00115FA1 /* P45-55A75-100.gif in Resources */,
 				FA0404D323816867008DB43C /* StatisticsViewController.xib in Resources */,
+				FA3ADDCF2473E3F900ADA921 /* bg_animation_premium.json in Resources */,
 				FAF16C1C23CC76D400A92B0B /* MainReportViewController.xib in Resources */,
 				FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */,
 				FAF16C1223CC76D400A92B0B /* PressureReportViewController.xib in Resources */,
@@ -953,6 +991,7 @@
 				FA84F2812463AB1900D480A6 /* WearGuideView.swift in Sources */,
 				FA0404D723817D26008DB43C /* ThirdViewController.swift in Sources */,
 				FA2A0694237D2A2500BEB75E /* MeditationViewController.swift in Sources */,
+				FA3ADDCA2473E24700ADA921 /* FirmwareUpdateViewController.swift in Sources */,
 				FA84F2822463AB1900D480A6 /* BatteryView.swift in Sources */,
 				FA84F2772463A6FD00D480A6 /* DeviceStatusViewController.swift in Sources */,
 				FA2A069A237D433E00BEB75E /* DashboardIndexView.swift in Sources */,
@@ -975,8 +1014,10 @@
 				FAF16C2823CC772B00A92B0B /* IntroductionView.swift in Sources */,
 				FAF16C1423CC76D400A92B0B /* MainReportViewController.swift in Sources */,
 				FA84F2D0246A3DFD00D480A6 /* FlowtimeIntroductionViewController.swift in Sources */,
+				FA3ADDC02473BC4400ADA921 /* RemoteConfig.swift in Sources */,
 				FA0D4F9023CD8EC10084EBD1 /* BaseView.swift in Sources */,
 				FAF16C2C23CD5F1200A92B0B /* ReportNewModel.swift in Sources */,
+				FA3ADDBD2473AB9400ADA921 /* Hook.swift in Sources */,
 				FAF16C2A23CC772B00A92B0B /* CourseReport.swift in Sources */,
 				FA060792237D5D7C00D0BB30 /* RelaxManager.swift in Sources */,
 				FA3ADDB2246D277000ADA921 /* CoherenceReportViewController.swift in Sources */,
@@ -999,19 +1040,16 @@
 			files = (
 				FA84F2B92463EBF200D480A6 /* LogTokenProtocol.swift in Sources */,
 				FA84F2AA2463E9AC00D480A6 /* LogModel.swift in Sources */,
+				FA3ADDD22474CEAD00ADA921 /* Downloader.swift in Sources */,
 				FA84F2A22463E68E00D480A6 /* RxSwift+HandyJSON.swift in Sources */,
-				FA84F2BA2463EBF200D480A6 /* FirmwareUpdateProtocol.swift in Sources */,
 				FA84F2BB2463EBF200D480A6 /* LogProtocol.swift in Sources */,
-				FA84F2A62463E8D600D480A6 /* FirmwareUpdate.swift in Sources */,
+				FA3ADDC42473D0EB00ADA921 /* FileWebService.swift in Sources */,
 				FA84F2AC2463EAD900D480A6 /* LogTokenModel.swift in Sources */,
+				FA3ADDC62473D14700ADA921 /* FileWebProtocol.swift in Sources */,
 				FA84F2C7246A3BB600D480A6 /* TokenManager.swift in Sources */,
 				FA84F2B12463EBBC00D480A6 /* LogTokenRequest.swift in Sources */,
-				FA84F2A72463E8D600D480A6 /* AppUpdateModel.swift in Sources */,
-				FA84F2B32463EBBC00D480A6 /* AppUpdateRequest.swift in Sources */,
 				FA84F2C5246A3B5100D480A6 /* BaseUrl.swift in Sources */,
 				FA84F2B42463EBBC00D480A6 /* LogSendRequest.swift in Sources */,
-				FA84F2BC2463EBF200D480A6 /* AppUpdateProtocol.swift in Sources */,
-				FA84F2B22463EBBC00D480A6 /* FirmwareUpdateRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1168,7 +1206,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -1177,10 +1215,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EnterAffectiveCloudDemo/MTA",
+				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
 				PRODUCT_NAME = "心流";
 				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_dev;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/EnterAffectiveCloudDemo/Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1194,7 +1237,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -1203,10 +1246,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EnterAffectiveCloudDemo/MTA",
+				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
 				PRODUCT_NAME = "心流";
 				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_App;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/EnterAffectiveCloudDemo/Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1227,7 +1275,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Networking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1260,7 +1308,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Networking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

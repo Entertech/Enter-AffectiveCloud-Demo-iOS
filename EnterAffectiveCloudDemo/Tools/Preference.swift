@@ -112,4 +112,19 @@ extension Preference {
     }
 }
 
+extension Preference {
+    static var hardwareMac: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "hardwareMac")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "hardwareMac")
+        }
+    }
+}
+
+extension Preference {
+    static var bIsDownloadFirmware = false
+}
+
 

@@ -18,8 +18,8 @@ def other
   pod "FluentDarkModeKit"
   pod 'lottie-ios'
   pod 'QuickTableViewController'
+  pod 'Bugly'
 end
-
 
 target 'EnterAffectiveCloudDemo' do
   sdk

@@ -37,7 +37,7 @@ extension LogProtocol: TargetType {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let dateStr = formatter.string(from: Date())
-            return .requestParameters(parameters: ["app": "Flowtime", "platform": "ios", "version": version, "user_id": userId, "date": dateStr, "event": event, "message": message], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["app": "heartflow", "platform": "ios", "version": version, "user_id": userId, "date": dateStr, "event": event, "message": message], encoding: URLEncoding.default)
         }
     }
     

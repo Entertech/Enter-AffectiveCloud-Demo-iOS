@@ -259,23 +259,25 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
                     timer.invalidate()
                 }
             }
-            Preference.haveFlowtimeConnectedBefore = true
-            // 蓝牙连接
-            if let version = Int(self.ble.deviceInfo.firmware.replacingOccurrences(of: ".", with: "")) {
-                Preference.currnetFirmwareVersion = version
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5, execute: {
-                    
-                    if Preference.currnetFirmwareVersion < Preference.updateFirmwareVersion
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1, execute: {
+                Preference.haveFlowtimeConnectedBefore = true
+                Preference.hardwareMac = self.ble.deviceInfo.mac
+                // 蓝牙连接
+                if let version = Int(self.ble.deviceInfo.firmware.replacingOccurrences(of: ".", with: "")) {
+                    Preference.currnetFirmwareVersion = version
+                    if Preference.bIsDownloadFirmware && Preference.currnetFirmwareVersion < Preference.updateFirmwareVersion
                         && BLEService.shared.bleManager.state.isConnected {
-                        //                    RelaxManager.shared.clearBLE()
-                        //                    let firmwareUpdateVC = FirmwareUpdateViewController()
-                        //                    firmwareUpdateVC.modalPresentationStyle = .fullScreen
-                        //                    firmwareUpdateVC.noteValue = Preference.updateFirmwareNotes
-                        //                    firmwareUpdateVC.stateValue = 1
-                        //                    self.present(firmwareUpdateVC, animated: true)
+                        RelaxManager.shared.clearBLE()
+                        let firmwareUpdateVC = FirmwareUpdateViewController()
+                        firmwareUpdateVC.modalPresentationStyle = .fullScreen
+                        firmwareUpdateVC.noteValue = ""
+                        firmwareUpdateVC.stateValue = 1
+                        self.present(firmwareUpdateVC, animated: true)
                     }
-                })
-            }
+                    
+                }
+            })
+            
 
             
         case .disconnected:

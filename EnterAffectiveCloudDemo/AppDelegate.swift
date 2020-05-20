@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import Networking
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -52,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
+
     private func setup() {
         _ = BluetoothContext.shared //蓝牙
         
@@ -82,6 +84,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         } else {
             DBOperation.config(realmURL, version: DBMigrateHandle.kShouldMigrateVersion)
+        }
+        
+        //MTA
+        MTA.start(withAppkey: "IKU64MT14XYG")
+        Bugly.start(withAppId: "f336148fbf")
+        
+        //hook
+        UIViewController.initializeOnceMethod()
+        UIButton.initializeOnceMethod()
+        Logger.shared.initToken()
+        if FTRemoteConfig.shared.shoudDownloadFirmware() {
+            let fileDownload = FileDownloadRequest()
+            let url = FTRemoteConfig.shared.getConfig(key: .firmwareUrl)! + FTRemoteConfig.shared.getConfig(key: .firmwareVersion)!
+            fileDownload.downloadFirmware(url: url, fileName: "firmware.zip").subscribe(onNext: { (response) in
+                Preference.bIsDownloadFirmware = true
+            }, onError: { (error) in
+                print(error)
+            }, onCompleted: nil, onDisposed: nil)
         }
     }
 

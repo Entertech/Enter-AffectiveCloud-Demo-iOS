@@ -87,10 +87,11 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     }
     
     func websocketConnect(client: AffectiveCloudClient) {
-
+        Logger.shared.upload(event: "AffectiveCloud websocket connect complete", message: "")
     }
     
     func websocketDisconnect(client: AffectiveCloudClient) {
+        Logger.shared.upload(event: "AffectiveCloud websocket disconnect", message: "")
     }
     
     func sessionCreateAndAuthenticate(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
@@ -117,6 +118,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
         padVC?.coherenceView.showProgress()
         padVC?.pleasureView.showProgress()
         padVC?.hrvView.showProgress()
+        Logger.shared.upload(event: "AffectiveCloud session create complete", message: "")
     }
     
     func sessionRestore(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
@@ -142,24 +144,25 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
         padVC?.coherenceView.showProgress()
         padVC?.pleasureView.showProgress()
         padVC?.hrvView.showProgress()
+        Logger.shared.upload(event: "AffectiveCloud session restore complete", message: "")
     }
     
     func sessionClose(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
-            print(message)
+            Logger.shared.upload(event: "AffectiveCloud session close complete", message: "")
         }
     }
     
     func biodataServicesInit(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
-            print(message)
+            Logger.shared.upload(event: "AffectiveCloud biodata init complete", message: "")
         }
     }
     
     func biodataServicesSubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let _ = response.dataModel as? CSResponseBiodataSubscribeJSONModel {
             RelaxManager.shared.setupBLE()
-         
+            Logger.shared.upload(event: "AffectiveCloud biodata subscribe complete", message: "")
             return
         }
         
@@ -209,6 +212,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     func biodataServicesUnsubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
             print(message)
+            Logger.shared.upload(event: "AffectiveCloud biodata unsubscribe complete", message: "")
         }
     }
     
@@ -220,6 +224,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     
     func biodataServicesReport(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let data = response.dataModel as? CSBiodataReportJsonModel {
+            Logger.shared.upload(event: "AffectiveCloud biodata report get success", message: "")
             if let hr = data.hr {
                 reportModel?.heartRateAvg = hr.average
                 reportModel?.heartRateMax = hr.max
@@ -269,10 +274,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     func affectiveDataStart(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
             print(message)
+            Logger.shared.upload(event: "AffectiveCloud affective data init complete", message: "")
         }
     }
     private var pleasures: (Int, Int) = (0, 0)
     func affectiveDataSubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
+         //Logger.shared.upload(event: "AffectiveCloud affective data subscribe complete", message: "")
         if let data = response.dataModel as? CSAffectiveSubscribeProcessJsonModel {
             
             
@@ -309,11 +316,13 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     func affectiveDataUnsubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
             print(message)
+            Logger.shared.upload(event: "AffectiveCloud affective data unsubscribe complete", message: "")
         }
     }
     
     func affectiveDataReport(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let report = response.dataModel as? CSAffectiveReportJsonModel {
+            Logger.shared.upload(event: "AffectiveCloud affective data report get success", message: "")
             if let attention = report.attention {
                 if var list = attention.list {
                     addZeroToArray(array: &list, interval: 0.8)
@@ -366,18 +375,21 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     func affectiveDataFinish(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
             print(message)
+            Logger.shared.upload(event: "AffectiveCloud affective data finish complete", message: "")
         }
     }
     
     func error(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel?, error: AffectiveCloudResponseError, message: String?) {
         if let message = message {
             print(message)
+            Logger.shared.upload(event: "AffectiveCloud Response Error", message: message)
         }
     }
     
-    func error(client: AffectiveCloudClient, request: AffectiveCloudRequestJSONModel?, error: AffectiveCloudRequestError, message: String?) {
+    func error(client: AffectiveCloudClient, request: AffectiveCloudRequestJSONModel?, error: AffectiveCloudRequestError, message: String?){
         if let message = message {
             print(message)
+            Logger.shared.upload(event: "AffectiveCloud Request Error", message: message)
         }
     }
     
@@ -385,6 +397,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     //MARK: - ble delegate
     func bleConnectionStateChanged(state: BLEConnectionState, bleManager: BLEManager) {
         if state.isConnected {
+            Logger.shared.upload(event: "Bluetooth connect success", message: "")
             if !RelaxManager.shared.isWebSocketConnected {
                 if firstConnect  { //第一次连接
                     firstConnect = false
@@ -403,6 +416,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
                 self.playSuccessSound()
             }
         } else {
+            Logger.shared.upload(event: "Bluetooth disconnected", message: "")
             DispatchQueue.main.async {
                 self.meditationVC?.showErrorView(.bluetooth)
                 self.padVC?.showErrorView(.bluetooth)

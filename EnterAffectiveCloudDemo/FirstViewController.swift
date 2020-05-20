@@ -17,6 +17,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var thirdView: UIView!
+    var bIsShowedAppUpdate = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +28,18 @@ class FirstViewController: UIViewController {
         super.viewWillAppear(animated)
         setConnectionButtonImage()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if FTRemoteConfig.shared.shouldUpdateApp() && !bIsShowedAppUpdate {
+            bIsShowedAppUpdate = true
+            let updateVC = FirmwareUpdateViewController()
+            updateVC.modalPresentationStyle = .fullScreen
+            updateVC.stateValue = 0
+            updateVC.noteValue = "有新版本更新，请到苹果商城下载"
+            self.present(updateVC, animated: true, completion: nil)
+        }
     }
 
     func setUI() {
@@ -55,7 +68,7 @@ class FirstViewController: UIViewController {
             let navigation = UINavigationController(rootViewController: controller)
             navigation.modalPresentationStyle = .fullScreen
             self.present(navigation, animated: true, completion: nil)
-            //self.navigationController?.pushViewController(navigation, animated: true)
+//            self.navigationController?.pushViewController(navigation, animated: true)
             
 //            let medition = MeditationViewController()
 //            medition.modalPresentationStyle = .fullScreen

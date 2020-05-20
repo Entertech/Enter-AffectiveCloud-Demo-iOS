@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import Moya
 import HandyJSON
+import CommonCrypto
 
 extension ObservableType where Element == Response {
     public func mapHandyJsonModel<T: HandyJSON>(_ type: T.Type) -> Observable<T> {
@@ -48,4 +49,6 @@ extension Response {
         return []
     }
 }
+
+
 

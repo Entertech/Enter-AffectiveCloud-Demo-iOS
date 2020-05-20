@@ -36,7 +36,7 @@ final public class LogTokenRequest {
                }
             }
         }, onCompleted: {
-            
+            print("token completed")
             }, onDisposed: nil)
     }
     

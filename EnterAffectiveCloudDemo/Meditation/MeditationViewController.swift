@@ -66,16 +66,21 @@ class MeditationViewController: UIViewController {
                 let random: Int = Int(arc4random_uniform(200))
                 rightArray.append(Float(random - 100))
             }
+            let url = FTRemoteConfig.shared.getConfig(key: .eegService)!
+            brainView.infoUrlString = url
             brainView.observe(with: leftArray, right: rightArray)//开始观察
             
             spectrumView.bgColor = #colorLiteral(red: 0.9490196078, green: 0.9568627451, blue: 0.9843137255, alpha: 1)
             spectrumView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
+            spectrumView.infoUrlString = FTRemoteConfig.shared.getConfig(key: .brainService)!
             spectrumView.observe(with: (0.1, 0.28, 0.59, 0.02, 0.1))
             spectrumView.bgColor = .white
+            
             
             heartView.bgColor = #colorLiteral(red: 1, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
             heartView.mainColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
             heartView.textColor = #colorLiteral(red: 0.3921568627, green: 0.3921568627, blue: 0.3921568627, alpha: 1)
+            heartView.infoUrlString = FTRemoteConfig.shared.getConfig(key: .hrService)!
             heartView.observe(with: 65)
             
             hrvView.lineColor = Colors.yellowPrimary
@@ -83,16 +88,19 @@ class MeditationViewController: UIViewController {
             attentionView.bgColor = #colorLiteral(red: 0.7803921569, green: 1, blue: 0.8941176471, alpha: 1)
             attentionView.mainColor = #colorLiteral(red: 0.3725490196, green: 0.7764705882, blue: 0.5843137255, alpha: 1)
             attentionView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            attentionView.infoUrlString = FTRemoteConfig.shared.getConfig(key: .attentionService)!
             attentionView.observe(with:39)
             
             relaxationView.bgColor = #colorLiteral(red: 0.8980392157, green: 0.9176470588, blue: 0.968627451, alpha: 1)
             relaxationView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
             relaxationView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            relaxationView.infoUrlString = FTRemoteConfig.shared.getConfig(key: .relaxationService)!
             relaxationView.observe(with: 69)
             
             pressureView.bgColor = #colorLiteral(red: 1, green: 0.9058823529, blue: 0.9019607843, alpha: 1)
             pressureView.mainColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
             pressureView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            pressureView.infoUrlString = FTRemoteConfig.shared.getConfig(key: .pressureService)!
             pressureView.observe(with: 3.6)
             
             arousalView.bgColor = #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1)

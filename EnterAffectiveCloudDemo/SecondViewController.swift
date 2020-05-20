@@ -35,14 +35,15 @@ class SecondViewController: UIViewController {
         reportView.viewWillAppear(animated)
         let data = MeditationRepository.query(Preference.userID)
 
-        if let data = data {
+        if let data = data, data.count > 0 {
             let meditationDate = Date.date(dateString: data.last!.startTime, custom: "yyyy-MM-dd HH:mm:ss")
             if let mDate = meditationDate {
                 self.navigationItem.title = mDate.string(custom: "M.d.yyyy")
             } else {
                 self.navigationItem.title = "0.0.2000"
             }
-            
+        } else {
+            self.navigationItem.title = "0.0.2020"
         }
     }
     

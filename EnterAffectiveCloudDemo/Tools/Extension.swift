@@ -30,8 +30,27 @@ extension Date {
 }
 
 
+/// ble notification user info key
+public enum NotificationKey: String {
+    case bleStateKey
+    case bleBrainwaveKey
+    case bleBatteryKey
+    case bleHeartRateKey
+    case dfuStateKey
+    case websocketStateKey
+    case kResponseAuthTokenKey
+    case kResponseAuthUserIDKey
+    case kResponseAuthUserNameKey
+    case KResponseAuthSocialType
+}
+
 struct NotificationName {
     static let kFinishWithCloudServieDB = Notification.Name("kFinishWithCloudServieKey")
+    static let bleStateChanged = Notification.Name("bleStateChangedKey")
+    static let bleBrainwaveData = Notification.Name("bleBrainwaveData")
+    static let bleBatteryChanged = Notification.Name("bleBatteryChangedKey")
+    static let bleHeartRateData = Notification.Name("bleHeartRateDataKey")
+    static let dfuStateChanged = Notification.Name("dfuStateChanged")
 }
 
 
@@ -276,114 +295,6 @@ extension DispatchQueue {
     
     func after(time: DispatchTime, block: @escaping ()->()) {
         self.asyncAfter(deadline: time, execute: block)
-    }
-}
-
-
-extension UIViewController {
-    open class func initializeOnceMethod() {
-        
-        if self !== UIViewController.self {
-            return
-        }
-
-        DispatchQueue.once(token: "UIViewControllerOnce") {
-            let originalSelector = #selector(UIViewController.viewDidAppear(_:))
-            let swizzledSelector = #selector(sw_viewDidAppear(animated:))
-            
-            let originalMethod = class_getInstanceMethod(self, originalSelector)
-            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-            
-            let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
-            
-            if didAddMethod {
-                class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
-            } else {
-                method_exchangeImplementations(originalMethod!, swizzledMethod!)
-            }
-        }
-        
-        DispatchQueue.once(token: "UIViewControllerTwice") {
-            let originalSelector = #selector(UIViewController.viewWillDisappear(_:))
-            let swizzledSelector = #selector(sw_viewWillDisappear(animated:))
-            
-            let originalMethod = class_getInstanceMethod(self, originalSelector)
-            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-            
-            let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
-            
-            if didAddMethod {
-                class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
-            } else {
-                method_exchangeImplementations(originalMethod!, swizzledMethod!)
-            }
-        }
-        
-        DispatchQueue.once(token: "UIViewControllerThrice") {
-            let originalSelector = #selector(UIViewController.viewDidLoad)
-            let swizzledSelector = #selector(sw_viewDidLoad)
-            
-            let originalMethod = class_getInstanceMethod(self, originalSelector)
-            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-            
-            let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
-            
-            if didAddMethod {
-                class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
-            } else {
-                method_exchangeImplementations(originalMethod!, swizzledMethod!)
-            }
-        }
-    }
-    
-    @objc func sw_viewDidLoad() {
-        sw_viewDidLoad()
-        print("\(self.classForCoder) viewDidLoad")
-    }
-    
-    @objc func sw_viewDidAppear(animated: Bool) {
-        sw_viewDidAppear(animated: animated)
-        print("\(self.classForCoder) viewDidAppear")
-    }
-    
-    @objc func sw_viewWillDisappear(animated: Bool) {
-        sw_viewWillDisappear(animated: animated)
-        print("\(self.classForCoder) viewWillDisAppear")
-    }
-}
-
-extension UIButton {
-    
-    
-    public class func initializeOnceMethod() {
-        
-        if self !== UIButton.self {
-            return
-        }
-        
-        DispatchQueue.once(token: "UIButtonOnce") {
-            let originalSelector = #selector(UIButton.sendAction(_:to:for:))
-            let swizzledSelector = #selector(sw_sendAction(_:to:for:))
-            
-            let originalMethod = class_getInstanceMethod(self, originalSelector)
-            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-            
-            let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
-            
-            if didAddMethod {
-                class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
-            } else {
-                method_exchangeImplementations(originalMethod!, swizzledMethod!)
-            }
-        }
-    }
-    
-    @objc
-    open func sw_sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {
-        sw_sendAction(action, to: target, for: event)
-        let actionString = action.description
-        let targetName = target as? UIViewController
-        print("\(targetName!.classForCoder) \(actionString)")
     }
 }
 
