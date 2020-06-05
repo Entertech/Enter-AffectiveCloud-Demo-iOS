@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-pD-6Ya">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3k-XG-uSZ">
                                     <rect key="frame" x="0.0" y="8" width="414" height="250"/>
@@ -54,7 +54,7 @@
                                 <constraint firstItem="Ryb-JD-biB" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="AWX-ED-1Po"/>
                                 <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="Oxv-T7-xHf"/>
                                 <constraint firstAttribute="trailing" secondItem="q3k-XG-uSZ" secondAttribute="trailing" id="WEn-at-8KI"/>
-                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="50" id="nbT-dm-0BT"/>
+                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="24" id="nbT-dm-0BT"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" id="nxH-NN-lNq"/>
                                 <constraint firstAttribute="trailing" secondItem="Ryb-JD-biB" secondAttribute="trailing" constant="16" id="sDA-Hy-8pF"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="top" secondItem="4SQ-pD-6Ya" secondAttribute="top" constant="8" id="vol-q0-Act"/>

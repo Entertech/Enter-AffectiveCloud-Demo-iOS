@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -46,9 +46,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaV-nH-wtb">
-                            <rect key="frame" x="363" y="50" width="35" height="34"/>
+                            <rect key="frame" x="361" y="50" width="37" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="Skip"/>
+                            <state key="normal" title="跳过"/>
                             <connections>
                                 <action selector="skipAction:" destination="-1" eventType="touchUpInside" id="RZ5-IY-qWW"/>
                             </connections>
@@ -86,50 +86,12 @@
                                             <rect key="frame" x="35.5" y="46" width="311" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-mz-vnK">
-                                            <rect key="frame" x="16" y="252.5" width="350" height="35.5"/>
+                                            <rect key="frame" x="16" y="249.5" width="350" height="38.5"/>
                                             <attributedString key="attributedText">
-                                                <fragment content="我们提供了">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
-                                                        <real key="NSKern" value="0.0"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="11">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="natural" location="36">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
-                                                        <color key="NSStrokeColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <real key="NSStrokeWidth" value="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" 3 ">
+                                                <fragment content="我们提供了 3 种不同尺寸的橡胶带，请选择合适的尺寸，确保传感器贴合前额皮肤。">
                                                     <attributes>
                                                         <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <font key="NSFont" metaFont="system" size="16"/>
-                                                        <real key="NSKern" value="0.0"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="11">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="natural" location="36">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
-                                                        <color key="NSStrokeColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <real key="NSStrokeWidth" value="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="种不同尺寸的橡胶带，请选择合适的尺寸，确保传感器贴合前额皮肤。">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
                                                         <real key="NSKern" value="0.0"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                             <tabStops>
@@ -184,12 +146,12 @@
                                             <rect key="frame" x="35.5" y="46" width="311" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z5-ZI-gcG">
-                                            <rect key="frame" x="16" y="252.5" width="350" height="35.5"/>
+                                            <rect key="frame" x="16" y="249.5" width="350" height="38.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="调整头戴，让传感器贴合你额头中间位置的皮肤。">
                                                     <attributes>
                                                         <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                         <real key="NSKern" value="0.0"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                             <tabStops>
@@ -244,12 +206,12 @@
                                             <rect key="frame" x="35.5" y="46" width="311" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOc-U3-svv">
-                                            <rect key="frame" x="16" y="229.5" width="350" height="35.5"/>
+                                            <rect key="frame" x="16" y="226.5" width="350" height="38.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="传感器需要和皮肤直接接触，所以不能有头发在传感器和皮肤的之间。">
                                                     <attributes>
                                                         <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                         <real key="NSKern" value="0.0"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                             <tabStops>
@@ -304,12 +266,12 @@
                                             <rect key="frame" x="35.5" y="46" width="311" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmn-qK-vGa">
-                                            <rect key="frame" x="16" y="259.5" width="350" height="53.5"/>
+                                            <rect key="frame" x="16" y="255.5" width="350" height="57.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="脸部的肌肉活动，比如眼球运动和说话，会引起信号干扰。如果信号不是很稳定，试着让你的脸和眼睛放松。">
                                                     <attributes>
                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                         <real key="NSKern" value="0.0"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                             <tabStops>
@@ -364,12 +326,12 @@
                                             <rect key="frame" x="35.5" y="46" width="311" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-05-R7H">
-                                            <rect key="frame" x="16" y="259.5" width="350" height="53.5"/>
+                                            <rect key="frame" x="16" y="255.5" width="350" height="57.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="护肤品、化妆品和皮肤上的油脂会阻碍传感器检测信号。用湿巾擦拭皮肤，可能会改善你的信号。">
                                                     <attributes>
                                                         <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                         <real key="NSKern" value="0.0"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                             <tabStops>
@@ -424,12 +386,12 @@
                                             <rect key="frame" x="35.5" y="46" width="311" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMR-Le-rl5">
-                                            <rect key="frame" x="16" y="259.5" width="350" height="53.5"/>
+                                            <rect key="frame" x="16" y="255.5" width="350" height="57.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="干性皮肤或者在环境引起的皮肤干燥会影响传感器检测信号。用湿巾擦拭传感器可以改善信号。">
                                                     <attributes>
                                                         <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                         <real key="NSKern" value="0.0"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                             <tabStops>
@@ -484,88 +446,12 @@
                                             <rect key="frame" x="35.5" y="46" width="311" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebO-lg-1Jf">
-                                            <rect key="frame" x="16" y="253.5" width="350" height="35.5"/>
+                                            <rect key="frame" x="16" y="250.5" width="350" height="38.5"/>
                                             <attributedString key="attributedText">
-                                                <fragment content="每次调整后，需要">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
-                                                        <real key="NSKern" value="0.0"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="11">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="natural" location="36">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
-                                                        <color key="NSStrokeColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <real key="NSStrokeWidth" value="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" 30 ">
+                                                <fragment content="每次调整后，需要 30 秒到 1 分钟左右的时间来检测信号，请耐心等待。">
                                                     <attributes>
                                                         <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <font key="NSFont" metaFont="system" size="16"/>
-                                                        <real key="NSKern" value="0.0"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="11">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="natural" location="36">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
-                                                        <color key="NSStrokeColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <real key="NSStrokeWidth" value="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="秒到">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
-                                                        <real key="NSKern" value="0.0"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="11">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="natural" location="36">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
-                                                        <color key="NSStrokeColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <real key="NSStrokeWidth" value="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" 1 ">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" metaFont="system" size="16"/>
-                                                        <real key="NSKern" value="0.0"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="11">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="natural" location="36">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
-                                                        <color key="NSStrokeColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <real key="NSStrokeWidth" value="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="分钟左右的时间来检测信号，请耐心等待。">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
                                                         <real key="NSKern" value="0.0"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                             <tabStops>

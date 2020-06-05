@@ -1206,7 +1206,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -1220,7 +1220,7 @@
 					"$(PROJECT_DIR)/EnterAffectiveCloudDemo/MTA",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.flowtimezh;
 				PRODUCT_NAME = "心流";
 				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/EnterAffectiveCloudDemo/Bridge-Header.h";
@@ -1237,7 +1237,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -1251,7 +1251,7 @@
 					"$(PROJECT_DIR)/EnterAffectiveCloudDemo/MTA",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.flowtimezh;
 				PRODUCT_NAME = "心流";
 				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_App;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/EnterAffectiveCloudDemo/Bridge-Header.h";

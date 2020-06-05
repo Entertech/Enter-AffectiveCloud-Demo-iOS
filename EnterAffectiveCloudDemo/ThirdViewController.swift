@@ -65,13 +65,13 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            presentSafari(Preference.help)
+            presentSafari(FTRemoteConfig.shared.getConfig(key: .help)!)
         case (0, 1):
-            presentSafari(Preference.terms)
+            presentSafari(FTRemoteConfig.shared.getConfig(key: .items)!)
         case (0, 2):
-            presentSafari(Preference.privacy)
+            presentSafari(FTRemoteConfig.shared.getConfig(key: .privacy)!)
         default:
-            presentSafari(Preference.help)
+            presentSafari(FTRemoteConfig.shared.getConfig(key: .help)!)
         }
     }
 

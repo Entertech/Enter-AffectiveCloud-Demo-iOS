@@ -111,6 +111,7 @@ class MeditationViewController: UIViewController {
             coherenceView.bgColor = #colorLiteral(red: 0.8980392157, green: 0.9176470588, blue: 0.968627451, alpha: 1)
             coherenceView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
             coherenceView.textColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1490196078, alpha: 1)
+            coherenceView.infoUrlString = FTRemoteConfig.shared.getConfig(key: .coherenceService)!
             coherenceView.observe(with: 28)
             
             pleasureView.bgColor = #colorLiteral(red: 0.7803921569, green: 1, blue: 0.8941176471, alpha: 1)
@@ -152,6 +153,9 @@ class MeditationViewController: UIViewController {
                 RelaxManager.shared.start(wbDelegate: service)
             } else {
                 dismissErrorView(.network)
+                if self.isErrorViewShowing && currentErrorType == .poor {
+                    service?.reCheck()
+                }
             }
         }
 

@@ -122,7 +122,7 @@ class SensorCheckViewController: UIViewController, CheckWearDelegate {
         animationView.animationSpeed = 1
         animationView.loopMode = .playOnce
         animationView.isHidden = true
-        welldoneLabel.text = "Well done!"
+        welldoneLabel.text = "检测通过!"
         welldoneLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         welldoneLabel.textColor = UIColor.colorWithHexString(hexColor: "5FC695")
         self.view.addSubview(welldoneLabel)
@@ -148,7 +148,7 @@ class SensorCheckViewController: UIViewController, CheckWearDelegate {
     func checkWear(value: UInt8) {
         if value == 0 {
             zeroCount += 1
-            if zeroCount > 2 {
+            if zeroCount > 5 {
                 zeroCount = 0
                 DispatchQueue.main.async {
                     RelaxManager.shared.delegate = nil
@@ -165,6 +165,10 @@ class SensorCheckViewController: UIViewController, CheckWearDelegate {
                             self.navigationController?.pushViewController(medition, animated: true)
                         }
                         
+                    } else if self.state == .fix {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1.5) {
+                            self.navigationController?.popViewController(animated: true)
+                        }
                     }
                 }
             }

@@ -100,15 +100,17 @@ class ReportAboutView: BaseView {
     @objc private func showWeb() {
         switch self.style {
         case .brain:
-            self.presentSafari(FTURLManager.helpCenter)
+            self.presentSafari(FTRemoteConfig.shared.getConfig(key: .brainReport)!)
         case .hrv:
-            self.presentSafari(FTURLManager.helpCenter)
+            self.presentSafari(FTRemoteConfig.shared.getConfig(key: .hrvReport)!)
         case .hr:
-            self.presentSafari(FTURLManager.helpCenter)
+            self.presentSafari(FTRemoteConfig.shared.getConfig(key: .hrReport)!)
         case .relaxation:
-            self.presentSafari(FTURLManager.helpCenter)
+            self.presentSafari(FTRemoteConfig.shared.getConfig(key: .relaxationReport)!)
         case .pressure:
-            self.presentSafari(FTURLManager.helpCenter)
+            self.presentSafari(FTRemoteConfig.shared.getConfig(key: .pressureReport)!)
+        case .coherence:
+            self.presentSafari(FTRemoteConfig.shared.getConfig(key: .coherenceService)!)
         @unknown default:
             break
         }

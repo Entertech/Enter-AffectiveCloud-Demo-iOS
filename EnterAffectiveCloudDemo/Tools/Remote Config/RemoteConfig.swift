@@ -18,6 +18,7 @@ public enum RemoteConfigKey: String {
     case hrService         = "hr_realtime_info"
     case hrReport          = "hr_report_info"
     case hrvReport         = "hrv_report_info"
+    case hrvService        = "hrv_realtime_info"
     case brainService      = "brainwave_spectrum_realtime_info"
     case brainReport       = "brainwave_spectrum_report_info"
     case attentionService  = "attention_realtime_info"
@@ -26,6 +27,8 @@ public enum RemoteConfigKey: String {
     case relaxationReport  = "relaxation_report_info"
     case pressureService   = "pressure_realtime_info"
     case pressureReport    = "pressure_report_info"
+    case coherenceService  = "coherence_realtime_info"
+    case coherenceReport   = ""
     case productPrice      = "product_price"
     case fillAddress       = "fill_address"
     case cannotConnect     = "cannot_connect"
@@ -36,23 +39,26 @@ public enum RemoteConfigKey: String {
 }
 
 public struct FTRemoteConfigKeyDefaultValue {
-    static let help = "https://www.notion.so/Flowtime-Help-Center-b151d8677e5c41d8af6364f44fb93369"
+    static let help = "https://docs.myflowtime.cn/"
     static let cannotConnect = "https://www.notion.so/I-can-t-connect-the-headband-with-the-app-1ae10dc7fe1049c4953fc879f9042730"
-    static let privacy = "https://www.meetinnerpeace.com/privacy-policy"
-    static let items = "https://www.meetinnerpeace.com/terms-of-service"
+    static let privacy = "https://www.entertech.cn/privacy"
+    static let items = "https://www.entertech.cn/term-of-use"
     static let introduce = "https://www.meetinnerpeace.com/flowtime"
-    static let eegService = "https://www.notion.so/EEG-b3a44e9eb01549c29da1d8b2cc7bc08d"
-    static let hrService = "https://www.notion.so/Heart-Rate-4d64215ac50f4520af7ff516c0f0e00b"
-    static let hrReport = "https://www.notion.so/Heart-Rate-Graph-fa83da8528694fd1a265882db31d3778"
-    static let hrvReport = "https://www.notion.so/HRV-Graph-6f93225bf7934cb8a16eb6ba55da52cb"
-    static let brainService = "https://www.notion.so/Brainwave-Power-4cdadda14a69424790c2d7913ad775ff"
-    static let brainReport = "https://www.notion.so/Brainwave-Power-Graph-6f2a784b347d4d7d98b9fd0da89de454"
-    static let relaxationService = "https://www.notion.so/Relaxation-c9e3b39634a14d2fa47eaed1d55d872b"
-    static let relaxationReport  = "https://www.notion.so/Relaxation-Graph-d04c7d161ca94c6eb9c526cdefe88f02"
-    static let attentionService = "https://www.notion.so/Attention-84fef81572a848efbf87075ab67f4cfe"
-    static let attentionReport = "https://www.notion.so/Attention-Graph-8f9fa5017ba74a34866c1977a323960a"
-    static let pressureService = "https://www.notion.so/Pressure-ee57f4590373442b9107b7ce665e1253"
-    static let pressureReport = "https://www.notion.so/Pressure-Graph-48593014d6e44f7f8366364d70dced05"
+    static let eegService = "https://docs.myflowtime.cn/名词解释/脑电波（EEG）.html"
+    static let hrService = "https://docs.myflowtime.cn/名词解释/心率.html"
+    static let hrReport = "https://docs.myflowtime.cn/看懂图表/如何看心率变化曲线？.html"
+    static let hrvReport = "https://docs.myflowtime.cn/看懂图表/如何看心率变异性（HRV）的变化曲线？.html"
+    static let hrvService = "https://docs.myflowtime.cn/名词解释/心率变异性（HRV）.html"
+    static let brainService = "https://docs.myflowtime.cn/名词解释/脑电波节律（Brainwave Rhythms）.html"
+    static let brainReport = "https://docs.myflowtime.cn/看懂图表/如何看脑波频谱能量趋势图？.html"
+    static let relaxationService = "https://docs.myflowtime.cn/名词解释/放松度.html"
+    static let relaxationReport  = "https://docs.myflowtime.cn/看懂图表/如何看注意力和放松度曲线？.html"
+    static let attentionService = "https://docs.myflowtime.cn/名词解释/注意力.html"
+    static let attentionReport = "https://docs.myflowtime.cn/看懂图表/如何看注意力和放松度曲线？.html"
+    static let pressureService = "https://docs.myflowtime.cn/名词解释/压力水平.html"
+    static let pressureReport = "https://docs.myflowtime.cn/看懂图表/如何看压力水平曲线？.html"
+    static let coherenceService = "https://docs.myflowtime.cn/名词解释/和谐度（Coherence）.html"
+    static let coherenceReport = ""
     static let last7times = "https://www.notion.so/Last-7-Times-15a5331f15a3438ca1abdcbf2b0ff331"
     static let productPrice = "$198"
     static let fillAddress = "https://jinshuju.net/f/tQP3iq"
@@ -112,6 +118,12 @@ public class FTRemoteConfig {
             defaultValue = FTRemoteConfigKeyDefaultValue.firmwareVersion
         case .firmwareUrl:
             defaultValue = FTRemoteConfigKeyDefaultValue.firmwareUrl
+        case .hrvService:
+            defaultValue = FTRemoteConfigKeyDefaultValue.hrvService
+        case .coherenceService:
+            defaultValue = FTRemoteConfigKeyDefaultValue.coherenceService
+        case .coherenceReport:
+            defaultValue = FTRemoteConfigKeyDefaultValue.coherenceReport
         }
         return MTAConfig.getInstance()?.getCustomProperty(key.rawValue, default: defaultValue)
     }

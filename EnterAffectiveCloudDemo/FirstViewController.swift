@@ -68,11 +68,6 @@ class FirstViewController: UIViewController {
             let navigation = UINavigationController(rootViewController: controller)
             navigation.modalPresentationStyle = .fullScreen
             self.present(navigation, animated: true, completion: nil)
-//            self.navigationController?.pushViewController(navigation, animated: true)
-            
-//            let medition = MeditationViewController()
-//            medition.modalPresentationStyle = .fullScreen
-//            self.present(medition, animated: true, completion: nil)
         }
         
 

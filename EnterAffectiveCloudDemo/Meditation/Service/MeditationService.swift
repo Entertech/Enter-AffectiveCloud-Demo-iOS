@@ -149,13 +149,13 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     
     func sessionClose(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
-            Logger.shared.upload(event: "AffectiveCloud session close complete", message: "")
+            Logger.shared.upload(event: "AffectiveCloud session close complete", message: message)
         }
     }
     
     func biodataServicesInit(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let message = response.dataModel?.toJSONString() {
-            Logger.shared.upload(event: "AffectiveCloud biodata init complete", message: "")
+            Logger.shared.upload(event: "AffectiveCloud biodata init complete", message: message)
         }
     }
     
@@ -183,7 +183,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
                         qualityCount += 1
                         
                     } else {
-                        if self.meditationVC!.isErrorViewShowing {
+                        if self.meditationVC!.isErrorViewShowing && bIsWear {
                             self.playSuccessSound()
                             DispatchQueue.main.async {
                                 self.meditationVC?.dismissErrorView(.poor)
@@ -325,6 +325,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             Logger.shared.upload(event: "AffectiveCloud affective data report get success", message: "")
             if let attention = report.attention {
                 if var list = attention.list {
+                    print("attention list \(list.count)")
                     addZeroToArray(array: &list, interval: 0.8)
                     reportModel?.attention = list
                 }
@@ -332,6 +333,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             }
             if let relaxation = report.relaxation {
                 if var list = relaxation.list {
+                    print("relaxation list \(list.count)")
                     addZeroToArray(array: &list, interval: 0.8)
                     reportModel?.relaxation = list
                 }
@@ -339,6 +341,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             }
             if let pressure = report.pressure {
                 if var list = pressure.list {
+                    print("pressure list \(list.count)")
                     addZeroToArray(array: &list, interval: 0.8)
                     reportModel?.pressure = list
                 }
@@ -360,6 +363,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             }
             if let coherence = report.coherence {
                 if var list = coherence.list {
+                    print("coherence list \(list.count)")
                     addZeroToArray(array: &list, interval: 0.8)
                     reportModel?.coherence = list
                 }
@@ -426,7 +430,6 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
                 }
             }
             RelaxManager.shared.websocketDisconnect()
-
         }
     }
     // MARK: - 佩戴检测delegate
@@ -434,18 +437,40 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     var bIsWear = false //是否佩戴了
     func checkWear(value: UInt8) {
         if value == 0 {
+            if !bIsWear {
+                reCheck()
+            }
             bIsWear = true
             sensorStateCount = 0
         } else {
             sensorStateCount += 1
             bIsWear = false
-            if sensorStateCount >= 3 && !self.meditationVC!.isErrorViewShowing {
+            if sensorStateCount >= 5 && !self.meditationVC!.isErrorViewShowing {
                 sensorStateCount = 0
                 self.playErrorSound()
                 DispatchQueue.main.async {
                     self.meditationVC?.showErrorView(.poor)
                     self.meditationVC?.setErrorMessage(text: "蓝牙连接断开")
                 }
+            }
+        }
+    }
+    
+    func reCheck() {
+        if self.meditationVC!.isErrorViewShowing {
+            qualityCount = 0
+            DispatchQueue.main.async {
+                self.meditationVC?.dismissErrorView(.poor)
+                self.meditationVC?.brainView.showProgress()
+                self.meditationVC?.spectrumView.showProgress()
+                self.meditationVC?.heartView.showProgress()
+                self.meditationVC?.attentionView.showProgress()
+                self.meditationVC?.relaxationView.showProgress()
+                self.meditationVC?.pressureView.showProgress()
+                self.meditationVC?.arousalView.showProgress()
+                self.meditationVC?.coherenceView.showProgress()
+                self.meditationVC?.pleasureView.showProgress()
+                self.meditationVC?.hrvView.showProgress()
             }
         }
     }
