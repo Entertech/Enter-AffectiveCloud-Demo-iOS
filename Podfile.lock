@@ -111,7 +111,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EnterAffectiveCloud:
-    :commit: c275db490766223dce158d443c659c622d7d8ca0
+    :commit: 6b9312c8a2e6c43cf9be7eb3e5f0b24232e5da85
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
     :commit: a30d3c962850527d22ce33f9a2c4240d5f3bdd47
