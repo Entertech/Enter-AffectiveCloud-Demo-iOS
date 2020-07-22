@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseTimerViewController" customModule="心流" customModuleProvider="target">
+            <connections>
+                <outlet property="startBtn" destination="uPr-Uu-BvH" id="sST-sW-tk8"/>
+                <outlet property="tableView" destination="K8k-b2-cTt" id="IPf-jT-l6C"/>
+                <outlet property="timer10" destination="xTZ-Fs-dIZ" id="Byb-aG-MXB"/>
+                <outlet property="timer15" destination="n9J-EX-6D4" id="07V-wa-gqb"/>
+                <outlet property="timer20" destination="L4c-Ii-b6l" id="0Xp-d8-qvE"/>
+                <outlet property="timer25" destination="MZs-Sq-q03" id="ZGN-Yd-i79"/>
+                <outlet property="timer30" destination="ETZ-bN-zDC" id="HZD-3x-yyw"/>
+                <outlet property="timerCustom" destination="RLz-rW-QJj" id="Y7d-CS-jut"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验时长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8o-8l-f8u">
+                    <rect key="frame" x="16" y="108" width="65.5" height="20"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTZ-Fs-dIZ" customClass="TimerSelectView" customModule="心流" customModuleProvider="target">
+                    <rect key="frame" x="16" y="144" width="116.5" height="116.5"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="xTZ-Fs-dIZ" secondAttribute="height" multiplier="1:1" id="Pq5-Pr-t6o"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="timer">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="select10Action:" destination="-1" eventType="touchDown" id="pDA-Fe-CSY"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9J-EX-6D4" customClass="TimerSelectView" customModule="心流" customModuleProvider="target">
+                    <rect key="frame" x="148.5" y="144" width="117" height="116.5"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="timer">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="select15Action:" destination="-1" eventType="touchDown" id="ugD-5f-pKw"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4c-Ii-b6l" customClass="TimerSelectView" customModule="心流" customModuleProvider="target">
+                    <rect key="frame" x="281.5" y="144" width="116.5" height="116.5"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="timer">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="select20Action:" destination="-1" eventType="touchDown" id="ata-uu-ptm"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETZ-bN-zDC" customClass="TimerSelectView" customModule="心流" customModuleProvider="target">
+                    <rect key="frame" x="148.5" y="276.5" width="117" height="117"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="timer">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="select30Action:" destination="-1" eventType="touchDown" id="eQX-SI-N6E"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLz-rW-QJj" customClass="TimerCustomView" customModule="心流" customModuleProvider="target">
+                    <rect key="frame" x="281.5" y="276.5" width="116.5" height="117"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="customAction:" destination="-1" eventType="touchUpInside" id="579-l0-sL2"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZs-Sq-q03" customClass="TimerSelectView" customModule="心流" customModuleProvider="target">
+                    <rect key="frame" x="16" y="276.5" width="116.5" height="117"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="timer">
+                            <integer key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="select25Action:" destination="-1" eventType="touchDown" id="XAI-vW-KN4"/>
+                    </connections>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGi-RA-kec">
+                    <rect key="frame" x="16" y="52" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="ujQ-9p-thG"/>
+                        <constraint firstAttribute="width" constant="32" id="v1m-iM-vYZ"/>
+                    </constraints>
+                    <state key="normal" image="icon_back_color"/>
+                    <connections>
+                        <action selector="popAction:" destination="-1" eventType="touchUpInside" id="jqK-CP-Qr2"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obt-xo-GJ6">
+                    <rect key="frame" x="170.5" y="57.5" width="73.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="K8k-b2-cTt">
+                    <rect key="frame" x="0.0" y="401.5" width="414" height="136"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="136" id="Rz0-O2-8z3"/>
+                    </constraints>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPr-Uu-BvH">
+                    <rect key="frame" x="16" y="569.5" width="382" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="sLn-QF-k7I"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <state key="normal" title="Start"/>
+                    <connections>
+                        <action selector="startBtnAction:" destination="-1" eventType="touchUpInside" id="Geh-8C-B5H"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="n9J-EX-6D4" firstAttribute="centerY" secondItem="xTZ-Fs-dIZ" secondAttribute="centerY" id="2ES-aJ-J7P"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uPr-Uu-BvH" secondAttribute="trailing" constant="16" id="2jM-sL-U67"/>
+                <constraint firstItem="c8o-8l-f8u" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="7kG-6c-K7H"/>
+                <constraint firstItem="L4c-Ii-b6l" firstAttribute="leading" secondItem="n9J-EX-6D4" secondAttribute="trailing" constant="16" id="7mY-gr-Eqd"/>
+                <constraint firstItem="zGi-RA-kec" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="9oI-k1-xvU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RLz-rW-QJj" secondAttribute="trailing" constant="16" id="BkQ-wj-ZsI"/>
+                <constraint firstItem="n9J-EX-6D4" firstAttribute="height" secondItem="xTZ-Fs-dIZ" secondAttribute="height" id="CU9-8V-yeN"/>
+                <constraint firstItem="xTZ-Fs-dIZ" firstAttribute="top" secondItem="c8o-8l-f8u" secondAttribute="bottom" constant="16" id="CuN-te-r4E"/>
+                <constraint firstItem="n9J-EX-6D4" firstAttribute="width" secondItem="n9J-EX-6D4" secondAttribute="height" multiplier="1:1" id="Fws-gI-L0c"/>
+                <constraint firstItem="obt-xo-GJ6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HJV-CK-qFx"/>
+                <constraint firstItem="K8k-b2-cTt" firstAttribute="top" secondItem="ETZ-bN-zDC" secondAttribute="bottom" constant="8" id="HiZ-Cm-Jx9"/>
+                <constraint firstItem="MZs-Sq-q03" firstAttribute="width" secondItem="MZs-Sq-q03" secondAttribute="height" multiplier="1:1" id="IVC-BI-adk"/>
+                <constraint firstItem="RLz-rW-QJj" firstAttribute="leading" secondItem="ETZ-bN-zDC" secondAttribute="trailing" constant="16" id="LPk-FX-3QN"/>
+                <constraint firstItem="c8o-8l-f8u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Li0-ze-UaL"/>
+                <constraint firstItem="n9J-EX-6D4" firstAttribute="leading" secondItem="xTZ-Fs-dIZ" secondAttribute="trailing" constant="16" id="OHA-RU-Syh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="L4c-Ii-b6l" secondAttribute="trailing" constant="16" id="Ojo-9Q-7wf"/>
+                <constraint firstItem="ETZ-bN-zDC" firstAttribute="centerY" secondItem="MZs-Sq-q03" secondAttribute="centerY" id="RKq-03-PLB"/>
+                <constraint firstItem="MZs-Sq-q03" firstAttribute="top" secondItem="xTZ-Fs-dIZ" secondAttribute="bottom" constant="16" id="Rqn-Pz-DGV"/>
+                <constraint firstItem="uPr-Uu-BvH" firstAttribute="top" secondItem="K8k-b2-cTt" secondAttribute="bottom" constant="32" id="TcG-LL-yC9"/>
+                <constraint firstItem="ETZ-bN-zDC" firstAttribute="width" secondItem="ETZ-bN-zDC" secondAttribute="height" multiplier="1:1" id="VIc-OW-iJ5"/>
+                <constraint firstItem="n9J-EX-6D4" firstAttribute="width" secondItem="xTZ-Fs-dIZ" secondAttribute="width" id="VrR-u0-wyI"/>
+                <constraint firstItem="RLz-rW-QJj" firstAttribute="height" secondItem="MZs-Sq-q03" secondAttribute="height" id="W3M-rV-3Bn"/>
+                <constraint firstItem="L4c-Ii-b6l" firstAttribute="width" secondItem="xTZ-Fs-dIZ" secondAttribute="width" id="Wu3-rE-zhA"/>
+                <constraint firstItem="RLz-rW-QJj" firstAttribute="width" secondItem="MZs-Sq-q03" secondAttribute="width" id="X0D-Lx-EOO"/>
+                <constraint firstItem="obt-xo-GJ6" firstAttribute="centerY" secondItem="zGi-RA-kec" secondAttribute="centerY" id="XKe-MS-CPI"/>
+                <constraint firstItem="K8k-b2-cTt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cUU-IO-ONS"/>
+                <constraint firstItem="L4c-Ii-b6l" firstAttribute="height" secondItem="xTZ-Fs-dIZ" secondAttribute="height" id="e6L-ca-6Hy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K8k-b2-cTt" secondAttribute="trailing" id="ft1-Ak-Lm3"/>
+                <constraint firstItem="ETZ-bN-zDC" firstAttribute="width" secondItem="MZs-Sq-q03" secondAttribute="width" id="h1e-Lj-VT0"/>
+                <constraint firstItem="ETZ-bN-zDC" firstAttribute="height" secondItem="MZs-Sq-q03" secondAttribute="height" id="lXo-s5-uUD"/>
+                <constraint firstItem="MZs-Sq-q03" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lhj-eb-5QA"/>
+                <constraint firstItem="L4c-Ii-b6l" firstAttribute="width" secondItem="L4c-Ii-b6l" secondAttribute="height" multiplier="1:1" id="n66-ys-fxt"/>
+                <constraint firstItem="RLz-rW-QJj" firstAttribute="width" secondItem="RLz-rW-QJj" secondAttribute="height" multiplier="1:1" id="nNz-bd-QSJ"/>
+                <constraint firstItem="RLz-rW-QJj" firstAttribute="centerY" secondItem="MZs-Sq-q03" secondAttribute="centerY" id="pQv-Jc-8Nu"/>
+                <constraint firstItem="zGi-RA-kec" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="s2h-ed-L2W"/>
+                <constraint firstItem="ETZ-bN-zDC" firstAttribute="leading" secondItem="MZs-Sq-q03" secondAttribute="trailing" constant="16" id="vPm-IE-DkR"/>
+                <constraint firstItem="L4c-Ii-b6l" firstAttribute="centerY" secondItem="xTZ-Fs-dIZ" secondAttribute="centerY" id="wum-2r-Gfd"/>
+                <constraint firstItem="uPr-Uu-BvH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="xNG-J3-VBo"/>
+                <constraint firstItem="xTZ-Fs-dIZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="yeh-lZ-Ah3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140.57971014492756" y="121.875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_back_color" width="32" height="32"/>
+    </resources>
+</document>

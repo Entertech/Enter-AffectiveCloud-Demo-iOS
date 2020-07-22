@@ -19,7 +19,7 @@ class Streak2ViewController: UIViewController {
     private let disposeBag  = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = Colors.bg2
         streakView = StreakView()
         self.view.addSubview(totalView)
         self.view.addSubview(streakView!)
@@ -49,7 +49,8 @@ class Streak2ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Statistics"
+        //navigationController?.delegate = self
+        navigationItem.title = "统计"
         navigationController?.setNavigationBarHidden(false, animated: true)
         streakRequest()
     }

@@ -10,9 +10,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RAndAViewController" customModule="心流" customModuleProvider="target">
             <connections>
+                <outlet property="aAvgView" destination="8IC-UX-Asj" id="I8s-bB-aBD"/>
+                <outlet property="aHeader" destination="iOU-9H-NNc" id="ftJ-9a-jDf"/>
                 <outlet property="aboutView" destination="lIO-gD-nCc" id="hvv-f5-NWJ"/>
                 <outlet property="bg" destination="o2H-DT-TrF" id="rFI-vT-2Oi"/>
+                <outlet property="bg1" destination="o5a-z7-D8F" id="LQb-43-jeH"/>
+                <outlet property="bg2" destination="bcI-N7-oCH" id="U3G-DC-9JD"/>
+                <outlet property="bg3" destination="VF4-GB-sa0" id="cBe-on-LFU"/>
                 <outlet property="chartView" destination="quw-Sv-x8O" id="Pub-4n-SeY"/>
+                <outlet property="headBg" destination="7Pg-It-bjb" id="icb-Pn-eTX"/>
+                <outlet property="navigationView" destination="eX7-YM-37L" id="NGP-Qz-Wac"/>
+                <outlet property="pAvgView" destination="P29-E7-vf4" id="WGH-kn-fj0"/>
+                <outlet property="rHeader" destination="y2I-d6-T2W" id="Lal-1Q-zkv"/>
+                <outlet property="scrollView" destination="QLq-WH-fUA" id="7Ac-M3-krW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="6lr-eW-DDJ"/>
             </connections>
         </placeholder>
@@ -21,14 +31,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-It-bjb">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLq-WH-fUA">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2H-DT-TrF">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="588"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1220"/>
                             <subviews>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5a-z7-D8F">
-                                    <rect key="frame" x="0.0" y="119" width="414" height="283"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5a-z7-D8F">
+                                    <rect key="frame" x="0.0" y="8" width="414" height="380"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="quw-Sv-x8O" customClass="PrivateReportChartAttentionAndRelaxation" customModule="EnterAffectiveCloudUI">
                                             <rect key="frame" x="87" y="60" width="240" height="128"/>
@@ -38,28 +52,86 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" priority="500" constant="380" id="eCP-Jo-s5o"/>
+                                        <constraint firstAttribute="height" constant="380" id="eCP-Jo-s5o"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIO-gD-nCc" customClass="ReportAboutView" customModule="心流" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="392" width="382" height="160"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-N7-oCH">
+                                    <rect key="frame" x="16" y="404" width="382" height="304"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8IC-UX-Asj" customClass="PrivateAverageView" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="119" y="158" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iOU-9H-NNc" customClass="PrivateReportViewHead" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="304" id="xVY-xz-iGL"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VF4-GB-sa0">
+                                    <rect key="frame" x="16" y="724" width="382" height="304"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P29-E7-vf4" customClass="PrivateAverageView" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="142" y="136" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2I-d6-T2W" customClass="PrivateReportViewHead" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="19" y="0.0" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="304" id="FXJ-El-duY"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIO-gD-nCc" customClass="ReportAboutView" customModule="心流" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="1044" width="382" height="160"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="500" constant="160" id="7hu-2n-Tpn"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="lIO-gD-nCc" secondAttribute="bottom" constant="24" id="MBW-cg-cz6"/>
-                                <constraint firstItem="o5a-z7-D8F" firstAttribute="top" secondItem="bh6-cg-GKQ" secondAttribute="top" constant="8" id="Rkv-bf-huR"/>
-                                <constraint firstItem="lIO-gD-nCc" firstAttribute="top" secondItem="o5a-z7-D8F" secondAttribute="bottom" constant="16" id="XsT-xE-n18"/>
+                                <constraint firstItem="bcI-N7-oCH" firstAttribute="top" secondItem="o5a-z7-D8F" secondAttribute="bottom" constant="16" id="54b-q2-ySH"/>
+                                <constraint firstAttribute="trailing" secondItem="bcI-N7-oCH" secondAttribute="trailing" constant="16" id="934-WD-3Yw"/>
+                                <constraint firstItem="VF4-GB-sa0" firstAttribute="top" secondItem="bcI-N7-oCH" secondAttribute="bottom" constant="16" id="GDd-xW-btY"/>
+                                <constraint firstAttribute="bottom" secondItem="lIO-gD-nCc" secondAttribute="bottom" constant="16" id="MBW-cg-cz6"/>
+                                <constraint firstItem="lIO-gD-nCc" firstAttribute="top" secondItem="VF4-GB-sa0" secondAttribute="bottom" constant="16" id="Mrw-Br-rrr"/>
                                 <constraint firstAttribute="trailing" secondItem="lIO-gD-nCc" secondAttribute="trailing" constant="16" id="apM-b4-cMS"/>
                                 <constraint firstItem="o5a-z7-D8F" firstAttribute="leading" secondItem="o2H-DT-TrF" secondAttribute="leading" id="e7e-Gw-82P"/>
+                                <constraint firstItem="bcI-N7-oCH" firstAttribute="leading" secondItem="o2H-DT-TrF" secondAttribute="leading" constant="16" id="glK-bj-M98"/>
                                 <constraint firstAttribute="trailing" secondItem="o5a-z7-D8F" secondAttribute="trailing" id="iJ6-Fr-8kQ"/>
+                                <constraint firstItem="VF4-GB-sa0" firstAttribute="leading" secondItem="o2H-DT-TrF" secondAttribute="leading" constant="16" id="iLC-7c-Gaz"/>
+                                <constraint firstItem="o5a-z7-D8F" firstAttribute="top" secondItem="o2H-DT-TrF" secondAttribute="top" constant="8" id="ph8-wN-VDN"/>
+                                <constraint firstAttribute="trailing" secondItem="VF4-GB-sa0" secondAttribute="trailing" constant="16" id="wux-Df-Ket"/>
                                 <constraint firstItem="lIO-gD-nCc" firstAttribute="leading" secondItem="o2H-DT-TrF" secondAttribute="leading" constant="16" id="yHs-ac-OVM"/>
                             </constraints>
-                            <viewLayoutGuide key="safeArea" id="bh6-cg-GKQ"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -71,13 +143,27 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="dN3-UM-fXh"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="ZuF-Q9-Qu2"/>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eX7-YM-37L">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="MkN-DS-eOk"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="QLq-WH-fUA" secondAttribute="bottom" id="9Av-Sn-LCL"/>
+                <constraint firstItem="eX7-YM-37L" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EMl-Hh-Grs"/>
                 <constraint firstItem="QLq-WH-fUA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="K2r-2d-h8I"/>
-                <constraint firstItem="QLq-WH-fUA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="b3o-L5-xOg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eX7-YM-37L" secondAttribute="trailing" id="RpT-aj-p1U"/>
+                <constraint firstItem="QLq-WH-fUA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="b3o-L5-xOg"/>
                 <constraint firstItem="QLq-WH-fUA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="eKs-fu-hND"/>
+                <constraint firstItem="7Pg-It-bjb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iDF-BM-jrR"/>
+                <constraint firstItem="eX7-YM-37L" firstAttribute="bottom" secondItem="7Pg-It-bjb" secondAttribute="bottom" id="idr-q6-mf7"/>
+                <constraint firstItem="7Pg-It-bjb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jND-bY-inN"/>
+                <constraint firstItem="eX7-YM-37L" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tXv-Xk-vyp"/>
+                <constraint firstItem="eX7-YM-37L" firstAttribute="width" secondItem="7Pg-It-bjb" secondAttribute="width" id="vlO-yp-nIa"/>
                 <constraint firstItem="o2H-DT-TrF" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="zeg-8r-fk7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -59,7 +59,7 @@ class WearGuideView: UIView {
         
         let guideLabel = UILabel()
         self.addSubview(guideLabel)
-        let attributedText = NSMutableAttributedString(string:"Wear the headband and adjust the sensor according to the illustration.")
+        let attributedText = NSMutableAttributedString(string:"传感器必须与皮肤完全接触。 遵循佩戴指南以获取良好信号。")
         let style = NSMutableParagraphStyle()
         style.alignment = .left
         style.lineSpacing = 5

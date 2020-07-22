@@ -14,6 +14,7 @@ class BaseNavigationViewController: UINavigationController, UIGestureRecognizerD
         super.viewDidLoad()
         self.interactivePopGestureRecognizer?.delegate = self
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
         // Do any additional setup after loading the view.
     }
     

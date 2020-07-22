@@ -11,9 +11,13 @@ import EnterAffectiveCloudUI
 
 class MainReportViewController: UIViewController {
 
-
-    @IBOutlet weak var topConstraints: NSLayoutConstraint!
+    @IBOutlet weak var screenBottom: NSLayoutConstraint!
+    @IBOutlet weak var askForStartsView: AskforStartsView!
+    @IBOutlet weak var askForStartsHeight: NSLayoutConstraint!
+    @IBOutlet weak var bg1top: NSLayoutConstraint!
     @IBOutlet weak var bg0: UIView!
+    @IBOutlet weak var bg0Mask: UIView!
+    @IBOutlet weak var introductionView: IntroductionView!
     @IBOutlet weak var head2: PrivateReportViewHead!
     @IBOutlet weak var view2: PrivateReportBrainwaveSpectrum!
     @IBOutlet weak var head3: PrivateReportViewHead!
@@ -24,82 +28,81 @@ class MainReportViewController: UIViewController {
     @IBOutlet weak var view5: PrivateReportRelaxationAndAttention!
     @IBOutlet weak var head6: PrivateReportViewHead!
     @IBOutlet weak var view6: PrivateReportPressure!
-    @IBOutlet weak var head7: PrivateReportViewHead!
-    @IBOutlet weak var view7: ReportCoherence!
     @IBOutlet weak var bg: UIView!
+    @IBOutlet weak var bg1: UIView!
+    @IBOutlet weak var bg1Mask: UIView!
     @IBOutlet weak var bg2: UIView!
     @IBOutlet weak var bg3: UIView!
     @IBOutlet weak var bg4: UIView!
     @IBOutlet weak var bg5: UIView!
     @IBOutlet weak var bg6: UIView!
-    @IBOutlet weak var bg7: UIView!
     
-    @IBOutlet weak var btn7: UIButton!
     @IBOutlet weak var btn6: UIButton!
     @IBOutlet weak var btn5: UIButton!
     @IBOutlet weak var bt4: UIButton!
+    @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
-    var service: ReportService = ReportService()
-    var meditationDB: DBMeditation?
-    var pViewController: UIViewController? = nil
+    var service: ReportService?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = Colors.bg2
-        bg.backgroundColor = Colors.bg2
+        introductionView.header.titleLabel.textColor = .white
+        btn1.addTarget(self, action: #selector(showTotal), for: .touchUpInside)
+        
         head2.image = #imageLiteral(resourceName: "icon_report_brain")
-        head2.titleText = "脑电波频谱"
+        head2.titleText = "脑波频谱"
         btn2.addTarget(self, action: #selector(showBrain), for: .touchUpInside)
+        view2.bgColor = Colors.bgZ1
+        view2.waveText = "波"
         
         head3.image = #imageLiteral(resourceName: "icon_report_heart")
         head3.titleText = "心率变异性"
         btn3.addTarget(self, action: #selector(showHrv), for: .touchUpInside)
+        view3.colors = [Colors.yellowPrimary.changeAlpha(to: 0.2),
+                        Colors.yellowPrimary.changeAlpha(to: 0.6),
+                        Colors.yellowPrimary]
+        view3.lineNumColor = Colors.yellow2
+        view3.numberView.stateTextColor = Colors.yellow2
         
         head4.image = #imageLiteral(resourceName: "icon_report_hrv")
         head4.titleText = "心率"
         bt4.addTarget(self, action: #selector(showHr), for: .touchUpInside)
+        view4.colors = [Colors.redPrimary.changeAlpha(to: 0.2),
+                        Colors.redPrimary.changeAlpha(to: 0.6),
+                        Colors.redPrimary]
+        view4.lineNumColor = Colors.red2
+        view4.numberView.stateTextColor = Colors.red2
         
         head5.image = #imageLiteral(resourceName: "icon_report_relaxtion")
-        head5.titleText = "专注度&放松度"
+        head5.titleText = "放松度和注意力"
         btn5.addTarget(self, action: #selector(showAttention), for: .touchUpInside)
+        view5.relaxationStateColor = Colors.blue5
+        view5.attentionStateColor = Colors.green5
+        view5.relaxationCircleView.bgColor = Colors.lineLight
+        view5.attentionCircleView.bgColor = Colors.lineLight
+        view5.line.backgroundColor = Colors.lineLight
+        view5.relaxationStateTextColor = Colors.blue2
+        view5.attentionStateTextColor = Colors.green2
+        view5.relaxationCircleView.text = "放松度"
+        view5.attentionCircleView.text = "注意力"
         
         head6.image = #imageLiteral(resourceName: "icon_report_stress")
         head6.titleText = "压力值"
         btn6.addTarget(self, action: #selector(showPressure), for: .touchUpInside)
+        view6.stateColor = Colors.red5
+        view6.circleView.bgColor = Colors.lineLight
+        view6.stateTextColor = Colors.red2
         
-        head7.image = #imageLiteral(resourceName: "icon_report_heart")
-        head7.titleText = "和谐度"
-        btn6.addTarget(self, action: #selector(showPressure), for: .touchUpInside)
+        self.view.backgroundColor = Colors.bg2
         
-        setShadow(view: bg2)
-        setShadow(view: bg3)
-        setShadow(view: bg4)
-        setShadow(view: bg5)
-        setShadow(view: bg6)
-        setShadow(view: bg7)
-        service.vc = self
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        service.meditationDB = meditationDB
-    }
-    
-    public var navigationTitle: String = "" {
-        willSet {
-            navigationItem.title = newValue
-        }
-    }
-    
-    public var isExample: Bool = false {
-        willSet {
-            if newValue {
-                
-                topConstraints.constant = 193
-            }
-        }
+        bg0Mask.backgroundColor = Colors.maskLight
+        bg1.backgroundColor = Colors.greenPrimary
+        bg2.backgroundColor = Colors.bgZ1
+        bg3.backgroundColor = Colors.bgZ1
+        bg4.backgroundColor = Colors.bgZ1
+        bg5.backgroundColor = Colors.bgZ1
+        bg6.backgroundColor = Colors.bgZ1
+        bg1Mask.backgroundColor = Colors.maskLight
     }
     
     private func setShadow(view: UIView) {
@@ -111,73 +114,56 @@ class MainReportViewController: UIViewController {
     }
     
     @objc private func showBrain() {
+        //Appearance.setRecord("405", "Statistics界面 脑波频谱报表按钮")
         let vc = BrainwaveViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
-        if let p = pViewController {
-            p.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.view.superview?.paretViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc
+    private func showTotal() {
+        //Appearance.setRecord("410", "Statistics界面 课程详情报表按钮")
+        let vc = TotalViewController()
+        vc.service = service
+        vc.hidesBottomBarWhenPushed = true
+        self.view.superview?.paretViewController()?.navigationController?.pushViewController(vc, animated: true)
+    }
     
     @objc
     private func showHrv() {
+        //Appearance.setRecord("406", "Statistics界面 HRV报表按钮")
         let vc = HRVReportViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
-        if let p = pViewController {
-            p.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.view.superview?.paretViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc
     private func showHr() {
+        //Appearance.setRecord("407", "Statistics界面 心率报表按钮")
         let vc = HRReportViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
-        if let p = pViewController {
-            p.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.view.superview?.paretViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc
     private func showAttention() {
+        //Appearance.setRecord("408", "Statistics界面 放松度和注意力报表按钮")
         let vc = RAndAViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
-        if let p = pViewController {
-            p.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.view.superview?.paretViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc
     private func showPressure() {
+        //Appearance.setRecord("409", "Statistics界面 压力报表按钮")
         let vc = PressureReportViewController()
         vc.service = service
         vc.hidesBottomBarWhenPushed = true
-        if let p = pViewController {
-            p.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.view.superview?.paretViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
 
-    @IBAction func showConherence(_ sender: Any) {
-        let vc = CoherenceReportViewController()
-        vc.service = service
-        vc.hidesBottomBarWhenPushed = true
-        if let p = pViewController {
-            p.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
 }

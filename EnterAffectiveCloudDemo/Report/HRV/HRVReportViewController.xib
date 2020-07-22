@@ -8,11 +8,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HRVReportViewController" customModule="心流" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HRVReportViewController" customModule="Flowtime" customModuleProvider="target">
             <connections>
                 <outlet property="aboutView" destination="Ryb-JD-biB" id="f8h-vb-QIj"/>
+                <outlet property="avgHeader" destination="Pjs-hb-IRK" id="xPw-Uc-ePf"/>
+                <outlet property="avgView" destination="53b-Ec-Aqi" id="MHD-Jx-75c"/>
                 <outlet property="bg" destination="4SQ-pD-6Ya" id="Spu-Zp-x47"/>
+                <outlet property="bg1" destination="q3k-XG-uSZ" id="nkY-PD-YbR"/>
+                <outlet property="headBg" destination="3wY-kP-LnM" id="J64-Sm-nIN"/>
                 <outlet property="hrvView" destination="w3I-1x-9fP" id="u1P-eC-6fI"/>
+                <outlet property="navigationView" destination="YH4-FY-T1U" id="T24-5X-Zg2"/>
+                <outlet property="scrollView" destination="SbE-7K-ZlI" id="YLI-qc-pic"/>
+                <outlet property="vbg2" destination="bzs-C5-Eca" id="oN6-Ys-nzd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,11 +28,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wY-kP-LnM">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbE-7K-ZlI">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-pD-6Ya">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3k-XG-uSZ">
                                     <rect key="frame" x="0.0" y="8" width="414" height="250"/>
@@ -41,20 +52,52 @@
                                         <constraint firstAttribute="height" constant="250" id="Mqa-XF-Psv"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryb-JD-biB" customClass="ReportAboutView" customModule="心流" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="274" width="382" height="128"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzs-C5-Eca">
+                                    <rect key="frame" x="16" y="274" width="382" height="304"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53b-Ec-Aqi" customClass="PrivateAverageView" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="79" width="382" height="217"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjs-hb-IRK" customClass="PrivateReportViewHead" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="63"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="304" id="j95-VD-vkz"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryb-JD-biB" customClass="ReportAboutView" customModule="Flowtime" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="594" width="382" height="128"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="500" constant="128" id="KSy-yU-MsE"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="bzs-C5-Eca" secondAttribute="bottom" constant="16" id="95Z-bo-dSg"/>
                                 <constraint firstItem="Ryb-JD-biB" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="AWX-ED-1Po"/>
-                                <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="Oxv-T7-xHf"/>
+                                <constraint firstAttribute="trailing" secondItem="bzs-C5-Eca" secondAttribute="trailing" constant="16" id="Ajb-0I-nfQ"/>
                                 <constraint firstAttribute="trailing" secondItem="q3k-XG-uSZ" secondAttribute="trailing" id="WEn-at-8KI"/>
-                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="24" id="nbT-dm-0BT"/>
+                                <constraint firstItem="bzs-C5-Eca" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="Zft-rd-g7O"/>
+                                <constraint firstItem="bzs-C5-Eca" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="nFL-rs-eQo"/>
+                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="16" id="nbT-dm-0BT"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" id="nxH-NN-lNq"/>
                                 <constraint firstAttribute="trailing" secondItem="Ryb-JD-biB" secondAttribute="trailing" constant="16" id="sDA-Hy-8pF"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="top" secondItem="4SQ-pD-6Ya" secondAttribute="top" constant="8" id="vol-q0-Act"/>
@@ -70,14 +113,28 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="Dk4-wg-8Y5"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="FtJ-Xd-sge"/>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YH4-FY-T1U">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="RPu-38-VHO"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="YH4-FY-T1U" firstAttribute="bottom" secondItem="3wY-kP-LnM" secondAttribute="bottom" id="1oM-0F-MrW"/>
                 <constraint firstItem="4SQ-pD-6Ya" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="2KW-v8-5TA"/>
-                <constraint firstItem="SbE-7K-ZlI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3r1-p2-vV4"/>
+                <constraint firstItem="SbE-7K-ZlI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="3r1-p2-vV4"/>
                 <constraint firstItem="SbE-7K-ZlI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="47F-h2-f1t"/>
+                <constraint firstItem="YH4-FY-T1U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Adf-fQ-O4b"/>
+                <constraint firstItem="YH4-FY-T1U" firstAttribute="width" secondItem="3wY-kP-LnM" secondAttribute="width" id="D1I-hz-0HS"/>
+                <constraint firstItem="3wY-kP-LnM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="W0B-fi-dC6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YH4-FY-T1U" secondAttribute="trailing" id="Yx2-vj-UF8"/>
                 <constraint firstAttribute="bottom" secondItem="SbE-7K-ZlI" secondAttribute="bottom" id="ezQ-ih-0en"/>
                 <constraint firstItem="SbE-7K-ZlI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pVx-gm-if8"/>
+                <constraint firstItem="YH4-FY-T1U" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sE3-Yc-0HO"/>
+                <constraint firstItem="3wY-kP-LnM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z10-5E-aHk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>

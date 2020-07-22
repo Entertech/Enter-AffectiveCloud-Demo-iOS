@@ -59,7 +59,7 @@ public struct FTRemoteConfigKeyDefaultValue {
     static let pressureReport = "https://docs.myflowtime.cn/看懂图表/如何看压力水平曲线？.html"
     static let coherenceService = "https://docs.myflowtime.cn/名词解释/和谐度（Coherence）.html"
     static let coherenceReport = ""
-    static let last7times = "https://www.notion.so/Last-7-Times-15a5331f15a3438ca1abdcbf2b0ff331"
+    static let last7times = "https://docs.myflowtime.cn/%E7%9C%8B%E6%87%82%E5%9B%BE%E8%A1%A8/%E7%9C%8B%E6%87%82%E3%80%8C%E6%9C%80%E8%BF%91%207%20%E6%AC%A1%E3%80%8D%E5%9B%BE.html"
     static let productPrice = "$198"
     static let fillAddress = "https://jinshuju.net/f/tQP3iq"
     static let appVersion        = "0.0.0"

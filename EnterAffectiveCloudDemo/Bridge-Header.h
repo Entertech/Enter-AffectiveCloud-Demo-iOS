@@ -11,4 +11,5 @@
 #import "MTA.h"
 #import "MTAConfig.h"
 #import "Bugly/Bugly.h"
+#import "WXApi.h"
 #endif /* Bridge_Header_h */

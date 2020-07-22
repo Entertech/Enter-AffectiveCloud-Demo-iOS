@@ -13,7 +13,7 @@ enum FileWebService {
     
     var localLocation: URL {
         switch self {
-        case .download(let url, let fileName):
+        case .download( _, let fileName):
             let directory: URL = FileSystem.downloadDirectory
             let filePath: URL = directory.appendingPathComponent(fileName!)
             return filePath

@@ -9,15 +9,11 @@
 /* Begin PBXBuildFile section */
 		303DB56C5CFC4C8BDF0763EE /* Pods_Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2958A9E001926D92A6F2F3A1 /* Pods_Networking.framework */; };
 		E8ABA7C39DD4B04D1A48F289 /* Pods_EnterAffectiveCloudDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 510379B6523DFADFF07C5DA9 /* Pods_EnterAffectiveCloudDemo.framework */; };
-		FA0404D223816867008DB43C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0404D023816867008DB43C /* StatisticsViewController.swift */; };
-		FA0404D323816867008DB43C /* StatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0404D123816867008DB43C /* StatisticsViewController.xib */; };
-		FA0404D523816C16008DB43C /* ReportListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0404D423816C16008DB43C /* ReportListTableViewCell.swift */; };
 		FA0404D723817D26008DB43C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0404D623817D26008DB43C /* ThirdViewController.swift */; };
 		FA060792237D5D7C00D0BB30 /* RelaxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060791237D5D7C00D0BB30 /* RelaxManager.swift */; };
 		FA060794237E2FBD00D0BB30 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060793237E2FBD00D0BB30 /* Preference.swift */; };
 		FA060796237E365900D0BB30 /* MeditationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060795237E365900D0BB30 /* MeditationService.swift */; };
 		FA060799237E37EF00D0BB30 /* MeditationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA060798237E37EF00D0BB30 /* MeditationModel.swift */; };
-		FA0D4F9023CD8EC10084EBD1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D4F8F23CD8EC10084EBD1 /* BaseView.swift */; };
 		FA0D4F9623CDC5580084EBD1 /* MeditationForPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D4F9423CDC5580084EBD1 /* MeditationForPadViewController.swift */; };
 		FA1B69BE23EA975900115FA1 /* AffectiveRealtimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B69BD23EA975900115FA1 /* AffectiveRealtimeView.swift */; };
 		FA1B69CD23EBE5BE00115FA1 /* P0-40A0-25.gif in Resources */ = {isa = PBXBuildFile; fileRef = FA1B69C023EBE5BE00115FA1 /* P0-40A0-25.gif */; };
@@ -41,8 +37,6 @@
 		FA2A069A237D433E00BEB75E /* DashboardIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A0699237D433E00BEB75E /* DashboardIndexView.swift */; };
 		FA2A069C237D438400BEB75E /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A069B237D438400BEB75E /* TitleTableViewCell.swift */; };
 		FA3ADDAA246BE97900ADA921 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDA9246BE97900ADA921 /* BaseViewController.swift */; };
-		FA3ADDB2246D277000ADA921 /* CoherenceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDB0246D277000ADA921 /* CoherenceReportViewController.swift */; };
-		FA3ADDB3246D277000ADA921 /* CoherenceReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDB1246D277000ADA921 /* CoherenceReportViewController.xib */; };
 		FA3ADDB8247262E900ADA921 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3ADDB5247262E900ADA921 /* libmtasdk.a */; };
 		FA3ADDBD2473AB9400ADA921 /* Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDBC2473AB9400ADA921 /* Hook.swift */; };
 		FA3ADDC02473BC4400ADA921 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDBF2473BC4400ADA921 /* RemoteConfig.swift */; };
@@ -54,12 +48,73 @@
 		FA3ADDD02473E3F900ADA921 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDCE2473E3F900ADA921 /* loading.json */; };
 		FA3ADDD22474CEAD00ADA921 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDD12474CEAD00ADA921 /* Downloader.swift */; };
 		FA3B17522381393300D5192D /* sample.report in Resources */ = {isa = PBXBuildFile; fileRef = FA3B17512381393300D5192D /* sample.report */; };
-		FA3B1756238150B700D5192D /* ReportViewSortViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3B1754238150B700D5192D /* ReportViewSortViewController.xib */; };
-		FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */; };
-		FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B17582381512C00D5192D /* ReportTableViewCell.swift */; };
-		FA3C2A79249B52350013A721 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C2A77249B52350013A721 /* LoginViewController.swift */; };
-		FA3C2A7A249B52350013A721 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3C2A78249B52350013A721 /* LoginViewController.xib */; };
 		FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12C92396620500E96B02 /* WebSocket.plist */; };
+		FA41B59724AACD1F009458E4 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59224AACD1F009458E4 /* SyncManager.swift */; };
+		FA41B59824AACD1F009458E4 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59324AACD1F009458E4 /* Sync.swift */; };
+		FA41B59924AACD1F009458E4 /* SyncFileEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59424AACD1F009458E4 /* SyncFileEvent.swift */; };
+		FA41B59A24AACD1F009458E4 /* SyncRecordEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59524AACD1F009458E4 /* SyncRecordEvent.swift */; };
+		FA41B59D24AAD110009458E4 /* DBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59C24AAD110009458E4 /* DBRecord.swift */; };
+		FA41B59F24AAD39D009458E4 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59E24AAD39D009458E4 /* RecordModel.swift */; };
+		FA4C8A3124AADC2C0046065B /* Uploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A3024AADC2B0046065B /* Uploader.swift */; };
+		FA4C8A3F24AB1DA10046065B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A3D24AB1DA10046065B /* LoginViewController.swift */; };
+		FA4C8A4024AB1DA10046065B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8A3E24AB1DA10046065B /* LoginViewController.xib */; };
+		FA4C8A4324AB281A0046065B /* FlowtimeIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A4124AB281A0046065B /* FlowtimeIntroductionViewController.swift */; };
+		FA4C8A4424AB281A0046065B /* FlowtimeIntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8A4224AB281A0046065B /* FlowtimeIntroductionViewController.xib */; };
+		FA4C8D1724AB32410046065B /* HowToConnectGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8D1624AB32410046065B /* HowToConnectGuideView.swift */; };
+		FA4C8D1D24AC1AD80046065B /* 木鱼.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8D1824AC1AD70046065B /* 木鱼.mp3 */; };
+		FA4C8D1E24AC1AD80046065B /* 钵.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8D1924AC1AD70046065B /* 钵.mp3 */; };
+		FA4C8D1F24AC1AD80046065B /* AirSound.ogg in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8D1A24AC1AD70046065B /* AirSound.ogg */; };
+		FA4C8D2024AC1AD80046065B /* 钟声.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8D1B24AC1AD70046065B /* 钟声.mp3 */; };
+		FA4C8D2124AC1AD80046065B /* 风铃.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8D1C24AC1AD80046065B /* 风铃.mp3 */; };
+		FA4C8D2324AC58F50046065B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8D2224AC58F50046065B /* DrawerView.swift */; };
+		FA4C8D2724AC5EAE0046065B /* ChildScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8D2624AC5EAE0046065B /* ChildScrollView.swift */; };
+		FA4C8D2924AC81070046065B /* MeditateExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8D2824AC81070046065B /* MeditateExit.swift */; };
+		FA4C8D2C24AC87F70046065B /* BaseProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8D2A24AC87F70046065B /* BaseProgress.swift */; };
+		FA4C8D2D24AC87F70046065B /* AudioProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8D2B24AC87F70046065B /* AudioProgress.swift */; };
+		FA4C8D2F24AC88240046065B /* WaveProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8D2E24AC88230046065B /* WaveProgress.swift */; };
+		FA4C8D3124AD814A0046065B /* nosignal.json in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8D3024AD814A0046065B /* nosignal.json */; };
+		FA534B5B24AECEDA008B2E45 /* XibExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B5A24AECEDA008B2E45 /* XibExtension.swift */; };
+		FA534B8C24AF0638008B2E45 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B6C24AF0638008B2E45 /* StatisticsViewController.swift */; };
+		FA534B8D24AF0638008B2E45 /* StreakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B6F24AF0638008B2E45 /* StreakViewController.swift */; };
+		FA534B8E24AF0638008B2E45 /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B7024AF0638008B2E45 /* ReportService.swift */; };
+		FA534B8F24AF0638008B2E45 /* PressureReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534B7224AF0638008B2E45 /* PressureReportViewController.xib */; };
+		FA534B9024AF0638008B2E45 /* PressureReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B7324AF0638008B2E45 /* PressureReportViewController.swift */; };
+		FA534B9124AF0638008B2E45 /* MainReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B7424AF0638008B2E45 /* MainReportViewController.swift */; };
+		FA534B9224AF0638008B2E45 /* TotalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534B7624AF0638008B2E45 /* TotalViewController.xib */; };
+		FA534B9324AF0638008B2E45 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B7724AF0638008B2E45 /* TotalViewController.swift */; };
+		FA534B9424AF0638008B2E45 /* HRVReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B7924AF0638008B2E45 /* HRVReportViewController.swift */; };
+		FA534B9524AF0638008B2E45 /* HRVReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534B7A24AF0638008B2E45 /* HRVReportViewController.xib */; };
+		FA534B9624AF0638008B2E45 /* HRReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B7C24AF0638008B2E45 /* HRReportViewController.swift */; };
+		FA534B9724AF0638008B2E45 /* HRReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534B7D24AF0638008B2E45 /* HRReportViewController.xib */; };
+		FA534B9824AF0638008B2E45 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B7E24AF0638008B2E45 /* ReportModel.swift */; };
+		FA534B9924AF0638008B2E45 /* MainReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534B7F24AF0638008B2E45 /* MainReportViewController.xib */; };
+		FA534B9A24AF0638008B2E45 /* BrainwaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B8124AF0638008B2E45 /* BrainwaveViewController.swift */; };
+		FA534B9B24AF0638008B2E45 /* BrainwaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534B8224AF0638008B2E45 /* BrainwaveViewController.xib */; };
+		FA534B9C24AF0638008B2E45 /* RAndAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B8424AF0638008B2E45 /* RAndAViewController.swift */; };
+		FA534B9D24AF0638008B2E45 /* RAndAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534B8524AF0638008B2E45 /* RAndAViewController.xib */; };
+		FA534B9E24AF0638008B2E45 /* Statistics2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534B8624AF0638008B2E45 /* Statistics2ViewController.swift */; };
+		FA534BA124AF0C64008B2E45 /* ReportAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BA024AF0C63008B2E45 /* ReportAboutView.swift */; };
+		FA534BA324AF0CAA008B2E45 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BA224AF0CA9008B2E45 /* BaseView.swift */; };
+		FA534BA524AF110E008B2E45 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BA424AF110E008B2E45 /* Array2D.swift */; };
+		FA534BA924AF11C5008B2E45 /* StatisticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BA624AF11C4008B2E45 /* StatisticsReport.swift */; };
+		FA534BAA24AF11C5008B2E45 /* AskforStartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BA724AF11C4008B2E45 /* AskforStartsView.swift */; };
+		FA534BAB24AF11C5008B2E45 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BA824AF11C5008B2E45 /* IntroductionView.swift */; };
+		FA534BB324AF14C9008B2E45 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BAC24AF14C9008B2E45 /* ReportTableViewCell.swift */; };
+		FA534BB424AF14C9008B2E45 /* StreakDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534BAD24AF14C9008B2E45 /* StreakDateView.xib */; };
+		FA534BB524AF14C9008B2E45 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BAE24AF14C9008B2E45 /* StreakView.swift */; };
+		FA534BB624AF14C9008B2E45 /* StreakDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BAF24AF14C9008B2E45 /* StreakDateView.swift */; };
+		FA534BB724AF14C9008B2E45 /* TotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BB024AF14C9008B2E45 /* TotalView.swift */; };
+		FA534BB824AF14C9008B2E45 /* TotalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534BB124AF14C9008B2E45 /* TotalView.xib */; };
+		FA534BB924AF14C9008B2E45 /* StreakView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA534BB224AF14C9008B2E45 /* StreakView.xib */; };
+		FA534BBB24AF1528008B2E45 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BBA24AF1528008B2E45 /* TitleView.swift */; };
+		FA534BBD24AF16D2008B2E45 /* CourseReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BBC24AF16D2008B2E45 /* CourseReport.swift */; };
+		FA534BBF24AF1F57008B2E45 /* RecordViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BBE24AF1F57008B2E45 /* RecordViewCell.swift */; };
+		FA534BC124AF27ED008B2E45 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA534BC024AF27ED008B2E45 /* ActivityItem.swift */; };
+		FA534BC324B2C473008B2E45 /* share.json in Resources */ = {isa = PBXBuildFile; fileRef = FA534BC224B2C473008B2E45 /* share.json */; };
+		FA534BC824B2C4B4008B2E45 /* loading_puash.json in Resources */ = {isa = PBXBuildFile; fileRef = FA534BC524B2C4B4008B2E45 /* loading_puash.json */; };
+		FA534BC924B2C4B4008B2E45 /* loading_white.json in Resources */ = {isa = PBXBuildFile; fileRef = FA534BC624B2C4B4008B2E45 /* loading_white.json */; };
+		FA534BCC24B2C4DE008B2E45 /* redlong.json in Resources */ = {isa = PBXBuildFile; fileRef = FA534BCA24B2C4DD008B2E45 /* redlong.json */; };
+		FA534BCD24B2C4DE008B2E45 /* redshort.json in Resources */ = {isa = PBXBuildFile; fileRef = FA534BCB24B2C4DE008B2E45 /* redshort.json */; };
 		FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */; };
 		FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */; };
 		FA5F0AAD237A819A00A21BF9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAC237A819A00A21BF9 /* FirstViewController.swift */; };
@@ -93,18 +148,15 @@
 		FA84F2C5246A3B5100D480A6 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */; };
 		FA84F2C7246A3BB600D480A6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C6246A3BB600D480A6 /* TokenManager.swift */; };
 		FA84F2CD246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA84F2C9246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib */; };
-		FA84F2CE246A3DFD00D480A6 /* FlowtimeIntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA84F2CA246A3DFD00D480A6 /* FlowtimeIntroductionViewController.xib */; };
 		FA84F2CF246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2CB246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift */; };
-		FA84F2D0246A3DFD00D480A6 /* FlowtimeIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2CC246A3DFD00D480A6 /* FlowtimeIntroductionViewController.swift */; };
 		FA84F2D2246A831200D480A6 /* checking.json in Resources */ = {isa = PBXBuildFile; fileRef = FA84F2D1246A831200D480A6 /* checking.json */; };
 		FA84F2D4246A832800D480A6 /* welldone.json in Resources */ = {isa = PBXBuildFile; fileRef = FA84F2D3246A832800D480A6 /* welldone.json */; };
 		FA84F2D6246A9A3000D480A6 /* BLEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2D5246A9A3000D480A6 /* BLEViewController.swift */; };
 		FA84F2D8246A9AE500D480A6 /* Device+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2D7246A9AE500D480A6 /* Device+Extension.swift */; };
 		FA84F2DA246A9D3B00D480A6 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2D9246A9D3B00D480A6 /* BackgroundView.swift */; };
-		FA84F2DC246B942400D480A6 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2DB246B942400D480A6 /* ReportListViewController.swift */; };
 		FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88F9B623D438A8008CD669 /* Pad.storyboard */; };
-		FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1923800515004E79B4 /* ReportViewController.swift */; };
-		FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAE3B1A23800515004E79B4 /* ReportViewController.xib */; };
+		FA96A09F24B6B56D00C6A670 /* Boat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FA96A09E24B6B56D00C6A670 /* Boat.mp4 */; };
+		FA96A0A124B704F800C6A670 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96A0A024B704F800C6A670 /* LoginService.swift */; };
 		FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1E2381174C004E79B4 /* DBOperation.swift */; };
 		FAAE3B272381174C004E79B4 /* DBMeditation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B202381174C004E79B4 /* DBMeditation.swift */; };
 		FAAE3B282381174C004E79B4 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B212381174C004E79B4 /* BaseRepository.swift */; };
@@ -112,28 +164,68 @@
 		FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B232381174C004E79B4 /* DBError.swift */; };
 		FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B242381174C004E79B4 /* MeditationRepository.swift */; };
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
+		FAB44AFE24A8432F00B321AA /* AuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44AFD24A8432F00B321AA /* AuthProtocol.swift */; };
+		FAB44B0024A843F500B321AA /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44AFF24A843F500B321AA /* AuthRequest.swift */; };
+		FAB44B0224A8445100B321AA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0124A8445100B321AA /* AuthModel.swift */; };
+		FAB44B0424A8484A00B321AA /* ArchiveToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0324A8484A00B321AA /* ArchiveToken.swift */; };
+		FAB44B1124A869C500B321AA /* CollectionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0524A869C400B321AA /* CollectionsProtocol.swift */; };
+		FAB44B1224A869C500B321AA /* DownloadFileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0624A869C400B321AA /* DownloadFileProtocol.swift */; };
+		FAB44B1324A869C500B321AA /* FirmwareUpdateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0724A869C400B321AA /* FirmwareUpdateProtocol.swift */; };
+		FAB44B1424A869C500B321AA /* AuthorsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0824A869C400B321AA /* AuthorsProtocol.swift */; };
+		FAB44B1524A869C500B321AA /* AwsResourceUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0924A869C400B321AA /* AwsResourceUrlProtocol.swift */; };
+		FAB44B1624A869C500B321AA /* UserCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0A24A869C400B321AA /* UserCourses.swift */; };
+		FAB44B1724A869C500B321AA /* UserLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0B24A869C400B321AA /* UserLessons.swift */; };
+		FAB44B1824A869C500B321AA /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0C24A869C500B321AA /* UserProtocol.swift */; };
+		FAB44B1924A869C500B321AA /* CoursesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0D24A869C500B321AA /* CoursesProtocol.swift */; };
+		FAB44B1A24A869C500B321AA /* UserMeditationsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0E24A869C500B321AA /* UserMeditationsProtocol.swift */; };
+		FAB44B1B24A869C500B321AA /* UserStreakProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0F24A869C500B321AA /* UserStreakProtocol.swift */; };
+		FAB44B1C24A869C500B321AA /* LessonsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B1024A869C500B321AA /* LessonsProtocol.swift */; };
+		FAB44B2824A86A6E00B321AA /* UserCourseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B1D24A86A6D00B321AA /* UserCourseRequest.swift */; };
+		FAB44B2924A86A6E00B321AA /* FirmwareUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B1E24A86A6D00B321AA /* FirmwareUpdateRequest.swift */; };
+		FAB44B2A24A86A6E00B321AA /* LessonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B1F24A86A6D00B321AA /* LessonRequest.swift */; };
+		FAB44B2B24A86A6E00B321AA /* CollectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2024A86A6D00B321AA /* CollectionRequest.swift */; };
+		FAB44B2C24A86A6E00B321AA /* CourseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2124A86A6D00B321AA /* CourseRequest.swift */; };
+		FAB44B2D24A86A6E00B321AA /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2224A86A6D00B321AA /* UserRequest.swift */; };
+		FAB44B2E24A86A6E00B321AA /* UserStreakRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2324A86A6D00B321AA /* UserStreakRequest.swift */; };
+		FAB44B2F24A86A6E00B321AA /* UserLessonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2424A86A6D00B321AA /* UserLessonRequest.swift */; };
+		FAB44B3024A86A6E00B321AA /* UserMeditationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2524A86A6E00B321AA /* UserMeditationRequest.swift */; };
+		FAB44B3124A86A6E00B321AA /* AuthorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2624A86A6E00B321AA /* AuthorRequest.swift */; };
+		FAB44B3224A86A6E00B321AA /* AwsResourceUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B2724A86A6E00B321AA /* AwsResourceUrlRequest.swift */; };
+		FAB44B6724A86C5D00B321AA /* AwsResourceUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B5F24A86C5C00B321AA /* AwsResourceUrlModel.swift */; };
+		FAB44B6824A86C5D00B321AA /* FirmwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6024A86C5C00B321AA /* FirmwareUpdate.swift */; };
+		FAB44B6924A86C5D00B321AA /* AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6124A86C5C00B321AA /* AuthorModel.swift */; };
+		FAB44B6A24A86C5D00B321AA /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6224A86C5C00B321AA /* LessonModel.swift */; };
+		FAB44B6B24A86C5D00B321AA /* CollectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6324A86C5D00B321AA /* CollectionsModel.swift */; };
+		FAB44B6C24A86C5D00B321AA /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6424A86C5D00B321AA /* CourseModel.swift */; };
+		FAB44B6D24A86C5D00B321AA /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6524A86C5D00B321AA /* ErrorModel.swift */; };
+		FAB44B6E24A86C5D00B321AA /* FileDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6624A86C5D00B321AA /* FileDownload.swift */; };
+		FAB44B7524A86C7300B321AA /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B6F24A86C7300B321AA /* TagModel.swift */; };
+		FAB44B7624A86C7300B321AA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7024A86C7300B321AA /* UserModel.swift */; };
+		FAB44B7724A86C7300B321AA /* UserCourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7124A86C7300B321AA /* UserCourseModel.swift */; };
+		FAB44B7824A86C7300B321AA /* UserStreakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7224A86C7300B321AA /* UserStreakModel.swift */; };
+		FAB44B7924A86C7300B321AA /* UserLessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7324A86C7300B321AA /* UserLessonModel.swift */; };
+		FAB44B7A24A86C7300B321AA /* UserMeditationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7424A86C7300B321AA /* UserMeditationModel.swift */; };
+		FAB44B8424A8766E00B321AA /* TimerCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7C24A8766E00B321AA /* TimerCustomView.swift */; };
+		FAB44B8524A8766E00B321AA /* ChooseTimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB44B7D24A8766E00B321AA /* ChooseTimerViewController.xib */; };
+		FAB44B8624A8766E00B321AA /* ChooseTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7E24A8766E00B321AA /* ChooseTimerViewController.swift */; };
+		FAB44B8724A8766E00B321AA /* TimerSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B7F24A8766E00B321AA /* TimerSelectView.swift */; };
+		FAB44B8824A8766E00B321AA /* WakeUpRingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB44B8024A8766E00B321AA /* WakeUpRingsViewController.xib */; };
+		FAB44B8924A8766E00B321AA /* WakeUpRingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B8124A8766E00B321AA /* WakeUpRingsViewController.swift */; };
+		FAB44B8A24A8766E00B321AA /* CheckSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B8324A8766E00B321AA /* CheckSensorViewController.swift */; };
+		FAB44B8C24A876FB00B321AA /* LocalPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B8B24A876FB00B321AA /* LocalPlayer.swift */; };
+		FAB44B8E24A878F000B321AA /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B8D24A878EF00B321AA /* PickerView.swift */; };
+		FABC05A724C58D01000C16C9 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC059D24C58D01000C16C9 /* ReminderViewController.swift */; };
+		FABC05A824C58D01000C16C9 /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABC059E24C58D01000C16C9 /* TimerViewController.xib */; };
+		FABC05A924C58D01000C16C9 /* ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABC059F24C58D01000C16C9 /* ReminderViewController.xib */; };
+		FABC05AA24C58D01000C16C9 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC05A024C58D01000C16C9 /* WeekViewController.swift */; };
+		FABC05AB24C58D01000C16C9 /* WeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABC05A124C58D01000C16C9 /* WeekViewController.xib */; };
+		FABC05AC24C58D01000C16C9 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC05A224C58D01000C16C9 /* ReminderService.swift */; };
+		FABC05AD24C58D01000C16C9 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC05A324C58D01000C16C9 /* TimerViewController.swift */; };
+		FABC05B324C6C482000C16C9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABC05B224C6C482000C16C9 /* HealthKit.framework */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
 		FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BEE23CC5B7C00A92B0B /* Config.plist */; };
 		FAF16BF423CC737700A92B0B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF223CC737600A92B0B /* Extension.swift */; };
-		FAF16C1123CC76D400A92B0B /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF923CC76D400A92B0B /* ReportService.swift */; };
-		FAF16C1223CC76D400A92B0B /* PressureReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */; };
-		FAF16C1323CC76D400A92B0B /* PressureReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BFC23CC76D400A92B0B /* PressureReportViewController.swift */; };
-		FAF16C1423CC76D400A92B0B /* MainReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BFD23CC76D400A92B0B /* MainReportViewController.swift */; };
-		FAF16C1723CC76D400A92B0B /* HRVReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0223CC76D400A92B0B /* HRVReportViewController.swift */; };
-		FAF16C1823CC76D400A92B0B /* HRVReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0323CC76D400A92B0B /* HRVReportViewController.xib */; };
-		FAF16C1923CC76D400A92B0B /* HRReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0523CC76D400A92B0B /* HRReportViewController.swift */; };
-		FAF16C1A23CC76D400A92B0B /* HRReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0623CC76D400A92B0B /* HRReportViewController.xib */; };
-		FAF16C1C23CC76D400A92B0B /* MainReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0823CC76D400A92B0B /* MainReportViewController.xib */; };
-		FAF16C1D23CC76D400A92B0B /* BrainwaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0A23CC76D400A92B0B /* BrainwaveViewController.swift */; };
-		FAF16C1E23CC76D400A92B0B /* BrainwaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0B23CC76D400A92B0B /* BrainwaveViewController.xib */; };
-		FAF16C1F23CC76D400A92B0B /* RAndAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C0D23CC76D400A92B0B /* RAndAViewController.swift */; };
-		FAF16C2023CC76D400A92B0B /* RAndAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16C0E23CC76D400A92B0B /* RAndAViewController.xib */; };
-		FAF16C2723CC772B00A92B0B /* StatisticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2323CC772B00A92B0B /* StatisticsReport.swift */; };
-		FAF16C2823CC772B00A92B0B /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2423CC772B00A92B0B /* IntroductionView.swift */; };
-		FAF16C2923CC772B00A92B0B /* ReportAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2523CC772B00A92B0B /* ReportAboutView.swift */; };
-		FAF16C2A23CC772B00A92B0B /* CourseReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2623CC772B00A92B0B /* CourseReport.swift */; };
-		FAF16C2C23CD5F1200A92B0B /* ReportNewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16C2B23CD5F1200A92B0B /* ReportNewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,15 +259,11 @@
 		510379B6523DFADFF07C5DA9 /* Pods_EnterAffectiveCloudDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnterAffectiveCloudDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A977AED38C4786A9D9D67040 /* Pods-Networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking.debug.xcconfig"; path = "Target Support Files/Pods-Networking/Pods-Networking.debug.xcconfig"; sourceTree = "<group>"; };
 		E21D0A4DC3D3CB4F2FB3D033 /* Pods-EnterAffectiveCloudDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnterAffectiveCloudDemo.release.xcconfig"; path = "Target Support Files/Pods-EnterAffectiveCloudDemo/Pods-EnterAffectiveCloudDemo.release.xcconfig"; sourceTree = "<group>"; };
-		FA0404D023816867008DB43C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
-		FA0404D123816867008DB43C /* StatisticsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsViewController.xib; sourceTree = "<group>"; };
-		FA0404D423816C16008DB43C /* ReportListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListTableViewCell.swift; sourceTree = "<group>"; };
 		FA0404D623817D26008DB43C /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		FA060791237D5D7C00D0BB30 /* RelaxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaxManager.swift; sourceTree = "<group>"; };
 		FA060793237E2FBD00D0BB30 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		FA060795237E365900D0BB30 /* MeditationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationService.swift; sourceTree = "<group>"; };
 		FA060798237E37EF00D0BB30 /* MeditationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationModel.swift; sourceTree = "<group>"; };
-		FA0D4F8F23CD8EC10084EBD1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA0D4F9423CDC5580084EBD1 /* MeditationForPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationForPadViewController.swift; sourceTree = "<group>"; };
 		FA1B69BD23EA975900115FA1 /* AffectiveRealtimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectiveRealtimeView.swift; sourceTree = "<group>"; };
 		FA1B69C023EBE5BE00115FA1 /* P0-40A0-25.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "P0-40A0-25.gif"; sourceTree = "<group>"; };
@@ -199,8 +287,6 @@
 		FA2A0699237D433E00BEB75E /* DashboardIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardIndexView.swift; sourceTree = "<group>"; };
 		FA2A069B237D438400BEB75E /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		FA3ADDA9246BE97900ADA921 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		FA3ADDB0246D277000ADA921 /* CoherenceReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoherenceReportViewController.swift; sourceTree = "<group>"; };
-		FA3ADDB1246D277000ADA921 /* CoherenceReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoherenceReportViewController.xib; sourceTree = "<group>"; };
 		FA3ADDB5247262E900ADA921 /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
 		FA3ADDB6247262E900ADA921 /* MTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTA.h; sourceTree = "<group>"; };
 		FA3ADDB7247262E900ADA921 /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
@@ -215,12 +301,73 @@
 		FA3ADDCE2473E3F900ADA921 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		FA3ADDD12474CEAD00ADA921 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		FA3B17512381393300D5192D /* sample.report */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.report; sourceTree = "<group>"; };
-		FA3B1754238150B700D5192D /* ReportViewSortViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewSortViewController.xib; sourceTree = "<group>"; };
-		FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewSortViewController.swift; sourceTree = "<group>"; };
-		FA3B17582381512C00D5192D /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
-		FA3C2A77249B52350013A721 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FA3C2A78249B52350013A721 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		FA3D12C92396620500E96B02 /* WebSocket.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WebSocket.plist; sourceTree = "<group>"; };
+		FA41B59224AACD1F009458E4 /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		FA41B59324AACD1F009458E4 /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
+		FA41B59424AACD1F009458E4 /* SyncFileEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncFileEvent.swift; sourceTree = "<group>"; };
+		FA41B59524AACD1F009458E4 /* SyncRecordEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncRecordEvent.swift; sourceTree = "<group>"; };
+		FA41B59C24AAD110009458E4 /* DBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRecord.swift; sourceTree = "<group>"; };
+		FA41B59E24AAD39D009458E4 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		FA4C8A3024AADC2B0046065B /* Uploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uploader.swift; sourceTree = "<group>"; };
+		FA4C8A3D24AB1DA10046065B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FA4C8A3E24AB1DA10046065B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FA4C8A4124AB281A0046065B /* FlowtimeIntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowtimeIntroductionViewController.swift; sourceTree = "<group>"; };
+		FA4C8A4224AB281A0046065B /* FlowtimeIntroductionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowtimeIntroductionViewController.xib; sourceTree = "<group>"; };
+		FA4C8D1624AB32410046065B /* HowToConnectGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToConnectGuideView.swift; sourceTree = "<group>"; };
+		FA4C8D1824AC1AD70046065B /* 木鱼.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "木鱼.mp3"; sourceTree = "<group>"; };
+		FA4C8D1924AC1AD70046065B /* 钵.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "钵.mp3"; sourceTree = "<group>"; };
+		FA4C8D1A24AC1AD70046065B /* AirSound.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = AirSound.ogg; sourceTree = "<group>"; };
+		FA4C8D1B24AC1AD70046065B /* 钟声.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "钟声.mp3"; sourceTree = "<group>"; };
+		FA4C8D1C24AC1AD80046065B /* 风铃.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "风铃.mp3"; sourceTree = "<group>"; };
+		FA4C8D2224AC58F50046065B /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		FA4C8D2624AC5EAE0046065B /* ChildScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildScrollView.swift; sourceTree = "<group>"; };
+		FA4C8D2824AC81070046065B /* MeditateExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditateExit.swift; sourceTree = "<group>"; };
+		FA4C8D2A24AC87F70046065B /* BaseProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProgress.swift; sourceTree = "<group>"; };
+		FA4C8D2B24AC87F70046065B /* AudioProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioProgress.swift; sourceTree = "<group>"; };
+		FA4C8D2E24AC88230046065B /* WaveProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveProgress.swift; sourceTree = "<group>"; };
+		FA4C8D3024AD814A0046065B /* nosignal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nosignal.json; sourceTree = "<group>"; };
+		FA534B5A24AECEDA008B2E45 /* XibExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibExtension.swift; sourceTree = "<group>"; };
+		FA534B6C24AF0638008B2E45 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		FA534B6F24AF0638008B2E45 /* StreakViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakViewController.swift; sourceTree = "<group>"; };
+		FA534B7024AF0638008B2E45 /* ReportService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
+		FA534B7224AF0638008B2E45 /* PressureReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PressureReportViewController.xib; sourceTree = "<group>"; };
+		FA534B7324AF0638008B2E45 /* PressureReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureReportViewController.swift; sourceTree = "<group>"; };
+		FA534B7424AF0638008B2E45 /* MainReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainReportViewController.swift; sourceTree = "<group>"; };
+		FA534B7624AF0638008B2E45 /* TotalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TotalViewController.xib; sourceTree = "<group>"; };
+		FA534B7724AF0638008B2E45 /* TotalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
+		FA534B7924AF0638008B2E45 /* HRVReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRVReportViewController.swift; sourceTree = "<group>"; };
+		FA534B7A24AF0638008B2E45 /* HRVReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRVReportViewController.xib; sourceTree = "<group>"; };
+		FA534B7C24AF0638008B2E45 /* HRReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRReportViewController.swift; sourceTree = "<group>"; };
+		FA534B7D24AF0638008B2E45 /* HRReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRReportViewController.xib; sourceTree = "<group>"; };
+		FA534B7E24AF0638008B2E45 /* ReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
+		FA534B7F24AF0638008B2E45 /* MainReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainReportViewController.xib; sourceTree = "<group>"; };
+		FA534B8124AF0638008B2E45 /* BrainwaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainwaveViewController.swift; sourceTree = "<group>"; };
+		FA534B8224AF0638008B2E45 /* BrainwaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainwaveViewController.xib; sourceTree = "<group>"; };
+		FA534B8424AF0638008B2E45 /* RAndAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAndAViewController.swift; sourceTree = "<group>"; };
+		FA534B8524AF0638008B2E45 /* RAndAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAndAViewController.xib; sourceTree = "<group>"; };
+		FA534B8624AF0638008B2E45 /* Statistics2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics2ViewController.swift; sourceTree = "<group>"; };
+		FA534BA024AF0C63008B2E45 /* ReportAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportAboutView.swift; sourceTree = "<group>"; };
+		FA534BA224AF0CA9008B2E45 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		FA534BA424AF110E008B2E45 /* Array2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		FA534BA624AF11C4008B2E45 /* StatisticsReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsReport.swift; sourceTree = "<group>"; };
+		FA534BA724AF11C4008B2E45 /* AskforStartsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskforStartsView.swift; sourceTree = "<group>"; };
+		FA534BA824AF11C5008B2E45 /* IntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		FA534BAC24AF14C9008B2E45 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
+		FA534BAD24AF14C9008B2E45 /* StreakDateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreakDateView.xib; sourceTree = "<group>"; };
+		FA534BAE24AF14C9008B2E45 /* StreakView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
+		FA534BAF24AF14C9008B2E45 /* StreakDateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakDateView.swift; sourceTree = "<group>"; };
+		FA534BB024AF14C9008B2E45 /* TotalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalView.swift; sourceTree = "<group>"; };
+		FA534BB124AF14C9008B2E45 /* TotalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TotalView.xib; sourceTree = "<group>"; };
+		FA534BB224AF14C9008B2E45 /* StreakView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreakView.xib; sourceTree = "<group>"; };
+		FA534BBA24AF1528008B2E45 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		FA534BBC24AF16D2008B2E45 /* CourseReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseReport.swift; sourceTree = "<group>"; };
+		FA534BBE24AF1F57008B2E45 /* RecordViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewCell.swift; sourceTree = "<group>"; };
+		FA534BC024AF27ED008B2E45 /* ActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
+		FA534BC224B2C473008B2E45 /* share.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = share.json; sourceTree = "<group>"; };
+		FA534BC524B2C4B4008B2E45 /* loading_puash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_puash.json; sourceTree = "<group>"; };
+		FA534BC624B2C4B4008B2E45 /* loading_white.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_white.json; sourceTree = "<group>"; };
+		FA534BCA24B2C4DD008B2E45 /* redlong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = redlong.json; sourceTree = "<group>"; };
+		FA534BCB24B2C4DE008B2E45 /* redshort.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = redshort.json; sourceTree = "<group>"; };
 		FA5F0AA5237A819A00A21BF9 /* 心流.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "心流.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -257,18 +404,16 @@
 		FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
 		FA84F2C6246A3BB600D480A6 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		FA84F2C9246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowtimeConnectTipViewController.xib; sourceTree = "<group>"; };
-		FA84F2CA246A3DFD00D480A6 /* FlowtimeIntroductionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowtimeIntroductionViewController.xib; sourceTree = "<group>"; };
 		FA84F2CB246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowtimeConnectTipViewController.swift; sourceTree = "<group>"; };
-		FA84F2CC246A3DFD00D480A6 /* FlowtimeIntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowtimeIntroductionViewController.swift; sourceTree = "<group>"; };
 		FA84F2D1246A831200D480A6 /* checking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checking.json; sourceTree = "<group>"; };
 		FA84F2D3246A832800D480A6 /* welldone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = welldone.json; sourceTree = "<group>"; };
 		FA84F2D5246A9A3000D480A6 /* BLEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEViewController.swift; sourceTree = "<group>"; };
 		FA84F2D7246A9AE500D480A6 /* Device+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Extension.swift"; sourceTree = "<group>"; };
 		FA84F2D9246A9D3B00D480A6 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		FA84F2DB246B942400D480A6 /* ReportListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListViewController.swift; sourceTree = "<group>"; };
 		FA88F9B623D438A8008CD669 /* Pad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pad.storyboard; sourceTree = "<group>"; };
-		FAAE3B1923800515004E79B4 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
-		FAAE3B1A23800515004E79B4 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
+		FA96A09E24B6B56D00C6A670 /* Boat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boat.mp4; sourceTree = "<group>"; };
+		FA96A0A024B704F800C6A670 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		FA96A0A524BBF8ED00C6A670 /* 心流.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "心流.entitlements"; sourceTree = "<group>"; };
 		FAAE3B1E2381174C004E79B4 /* DBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBOperation.swift; sourceTree = "<group>"; };
 		FAAE3B202381174C004E79B4 /* DBMeditation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMeditation.swift; sourceTree = "<group>"; };
 		FAAE3B212381174C004E79B4 /* BaseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
@@ -276,28 +421,70 @@
 		FAAE3B232381174C004E79B4 /* DBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		FAAE3B242381174C004E79B4 /* MeditationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
+		FAB44AFD24A8432F00B321AA /* AuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocol.swift; sourceTree = "<group>"; };
+		FAB44AFF24A843F500B321AA /* AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
+		FAB44B0124A8445100B321AA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		FAB44B0324A8484A00B321AA /* ArchiveToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveToken.swift; sourceTree = "<group>"; };
+		FAB44B0524A869C400B321AA /* CollectionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0624A869C400B321AA /* DownloadFileProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFileProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0724A869C400B321AA /* FirmwareUpdateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0824A869C400B321AA /* AuthorsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorsProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0924A869C400B321AA /* AwsResourceUrlProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwsResourceUrlProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0A24A869C400B321AA /* UserCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCourses.swift; sourceTree = "<group>"; };
+		FAB44B0B24A869C400B321AA /* UserLessons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLessons.swift; sourceTree = "<group>"; };
+		FAB44B0C24A869C500B321AA /* UserProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0D24A869C500B321AA /* CoursesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0E24A869C500B321AA /* UserMeditationsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMeditationsProtocol.swift; sourceTree = "<group>"; };
+		FAB44B0F24A869C500B321AA /* UserStreakProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStreakProtocol.swift; sourceTree = "<group>"; };
+		FAB44B1024A869C500B321AA /* LessonsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsProtocol.swift; sourceTree = "<group>"; };
+		FAB44B1D24A86A6D00B321AA /* UserCourseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCourseRequest.swift; sourceTree = "<group>"; };
+		FAB44B1E24A86A6D00B321AA /* FirmwareUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateRequest.swift; sourceTree = "<group>"; };
+		FAB44B1F24A86A6D00B321AA /* LessonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonRequest.swift; sourceTree = "<group>"; };
+		FAB44B2024A86A6D00B321AA /* CollectionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRequest.swift; sourceTree = "<group>"; };
+		FAB44B2124A86A6D00B321AA /* CourseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseRequest.swift; sourceTree = "<group>"; };
+		FAB44B2224A86A6D00B321AA /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		FAB44B2324A86A6D00B321AA /* UserStreakRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStreakRequest.swift; sourceTree = "<group>"; };
+		FAB44B2424A86A6D00B321AA /* UserLessonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLessonRequest.swift; sourceTree = "<group>"; };
+		FAB44B2524A86A6E00B321AA /* UserMeditationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMeditationRequest.swift; sourceTree = "<group>"; };
+		FAB44B2624A86A6E00B321AA /* AuthorRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorRequest.swift; sourceTree = "<group>"; };
+		FAB44B2724A86A6E00B321AA /* AwsResourceUrlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwsResourceUrlRequest.swift; sourceTree = "<group>"; };
+		FAB44B5F24A86C5C00B321AA /* AwsResourceUrlModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwsResourceUrlModel.swift; sourceTree = "<group>"; };
+		FAB44B6024A86C5C00B321AA /* FirmwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdate.swift; sourceTree = "<group>"; };
+		FAB44B6124A86C5C00B321AA /* AuthorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorModel.swift; sourceTree = "<group>"; };
+		FAB44B6224A86C5C00B321AA /* LessonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
+		FAB44B6324A86C5D00B321AA /* CollectionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsModel.swift; sourceTree = "<group>"; };
+		FAB44B6424A86C5D00B321AA /* CourseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
+		FAB44B6524A86C5D00B321AA /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		FAB44B6624A86C5D00B321AA /* FileDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownload.swift; sourceTree = "<group>"; };
+		FAB44B6F24A86C7300B321AA /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
+		FAB44B7024A86C7300B321AA /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		FAB44B7124A86C7300B321AA /* UserCourseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCourseModel.swift; sourceTree = "<group>"; };
+		FAB44B7224A86C7300B321AA /* UserStreakModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStreakModel.swift; sourceTree = "<group>"; };
+		FAB44B7324A86C7300B321AA /* UserLessonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLessonModel.swift; sourceTree = "<group>"; };
+		FAB44B7424A86C7300B321AA /* UserMeditationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMeditationModel.swift; sourceTree = "<group>"; };
+		FAB44B7C24A8766E00B321AA /* TimerCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCustomView.swift; sourceTree = "<group>"; };
+		FAB44B7D24A8766E00B321AA /* ChooseTimerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseTimerViewController.xib; sourceTree = "<group>"; };
+		FAB44B7E24A8766E00B321AA /* ChooseTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTimerViewController.swift; sourceTree = "<group>"; };
+		FAB44B7F24A8766E00B321AA /* TimerSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSelectView.swift; sourceTree = "<group>"; };
+		FAB44B8024A8766E00B321AA /* WakeUpRingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WakeUpRingsViewController.xib; sourceTree = "<group>"; };
+		FAB44B8124A8766E00B321AA /* WakeUpRingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpRingsViewController.swift; sourceTree = "<group>"; };
+		FAB44B8324A8766E00B321AA /* CheckSensorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckSensorViewController.swift; sourceTree = "<group>"; };
+		FAB44B8B24A876FB00B321AA /* LocalPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPlayer.swift; sourceTree = "<group>"; };
+		FAB44B8D24A878EF00B321AA /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		FABC059D24C58D01000C16C9 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		FABC059E24C58D01000C16C9 /* TimerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
+		FABC059F24C58D01000C16C9 /* ReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReminderViewController.xib; sourceTree = "<group>"; };
+		FABC05A024C58D01000C16C9 /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
+		FABC05A124C58D01000C16C9 /* WeekViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeekViewController.xib; sourceTree = "<group>"; };
+		FABC05A224C58D01000C16C9 /* ReminderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
+		FABC05A324C58D01000C16C9 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		FABC05B024C67F15000C16C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		FABC05B124C67F15000C16C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		FABC05B224C6C482000C16C9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
 		FAF16BEE23CC5B7C00A92B0B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FAF16BF223CC737600A92B0B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		FAF16BF923CC76D400A92B0B /* ReportService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
-		FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PressureReportViewController.xib; sourceTree = "<group>"; };
-		FAF16BFC23CC76D400A92B0B /* PressureReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureReportViewController.swift; sourceTree = "<group>"; };
-		FAF16BFD23CC76D400A92B0B /* MainReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainReportViewController.swift; sourceTree = "<group>"; };
-		FAF16C0223CC76D400A92B0B /* HRVReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRVReportViewController.swift; sourceTree = "<group>"; };
-		FAF16C0323CC76D400A92B0B /* HRVReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRVReportViewController.xib; sourceTree = "<group>"; };
-		FAF16C0523CC76D400A92B0B /* HRReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRReportViewController.swift; sourceTree = "<group>"; };
-		FAF16C0623CC76D400A92B0B /* HRReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRReportViewController.xib; sourceTree = "<group>"; };
-		FAF16C0823CC76D400A92B0B /* MainReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainReportViewController.xib; sourceTree = "<group>"; };
-		FAF16C0A23CC76D400A92B0B /* BrainwaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainwaveViewController.swift; sourceTree = "<group>"; };
-		FAF16C0B23CC76D400A92B0B /* BrainwaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainwaveViewController.xib; sourceTree = "<group>"; };
-		FAF16C0D23CC76D400A92B0B /* RAndAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAndAViewController.swift; sourceTree = "<group>"; };
-		FAF16C0E23CC76D400A92B0B /* RAndAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAndAViewController.xib; sourceTree = "<group>"; };
-		FAF16C2323CC772B00A92B0B /* StatisticsReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsReport.swift; sourceTree = "<group>"; };
-		FAF16C2423CC772B00A92B0B /* IntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
-		FAF16C2523CC772B00A92B0B /* ReportAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportAboutView.swift; sourceTree = "<group>"; };
-		FAF16C2623CC772B00A92B0B /* CourseReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseReport.swift; sourceTree = "<group>"; };
-		FAF16C2B23CD5F1200A92B0B /* ReportNewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA84F2972463E43100D480A6 /* Networking.framework in Frameworks */,
+				FABC05B324C6C482000C16C9 /* HealthKit.framework in Frameworks */,
 				FA3ADDB8247262E900ADA921 /* libmtasdk.a in Frameworks */,
 				E8ABA7C39DD4B04D1A48F289 /* Pods_EnterAffectiveCloudDemo.framework in Frameworks */,
 			);
@@ -325,6 +513,7 @@
 		4796465CBEFE212F3BE1FD8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FABC05B224C6C482000C16C9 /* HealthKit.framework */,
 				510379B6523DFADFF07C5DA9 /* Pods_EnterAffectiveCloudDemo.framework */,
 				2958A9E001926D92A6F2F3A1 /* Pods_Networking.framework */,
 			);
@@ -342,18 +531,10 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		FA0404CF23816841008DB43C /* Statistics */ = {
-			isa = PBXGroup;
-			children = (
-				FA0404D023816867008DB43C /* StatisticsViewController.swift */,
-				FA0404D123816867008DB43C /* StatisticsViewController.xib */,
-			);
-			path = Statistics;
-			sourceTree = "<group>";
-		};
 		FA060797237E37D400D0BB30 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA41B59E24AAD39D009458E4 /* RecordModel.swift */,
 				FA060798237E37EF00D0BB30 /* MeditationModel.swift */,
 			);
 			path = Model;
@@ -382,10 +563,16 @@
 		FA1B69BF23EBE5BE00115FA1 /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				FA534BC224B2C473008B2E45 /* share.json */,
+				FA4C8D3024AD814A0046065B /* nosignal.json */,
 				FA3ADDCD2473E3F900ADA921 /* bg_animation_premium.json */,
+				FA534BC524B2C4B4008B2E45 /* loading_puash.json */,
+				FA534BC624B2C4B4008B2E45 /* loading_white.json */,
 				FA3ADDCE2473E3F900ADA921 /* loading.json */,
 				FA84F2D3246A832800D480A6 /* welldone.json */,
 				FA84F2D1246A831200D480A6 /* checking.json */,
+				FA534BCA24B2C4DD008B2E45 /* redlong.json */,
+				FA534BCB24B2C4DE008B2E45 /* redshort.json */,
 				FA84F2852463B01500D480A6 /* 连接中.json */,
 				FA1B69C023EBE5BE00115FA1 /* P0-40A0-25.gif */,
 				FA1B69C123EBE5BE00115FA1 /* else.gif */,
@@ -407,6 +594,8 @@
 		FA2A0691237D298A00BEB75E /* Meditation */ = {
 			isa = PBXGroup;
 			children = (
+				FAB44B7B24A8766E00B321AA /* Timer */,
+				FAB44B8224A8766E00B321AA /* TipVC */,
 				FA0D4F9323CDC5170084EBD1 /* IPAD */,
 				FA06079A237E3B3100D0BB30 /* Service */,
 				FA060797237E37D400D0BB30 /* Model */,
@@ -420,11 +609,17 @@
 		FA2A0696237D2E2C00BEB75E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FA4C8D2E24AC88230046065B /* WaveProgress.swift */,
+				FA4C8D2B24AC87F70046065B /* AudioProgress.swift */,
+				FA4C8D2A24AC87F70046065B /* BaseProgress.swift */,
+				FA4C8D2824AC81070046065B /* MeditateExit.swift */,
 				FA2A0697237D2E9700BEB75E /* ErrorTipView.swift */,
 				FA2A0699237D433E00BEB75E /* DashboardIndexView.swift */,
 				FA2A069B237D438400BEB75E /* TitleTableViewCell.swift */,
 				FA1B69BD23EA975900115FA1 /* AffectiveRealtimeView.swift */,
 				FA1B69DA23EBE8F500115FA1 /* EmotionDemoView.swift */,
+				FA4C8D2224AC58F50046065B /* DrawerView.swift */,
+				FA4C8D2624AC5EAE0046065B /* ChildScrollView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -435,15 +630,6 @@
 				FA3ADDA9246BE97900ADA921 /* BaseViewController.swift */,
 			);
 			path = BaseViewController;
-			sourceTree = "<group>";
-		};
-		FA3ADDAF246D274600ADA921 /* Coherence */ = {
-			isa = PBXGroup;
-			children = (
-				FA3ADDB0246D277000ADA921 /* CoherenceReportViewController.swift */,
-				FA3ADDB1246D277000ADA921 /* CoherenceReportViewController.xib */,
-			);
-			path = Coherence;
 			sourceTree = "<group>";
 		};
 		FA3ADDB4247262A100ADA921 /* MTA */ = {
@@ -464,31 +650,151 @@
 			path = "Remote Config";
 			sourceTree = "<group>";
 		};
-		FA3B1753238150B700D5192D /* ReportViewSort */ = {
-			isa = PBXGroup;
-			children = (
-				FA3B1754238150B700D5192D /* ReportViewSortViewController.xib */,
-				FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */,
-			);
-			path = ReportViewSort;
-			sourceTree = "<group>";
-		};
-		FA3B175A2381513000D5192D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FA3B17582381512C00D5192D /* ReportTableViewCell.swift */,
-				FA0404D423816C16008DB43C /* ReportListTableViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		FA3C2A7B249B523C0013A721 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FA3C2A77249B52350013A721 /* LoginViewController.swift */,
-				FA3C2A78249B52350013A721 /* LoginViewController.xib */,
+				FA4C8A3D24AB1DA10046065B /* LoginViewController.swift */,
+				FA4C8A3E24AB1DA10046065B /* LoginViewController.xib */,
+				FA96A0A024B704F800C6A670 /* LoginService.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		FA41B59124AACD1F009458E4 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				FA41B59224AACD1F009458E4 /* SyncManager.swift */,
+				FA41B59324AACD1F009458E4 /* Sync.swift */,
+				FA41B59424AACD1F009458E4 /* SyncFileEvent.swift */,
+				FA41B59524AACD1F009458E4 /* SyncRecordEvent.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		FA4C8A2F24AADC050046065B /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				FA4C8D1A24AC1AD70046065B /* AirSound.ogg */,
+				FA4C8D1B24AC1AD70046065B /* 钟声.mp3 */,
+				FA4C8D1824AC1AD70046065B /* 木鱼.mp3 */,
+				FA4C8D1924AC1AD70046065B /* 钵.mp3 */,
+				FA4C8D1C24AC1AD80046065B /* 风铃.mp3 */,
+				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
+				FAC3D939237E77E8006CE2BC /* error_tip.mp3 */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
+		FA534B6B24AF0638008B2E45 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				FA534BBE24AF1F57008B2E45 /* RecordViewCell.swift */,
+				FA534B6C24AF0638008B2E45 /* StatisticsViewController.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		FA534B6D24AF0638008B2E45 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				FA534B9F24AF0C45008B2E45 /* View */,
+				FA534B6E24AF0638008B2E45 /* Streak */,
+				FA534B7124AF0638008B2E45 /* Pressure */,
+				FA534B7524AF0638008B2E45 /* Total */,
+				FA534B7824AF0638008B2E45 /* HRV */,
+				FA534B7B24AF0638008B2E45 /* HR */,
+				FA534B8024AF0638008B2E45 /* Brainwave */,
+				FA534B8324AF0638008B2E45 /* AttentionAndRelaxation */,
+				FA534B7024AF0638008B2E45 /* ReportService.swift */,
+				FA534B7E24AF0638008B2E45 /* ReportModel.swift */,
+				FA534B7424AF0638008B2E45 /* MainReportViewController.swift */,
+				FA534B7F24AF0638008B2E45 /* MainReportViewController.xib */,
+				FA534B8624AF0638008B2E45 /* Statistics2ViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		FA534B6E24AF0638008B2E45 /* Streak */ = {
+			isa = PBXGroup;
+			children = (
+				FA534BAC24AF14C9008B2E45 /* ReportTableViewCell.swift */,
+				FA534BAF24AF14C9008B2E45 /* StreakDateView.swift */,
+				FA534BAD24AF14C9008B2E45 /* StreakDateView.xib */,
+				FA534BAE24AF14C9008B2E45 /* StreakView.swift */,
+				FA534BB224AF14C9008B2E45 /* StreakView.xib */,
+				FA534BB024AF14C9008B2E45 /* TotalView.swift */,
+				FA534BB124AF14C9008B2E45 /* TotalView.xib */,
+				FA534B6F24AF0638008B2E45 /* StreakViewController.swift */,
+			);
+			path = Streak;
+			sourceTree = "<group>";
+		};
+		FA534B7124AF0638008B2E45 /* Pressure */ = {
+			isa = PBXGroup;
+			children = (
+				FA534B7224AF0638008B2E45 /* PressureReportViewController.xib */,
+				FA534B7324AF0638008B2E45 /* PressureReportViewController.swift */,
+			);
+			path = Pressure;
+			sourceTree = "<group>";
+		};
+		FA534B7524AF0638008B2E45 /* Total */ = {
+			isa = PBXGroup;
+			children = (
+				FA534BBC24AF16D2008B2E45 /* CourseReport.swift */,
+				FA534B7624AF0638008B2E45 /* TotalViewController.xib */,
+				FA534B7724AF0638008B2E45 /* TotalViewController.swift */,
+			);
+			path = Total;
+			sourceTree = "<group>";
+		};
+		FA534B7824AF0638008B2E45 /* HRV */ = {
+			isa = PBXGroup;
+			children = (
+				FA534B7924AF0638008B2E45 /* HRVReportViewController.swift */,
+				FA534B7A24AF0638008B2E45 /* HRVReportViewController.xib */,
+			);
+			path = HRV;
+			sourceTree = "<group>";
+		};
+		FA534B7B24AF0638008B2E45 /* HR */ = {
+			isa = PBXGroup;
+			children = (
+				FA534B7C24AF0638008B2E45 /* HRReportViewController.swift */,
+				FA534B7D24AF0638008B2E45 /* HRReportViewController.xib */,
+			);
+			path = HR;
+			sourceTree = "<group>";
+		};
+		FA534B8024AF0638008B2E45 /* Brainwave */ = {
+			isa = PBXGroup;
+			children = (
+				FA534B8124AF0638008B2E45 /* BrainwaveViewController.swift */,
+				FA534B8224AF0638008B2E45 /* BrainwaveViewController.xib */,
+			);
+			path = Brainwave;
+			sourceTree = "<group>";
+		};
+		FA534B8324AF0638008B2E45 /* AttentionAndRelaxation */ = {
+			isa = PBXGroup;
+			children = (
+				FA534B8424AF0638008B2E45 /* RAndAViewController.swift */,
+				FA534B8524AF0638008B2E45 /* RAndAViewController.xib */,
+			);
+			path = AttentionAndRelaxation;
+			sourceTree = "<group>";
+		};
+		FA534B9F24AF0C45008B2E45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA534BBA24AF1528008B2E45 /* TitleView.swift */,
+				FA534BA724AF11C4008B2E45 /* AskforStartsView.swift */,
+				FA534BA824AF11C5008B2E45 /* IntroductionView.swift */,
+				FA534BA624AF11C4008B2E45 /* StatisticsReport.swift */,
+				FA534BA224AF0CA9008B2E45 /* BaseView.swift */,
+				FA534BA024AF0C63008B2E45 /* ReportAboutView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FA5F0A9C237A819A00A21BF9 = {
@@ -514,15 +820,18 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FABC059B24C58CA5000C16C9 /* Me */,
+				FA96A0A524BBF8ED00C6A670 /* 心流.entitlements */,
+				FA534B6D24AF0638008B2E45 /* Report */,
+				FA534B6B24AF0638008B2E45 /* Statistics */,
+				FA41B59124AACD1F009458E4 /* Sync */,
 				FA3C2A7B249B523C0013A721 /* Login */,
 				FA3ADDB4247262A100ADA921 /* MTA */,
 				FA3ADDA8246BE92C00ADA921 /* BaseViewController */,
 				FA84F2C1246A355200D480A6 /* GlobleView */,
 				FA84F2752463A66800D480A6 /* Connection */,
 				FAAE3B1D2381174C004E79B4 /* Database */,
-				FAF16BF623CC76D400A92B0B /* Report */,
 				FAF16BEE23CC5B7C00A92B0B /* Config.plist */,
-				FAC3D95D237FEA6D006CE2BC /* ReportLast */,
 				FA2A0691237D298A00BEB75E /* Meditation */,
 				FA5F0AC6237BF1A400A21BF9 /* Tools */,
 				FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */,
@@ -543,11 +852,11 @@
 		FA5F0AC6237BF1A400A21BF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FA4C8A2F24AADC050046065B /* sound */,
 				FA3ADDBE2473BC1F00ADA921 /* Remote Config */,
 				FA1B69BF23EBE5BE00115FA1 /* gif */,
+				FA96A09E24B6B56D00C6A670 /* Boat.mp4 */,
 				FAF16BF223CC737600A92B0B /* Extension.swift */,
-				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
-				FAC3D939237E77E8006CE2BC /* error_tip.mp3 */,
 				FA3B17512381393300D5192D /* sample.report */,
 				FA68EC9A237E493B00518D00 /* FTFileManager.swift */,
 				FA060793237E2FBD00D0BB30 /* Preference.swift */,
@@ -555,6 +864,10 @@
 				FA84F2782463A8A600D480A6 /* Colors.swift */,
 				FA84F2D7246A9AE500D480A6 /* Device+Extension.swift */,
 				FA3ADDBC2473AB9400ADA921 /* Hook.swift */,
+				FAB44B8B24A876FB00B321AA /* LocalPlayer.swift */,
+				FA534B5A24AECEDA008B2E45 /* XibExtension.swift */,
+				FA534BA424AF110E008B2E45 /* Array2D.swift */,
+				FA534BC024AF27ED008B2E45 /* ActivityItem.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -562,13 +875,13 @@
 		FA84F2752463A66800D480A6 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				FA4C8A4124AB281A0046065B /* FlowtimeIntroductionViewController.swift */,
+				FA4C8A4224AB281A0046065B /* FlowtimeIntroductionViewController.xib */,
 				FA3ADDC82473E24700ADA921 /* FirmwareUpdateViewController.swift */,
 				FA3ADDC72473E24700ADA921 /* FirmwareUpdateViewController.xib */,
 				FA84F2D5246A9A3000D480A6 /* BLEViewController.swift */,
 				FA84F2CB246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift */,
 				FA84F2C9246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib */,
-				FA84F2CC246A3DFD00D480A6 /* FlowtimeIntroductionViewController.swift */,
-				FA84F2CA246A3DFD00D480A6 /* FlowtimeIntroductionViewController.xib */,
 				FA84F27A2463AA0900D480A6 /* view */,
 				FA84F2872463B8D900D480A6 /* SensorCheckViewController.swift */,
 				FA84F2882463B8D900D480A6 /* SensorCheckViewController.xib */,
@@ -580,6 +893,7 @@
 		FA84F27A2463AA0900D480A6 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FA4C8D1624AB32410046065B /* HowToConnectGuideView.swift */,
 				FA84F27E2463AB1900D480A6 /* BatteryView.swift */,
 				FA84F27B2463AB1900D480A6 /* ConnectingView.swift */,
 				FA84F27C2463AB1900D480A6 /* DeviceStatusView.swift */,
@@ -604,8 +918,23 @@
 		FA84F29D2463E62D00D480A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAB44B6F24A86C7300B321AA /* TagModel.swift */,
+				FAB44B7124A86C7300B321AA /* UserCourseModel.swift */,
+				FAB44B7324A86C7300B321AA /* UserLessonModel.swift */,
+				FAB44B7424A86C7300B321AA /* UserMeditationModel.swift */,
+				FAB44B7024A86C7300B321AA /* UserModel.swift */,
+				FAB44B7224A86C7300B321AA /* UserStreakModel.swift */,
+				FAB44B6124A86C5C00B321AA /* AuthorModel.swift */,
+				FAB44B5F24A86C5C00B321AA /* AwsResourceUrlModel.swift */,
+				FAB44B6324A86C5D00B321AA /* CollectionsModel.swift */,
+				FAB44B6424A86C5D00B321AA /* CourseModel.swift */,
+				FAB44B6524A86C5D00B321AA /* ErrorModel.swift */,
+				FAB44B6624A86C5D00B321AA /* FileDownload.swift */,
+				FAB44B6024A86C5C00B321AA /* FirmwareUpdate.swift */,
+				FAB44B6224A86C5C00B321AA /* LessonModel.swift */,
 				FA84F2AB2463EAD900D480A6 /* LogTokenModel.swift */,
 				FA84F2A92463E9AC00D480A6 /* LogModel.swift */,
+				FAB44B0124A8445100B321AA /* AuthModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -613,10 +942,21 @@
 		FA84F29E2463E63700D480A6 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				FAB44B2624A86A6E00B321AA /* AuthorRequest.swift */,
+				FAB44B2724A86A6E00B321AA /* AwsResourceUrlRequest.swift */,
+				FAB44B2024A86A6D00B321AA /* CollectionRequest.swift */,
+				FAB44B2124A86A6D00B321AA /* CourseRequest.swift */,
+				FAB44B1E24A86A6D00B321AA /* FirmwareUpdateRequest.swift */,
+				FAB44B1F24A86A6D00B321AA /* LessonRequest.swift */,
+				FAB44B1D24A86A6D00B321AA /* UserCourseRequest.swift */,
+				FAB44B2424A86A6D00B321AA /* UserLessonRequest.swift */,
+				FAB44B2524A86A6E00B321AA /* UserMeditationRequest.swift */,
+				FAB44B2224A86A6D00B321AA /* UserRequest.swift */,
+				FAB44B2324A86A6D00B321AA /* UserStreakRequest.swift */,
 				FA84F2B02463EBBC00D480A6 /* LogSendRequest.swift */,
 				FA84F2AD2463EBBC00D480A6 /* LogTokenRequest.swift */,
 				FA3ADDC32473D0EB00ADA921 /* FileWebService.swift */,
-				FA3ADDD12474CEAD00ADA921 /* Downloader.swift */,
+				FAB44AFF24A843F500B321AA /* AuthRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -624,6 +964,19 @@
 		FA84F29F2463E64700D480A6 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				FAB44B0824A869C400B321AA /* AuthorsProtocol.swift */,
+				FAB44B0924A869C400B321AA /* AwsResourceUrlProtocol.swift */,
+				FAB44B0524A869C400B321AA /* CollectionsProtocol.swift */,
+				FAB44B0D24A869C500B321AA /* CoursesProtocol.swift */,
+				FAB44B0624A869C400B321AA /* DownloadFileProtocol.swift */,
+				FAB44B0724A869C400B321AA /* FirmwareUpdateProtocol.swift */,
+				FAB44B1024A869C500B321AA /* LessonsProtocol.swift */,
+				FAB44B0A24A869C400B321AA /* UserCourses.swift */,
+				FAB44B0B24A869C400B321AA /* UserLessons.swift */,
+				FAB44B0E24A869C500B321AA /* UserMeditationsProtocol.swift */,
+				FAB44B0C24A869C500B321AA /* UserProtocol.swift */,
+				FAB44B0F24A869C500B321AA /* UserStreakProtocol.swift */,
+				FAB44AFD24A8432F00B321AA /* AuthProtocol.swift */,
 				FA84F2B72463EBF200D480A6 /* LogProtocol.swift */,
 				FA84F2B52463EBF200D480A6 /* LogTokenProtocol.swift */,
 				FA3ADDC52473D14700ADA921 /* FileWebProtocol.swift */,
@@ -637,6 +990,9 @@
 				FA84F2A12463E68E00D480A6 /* RxSwift+HandyJSON.swift */,
 				FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */,
 				FA84F2C6246A3BB600D480A6 /* TokenManager.swift */,
+				FA3ADDD12474CEAD00ADA921 /* Downloader.swift */,
+				FAB44B0324A8484A00B321AA /* ArchiveToken.swift */,
+				FA4C8A3024AADC2B0046065B /* Uploader.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -667,97 +1023,54 @@
 		FAAE3B1F2381174C004E79B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA41B59C24AAD110009458E4 /* DBRecord.swift */,
 				FAAE3B202381174C004E79B4 /* DBMeditation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		FAC3D95D237FEA6D006CE2BC /* ReportLast */ = {
+		FAB44B7B24A8766E00B321AA /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				FA0404CF23816841008DB43C /* Statistics */,
-				FA3B175A2381513000D5192D /* View */,
-				FA3B1753238150B700D5192D /* ReportViewSort */,
-				FAAE3B1923800515004E79B4 /* ReportViewController.swift */,
-				FAAE3B1A23800515004E79B4 /* ReportViewController.xib */,
+				FAB44B8D24A878EF00B321AA /* PickerView.swift */,
+				FAB44B7C24A8766E00B321AA /* TimerCustomView.swift */,
+				FAB44B7D24A8766E00B321AA /* ChooseTimerViewController.xib */,
+				FAB44B7E24A8766E00B321AA /* ChooseTimerViewController.swift */,
+				FAB44B7F24A8766E00B321AA /* TimerSelectView.swift */,
+				FAB44B8024A8766E00B321AA /* WakeUpRingsViewController.xib */,
+				FAB44B8124A8766E00B321AA /* WakeUpRingsViewController.swift */,
 			);
-			path = ReportLast;
+			path = Timer;
 			sourceTree = "<group>";
 		};
-		FAF16BF623CC76D400A92B0B /* Report */ = {
+		FAB44B8224A8766E00B321AA /* TipVC */ = {
 			isa = PBXGroup;
 			children = (
-				FAF16C2223CC76FA00A92B0B /* VIew */,
-				FA3ADDAF246D274600ADA921 /* Coherence */,
-				FAF16BFA23CC76D400A92B0B /* Pressure */,
-				FAF16C0123CC76D400A92B0B /* HRV */,
-				FAF16C0423CC76D400A92B0B /* HR */,
-				FAF16C0923CC76D400A92B0B /* Brainwave */,
-				FAF16C0C23CC76D400A92B0B /* AttentionAndRelaxation */,
-				FAF16BFD23CC76D400A92B0B /* MainReportViewController.swift */,
-				FAF16C0823CC76D400A92B0B /* MainReportViewController.xib */,
-				FAF16BF923CC76D400A92B0B /* ReportService.swift */,
-				FAF16C2B23CD5F1200A92B0B /* ReportNewModel.swift */,
-				FA84F2DB246B942400D480A6 /* ReportListViewController.swift */,
+				FAB44B8324A8766E00B321AA /* CheckSensorViewController.swift */,
 			);
-			path = Report;
+			path = TipVC;
 			sourceTree = "<group>";
 		};
-		FAF16BFA23CC76D400A92B0B /* Pressure */ = {
+		FABC059B24C58CA5000C16C9 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */,
-				FAF16BFC23CC76D400A92B0B /* PressureReportViewController.swift */,
+				FABC059C24C58D01000C16C9 /* Reminder */,
 			);
-			path = Pressure;
+			path = Me;
 			sourceTree = "<group>";
 		};
-		FAF16C0123CC76D400A92B0B /* HRV */ = {
+		FABC059C24C58D01000C16C9 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				FAF16C0223CC76D400A92B0B /* HRVReportViewController.swift */,
-				FAF16C0323CC76D400A92B0B /* HRVReportViewController.xib */,
+				FABC059D24C58D01000C16C9 /* ReminderViewController.swift */,
+				FABC059E24C58D01000C16C9 /* TimerViewController.xib */,
+				FABC059F24C58D01000C16C9 /* ReminderViewController.xib */,
+				FABC05A024C58D01000C16C9 /* WeekViewController.swift */,
+				FABC05A124C58D01000C16C9 /* WeekViewController.xib */,
+				FABC05A224C58D01000C16C9 /* ReminderService.swift */,
+				FABC05A324C58D01000C16C9 /* TimerViewController.swift */,
 			);
-			path = HRV;
-			sourceTree = "<group>";
-		};
-		FAF16C0423CC76D400A92B0B /* HR */ = {
-			isa = PBXGroup;
-			children = (
-				FAF16C0523CC76D400A92B0B /* HRReportViewController.swift */,
-				FAF16C0623CC76D400A92B0B /* HRReportViewController.xib */,
-			);
-			path = HR;
-			sourceTree = "<group>";
-		};
-		FAF16C0923CC76D400A92B0B /* Brainwave */ = {
-			isa = PBXGroup;
-			children = (
-				FAF16C0A23CC76D400A92B0B /* BrainwaveViewController.swift */,
-				FAF16C0B23CC76D400A92B0B /* BrainwaveViewController.xib */,
-			);
-			path = Brainwave;
-			sourceTree = "<group>";
-		};
-		FAF16C0C23CC76D400A92B0B /* AttentionAndRelaxation */ = {
-			isa = PBXGroup;
-			children = (
-				FAF16C0D23CC76D400A92B0B /* RAndAViewController.swift */,
-				FAF16C0E23CC76D400A92B0B /* RAndAViewController.xib */,
-			);
-			path = AttentionAndRelaxation;
-			sourceTree = "<group>";
-		};
-		FAF16C2223CC76FA00A92B0B /* VIew */ = {
-			isa = PBXGroup;
-			children = (
-				FAF16C2623CC772B00A92B0B /* CourseReport.swift */,
-				FAF16C2423CC772B00A92B0B /* IntroductionView.swift */,
-				FAF16C2523CC772B00A92B0B /* ReportAboutView.swift */,
-				FAF16C2323CC772B00A92B0B /* StatisticsReport.swift */,
-				FA0D4F8F23CD8EC10084EBD1 /* BaseView.swift */,
-			);
-			path = VIew;
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -840,6 +1153,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = FA5F0A9C237A819A00A21BF9;
 			productRefGroup = FA5F0AA6237A819A00A21BF9 /* Products */;
@@ -857,13 +1171,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF16C1E23CC76D400A92B0B /* BrainwaveViewController.xib in Resources */,
+				FA4C8A4424AB281A0046065B /* FlowtimeIntroductionViewController.xib in Resources */,
 				FA84F28A2463B8D900D480A6 /* SensorCheckViewController.xib in Resources */,
-				FAF16C2023CC76D400A92B0B /* RAndAViewController.xib in Resources */,
-				FAF16C1A23CC76D400A92B0B /* HRReportViewController.xib in Resources */,
+				FA534B9724AF0638008B2E45 /* HRReportViewController.xib in Resources */,
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
-				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
+				FA534BC324B2C473008B2E45 /* share.json in Resources */,
+				FABC05A824C58D01000C16C9 /* TimerViewController.xib in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */,
 				FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */,
@@ -873,33 +1187,50 @@
 				FA1B69D723EBE5BE00115FA1 /* P0-22A75-100.gif in Resources */,
 				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
 				FA1B69D923EBE5BE00115FA1 /* P75-100A50-75.gif in Resources */,
+				FA534B9924AF0638008B2E45 /* MainReportViewController.xib in Resources */,
 				FA84F2862463B01500D480A6 /* 连接中.json in Resources */,
 				FA84F2D2246A831200D480A6 /* checking.json in Resources */,
+				FA534BCD24B2C4DE008B2E45 /* redshort.json in Resources */,
+				FA4C8D3124AD814A0046065B /* nosignal.json in Resources */,
+				FA534B9D24AF0638008B2E45 /* RAndAViewController.xib in Resources */,
+				FA534BC924B2C4B4008B2E45 /* loading_white.json in Resources */,
+				FA4C8A4024AB1DA10046065B /* LoginViewController.xib in Resources */,
+				FABC05A924C58D01000C16C9 /* ReminderViewController.xib in Resources */,
+				FA4C8D1D24AC1AD80046065B /* 木鱼.mp3 in Resources */,
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
+				FAB44B8524A8766E00B321AA /* ChooseTimerViewController.xib in Resources */,
 				FA1B69CF23EBE5BE00115FA1 /* P78-100A75-100.gif in Resources */,
-				FAF16C1823CC76D400A92B0B /* HRVReportViewController.xib in Resources */,
+				FA4C8D2124AC1AD80046065B /* 风铃.mp3 in Resources */,
 				FA1B69D123EBE5BE00115FA1 /* P55-78A75-100.gif in Resources */,
 				FA1B69D823EBE5BE00115FA1 /* P40-60A0-25.gif in Resources */,
 				FA84F2CD246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib in Resources */,
+				FA534B9224AF0638008B2E45 /* TotalViewController.xib in Resources */,
+				FABC05AB24C58D01000C16C9 /* WeekViewController.xib in Resources */,
+				FA4C8D2024AC1AD80046065B /* 钟声.mp3 in Resources */,
+				FA534BC824B2C4B4008B2E45 /* loading_puash.json in Resources */,
+				FA4C8D1F24AC1AD80046065B /* AirSound.ogg in Resources */,
 				FA1B69D223EBE5BE00115FA1 /* P0-40A25-50.gif in Resources */,
+				FA534BB924AF14C9008B2E45 /* StreakView.xib in Resources */,
 				FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */,
 				FA5F0AB2237A819A00A21BF9 /* Main.storyboard in Resources */,
 				FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */,
-				FA84F2CE246A3DFD00D480A6 /* FlowtimeIntroductionViewController.xib in Resources */,
+				FA534BB424AF14C9008B2E45 /* StreakDateView.xib in Resources */,
+				FA534B8F24AF0638008B2E45 /* PressureReportViewController.xib in Resources */,
 				FA1B69D323EBE5BE00115FA1 /* P60-100A25-50.gif in Resources */,
 				FA1B69D623EBE5BE00115FA1 /* P0-45A50-75.gif in Resources */,
-				FA3C2A7A249B52350013A721 /* LoginViewController.xib in Resources */,
-				FA3B1756238150B700D5192D /* ReportViewSortViewController.xib in Resources */,
+				FA96A09F24B6B56D00C6A670 /* Boat.mp4 in Resources */,
 				FA3ADDD02473E3F900ADA921 /* loading.json in Resources */,
 				FA3ADDC92473E24700ADA921 /* FirmwareUpdateViewController.xib in Resources */,
-				FA3ADDB3246D277000ADA921 /* CoherenceReportViewController.xib in Resources */,
 				FA1B69D023EBE5BE00115FA1 /* P45-55A75-100.gif in Resources */,
-				FA0404D323816867008DB43C /* StatisticsViewController.xib in Resources */,
+				FAB44B8824A8766E00B321AA /* WakeUpRingsViewController.xib in Resources */,
+				FA534B9B24AF0638008B2E45 /* BrainwaveViewController.xib in Resources */,
 				FA3ADDCF2473E3F900ADA921 /* bg_animation_premium.json in Resources */,
-				FAF16C1C23CC76D400A92B0B /* MainReportViewController.xib in Resources */,
+				FA534BB824AF14C9008B2E45 /* TotalView.xib in Resources */,
 				FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */,
-				FAF16C1223CC76D400A92B0B /* PressureReportViewController.xib in Resources */,
 				FA84F2D4246A832800D480A6 /* welldone.json in Resources */,
+				FA4C8D1E24AC1AD80046065B /* 钵.mp3 in Resources */,
+				FA534B9524AF0638008B2E45 /* HRVReportViewController.xib in Resources */,
+				FA534BCC24B2C4DE008B2E45 /* redlong.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -981,72 +1312,104 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA41B59D24AAD110009458E4 /* DBRecord.swift in Sources */,
+				FA534B9C24AF0638008B2E45 /* RAndAViewController.swift in Sources */,
+				FA4C8D2F24AC88240046065B /* WaveProgress.swift in Sources */,
 				FA1B69DB23EBE8F500115FA1 /* EmotionDemoView.swift in Sources */,
-				FAF16C1F23CC76D400A92B0B /* RAndAViewController.swift in Sources */,
+				FA534B8E24AF0638008B2E45 /* ReportService.swift in Sources */,
 				FA84F27F2463AB1900D480A6 /* ConnectingView.swift in Sources */,
 				FA5F0AAF237A819A00A21BF9 /* SecondViewController.swift in Sources */,
+				FAB44B8C24A876FB00B321AA /* LocalPlayer.swift in Sources */,
+				FAB44B8724A8766E00B321AA /* TimerSelectView.swift in Sources */,
 				FA2A068B237BF67000BEB75E /* BLEService.swift in Sources */,
 				FA84F2DA246A9D3B00D480A6 /* BackgroundView.swift in Sources */,
 				FA5F0AAD237A819A00A21BF9 /* FirstViewController.swift in Sources */,
 				FA2A0698237D2E9700BEB75E /* ErrorTipView.swift in Sources */,
-				FA84F2DC246B942400D480A6 /* ReportListViewController.swift in Sources */,
+				FA4C8D2324AC58F50046065B /* DrawerView.swift in Sources */,
+				FA534BBD24AF16D2008B2E45 /* CourseReport.swift in Sources */,
+				FA41B59A24AACD1F009458E4 /* SyncRecordEvent.swift in Sources */,
 				FAAE3B292381174C004E79B4 /* RecordRepository.swift in Sources */,
 				FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */,
+				FA534B9624AF0638008B2E45 /* HRReportViewController.swift in Sources */,
 				FA84F2CF246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift in Sources */,
+				FA534B9E24AF0638008B2E45 /* Statistics2ViewController.swift in Sources */,
+				FA534B9024AF0638008B2E45 /* PressureReportViewController.swift in Sources */,
+				FA534BA924AF11C5008B2E45 /* StatisticsReport.swift in Sources */,
 				FAF16BF423CC737700A92B0B /* Extension.swift in Sources */,
 				FA84F2892463B8D900D480A6 /* SensorCheckViewController.swift in Sources */,
-				FAF16C1323CC76D400A92B0B /* PressureReportViewController.swift in Sources */,
 				FA84F2792463A8A600D480A6 /* Colors.swift in Sources */,
 				FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */,
+				FA534BB624AF14C9008B2E45 /* StreakDateView.swift in Sources */,
+				FABC05AC24C58D01000C16C9 /* ReminderService.swift in Sources */,
+				FA534B8D24AF0638008B2E45 /* StreakViewController.swift in Sources */,
 				FAAE3B272381174C004E79B4 /* DBMeditation.swift in Sources */,
+				FABC05AA24C58D01000C16C9 /* WeekViewController.swift in Sources */,
 				FA0D4F9623CDC5580084EBD1 /* MeditationForPadViewController.swift in Sources */,
-				FA0404D523816C16008DB43C /* ReportListTableViewCell.swift in Sources */,
-				FAF16C2923CC772B00A92B0B /* ReportAboutView.swift in Sources */,
 				FA060794237E2FBD00D0BB30 /* Preference.swift in Sources */,
+				FA4C8D1724AB32410046065B /* HowToConnectGuideView.swift in Sources */,
 				FA84F2812463AB1900D480A6 /* WearGuideView.swift in Sources */,
 				FA0404D723817D26008DB43C /* ThirdViewController.swift in Sources */,
 				FA2A0694237D2A2500BEB75E /* MeditationViewController.swift in Sources */,
+				FA534BA524AF110E008B2E45 /* Array2D.swift in Sources */,
+				FABC05A724C58D01000C16C9 /* ReminderViewController.swift in Sources */,
+				FA534BB724AF14C9008B2E45 /* TotalView.swift in Sources */,
 				FA3ADDCA2473E24700ADA921 /* FirmwareUpdateViewController.swift in Sources */,
 				FA84F2822463AB1900D480A6 /* BatteryView.swift in Sources */,
+				FA534BB324AF14C9008B2E45 /* ReportTableViewCell.swift in Sources */,
 				FA84F2772463A6FD00D480A6 /* DeviceStatusViewController.swift in Sources */,
 				FA2A069A237D433E00BEB75E /* DashboardIndexView.swift in Sources */,
-				FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */,
+				FA534BAA24AF11C5008B2E45 /* AskforStartsView.swift in Sources */,
 				FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */,
+				FA534BA324AF0CAA008B2E45 /* BaseView.swift in Sources */,
+				FAB44B8624A8766E00B321AA /* ChooseTimerViewController.swift in Sources */,
 				FA84F2C3246A367800D480A6 /* GuideView.swift in Sources */,
-				FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */,
+				FA534B9124AF0638008B2E45 /* MainReportViewController.swift in Sources */,
 				FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */,
 				FA2A069C237D438400BEB75E /* TitleTableViewCell.swift in Sources */,
-				FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */,
+				FA534BB524AF14C9008B2E45 /* StreakView.swift in Sources */,
+				FA534B9324AF0638008B2E45 /* TotalViewController.swift in Sources */,
 				FA1B69BE23EA975900115FA1 /* AffectiveRealtimeView.swift in Sources */,
-				FAF16C1723CC76D400A92B0B /* HRVReportViewController.swift in Sources */,
-				FAF16C2723CC772B00A92B0B /* StatisticsReport.swift in Sources */,
+				FA4C8A3F24AB1DA10046065B /* LoginViewController.swift in Sources */,
+				FA534B8C24AF0638008B2E45 /* StatisticsViewController.swift in Sources */,
 				FA84F2802463AB1900D480A6 /* DeviceStatusView.swift in Sources */,
+				FA4C8D2924AC81070046065B /* MeditateExit.swift in Sources */,
+				FA4C8D2C24AC87F70046065B /* BaseProgress.swift in Sources */,
 				FA3ADDAA246BE97900ADA921 /* BaseViewController.swift in Sources */,
+				FA534BBB24AF1528008B2E45 /* TitleView.swift in Sources */,
+				FA534BA124AF0C64008B2E45 /* ReportAboutView.swift in Sources */,
+				FA41B59724AACD1F009458E4 /* SyncManager.swift in Sources */,
+				FA534BC124AF27ED008B2E45 /* ActivityItem.swift in Sources */,
+				FA41B59924AACD1F009458E4 /* SyncFileEvent.swift in Sources */,
 				FA060796237E365900D0BB30 /* MeditationService.swift in Sources */,
 				FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */,
+				FA41B59F24AAD39D009458E4 /* RecordModel.swift in Sources */,
+				FA534BAB24AF11C5008B2E45 /* IntroductionView.swift in Sources */,
 				FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */,
 				FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */,
-				FAF16C2823CC772B00A92B0B /* IntroductionView.swift in Sources */,
-				FAF16C1423CC76D400A92B0B /* MainReportViewController.swift in Sources */,
-				FA84F2D0246A3DFD00D480A6 /* FlowtimeIntroductionViewController.swift in Sources */,
+				FA534B9A24AF0638008B2E45 /* BrainwaveViewController.swift in Sources */,
+				FA4C8D2724AC5EAE0046065B /* ChildScrollView.swift in Sources */,
+				FAB44B8A24A8766E00B321AA /* CheckSensorViewController.swift in Sources */,
 				FA3ADDC02473BC4400ADA921 /* RemoteConfig.swift in Sources */,
-				FA0D4F9023CD8EC10084EBD1 /* BaseView.swift in Sources */,
-				FAF16C2C23CD5F1200A92B0B /* ReportNewModel.swift in Sources */,
+				FA4C8A4324AB281A0046065B /* FlowtimeIntroductionViewController.swift in Sources */,
+				FA534B9424AF0638008B2E45 /* HRVReportViewController.swift in Sources */,
+				FABC05AD24C58D01000C16C9 /* TimerViewController.swift in Sources */,
+				FA534B5B24AECEDA008B2E45 /* XibExtension.swift in Sources */,
+				FAB44B8424A8766E00B321AA /* TimerCustomView.swift in Sources */,
+				FA534B9824AF0638008B2E45 /* ReportModel.swift in Sources */,
+				FAB44B8924A8766E00B321AA /* WakeUpRingsViewController.swift in Sources */,
+				FAB44B8E24A878F000B321AA /* PickerView.swift in Sources */,
 				FA3ADDBD2473AB9400ADA921 /* Hook.swift in Sources */,
-				FAF16C2A23CC772B00A92B0B /* CourseReport.swift in Sources */,
 				FA060792237D5D7C00D0BB30 /* RelaxManager.swift in Sources */,
-				FA3C2A79249B52350013A721 /* LoginViewController.swift in Sources */,
-				FA3ADDB2246D277000ADA921 /* CoherenceReportViewController.swift in Sources */,
 				FA84F2842463AF5600D480A6 /* BluetoothContext.swift in Sources */,
-				FAF16C1123CC76D400A92B0B /* ReportService.swift in Sources */,
-				FAF16C1D23CC76D400A92B0B /* BrainwaveViewController.swift in Sources */,
 				FA84F2D6246A9A3000D480A6 /* BLEViewController.swift in Sources */,
-				FAF16C1923CC76D400A92B0B /* HRReportViewController.swift in Sources */,
 				FA84F2D8246A9AE500D480A6 /* Device+Extension.swift in Sources */,
+				FA4C8D2D24AC87F70046065B /* AudioProgress.swift in Sources */,
+				FA41B59824AACD1F009458E4 /* Sync.swift in Sources */,
 				FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */,
+				FA534BBF24AF1F57008B2E45 /* RecordViewCell.swift in Sources */,
+				FA96A0A124B704F800C6A670 /* LoginService.swift in Sources */,
 				FAAE3B282381174C004E79B4 /* BaseRepository.swift in Sources */,
 				FA060799237E37EF00D0BB30 /* MeditationModel.swift in Sources */,
-				FA0404D223816867008DB43C /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,18 +1417,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB44B0424A8484A00B321AA /* ArchiveToken.swift in Sources */,
+				FAB44B7624A86C7300B321AA /* UserModel.swift in Sources */,
+				FAB44B7824A86C7300B321AA /* UserStreakModel.swift in Sources */,
 				FA84F2B92463EBF200D480A6 /* LogTokenProtocol.swift in Sources */,
+				FAB44B6824A86C5D00B321AA /* FirmwareUpdate.swift in Sources */,
+				FAB44B1A24A869C500B321AA /* UserMeditationsProtocol.swift in Sources */,
+				FAB44B2E24A86A6E00B321AA /* UserStreakRequest.swift in Sources */,
+				FAB44B2924A86A6E00B321AA /* FirmwareUpdateRequest.swift in Sources */,
+				FAB44B7A24A86C7300B321AA /* UserMeditationModel.swift in Sources */,
+				FAB44B7524A86C7300B321AA /* TagModel.swift in Sources */,
+				FAB44B1324A869C500B321AA /* FirmwareUpdateProtocol.swift in Sources */,
+				FAB44B7724A86C7300B321AA /* UserCourseModel.swift in Sources */,
+				FAB44B3124A86A6E00B321AA /* AuthorRequest.swift in Sources */,
+				FAB44B6D24A86C5D00B321AA /* ErrorModel.swift in Sources */,
 				FA84F2AA2463E9AC00D480A6 /* LogModel.swift in Sources */,
+				FAB44B2C24A86A6E00B321AA /* CourseRequest.swift in Sources */,
+				FAB44B1C24A869C500B321AA /* LessonsProtocol.swift in Sources */,
+				FAB44B2B24A86A6E00B321AA /* CollectionRequest.swift in Sources */,
+				FAB44B2F24A86A6E00B321AA /* UserLessonRequest.swift in Sources */,
+				FAB44B3224A86A6E00B321AA /* AwsResourceUrlRequest.swift in Sources */,
 				FA3ADDD22474CEAD00ADA921 /* Downloader.swift in Sources */,
+				FAB44B1924A869C500B321AA /* CoursesProtocol.swift in Sources */,
 				FA84F2A22463E68E00D480A6 /* RxSwift+HandyJSON.swift in Sources */,
 				FA84F2BB2463EBF200D480A6 /* LogProtocol.swift in Sources */,
+				FAB44B1524A869C500B321AA /* AwsResourceUrlProtocol.swift in Sources */,
+				FAB44B2824A86A6E00B321AA /* UserCourseRequest.swift in Sources */,
+				FAB44B0024A843F500B321AA /* AuthRequest.swift in Sources */,
+				FAB44B1124A869C500B321AA /* CollectionsProtocol.swift in Sources */,
+				FAB44B2A24A86A6E00B321AA /* LessonRequest.swift in Sources */,
 				FA3ADDC42473D0EB00ADA921 /* FileWebService.swift in Sources */,
+				FAB44B1224A869C500B321AA /* DownloadFileProtocol.swift in Sources */,
+				FAB44B3024A86A6E00B321AA /* UserMeditationRequest.swift in Sources */,
 				FA84F2AC2463EAD900D480A6 /* LogTokenModel.swift in Sources */,
+				FAB44B1424A869C500B321AA /* AuthorsProtocol.swift in Sources */,
+				FAB44B6724A86C5D00B321AA /* AwsResourceUrlModel.swift in Sources */,
+				FAB44B1824A869C500B321AA /* UserProtocol.swift in Sources */,
+				FAB44AFE24A8432F00B321AA /* AuthProtocol.swift in Sources */,
+				FAB44B1B24A869C500B321AA /* UserStreakProtocol.swift in Sources */,
 				FA3ADDC62473D14700ADA921 /* FileWebProtocol.swift in Sources */,
+				FA4C8A3124AADC2C0046065B /* Uploader.swift in Sources */,
 				FA84F2C7246A3BB600D480A6 /* TokenManager.swift in Sources */,
+				FAB44B6924A86C5D00B321AA /* AuthorModel.swift in Sources */,
 				FA84F2B12463EBBC00D480A6 /* LogTokenRequest.swift in Sources */,
+				FAB44B6C24A86C5D00B321AA /* CourseModel.swift in Sources */,
+				FAB44B6E24A86C5D00B321AA /* FileDownload.swift in Sources */,
 				FA84F2C5246A3B5100D480A6 /* BaseUrl.swift in Sources */,
+				FAB44B1624A869C500B321AA /* UserCourses.swift in Sources */,
+				FAB44B2D24A86A6E00B321AA /* UserRequest.swift in Sources */,
 				FA84F2B42463EBBC00D480A6 /* LogSendRequest.swift in Sources */,
+				FAB44B1724A869C500B321AA /* UserLessons.swift in Sources */,
+				FAB44B7924A86C7300B321AA /* UserLessonModel.swift in Sources */,
+				FAB44B6B24A86C5D00B321AA /* CollectionsModel.swift in Sources */,
+				FAB44B6A24A86C5D00B321AA /* LessonModel.swift in Sources */,
+				FAB44B0224A8445100B321AA /* AuthModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,6 +1490,7 @@
 			children = (
 				FA5F0AB1237A819A00A21BF9 /* Base */,
 				FA5F0AC5237BD3FE00A21BF9 /* en */,
+				FABC05B024C67F15000C16C9 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1093,6 +1499,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA5F0AB6237A819B00A21BF9 /* Base */,
+				FABC05B124C67F15000C16C9 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1104,6 +1511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1164,6 +1572,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1220,9 +1629,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "EnterAffectiveCloudDemo/心流Debug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -1251,9 +1661,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "EnterAffectiveCloudDemo/心流.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Networking
 
 typealias  EmptyBlock = () -> ()
 typealias ActionBlock<T> = (T) -> ()
@@ -22,8 +23,8 @@ class Preference {
 }
 
 extension Preference {
-    static let userID = 1
-    static let meditationTime = 60
+    static var userID = 65535
+    static let meditationTime = 180
 }
 
 extension Preference {
@@ -121,10 +122,158 @@ extension Preference {
             UserDefaults.standard.set(newValue, forKey: "hardwareMac")
         }
     }
+    
+    static var meditationSound: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "meditationSound")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "meditationSound")
+        }
+    }
+    
+    // 无音乐冥想时长（单位：秒）
+    static var noMusicMeditationDuration: Double {
+        get {
+            var value = UserDefaults.standard.double(forKey: "noMusicMeditationDuration")
+            if value < 300 {
+                value = 600.0
+            }
+            return value
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "noMusicMeditationDuration")
+        }
+    }
+    
+    static var statistics: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "statistics")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "statistics")
+        }
+    }
+    
+    static var showRate: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "showRate")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "showRate")
+        }
+    }
+    
+    static var accessToken: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "accessToken")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "accessToken")
+            if let value = newValue {
+                TokenManager.instance.accessToken = value
+            }
+        }
+    }
+
+    static var refreshToken: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "refreshToken")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "refreshToken")
+            if let value = newValue {
+                TokenManager.instance.refreshToken = value
+            }
+        }
+    }
+    
+    // status 8位 0-main 1-total 2-brain 3-hrv 4-randa 5-pressure
+    class func setShareStatus(id: Int, status: Int) {
+        UserDefaults.standard.set(status, forKey: "ShareID\(id)")
+    }
+    
+    class func getShareStatus(id: Int) -> Int {
+        return UserDefaults.standard.integer(forKey: "ShareID\(id)")
+    }
 }
+
+// healthkit是否开启
+
+extension Preference {
+    
+    static var healthKit: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "healthKit")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "healthKit")
+        }
+    }
+}
+
+// 提醒通知是否开始
+
+extension Preference {
+    
+    static var reminder: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "reminder")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "reminder")
+        }
+    }
+}
+
+// 提醒记录星期
+
+extension Preference {
+    
+    static var reminderDays: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "reminderDays")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "reminderDays")
+        }
+    }
+}
+
+
+// 提醒时间
+
+extension Preference {
+    
+    static var remindTime: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "remindTime")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "remindTime")
+        }
+    }
+}
+
 
 extension Preference {
     static var bIsDownloadFirmware = false
+    static let kLocalDateFormatterString = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    static let dateFormatterString = "yyyy-MM-dd HH:mm:ss"
+    
+    static let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+    static let screenHeight = UIScreen.main.bounds.height
+    static let screenWidth =  UIScreen.main.bounds.width
 }
+
+
+extension Preference {
+    static let wxAppID = "wxa8a5c684e0425f48"
+    static let wxSecret = "69235dff281112a29967a8d9df4db22a"
+    static let universalLink = "https://api-test.myflowtime.cn/apple-app-site-association/"
+}
+
+
+
 
 

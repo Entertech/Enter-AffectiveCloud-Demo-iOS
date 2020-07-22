@@ -48,6 +48,8 @@ class DBMeditation: Object {
     dynamic var coherenceAverage: Float = 0
     @objc
     dynamic var reportPath: String?
+    @objc
+    dynamic var sessionId: String?
 
 //    override static func primaryKey() -> String? {
 //        return "id"

@@ -43,7 +43,7 @@ class ConnectingView: BaseView {
         
         _tipLabel.textColor = UIColor.white
         
-        _reconnectButton.setTitle("Reconnect", for: .normal)
+        _reconnectButton.setTitle("重新尝试", for: .normal)
         _reconnectButton.setTitleColor(.black, for: .normal)
         _reconnectButton.backgroundColor = .white
         _reconnectButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)

@@ -14,12 +14,20 @@ class Device {
 
 extension UIDevice {
     var isiphoneX: Bool {
+        if #available(iOS 13, *) {
+            if let w = UIApplication.shared.windows.first {
+                if w.safeAreaInsets.bottom > 0 {
+                    return true
+                }
+            }
+        }
         if #available(iOS 11, *) {
             if let w = UIApplication.shared.delegate?.window,
                 let window = w, window.safeAreaInsets.left > 0 || window.safeAreaInsets.bottom > 0 {
                 return true
             }
         }
+
         return false
     }
 }

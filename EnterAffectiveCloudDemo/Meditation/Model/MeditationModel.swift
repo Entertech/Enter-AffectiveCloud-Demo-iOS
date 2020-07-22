@@ -8,6 +8,7 @@
 
 import UIKit
 import EnterAffectiveCloud
+import Networking
 public enum ErrorType {
     case network
     case bluetooth
@@ -33,7 +34,9 @@ struct MeditationModel {
     var relaxationMin: Float = 0
     var pressureAvg: Float = 0
     var coherenceAvg: Float = 0
-    var report_path: String?
+    var pressureAverage: Float = 0
+    var reportPath: String?
+    var sessionID: String?
     
     //var stopAndRestoreTime = [[Date]]()
     var duration: Int? {
@@ -41,7 +44,37 @@ struct MeditationModel {
     }
 }
 
+extension MeditationModel: Hashable {
+    public static func == (lhs: MeditationModel, rhs: MeditationModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id.hashValue)
+    }
+}
+
 extension MeditationModel {
+    func mapperToNetworkModel() -> UserMeditationModel {
+        let model = UserMeditationModel()
+        model.id = self.id!
+        model.start_time = self.startTime
+        model.finish_time = self.finishTime
+        model.hrAvg = self.hrAverage
+        model.hrMax = self.hrMax
+        model.hrMin = self.hrMin
+        model.hrvAvg = self.hrvAverage
+        model.attentionAvg = self.attentionAverage
+        model.attentionMax = self.attentionMax
+        model.attentionMin = self.attentionMin
+        model.relaxationAvg = self.relaxationAverage
+        model.relaxationMax = self.relaxationMax
+        model.relaxationMin = self.relaxationMin
+        model.pressureAvg = self.pressureAverage
+        model.meditationFile = self.reportPath
+        model.acSessionId = self.sessionID
+        return model
+    }
 
     func mapperToDBModel() -> DBMeditation {
         let model               = DBMeditation()
@@ -61,8 +94,66 @@ extension MeditationModel {
         model.relaxationMin     = self.relaxationMin
         model.pressureAverage   = self.pressureAvg
         model.coherenceAverage  = self.coherenceAvg
-        model.reportPath        = self.report_path
+        model.reportPath        = self.reportPath
+        model.sessionId         = self.sessionID
         return model
+    }
+}
+
+extension UserMeditationModel {
+    func mapperToMeditation() -> MeditationModel {
+        let meditation = MeditationModel(id: self.id,
+                                    userID: self.userID,
+                                    startTime: self.start_time!,
+                                    finishTime: self.finish_time!,
+                                    hrAverage: Float(self.hrAvg ?? 0),
+                                    hrMax: Float(self.hrMax ?? 0),
+                                    hrMin: Float(self.hrMin ?? 0),
+                                    hrvAverage: Float(self.hrvAvg ?? 0),
+                                    hrvMax: 0,
+                                    hrvMin: 0,
+                                    attentionAverage: Float(self.attentionAvg ?? 0),
+                                    attentionMax: Float(self.attentionMax ?? 0),
+                                    attentionMin: Float(self.attentionMin ?? 0),
+                                    relaxationAverage: Float(self.relaxationAvg ?? 0),
+                                    relaxationMax: Float(self.relaxationMax ?? 0),
+                                    relaxationMin: Float(self.relaxationMin ?? 0),
+                                    pressureAverage: Float(self.pressureAvg ?? 0),
+                                    reportPath: self.meditationFile,
+                                    sessionID: self.acSessionId)
+
+        return meditation
+    }
+}
+
+extension DBMeditation {
+    func mapperToMeditation() -> MeditationModel {
+        let startDate = Date.date(dateString: self.startTime,
+                                  custom: Preference.dateFormatterString)
+        let finishDate = Date.date(dateString: self.finishTime,
+                                   custom: Preference.dateFormatterString)
+
+        let meditation = MeditationModel(id: self.id,
+                                    userID: self.userID,
+                                    startTime: startDate!,
+                                    finishTime: finishDate!,
+                                    hrAverage: self.hrAverage,
+                                    hrMax: self.hrMax,
+                                    hrMin: self.hrMin,
+                                    hrvAverage: self.hrvAverage,
+                                    hrvMax: self.hrvMax,
+                                    hrvMin: self.hrvMin,
+                                    attentionAverage: self.attentionAverage,
+                                    attentionMax: self.attentionMax,
+                                    attentionMin: self.attentionMin,
+                                    relaxationAverage: self.relaxationAverage,
+                                    relaxationMax: self.relaxationMax,
+                                    relaxationMin: self.relaxationMin,
+                                    pressureAverage: self.pressureAverage,
+                                    reportPath: self.reportPath,
+                                    sessionID: self.sessionId)
+
+        return meditation
     }
 }
 

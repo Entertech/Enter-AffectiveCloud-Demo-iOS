@@ -1,0 +1,21 @@
+
+/* Class = "UITabBarItem"; title = "我的"; ObjectID = "Gvu-4h-cqX"; */
+"Gvu-4h-cqX.title" = "我的";
+
+/* Class = "UILabel"; text = "冥想寄语"; ObjectID = "Sy5-vM-C1r"; */
+"Sy5-vM-C1r.text" = "冥想寄语";
+
+/* Class = "UILabel"; text = "静心冥想"; ObjectID = "ZPJ-bk-tje"; */
+"ZPJ-bk-tje.text" = "静心冥想";
+
+/* Class = "UITabBarItem"; title = "统计"; ObjectID = "bbb-Nb-Xm7"; */
+"bbb-Nb-Xm7.title" = "统计";
+
+/* Class = "UITabBarItem"; title = "首页"; ObjectID = "k85-B3-G5T"; */
+"k85-B3-G5T.title" = "首页";
+
+/* Class = "UIButton"; normalTitle = "开始"; ObjectID = "ntb-a5-0D8"; */
+"ntb-a5-0D8.normalTitle" = "开始";
+
+/* Class = "UILabel"; text = "愿每个人都能拥有一个安宁喜悦，祥和妙美的心境。"; ObjectID = "o96-Kc-mId"; */
+"o96-Kc-mId.text" = "愿每个人都能拥有一个安宁喜悦，祥和妙美的心境。";

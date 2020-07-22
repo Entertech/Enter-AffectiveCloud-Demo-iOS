@@ -104,7 +104,7 @@ class SensorCheckViewController: UIViewController, CheckWearDelegate {
         sensorView.loopMode = .loop
         
         self.viewMain.addSubview(checkingLabel)
-        checkingLabel.text = "Checking..."
+        checkingLabel.text = "检测中..."
         checkingLabel.textColor = Colors.red4
         checkingLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         checkingLabel.snp.makeConstraints {

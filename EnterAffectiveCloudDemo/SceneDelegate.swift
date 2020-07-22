@@ -22,15 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let windowScene = scene as! UIWindowScene
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = mainStoryboard.instantiateViewController(withIdentifier: "ViewController")
-            self.window?.rootViewController = vc
-        } else {
-            let mainStoryboard = UIStoryboard(name: "Pad", bundle: nil)
-            let vc = mainStoryboard.instantiateViewController(withIdentifier: "pad")
-            self.window?.rootViewController = vc
-        }
+//      if UIDevice.current.userInterfaceIdiom == .phone {
+            //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            //let vc = mainStoryboard.instantiateViewController(withIdentifier: "ViewController")
+        let vc = LoginViewController()
+        self.window?.rootViewController = vc
+//        } else {
+//            let mainStoryboard = UIStoryboard(name: "Pad", bundle: nil)
+//            let vc = mainStoryboard.instantiateViewController(withIdentifier: "pad")
+//            self.window?.rootViewController = vc
+//        }
         self.window?.makeKeyAndVisible()
         
     }
@@ -62,7 +63,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        LoginService.shared.handleSceneOpenUniversalLink(userActivity: userActivity)
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        //print("url: \(URLContexts.first?.url)")
+        if let url = URLContexts.first?.url {
+            LoginService.shared.openSenceApp(open: url)
+        }
 
+    }
+    
+    
+    func scene(_ scene: UIScene, willContinueUserActivityWithType userActivityType: String) {
+        print("\(userActivityType)")
+    }
+    
+
+    func scene(_ scene: UIScene, didFailToContinueUserActivityWithType userActivityType: String, error: Error) {
+        print(error.localizedDescription)
+    }
 
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FluentDarkModeKit
 
 extension Date {
 
@@ -51,6 +52,7 @@ struct NotificationName {
     static let bleBatteryChanged = Notification.Name("bleBatteryChangedKey")
     static let bleHeartRateData = Notification.Name("bleHeartRateDataKey")
     static let dfuStateChanged = Notification.Name("dfuStateChanged")
+    static let kAuthorizationTokenResponse = Notification.Name("kAuthorizationTokenResponse")
 }
 
 
@@ -362,3 +364,217 @@ extension UILabel {
     }
 }
 
+extension Double {
+    func toTime()-> (hour: Int, mins: Int, seconds: Int) {
+        return (Int(self) / 3600, (Int(self) % 3600) / 60, ((Int(self) % 3600) / 60) % 60 )
+    }
+
+    func timeString() -> String {
+        let hour = Int(self) / 3600
+        let mins = (Int(self) % 3600) / 60
+        if hour != 0 {
+            var hourStr = String(format: "%02d hour ", hour)
+            if hour > 1  {
+                hourStr = String(format: "%02d hours ", hour)
+            }
+            let minStr = String(format: "%02d min", mins)
+            return hourStr + minStr
+        }
+        return String(format: "%02d min", mins)
+    }
+}
+
+extension String {
+    static func timeString(with duration: Double) -> String {
+        let hours = Int(duration) / (60*60)
+        let mins = (Int(duration) % (60*60)) / 60
+        let seconds = (Int(duration) % (60*60)) % 60
+        if duration < 60*60 {
+            return String(format: "%02d:%02d", mins, seconds)
+        }
+
+        return String(format: "%02d:%02d:%02d", hours, mins,seconds)
+    }
+}
+
+
+extension Date {
+
+    static func year() -> Int {
+        let calendar = Calendar.current
+        let com = calendar.dateComponents([.year,.month,.day], from: Date())
+        return com.year!
+    }
+    
+    static func month() -> Int {
+        let calendar = Calendar.current
+        let com = calendar.dateComponents([.year,.month,.day], from: Date())
+        return com.month!
+        
+    }
+    
+    //MARK: 当月天数
+    static func countOfDaysInMonth() ->Int {
+        let calendar = Calendar.current
+        let range = calendar.range(of: .day, in: .month, for: Date())
+        return (range?.count)!
+        
+    }
+    
+    //MARK: 当月第一天是星期几
+    static func firstWeekDay() ->Int {
+        //1.Sun. 2.Mon. 3.Thes. 4.Wed. 5.Thur. 6.Fri. 7.Sat.
+        let calendar = Calendar.current
+        let components = calendar.dateComponents(Set<Calendar.Component>([.year, .month]), from: Date())
+        let startOfMonth = calendar.date(from: components)
+        let firstWeekDay = calendar.ordinality(of: .day, in: .weekOfMonth, for: startOfMonth!)
+        return firstWeekDay! - 1
+    }
+    
+    //是否是今天
+    func isToday()->Bool {
+        let calendar = NSCalendar.current
+        let com = calendar.dateComponents([.year,.month,.day], from: self)
+        let comNow = calendar.dateComponents([.year,.month,.day], from: Date())
+        return com.year == comNow.year && com.month == comNow.month && com.day == comNow.day
+    }
+    //是否是这个月
+    func isThisMonth()->Bool {
+        let calendar = NSCalendar.current
+        let com = calendar.dateComponents([.year,.month,.day], from: self)
+        let comNow = calendar.dateComponents([.year,.month,.day], from: Date())
+        return com.year == comNow.year && com.month == comNow.month
+    }
+    
+    //是这个月的第几天
+    func whichDayInMonth() -> Int {
+        let calendar = NSCalendar.current
+        let com = calendar.dateComponents([.year,.month,.day], from: self)
+        return com.day! - 1
+    }
+
+}
+
+
+extension UIView {
+    public func setShadow() {
+        self.layer.cornerRadius = 8
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 6
+    }
+    
+    ///保存截图并分享
+    func saveScreenAndShare(timeString:String) {
+        
+        let scales = UIScreen.main.scale
+        let shotImage: UIImage?
+        
+        
+        var headImage = #imageLiteral(resourceName: "img_share_bg")
+        let headImageView = UIImageView(image: headImage)
+        if #available(iOS 13.0, *) {
+            
+            if DMTraitCollection.current.userInterfaceStyle == .dark {
+                let color = #colorLiteral(red: 0.02352941176, green: 0.02745098039, blue: 0.03921568627, alpha: 1)
+                self.backgroundColor = color
+                headImageView.backgroundColor = color
+            } else {
+                self.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1)
+                headImageView.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1)
+            }
+        } else {
+            self.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1)
+            headImageView.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.9450980392, blue: 0.9176470588, alpha: 1)
+        }
+        shotImage = self.capture
+        
+        let nameLabel = UILabel(frame: CGRect(x: 0, y: 58, width: headImageView.frame.width, height: 20))
+        nameLabel.textAlignment = .center
+        nameLabel.text = "\(User.default.name) 的"
+        nameLabel.font = UIFont.systemFont(ofSize: 16)
+        let titleLabel1 = UILabel(frame: CGRect(x: 30, y: 85, width: headImageView.frame.width-60, height: 24))
+        let text1 = "冥想生物数据"
+        titleLabel1.textAlignment = .center
+        titleLabel1.text = text1
+        titleLabel1.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        let titleLabel2 = UILabel(frame: CGRect(x: 30, y: 110, width: headImageView.frame.width-60, height: 24))
+        let text2 = "报告"
+        titleLabel2.textAlignment = .center
+        titleLabel2.text = text2
+        titleLabel2.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        let time = UILabel(frame: CGRect(x: 0, y: 150, width: headImageView.frame.width, height: 16))
+        time.textAlignment = .center
+        time.text = timeString
+        time.font = UIFont.systemFont(ofSize: 14)
+        headImageView.addSubview(nameLabel)
+        headImageView.addSubview(titleLabel1)
+        headImageView.addSubview(titleLabel2)
+        headImageView.addSubview(time)
+        headImage = headImageView.snapshotImageByLayer()!
+
+        let beforeResizeImage = shotImage?.mergeImage(other: headImage) //上下合并图, 不同分辨率屏幕 截出来x2,x3
+        let resizeImage = beforeResizeImage!.resizableImage(withCapInsets: UIEdgeInsets(top: (beforeResizeImage?.size.height)! - 2, left: 0, bottom: (beforeResizeImage?.size.height)! - 1, right: 0), resizingMode: .stretch)
+        let tempImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: resizeImage.size.width, height: resizeImage.size.height+100*scales))
+        tempImageView.image = resizeImage
+
+        let logoImage = #imageLiteral(resourceName: "icon_screen_shot_logo")
+        let iconImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: logoImage.size.width*scales, height: logoImage.size.height*scales))
+        iconImageView.image = logoImage
+        tempImageView.addSubview(iconImageView)
+        iconImageView.center = CGPoint(x: tempImageView.frame.width / 2, y: tempImageView.frame.height - 150 - 20*scales)
+        let shareImage = tempImageView.snapshotImageByLayer()!
+        let cachePath = FTFileManager.shared.cacheDirectory
+        let imagePath = cachePath + "/shareImage.jpg"
+        try? shareImage.jpegData(compressionQuality: 1)?.write(to: URL(fileURLWithPath: imagePath))
+        let item = ActivityItem(image: shareImage, path: URL(fileURLWithPath: imagePath))
+        let activitiyViewcontroller = UIActivityViewController(activityItems: [item],
+                                                               applicationActivities: nil)
+        activitiyViewcontroller.popoverPresentationController?.sourceView = self
+        if #available(iOS 13.0, *) {
+            activitiyViewcontroller.isModalInPresentation = true
+        } else {
+            // Fallback on earlier versions
+        }
+        self.paretViewController()?.present(activitiyViewcontroller, animated: true, completion: nil)
+
+        activitiyViewcontroller.completionWithItemsHandler = { (type, completed, item, error) in
+            if completed {
+                let alter = UIAlertController(title: "Completed", message: "", preferredStyle: .alert)
+                let alterBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alter.addAction(alterBtn)
+                self.paretViewController()?.present(alter, animated: true, completion: nil)
+            }
+            if let error = error {
+                let alter = UIAlertController(title: "Failed", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                let alterBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alter.addAction(alterBtn)
+                self.paretViewController()?.present(alter, animated: true, completion: nil)
+            }
+        }
+        self.backgroundColor = Colors.bg2
+    }
+}
+
+
+extension UIView {
+    func addRounderCorner(corners: UIRectCorner, radius: CGSize) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: radius)
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        self.layer.mask = shape
+    }
+}
+
+
+extension UIColor {
+    static func random() -> UIColor {
+        let randomR = CGFloat(arc4random() % 255) / 255.0
+        let randomG = CGFloat(arc4random() % 255) / 255.0
+        let randomB = CGFloat(arc4random() % 255) / 255.0
+
+        return UIColor(displayP3Red: randomR, green: randomG, blue: randomB, alpha: 1.0)
+    }
+    
+}

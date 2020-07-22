@@ -37,7 +37,7 @@ final public class LogTokenRequest {
             }
         }, onCompleted: {
             print("token completed")
-            }, onDisposed: nil)
+            }, onDisposed: nil).disposed(by: disposeBag)
     }
     
     public required init() {

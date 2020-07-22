@@ -10,87 +10,250 @@ import UIKit
 import EnterAffectiveCloud
 
 class ReportService: NSObject {
-    var vc: MainReportViewController?
-    let fileModel = ReportNewModel()
-    
-    
-    override init() {
-        super.init()
-    }
-    
-    var meditationDB: DBMeditation? {
-        willSet {
-            var reader: EnterAffectiveCloudReportData?
-            if let startTime = newValue?.startTime {
-                let meditationDate = Date.date(dateString: startTime, custom: "yyyy-MM-dd HH:mm:ss")
-                if let mDate = meditationDate {
-                    vc?.navigationTitle = mDate.string(custom: "M.d.yyyy")
-                } else {
-                    vc?.navigationTitle = "0.0.2000"
-                }
-                
-                let path = "\(Preference.userID)/42/121/\(startTime)"
-                let fileURL = FTFileManager.shared.userReportURL(path)
-                let fileManager = FileManager.default
-                if fileManager.fileExists(atPath: fileURL.path) {
-                    reader = ReportFileHander.readReportFile(fileURL.path)
-                    
-                } else  {
-                    let path = Bundle.main.path(forResource: "sample", ofType: "report")!
-                    reader = ReportFileHander.readReportFile(path)
-                    vc?.isExample = true
-                }
-                
-            } else {
-                let path = Bundle.main.path(forResource: "sample", ofType: "report")!
-                reader =  ReportFileHander.readReportFile(path)
-                vc?.isExample = true
-            }
-            dataOfReport = reader
-        }
 
+    public var dataIndex = 0 {
+        willSet {
+            guard newValue < recordList.count else {return}
+            self._dataIndex = newValue
+            var isShowRate = true //显示评价
+            
+            let record = recordList[newValue]
+            recordId = record.id ?? -1
+            if record.meditationID == -1 {//测试数据
+                let samplePath = Bundle.main.path(forResource: "sample", ofType: "report")
+                let reader = ReportFileHander.readReportFile(samplePath!)
+                self.dataOfReport = reader
+                mainReport?.introductionView.index = 1
+                listModel.last7Attention = [fileModel.attentionAvg!]
+                listModel.last7HR = [fileModel.heartRateAvg!]
+                listModel.last7HRV = [fileModel.hrvAvg!]
+                listModel.last7meditation = [8]
+                listModel.last7Relaxation = [fileModel.relaxationAvg!]
+                listModel.last7Pressure = [fileModel.pressureAvg!]
+            } else {
+                if let meditation = MeditationRepository.find(record.meditationID) {
+                    listModel.setValue(id: record.meditationID, list: self.meditationList)
+                    let reportPath = "\(record.userID!)/\(record.courseID!)/\(record.lessonID!)/\(meditation.startTime)"
+                    let fileURL = FTFileManager.shared.userReportURL(reportPath)
+                    let reader = ReportFileHander.readReportFile(fileURL.path)
+                    self.dataOfReport = reader
+                    mainReport?.introductionView.index = recordList.count-newValue
+                    
+                }
+                listModel.setLast7Meditation(id: newValue, list: recordList)
+            }
+
+            if let time = record.startTime {
+                meditationTime = time
+            }
+            if let course = record.courseName {
+                courseName = course
+            }
+            if let course = record.courseID {
+                courseId = course
+            }
+            var total = 0
+            for i in 0..<recordList.count {
+                total += recordList[i].duration
+            }
+            totalTime = total / 60
+            
+            duration = record.duration / 60
+            
+            mainReport?.view2.values = [fileModel.brainwaveAvg.0, fileModel.brainwaveAvg.1,
+                                        fileModel.brainwaveAvg.2, fileModel.brainwaveAvg.3,
+                                        fileModel.brainwaveAvg.4]
+            if let hrvAvg = fileModel.hrvAvg  {
+                mainReport?.view3.value = hrvAvg
+            } else {
+                mainReport?.view3.value = 0
+            }
+            
+            if let hrAvg = fileModel.heartRateAvg {
+                mainReport?.view4.value = hrAvg
+            } else {
+                mainReport?.view4.value = 0
+            }
+            
+            if let aAvg = fileModel.attentionAvg, let rAvg = fileModel.relaxationAvg {
+                mainReport?.view5.attentionValue = aAvg
+                mainReport?.view5.relaxationValue = rAvg
+                
+            }
+            
+            if let pressure = fileModel.pressureAvg {
+                mainReport?.view6.value = pressure
+            }
+            //判断是否显示邀请评价
+            if Preference.showRate {
+                
+                if let aAvg = fileModel.attentionAvg, let rAvg = fileModel.relaxationAvg {
+                    if (aAvg >= 75 && rAvg >= 60) || (aAvg >= 60 && rAvg >= 75) {
+                        isShowRate = true
+                    } else {
+                        isShowRate = false
+                    }
+                }
+                
+                if let attention = fileModel.attention {
+                    if Float(attention.count) * 0.8 >= Float(8) * 60.0 && isShowRate {
+                        isShowRate = true
+                    } else {
+                        isShowRate = false
+                    }
+                    var zeroCount = 0
+                    for e in attention {
+                        if e == 0 {
+                            zeroCount += 1
+                        }
+                    }
+                    if Float(zeroCount) / Float(attention.count) < (1.0 - 0.8) && isShowRate {
+                        isShowRate = true
+                    } else {
+                        isShowRate = false
+                    }
+                } else {
+                    isShowRate = false
+                }
+                if !isShowRate {
+                    mainReport?.askForStartsHeight.constant = 0
+                    mainReport?.askForStartsView.isHidden = true
+                }
+
+            } else {
+                mainReport?.askForStartsHeight.constant = 0
+                mainReport?.askForStartsView.isHidden = true
+            }
+            
+            //首页分享条件
+            if let aAvg = fileModel.attentionAvg, let rAvg = fileModel.relaxationAvg {
+                if aAvg > 70 && rAvg > 70 {
+                    shareCondition = true
+                } else {
+                    shareCondition = false
+                }
+            } else {
+                shareCondition = false
+            }
+            if let hrAvg = fileModel.heartRateAvg {
+                if hrAvg > 50 && shareCondition {
+                    shareCondition = true
+                } else {
+                    shareCondition = false
+                }
+            } else {
+                shareCondition = false
+            }
+            if let pressureAvg = fileModel.pressureAvg {
+                if pressureAvg < 40 && shareCondition {
+                    shareCondition = true
+                } else {
+                    shareCondition = false
+                }
+            } else {
+                shareCondition = false
+            }
+            if let attention = fileModel.attention {
+                if Float(attention.count) * 0.8 >= Float(8) * 60.0 && shareCondition {
+                    shareCondition = true
+                } else {
+                    shareCondition = false
+                }
+            } else {
+                shareCondition = false
+            }
+        }
     }
     
-    public func setFileData() {
-        vc?.view2.values = [fileModel.brainwaveAvg.0, fileModel.brainwaveAvg.1,
-        fileModel.brainwaveAvg.2, fileModel.brainwaveAvg.3,
-        fileModel.brainwaveAvg.4]
-        if let hrvAvg = fileModel.hrvAvg {
-            
-            vc?.view3.value = hrvAvg
-        } else {
-            vc?.view3.value = 0
+    public var shareCondition = false
+    public var lessonCondition = true
+    
+    public var recordId = -1
+    
+    public var totalTime: Int = 0 {
+        willSet{
+            mainReport?.introductionView.total = newValue
         }
-        if let hrAvg = fileModel.heartRateAvg {
-            
-            vc?.view4.value = hrAvg
-        } else {
-            vc?.view4.value = 0
+    }
+    
+    public var duration: Int = 0 {
+        willSet {
+            mainReport?.introductionView.time = newValue
         }
-        if let rAvg = fileModel.relaxationAvg, let aAvg = fileModel.attentionAvg {
-            vc?.view5.relaxationValue = rAvg
-            vc?.view5.attentionValue = aAvg
-        } else {
-            vc?.view5.relaxationValue = 0
-            vc?.view5.attentionValue = 0
+    }
+    
+    public var meditationTime: Date = Date() {
+        willSet {
+            mainReport?.introductionView.date = newValue
         }
-        if let pAvg = fileModel.pressureAvg {
-            vc?.view6.value = pAvg
-        } else {
-            vc?.view6.value = 0
+    }
+    
+    public var courseId: Int = 0
+    
+    public var courseName: String = "" {
+        willSet {
+            //mainReport?.introductionView.lessen = newValue
         }
-        if let cAvg = fileModel.coherenceAvg {
-            vc?.view7.value = cAvg
+    }
+    
+    //TODO:- collection
+    public var collectionName: String {
+        get {
+            return ""
+        }
+    }
+    
+    public var mainReport: MainReportViewController? {
+        didSet {
+            mainReport?.service = self
+        }
+    }
+    public var fileModel: ReportModel = ReportModel()
+    public var listModel = ReportTotalModel()
+    
+    public var meditationList: [MeditationModel]?
+    private var _dataIndex = 0
+    public var recordList = [Record]()
+    public func loadData() {
+        if let result = RecordRepository.query(Preference.userID), result.count > 0 {
+            self.recordList.removeAll()
+            let re = result.map { $0.mapperToRecord() }
+
+            self.recordList = re.sorted(by: { (a, b) in
+                return a.startTime! >= b.startTime!
+            })
         } else {
-            vc?.view7.value = 0
+            let sampleRecord = Record(id: 0,
+                                userID: 0,
+                                startTime: Date(),
+                                endTime: Date(timeIntervalSinceNow: 8*60),
+                                lessonID: 0,
+                                lessonName: "Break at work",
+                                courseID: 41,
+                                courseName: "Balance",
+                                meditationID: -1,
+                                courseImage: "")
+            self.recordList = [sampleRecord]
         }
         
+        if let _ = meditationList {
+            meditationList?.removeAll()
+        } else {
+            meditationList = []
+        }
+        for e in recordList {
+            if let mTemp = MeditationRepository.find(e.meditationID) {
+                let model = mTemp.mapperToMeditation()
+                meditationList?.append(model)
+            }
+        }
+
     }
     
     
     private var dataOfReport: EnterAffectiveCloudReportData? {
         willSet {
-
+            fileModel = ReportModel()
             if let scalars = newValue?.scalars {
                 for e in scalars {
                     switch e.type {
@@ -117,8 +280,6 @@ class ReportService: NSObject {
                         fileModel.relaxationMin = Int(e.value)
                     case .pressureAverage:
                         fileModel.pressureAvg = Int(e.value)
-                    case .coherenceAverage:
-                        fileModel.coherenceAvg = Int(e.value)
                     default:
                         break
                     }
@@ -173,7 +334,11 @@ class ReportService: NSObject {
                         })
                         
                         if let array = arrayTemp {
-                            fileModel.heartRateVariability = array
+                            if array.max() == 0 {
+                                
+                            } else {
+                                fileModel.heartRateVariability = array
+                            }
                         }
                     case .attention:
                         let arrayTemp = e.bodyDatas.to(arrayType: Float.self)?.map({ (value) -> Int in
@@ -213,22 +378,12 @@ class ReportService: NSObject {
                     case .pressure:
                         let arrayTemp = e.bodyDatas.to(arrayType: Float.self)
                         if let array = arrayTemp {
-                            fileModel.pressure = array
-                        }
-                    case .coherence:
-                        let arrayTemp = e.bodyDatas.to(arrayType: Float.self)?.map({ (value) -> Int in
-                            var tmp = 0
-                            if value > 100 {
-                                tmp = 100
-                            } else if value < 0 {
-                                tmp = 0
+                            if array.max() == 0 {
+                                
                             } else {
-                                tmp = Int(value)
+                                fileModel.pressure = array
                             }
-                            return tmp
-                        })
-                        if let array = arrayTemp {
-                            fileModel.coherence = array
+                            
                         }
                         
                     default:
@@ -245,9 +400,10 @@ class ReportService: NSObject {
                 fileModel.gamaArray = gama
             }
             
-            setFileData()
+
             
         }
     }
+    
     
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReminderViewController" customModule="心流" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="ElC-FD-3jQ" id="c2v-nr-BFH"/>
+                <outlet property="view" destination="iN0-l3-epB" id="XCM-3o-SH9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ElC-FD-3jQ">
+                    <rect key="frame" x="0.0" y="87" width="414" height="303"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="303" id="yHf-kq-Zdn"/>
+                    </constraints>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRi-Sw-uvs">
+                    <rect key="frame" x="16" y="50" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="25H-IW-pm3"/>
+                        <constraint firstAttribute="height" constant="32" id="Ou3-Ge-xAC"/>
+                    </constraints>
+                    <state key="normal" image="icon_back_color"/>
+                    <connections>
+                        <action selector="backTouchUpInside:" destination="-1" eventType="touchUpInside" id="ddM-kc-c8T"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxF-LM-GtV">
+                    <rect key="frame" x="167.5" y="55.5" width="79.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oxF-LM-GtV" firstAttribute="centerY" secondItem="gRi-Sw-uvs" secondAttribute="centerY" id="IhT-2x-Z3D"/>
+                <constraint firstItem="ElC-FD-3jQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="LeU-rh-geS"/>
+                <constraint firstItem="gRi-Sw-uvs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="S3P-UU-mTD"/>
+                <constraint firstItem="ElC-FD-3jQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ww2-hX-HxI"/>
+                <constraint firstItem="gRi-Sw-uvs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="kCZ-lr-9Me"/>
+                <constraint firstItem="ElC-FD-3jQ" firstAttribute="top" secondItem="gRi-Sw-uvs" secondAttribute="bottom" constant="5" id="lJ8-gT-j3C"/>
+                <constraint firstItem="oxF-LM-GtV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vzq-k4-FCc"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_back_color" width="32" height="32"/>
+    </resources>
+</document>

@@ -16,8 +16,26 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxa8a5c684e0425f48</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>weixinULAPI</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,6 +47,14 @@
 	<string>使用蓝牙来体验情感云</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>使用蓝牙来体验情感云</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>保存冥想训练时长到Apple健康数据</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>保存冥想训练时长到Apple健康数据</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>保存体验数据</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>保存体验数据</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -53,6 +79,8 @@
 		<string>bluetooth-central</string>
 		<string>bluetooth-peripheral</string>
 	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

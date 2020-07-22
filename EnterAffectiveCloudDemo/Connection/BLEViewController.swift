@@ -84,7 +84,7 @@ class BLEViewController: QuickTableViewController, BLEStateDelegate {
         _headerView.contentView.addSubview(backBtn)
         backBtn.snp.makeConstraints {
             $0.left.equalToSuperview().offset(16)
-            $0.top.equalToSuperview().offset(24)
+            $0.top.equalToSuperview().offset(32)
             $0.width.height.equalTo(44)
         }
         
@@ -124,7 +124,7 @@ class BLEViewController: QuickTableViewController, BLEStateDelegate {
     private func reloadTable(_ deviceInfo: BLEDeviceInfo, isEnable: Bool = false ) {
         var table: [Section] = []
 
-        let row1 = NavigationRow(text: "Hardware version", detailText: .value1(deviceInfo.hardware), icon: Icon.image(#imageLiteral(resourceName: "icon_hardware_version")), customization: { (cell, row) in
+        let row1 = NavigationRow(text: "硬件版本", detailText: .value1(deviceInfo.hardware), icon: Icon.image(#imageLiteral(resourceName: "icon_hardware_version")), customization: { (cell, row) in
             if isEnable {
                 cell.contentView.alpha = 1.0
             } else {
@@ -137,7 +137,7 @@ class BLEViewController: QuickTableViewController, BLEStateDelegate {
             let currentVersion = deviceInfo.firmware
             let currentVerNum = Int(currentVersion.replacingOccurrences(of: ".", with: ""))
             Preference.currnetFirmwareVersion = currentVerNum ?? 9999
-           row2 = NavigationRow(text: "Firmware version", detailText: .value1(deviceInfo.firmware), icon: Icon.image(#imageLiteral(resourceName: "icon_firmware_version")), customization: { (cell, row) in
+           row2 = NavigationRow(text: "固件版本", detailText: .value1(deviceInfo.firmware), icon: Icon.image(#imageLiteral(resourceName: "icon_firmware_version")), customization: { (cell, row) in
                 if isEnable {
                     cell.contentView.alpha = 1.0
                 } else {
@@ -145,7 +145,7 @@ class BLEViewController: QuickTableViewController, BLEStateDelegate {
                 }
             }, accessoryButtonAction: nil)
         } else {
-            row2 = NavigationRow(text: "Firmware version", detailText: .value1(deviceInfo.firmware), icon: Icon.image(#imageLiteral(resourceName: "icon_firmware_version")), customization: { (cell, row) in
+            row2 = NavigationRow(text: "固件版本", detailText: .value1(deviceInfo.firmware), icon: Icon.image(#imageLiteral(resourceName: "icon_firmware_version")), customization: { (cell, row) in
                 if isEnable {
                     cell.contentView.alpha = 1.0
                 } else {
@@ -154,7 +154,7 @@ class BLEViewController: QuickTableViewController, BLEStateDelegate {
             }, action: nil, accessoryButtonAction: nil)
         }
 
-        let row3 = NavigationRow(text: "Bluetooth address", detailText: .value1(deviceInfo.mac), icon: Icon.image(#imageLiteral(resourceName: "icon_bluetooth")), customization: { (cell, row) in
+        let row3 = NavigationRow(text: "蓝牙地址", detailText: .value1(deviceInfo.mac), icon: Icon.image(#imageLiteral(resourceName: "icon_bluetooth")), customization: { (cell, row) in
             if isEnable {
                 cell.contentView.alpha = 1.0
             } else {
@@ -164,20 +164,20 @@ class BLEViewController: QuickTableViewController, BLEStateDelegate {
         table.append(Section(title: nil, rows: [row1, row2, row3]))
 
 
-        let row10 = NavigationRow(text: "Know more about Flowtime headband", detailText: .none, icon: Icon.image(#imageLiteral(resourceName: "icon_flowtime_knowmore")), customization: nil, action: { (row) in
+        let row10 = NavigationRow(text: "Flowtime头环信息", detailText: .none, icon: Icon.image(#imageLiteral(resourceName: "icon_flowtime_knowmore")), customization: nil, action: { (row) in
             //Appearance.setRecord("1002", "蓝牙连接界面 头环介绍")
-//            if let url = FTRemoteConfig.default.url(.introduce, defaultKey: FTRemoteConfigKeyDefaultValue.introduce ) {
-//                let sf = SFSafariViewController(url: url)
-//                self.present(sf, animated: true, completion: nil)
-//            }
+            if let urlStr = FTRemoteConfig.shared.getConfig(key: .introduce), let url = URL(string: urlStr){
+                let sf = SFSafariViewController(url: url)
+                self.present(sf, animated: true, completion: nil)
+            }
         }, accessoryButtonAction: nil)
 
-        let row11 = NavigationRow(text: "Can't connect to the device?", detailText: .none, icon: Icon.image(#imageLiteral(resourceName: "icon_disconnect_small")), customization: nil, action: { (row) in
+        let row11 = NavigationRow(text: "无法连接头环?", detailText: .none, icon: Icon.image(#imageLiteral(resourceName: "icon_disconnect_small")), customization: nil, action: { (row) in
             //Appearance.setRecord("1003", "蓝牙连接界面 连接问题")
-//            if let url = FTRemoteConfig.default.url(.cannotConnect, defaultKey: FTRemoteConfigKeyDefaultValue.cannotConnect ) {
-//                let sf = SFSafariViewController(url: url)
-//                self.present(sf, animated: true, completion: nil)
-//            }
+            if let urlStr = FTRemoteConfig.shared.getConfig(key: .cannotConnect), let url = URL(string: urlStr){
+                let sf = SFSafariViewController(url: url)
+                self.present(sf, animated: true, completion: nil)
+            }
         }, accessoryButtonAction: nil)
 
         var rows1 = [row10, row11]

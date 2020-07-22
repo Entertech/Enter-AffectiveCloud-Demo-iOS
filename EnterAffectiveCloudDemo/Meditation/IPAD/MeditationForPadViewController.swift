@@ -288,21 +288,21 @@ class MeditationForPadViewController: UIViewController {
     @objc
     private func finishWithCloudServiceHandle(_ notification: Notification) {
         
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            if RelaxManager.shared.isWebSocketConnected {
-                RelaxManager.shared.close()
-            }
-            self.isEnd = true
-            
-            let data = MeditationRepository.query(Preference.userID)
-            if let data = data {
-                let report = MainReportViewController()
-                report.meditationDB = data.last
-                report.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(report, animated: true)
-            }
-        }
+//        DispatchQueue.main.async {
+//            SVProgressHUD.dismiss()
+//            if RelaxManager.shared.isWebSocketConnected {
+//                RelaxManager.shared.close()
+//            }
+//            self.isEnd = true
+//            
+//            let data = MeditationRepository.query(Preference.userID)
+//            if let data = data {
+//                let report = MainReportViewController()
+//                report.meditationDB = data.last
+//                report.hidesBottomBarWhenPushed = true
+//                self.navigationController?.pushViewController(report, animated: true)
+//            }
+//        }
     }
 
 }

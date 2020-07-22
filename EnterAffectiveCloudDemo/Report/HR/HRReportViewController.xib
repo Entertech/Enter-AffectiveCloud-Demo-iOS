@@ -8,11 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HRReportViewController" customModule="心流" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HRReportViewController" customModule="Flowtime" customModuleProvider="target">
             <connections>
                 <outlet property="aboutView" destination="Ryb-JD-biB" id="f8h-vb-QIj"/>
+                <outlet property="avgHeader" destination="Pjs-hb-IRK" id="xPw-Uc-ePf"/>
+                <outlet property="avgView" destination="53b-Ec-Aqi" id="MHD-Jx-75c"/>
                 <outlet property="bg" destination="4SQ-pD-6Ya" id="PL7-AP-oiH"/>
+                <outlet property="bg1" destination="q3k-XG-uSZ" id="fZa-Fj-6v6"/>
                 <outlet property="hrView" destination="w3I-1x-9fP" id="irb-S6-E0v"/>
+                <outlet property="scrollView" destination="SbE-7K-ZlI" id="LAG-vB-tv3"/>
+                <outlet property="vbg2" destination="bzs-C5-Eca" id="oN6-Ys-nzd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +30,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-pD-6Ya">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3k-XG-uSZ">
                                     <rect key="frame" x="0.0" y="8" width="414" height="250"/>
@@ -41,20 +46,52 @@
                                         <constraint firstAttribute="height" constant="250" id="Mqa-XF-Psv"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryb-JD-biB" customClass="ReportAboutView" customModule="心流" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="274" width="382" height="128"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzs-C5-Eca">
+                                    <rect key="frame" x="16" y="274" width="382" height="304"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53b-Ec-Aqi" customClass="PrivateAverageView" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="79" width="382" height="217"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjs-hb-IRK" customClass="PrivateReportViewHead" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="63"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="304" id="j95-VD-vkz"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryb-JD-biB" customClass="ReportAboutView" customModule="Flowtime" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="594" width="382" height="128"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="500" constant="128" id="KSy-yU-MsE"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="bzs-C5-Eca" secondAttribute="bottom" constant="16" id="95Z-bo-dSg"/>
                                 <constraint firstItem="Ryb-JD-biB" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="AWX-ED-1Po"/>
-                                <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="BGl-Zm-ouz"/>
+                                <constraint firstAttribute="trailing" secondItem="bzs-C5-Eca" secondAttribute="trailing" constant="16" id="Ajb-0I-nfQ"/>
                                 <constraint firstAttribute="trailing" secondItem="q3k-XG-uSZ" secondAttribute="trailing" id="WEn-at-8KI"/>
-                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="24" id="nbT-dm-0BT"/>
+                                <constraint firstItem="bzs-C5-Eca" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="Zft-rd-g7O"/>
+                                <constraint firstItem="bzs-C5-Eca" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="nFL-rs-eQo"/>
+                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="16" id="nbT-dm-0BT"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" id="nxH-NN-lNq"/>
                                 <constraint firstAttribute="trailing" secondItem="Ryb-JD-biB" secondAttribute="trailing" constant="16" id="sDA-Hy-8pF"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="top" secondItem="4SQ-pD-6Ya" secondAttribute="top" constant="8" id="vol-q0-Act"/>

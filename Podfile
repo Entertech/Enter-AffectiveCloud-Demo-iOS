@@ -19,6 +19,14 @@ def other
   pod 'lottie-ios'
   pod 'QuickTableViewController'
   pod 'Bugly'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'FRHyperLabel'
+  pod 'Then'
+  pod 'WechatOpenSDK'
+  pod 'SDWebImage'
+  pod 'Alamofire', '~> 5.0.0'
+  pod 'HandyJSON'
 end
 
 target 'EnterAffectiveCloudDemo' do

@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PressureReportViewController" customModule="心流" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PressureReportViewController" customModule="Flowtime" customModuleProvider="target">
             <connections>
                 <outlet property="aboutView" destination="Ryb-JD-biB" id="f8h-vb-QIj"/>
+                <outlet property="avgHeader" destination="Pjs-hb-IRK" id="xPw-Uc-ePf"/>
+                <outlet property="avgView" destination="53b-Ec-Aqi" id="MHD-Jx-75c"/>
                 <outlet property="bg" destination="4SQ-pD-6Ya" id="u1e-kN-FII"/>
+                <outlet property="bg1" destination="q3k-XG-uSZ" id="kfD-6u-O6l"/>
+                <outlet property="headBg" destination="Ls4-2K-30H" id="bDO-fC-nC4"/>
+                <outlet property="navigationView" destination="Vzy-qC-zxi" id="ffI-tQ-g3W"/>
                 <outlet property="pressureView" destination="w3I-1x-9fP" id="RU2-mK-yDG"/>
+                <outlet property="scrollView" destination="SbE-7K-ZlI" id="O7c-eE-es6"/>
+                <outlet property="vbg2" destination="bzs-C5-Eca" id="oN6-Ys-nzd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,11 +28,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ls4-2K-30H">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbE-7K-ZlI">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-pD-6Ya">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3k-XG-uSZ">
                                     <rect key="frame" x="0.0" y="8" width="414" height="250"/>
@@ -41,20 +52,52 @@
                                         <constraint firstAttribute="height" constant="250" id="Mqa-XF-Psv"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryb-JD-biB" customClass="ReportAboutView" customModule="心流" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="274" width="382" height="128"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzs-C5-Eca">
+                                    <rect key="frame" x="16" y="274" width="382" height="304"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53b-Ec-Aqi" customClass="PrivateAverageView" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="79" width="382" height="217"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjs-hb-IRK" customClass="PrivateReportViewHead" customModule="EnterAffectiveCloudUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="63"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="304" id="j95-VD-vkz"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryb-JD-biB" customClass="ReportAboutView" customModule="Flowtime" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="594" width="382" height="128"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="500" constant="128" id="KSy-yU-MsE"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="bzs-C5-Eca" secondAttribute="bottom" constant="16" id="95Z-bo-dSg"/>
                                 <constraint firstItem="Ryb-JD-biB" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="AWX-ED-1Po"/>
+                                <constraint firstAttribute="trailing" secondItem="bzs-C5-Eca" secondAttribute="trailing" constant="16" id="Ajb-0I-nfQ"/>
                                 <constraint firstAttribute="trailing" secondItem="q3k-XG-uSZ" secondAttribute="trailing" id="WEn-at-8KI"/>
-                                <constraint firstItem="Ryb-JD-biB" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="cms-sS-ZmB"/>
-                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="50" id="nbT-dm-0BT"/>
+                                <constraint firstItem="bzs-C5-Eca" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" constant="16" id="Zft-rd-g7O"/>
+                                <constraint firstItem="bzs-C5-Eca" firstAttribute="top" secondItem="q3k-XG-uSZ" secondAttribute="bottom" constant="16" id="nFL-rs-eQo"/>
+                                <constraint firstAttribute="bottom" secondItem="Ryb-JD-biB" secondAttribute="bottom" constant="16" id="nbT-dm-0BT"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="leading" secondItem="4SQ-pD-6Ya" secondAttribute="leading" id="nxH-NN-lNq"/>
                                 <constraint firstAttribute="trailing" secondItem="Ryb-JD-biB" secondAttribute="trailing" constant="16" id="sDA-Hy-8pF"/>
                                 <constraint firstItem="q3k-XG-uSZ" firstAttribute="top" secondItem="4SQ-pD-6Ya" secondAttribute="top" constant="8" id="vol-q0-Act"/>
@@ -70,12 +113,26 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="Dk4-wg-8Y5"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="FtJ-Xd-sge"/>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vzy-qC-zxi">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Vfm-ti-OIR"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="4SQ-pD-6Ya" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="2KW-v8-5TA"/>
-                <constraint firstItem="SbE-7K-ZlI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3r1-p2-vV4"/>
+                <constraint firstItem="SbE-7K-ZlI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="3r1-p2-vV4"/>
                 <constraint firstItem="SbE-7K-ZlI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="47F-h2-f1t"/>
+                <constraint firstItem="Ls4-2K-30H" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6cK-4a-w3n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vzy-qC-zxi" secondAttribute="trailing" id="Efz-nt-T6u"/>
+                <constraint firstItem="Ls4-2K-30H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LnS-aU-OnI"/>
+                <constraint firstItem="Vzy-qC-zxi" firstAttribute="bottom" secondItem="Ls4-2K-30H" secondAttribute="bottom" id="Vtk-g1-1zt"/>
+                <constraint firstItem="Vzy-qC-zxi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZIL-J7-zWM"/>
+                <constraint firstItem="Vzy-qC-zxi" firstAttribute="width" secondItem="Ls4-2K-30H" secondAttribute="width" id="a5A-Aj-9KE"/>
+                <constraint firstItem="Vzy-qC-zxi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="c5o-ud-cXh"/>
                 <constraint firstAttribute="bottom" secondItem="SbE-7K-ZlI" secondAttribute="bottom" id="ezQ-ih-0en"/>
                 <constraint firstItem="SbE-7K-ZlI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pVx-gm-if8"/>
             </constraints>

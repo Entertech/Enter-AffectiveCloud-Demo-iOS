@@ -26,6 +26,7 @@ PODS:
   - FixedDFUService (4.1.2):
     - Zip (~> 1.0)
   - FluentDarkModeKit (0.5.1)
+  - FRHyperLabel (1.0.4)
   - GzipSwift (5.1.1)
   - HandyJSON (5.0.1)
   - lottie-ios (3.1.8)
@@ -51,11 +52,21 @@ PODS:
     - Realm (= 4.3.2)
   - RxBluetoothKit (5.3.0):
     - RxSwift (~> 5.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
   - RxSwift (5.0.1)
+  - SDWebImage (5.8.3):
+    - SDWebImage/Core (= 5.8.3)
+  - SDWebImage/Core (5.8.3)
   - SnapKit (5.0.1)
   - Starscream (3.1.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
+  - Then (2.7.0)
+  - WechatOpenSDK (1.8.7.1)
   - Zip (1.1.0)
 
 DEPENDENCIES:
@@ -66,13 +77,19 @@ DEPENDENCIES:
   - EnterBioModuleBLE (from `https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)
   - EnterBioModuleBLEUI (from `https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)
   - FluentDarkModeKit
+  - FRHyperLabel
   - HandyJSON
   - lottie-ios
   - Moya/RxSwift (~> 14.0.0)
   - QuickTableViewController
   - RealmSwift
+  - RxCocoa
+  - RxSwift
+  - SDWebImage
   - SnapKit
   - SVProgressHUD
+  - Then
+  - WechatOpenSDK
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
@@ -81,6 +98,7 @@ SPEC REPOS:
     - Charts
     - FixedDFUService
     - FluentDarkModeKit
+    - FRHyperLabel
     - GzipSwift
     - HandyJSON
     - lottie-ios
@@ -90,11 +108,16 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RxBluetoothKit
+    - RxCocoa
+    - RxRelay
     - RxSwift
+    - SDWebImage
     - SnapKit
     - Starscream
     - SVProgressHUD
     - SwiftyJSON
+    - Then
+    - WechatOpenSDK
     - Zip
 
 EXTERNAL SOURCES:
@@ -114,7 +137,7 @@ CHECKOUT OPTIONS:
     :commit: 6b9312c8a2e6c43cf9be7eb3e5f0b24232e5da85
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
-    :commit: a30d3c962850527d22ce33f9a2c4240d5f3bdd47
+    :commit: 9e3b025b77f245ac9dd9c7616c2ce618b831d1d7
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
     :commit: 9730ef1c6305c2edf5052762e4d152c7dd21a771
@@ -133,6 +156,7 @@ SPEC CHECKSUMS:
   EnterBioModuleBLEUI: 8f3ccea20af4700eab4baa6d0109714530a1208c
   FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
   FluentDarkModeKit: cf3b931435f191b1a0451802fd479c8993c529e8
+  FRHyperLabel: f4a127d5f8ffb211040554615e93f936d5a576a6
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
   HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
@@ -142,13 +166,18 @@ SPEC CHECKSUMS:
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   RxBluetoothKit: 0e781978e8a0df70ac3c611dcf44800b76c69f8a
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+  WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 18d9772745e8e7f1e9c7e6209a9c51d5d2d8160b
+PODFILE CHECKSUM: bb76a9e7cff4a34ec7319c068622afe5bc18dc07
 
 COCOAPODS: 1.8.3

@@ -14,14 +14,14 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        reportView.pViewController = self
-        self.view.addSubview(reportView.view)
-        reportView.view.snp.makeConstraints {
-            $0.edges.equalTo(self.view.safeAreaLayoutGuide)
-        }
-        if let data = MeditationRepository.query(Preference.userID) {
-            reportView.meditationDB = data.last
-        }
+//        reportView.pViewController = self
+//        self.view.addSubview(reportView.view)
+//        reportView.view.snp.makeConstraints {
+//            $0.edges.equalTo(self.view.safeAreaLayoutGuide)
+//        }
+//        if let data = MeditationRepository.query(Preference.userID) {
+//            reportView.meditationDB = data.last
+//        }
         let listBtn = UIButton()
         listBtn.setImage(#imageLiteral(resourceName: "icon_statistics_list"), for: .normal)
         listBtn.addTarget(self, action: #selector(backToList), for: .touchUpInside)
@@ -54,7 +54,7 @@ class SecondViewController: UIViewController {
  
     @objc
     private func backToList() {
-        let listVC = ReportListViewController()
+        let listVC = StatisticsViewController()
         listVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(listVC, animated: true)
     }

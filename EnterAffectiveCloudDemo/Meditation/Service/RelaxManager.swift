@@ -15,9 +15,9 @@ protocol CheckWearDelegate: class {
 }
 
 class RelaxManager: BLEBioModuleDataSource {
-    private var countEegError = 0
+    private var countEegError = 0 //如果255过多重启设备
     static let shared = RelaxManager()
-    public weak var delegate: CheckWearDelegate?
+    public weak var delegate: CheckWearDelegate? //佩戴检测
     let ble = BLEService.shared.bleManager
     private init() {
         ble.dataSource = self

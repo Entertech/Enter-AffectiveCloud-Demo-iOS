@@ -10,26 +10,23 @@ import UIKit
 import SVProgressHUD
 import Networking
 import RxSwift
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setup()
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = mainStoryboard.instantiateViewController(withIdentifier: "ViewController")
-            self.window?.rootViewController = vc
+        if #available(iOS 13.0, *) {
+            return true
         } else {
-            let mainStoryboard = UIStoryboard(name: "Pad", bundle: nil)
-            let vc = mainStoryboard.instantiateViewController(withIdentifier: "pad")
+            let vc = LoginViewController()
             self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+            return true
         }
-        self.window?.makeKeyAndVisible()
-        return true
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -38,9 +35,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return .portrait
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return LoginService.shared.openURLHandle(app, open: url)
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return LoginService.shared.openSourceApp(application,
+                                                       open: url,
+                                                       sourceApplication: sourceApplication,
+                                                       annotation: annotation)
+    }
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        return LoginService.shared.openURLHandle(application, open: url)
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        return LoginService.shared.handleOpenUniversalLink(userActivity: userActivity)
+    }
 
     // MARK: UISceneSession Lifecycle
-
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
@@ -57,6 +72,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setup() {
         _ = BluetoothContext.shared //蓝牙
+        //wechat
+        WXApi.registerApp(Preference.wxAppID, universalLink: Preference.universalLink)
+        do {
+            if #available(iOS 10.0, *) {
+                try AVAudioSession.sharedInstance().setCategory(.playback,
+                                                                mode: .default,
+                                                                options:    [.allowBluetooth, .mixWithOthers, .allowAirPlay, .allowBluetoothA2DP])
+                try AVAudioSession.sharedInstance().setActive(true)
+            } else {
+                // Fallback on earlier versions
+            }
+        } catch {
+
+        }
         
         var path: String = "" //websocket
         if let plistPath = Bundle.main.path(forResource: "Config", ofType: "plist") {

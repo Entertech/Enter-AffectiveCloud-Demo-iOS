@@ -10,12 +10,20 @@ import UIKit
 import EnterAffectiveCloudUI
 import EnterBioModuleBLEUI
 import SVProgressHUD
+import RxSwift
 
-class MeditationViewController: UIViewController {
+class MeditationViewController: UIViewController, CheckSensorTipDelegate, MeditationExitDelegate {
     
+
+    @IBOutlet weak var hiddenTitle: UILabel!
+    @IBOutlet weak var scrollViewTitle: UILabel!
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var coherenceView: RealtimeCoherenceView!
     @IBOutlet weak var pleasureView: RealtimePleasureView!
     
+    @IBOutlet weak var shadowView: BackgroundView!
+    @IBOutlet weak var batteryBtn: UIButton!
+    @IBOutlet weak var drawerView: DrawerView!
     @IBOutlet weak var hrvView: RealtimeHRVView!
     @IBOutlet weak var errorView: ErrorTipView!
     @IBOutlet weak var heartView: RealtimeHeartRateView!
@@ -30,19 +38,36 @@ class MeditationViewController: UIViewController {
     @IBOutlet weak var arousalView: RealtimeArousalView!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    private var isFirstTime = true
-    private var isEnd = false
+    public var isCheckSensor = false
+    private var bIsFirstTime = true
+    private var bIsEnd = false
+    private var bIsChecked = false
     private let dashboardIndexView = DashboardIndexView()
     public var isErrorViewShowing: Bool = false
     private var currentErrorType: ErrorType = .bluetooth
     private var service: MeditationService?
+    private let dispose = DisposeBag()
     private var reportModel: MeditationReportModel = MeditationReportModel()
+    private var _vcState: ChildVCState = .hidden  //view的状态
+    private let timeLabel = UILabel()
+    private var audioProgressView: AudioProgress = AudioProgress()
+    private var audioButton: UIButton = UIButton()
+    private var checkTip: CheckSensorTipViewController?
+    private var meditateExit: MeditateExit?
+    var bIsReCheck = false // 体验过程中是否佩戴检测检测
     override func viewDidLoad() {
         super.viewDidLoad()
         errorView.fixBtn.addTarget(self, action: #selector(errorConnect(sender:)), for: .touchUpInside)
         service = MeditationService(self)
         service?.reportModel = self.reportModel
+        drawerView.rx_vcState.asObservable()
+            .subscribe(onNext: {[weak self] (changed) in
+                guard let self = self else {return}
+                self.vcState = changed
+        }).disposed(by: dispose)
+        
         // Do any additional setup after loading the view.
+        addGradiantColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +76,8 @@ class MeditationViewController: UIViewController {
         
         RelaxManager.shared.delegate = service
         BLEService.shared.bleManager.delegate = service
-        if isFirstTime {
+        if bIsFirstTime {
+            dashboardIndexView.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
             self.view.backgroundColor = UIColor.colorWithHexString(hexColor: "f1f4f6")
             brainView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)    //主色调
             brainView.textColor = .black    //文字颜色
@@ -129,10 +155,53 @@ class MeditationViewController: UIViewController {
             pleasureView.showTip()
             pressureView.showTip()
             hrvView.showTip()   
-            isFirstTime = false
+            bIsFirstTime = false
             
             hrvView.observe()
             hrvView.cornerRadius = 8
+            
+            var offset = 0
+            if !Device.current.isiphoneX {
+                offset = 30
+            }
+            drawerView.snp.makeConstraints {
+                $0.left.equalToSuperview()
+                $0.top.equalTo(self.view.snp.bottom).offset(-95+offset)
+                $0.right.equalToSuperview()
+                $0.height.equalToSuperview()
+            }
+            
+            timeLabel.text = String.timeString(with:0.0)
+            timeLabel.textColor = UIColor.white
+            timeLabel.textAlignment = .center
+            timeLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 24)
+                
+            audioProgressView.needDownloadAudio = false
+            audioProgressView.circleColor = Colors.green3.changeAlpha(to: 0.5)
+            
+            audioButton.setBackgroundImage(UIImage(named: "icon_audio_play"), for: .normal)
+            self.view.insertSubview(timeLabel, belowSubview: shadowView)
+            self.view.insertSubview(audioProgressView, belowSubview: shadowView)
+            self.view.insertSubview(audioButton, belowSubview: shadowView)
+            
+            
+            timeLabel.snp.makeConstraints {
+                $0.top.equalToSuperview().offset(228)
+                $0.centerX.equalToSuperview()
+            }
+            
+            audioProgressView.snp.makeConstraints {
+                $0.width.height.equalTo(100)
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(self.timeLabel.snp.bottom).offset(16)
+            }
+            
+            audioButton.snp.makeConstraints {
+                $0.center.equalTo(audioProgressView)
+                $0.width.height.equalTo(50)
+            }
+            
+            setupTimer()
         }
         NotificationName.kFinishWithCloudServieDB.observe(sender: self, selector: #selector(self.finishWithCloudServiceHandle(_:)))
         if BLEService.shared.bleManager.state.isConnected {
@@ -141,22 +210,92 @@ class MeditationViewController: UIViewController {
             errorView.changeTipText(value: .bluetooth)
             currentErrorType = .network
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(enterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         setLayout()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        drawerView.viewShow(_vcState)
         if BLEService.shared.bleManager.state.isConnected  {
-            if !RelaxManager.shared.isWebSocketConnected {
-                
-                RelaxManager.shared.start(wbDelegate: service)
+            if !bIsChecked || checkTip != nil { //判读是否出现提示
+                bIsChecked = true
+                if checkTip == nil {
+                    self.timerPause()
+                    self.audioState = false
+                    checkTip = CheckSensorTipViewController()
+                    RelaxManager.shared.delegate = checkTip
+                    checkTip?.delegate = self
+                    self.view.addSubview(checkTip!.view)
+                    drawerView?.viewShow(.null, finishBlock: {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1, execute: {
+                            self.checkTip!.showTip()
+                        })
+                    })
+                } else {
+                    //恢复中断的动画
+                    RelaxManager.shared.delegate = checkTip
+                    drawerView?.viewShow(.null)
+                    if checkTip!.isLeftViewShowed {
+                        checkTip?.waitAnimationView.play()
+                        self.checkTip?.viewDot.layer.removeAllAnimations()
+                        if let animate = self.checkTip?.scaleAnimation {
+                            self.checkTip?.viewDot.layer.add(animate, forKey: "com.flowtime.scale")
+                        }
+                    } else {
+                        if !self.checkTip!.rightSkipView.isHidden {
+                            self.checkTip?.rightSkipView.play()
+                        }
+                    }
+                }
             } else {
-                dismissErrorView(.network)
-                if self.isErrorViewShowing && currentErrorType == .poor {
-                    service?.reCheck()
+                if let _ = checkTip {
+                    
+                } else {
+                    self.dismissErrorView(.bluetooth)
+                    // 判断是否连接设备，连接设备就开始情感云
+                    if BLEService.shared.bleManager.state.isConnected && !RelaxManager.shared.isWebSocketConnected {
+                        if let use = self.service?.bIsUseService, use {
+                            RelaxManager.shared.websocketConnect()
+                        } else {
+                            RelaxManager.shared.start(wbDelegate: service)
+                        }
+                    }
+                    if RelaxManager.shared.isWebSocketConnected {
+                        if isErrorViewShowing && currentErrorType == .poor && bIsReCheck {
+                            service?.reCheck()
+                        }
+                    }
                 }
             }
+            if let per = BLEService.shared.bleManager.battery?.percentage  {
+                let battery = per / 100
+                var imageName: String?
+                if battery > 0.9 {
+                    imageName = "icon_battery_100_white"
+                } else if battery > 0.7 && battery <= 0.9 {
+                    imageName = "icon_battery_80_white"
+                } else if battery > 0.5 && battery <= 0.7 {
+                    imageName = "icon_battery_60_white"
+                } else if battery > 0.2 && battery <= 0.5 {
+                    imageName = "icon_battery_40_white"
+                } else {
+                    imageName = "icon_battery_10_white"
+                }
+                batteryBtn.setImage(UIImage(named: imageName!), for: .normal)
+            }
+//            if !RelaxManager.shared.isWebSocketConnected {
+//
+//                RelaxManager.shared.start(wbDelegate: service)
+//            } else {
+//                dismissErrorView(.network)
+//                if self.isErrorViewShowing && currentErrorType == .poor {
+//                    service?.reCheck()
+//                }
+//            }
+        } else {
+            batteryBtn.setImage(UIImage(named: "icon_flowtime_disconnected_white"), for: .normal)
         }
 
     }
@@ -166,6 +305,7 @@ class MeditationViewController: UIViewController {
         NotificationName.kFinishWithCloudServieDB.remove(sender: self)
         BLEService.shared.bleManager.delegate = nil
         RelaxManager.shared.delegate = nil
+        timerPause()
     }
 
 
@@ -201,12 +341,82 @@ class MeditationViewController: UIViewController {
             $0.top.equalTo(self.errorView.snp.bottom).offset(16+viewArray[1].bounds.height+24+viewArray[0].bounds.height+24)
         }
         self.view.layoutIfNeeded()
+        
+    }
+    
+    private func addGradiantColor() {
+        let _layer = CAGradientLayer()
+        _layer.frame = self.view.bounds
+        _layer.colors = [#colorLiteral(red: 0.0862745098, green: 0.4078431373, blue: 0.2666666667, alpha: 1).cgColor, #colorLiteral(red: 0.3215686275, green: 0.6352941176, blue: 0.4862745098, alpha: 1).cgColor]
+        _layer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        _layer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        self.view.layer.insertSublayer(_layer, at: 0)
+    }
+    
+    private var _audioPercent:CGFloat = 0
+    //音乐播放比例
+    public var audioPercent: CGFloat {
+        get {
+            return _audioPercent
+        }
+        set {
+            _audioPercent = newValue
+            if newValue > 0.000001 {
+                audioProgressView.AudioProgressAnimate(percent: newValue)
+            }
+        }
+    }
+    
+    private var _audioState = true
+    //音乐播放状态
+    public var audioState: Bool {
+        get{
+            return _audioState
+        }
+        set{
+            _audioState = newValue
+            DispatchQueue.main.async {
+                if newValue {
+                    self.audioButton.setBackgroundImage(UIImage(named: "icon_audio_pause"), for: .normal)
+                } else {
+                    self.audioButton.setBackgroundImage(UIImage(named: "icon_audio_play"), for: .normal)
+                }
+            }
+        }
+    }
+    
+    ///子视图位置
+    public var vcState: ChildVCState {
+        get {
+            return _vcState
+        }
+        set {
+            _vcState = newValue
+            if newValue == .hidden {
+                self.hiddenTitle.isHidden = false
+                self.errorView.isHidden = true
+                self.scrollViewTitle.isHidden = true
+                //self.wearView.isHidden = true
+            } else {
+                self.hiddenTitle.isHidden = true
+                self.scrollViewTitle.isHidden = false
+                self.errorView.isHidden = false
+                //self.wearView.isHidden = false
+            }
+            if newValue == .showAll {
+                self.editBtn.isHidden = false
+                self.scrollView.isScrollEnabled = true
+            } else {
+                self.editBtn.isHidden = true
+                self.scrollView.isScrollEnabled = false
+            }
+        }
     }
     
     /// 显示错误视图
     /// - Parameter errorType: 错误类型
     public func showErrorView(_ errorType: ErrorType) {
-        if isEnd {
+        if bIsEnd {
             return
         }
         if !isErrorViewShowing {
@@ -214,17 +424,21 @@ class MeditationViewController: UIViewController {
             DispatchQueue.main.async {
                 switch errorType {
                 case .bluetooth:
+                    if self.isCheckSensor {
+                        self.drawerView.viewShow(.hidden)
+                    }
                     self.currentErrorType = .bluetooth
                     self.setErrorMessage(text: "蓝牙连接断开")
                     UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseInOut, animations: {
                         self.errorView.snp.updateConstraints{
                             $0.height.equalTo(162)
                         }
+                        
                         self.view.layoutIfNeeded()
                     }, completion:  {
                         (complete) in
                         self.isErrorViewShowing = true
-                        
+                        self.containerHeight.constant = 1700
                     })
                 case .network:
                     self.currentErrorType = .network
@@ -233,11 +447,12 @@ class MeditationViewController: UIViewController {
                         self.errorView.snp.updateConstraints{
                             $0.height.equalTo(162)
                         }
+                        
                         self.view.layoutIfNeeded()
                     }, completion: {
                         (complete) in
                         self.isErrorViewShowing = true
-                        
+                        self.containerHeight.constant = 1700
                     })
                 case .poor:
                     self.currentErrorType = .poor
@@ -246,16 +461,15 @@ class MeditationViewController: UIViewController {
                         self.errorView.snp.updateConstraints{
                             $0.height.equalTo(162)
                         }
+                        
                         self.view.layoutIfNeeded()
                     }, completion:  {
                         (complete) in
                         self.isErrorViewShowing = true
-                        
+                        self.containerHeight.constant = 1700
                     })
                 }
-                
             }
-            
         } else {
             if currentErrorType == .poor {
                 currentErrorType = errorType
@@ -306,7 +520,7 @@ class MeditationViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }, completion: {
                 (complete) in
-                
+                self.containerHeight.constant = 1620
             })
         }
        
@@ -314,21 +528,125 @@ class MeditationViewController: UIViewController {
     
     /// 结束体验
     func finishMeditation()  {
+        if let cTimer = service?.countTimer {
+            if cTimer.isValid {
+                cTimer.invalidate()
+            }
+        }
         
         if RelaxManager.shared.isWebSocketConnected {
-            if let times = service?.meditationModel.startTime,
-                Int(Date().timeIntervalSince(times)) > Preference.meditationTime  {
+            if countDownNum > Double(Preference.meditationTime)  {
                 SVProgressHUD.show(withStatus: "正在生成报表")
                 service?.finish()
             } else {
                 self.navigationController?.dismiss(animated: true, completion: {
                     SVProgressHUD.showError(withStatus: "体验时常过短,无报表生成")
                 })
-                
+
                 RelaxManager.shared.close()
             }
         } else {
             self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    public var timer: Timer?
+    private var countDownNum = 0.0
+    private var _countDownNum = Preference.noMusicMeditationDuration
+    private var isAlarming = false
+    private var _player: LocalPlayer?
+    private func setupTimer() {
+        clean()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] (timer) in
+            guard let `self` = self else { return  }
+            if !self.audioState {
+                self.audioState = true
+            }
+            self.timeLabel.text = String.timeString(with: self.countDownNum)
+            if self.audioPercent < 1 {
+                self.audioPercent = CGFloat(self.countDownNum) / CGFloat(self._countDownNum)
+            }
+            //self.audioPercent = CGFloat(self.countDownNum) / CGFloat(self._countDownNum)
+            if self.countDownNum == self._countDownNum {
+                self.audioPercent = 1
+                if let path = Bundle.main.path(forResource: Preference.meditationSound ?? "Unknow", ofType: "mp3") {
+                    if let url = URL(string: path) {
+                        let player = SoundPlayer(url, soundID: 1)
+                        player.play()
+                    }
+                    self.isAlarming = true
+                }
+            }
+            self.countDownNum += 1
+        })
+        RunLoop.main.add(timer!, forMode: .common)
+    }
+     
+     func timerPause() {
+         self.audioState = false
+         self.timer?.fireDate = Date.distantFuture
+     }
+     
+     func timerContinue() {
+         self.audioState = true
+         self.timer?.fireDate = Date.distantPast
+     }
+     
+     func clean() {
+         self._player?.stop()
+         self.timer?.invalidate()
+         self.timer = nil
+         countDownNum = 0
+     }
+    
+    /// meditation 退出的代理方法
+    func meditationExit() {
+        //service?.finish()
+        finishMeditation()
+    }
+
+    func cancelAction() {
+        self.meditateExit?.removeFromSuperview()
+        self.meditateExit = nil
+    }
+    
+    /// 佩戴检测代理
+    func dismissVC() {
+        isCheckSensor = true
+        drawerView?.viewShow(.hidden)
+        timerContinue()
+        //nonbiodataService?.audioPlayer?.play()
+
+        audioState = true
+        
+        RelaxManager.shared.delegate = service
+        checkTip?.delegate = nil
+        checkTip = nil
+        //
+        // 判断是否连接设备，连接设备就开始情感云
+        if BLEService.shared.bleManager.state.isConnected && !RelaxManager.shared.isWebSocketConnected {
+            dismissErrorView(.bluetooth)
+            if let service = self.service, service.bIsUseService {
+                RelaxManager.shared.websocketConnect()
+            } else {
+                RelaxManager.shared.start(wbDelegate: service)
+
+            }
+            self.brainView.showProgress()
+            self.spectrumView.showProgress()
+            self.heartView.showProgress()
+            self.attentionView.showProgress()
+            self.relaxationView.showProgress()
+            self.pressureView.showProgress()
+            self.arousalView.showProgress()
+            self.coherenceView.showProgress()
+            self.pleasureView.showProgress()
+            self.hrvView.showProgress()
+        }
+        if RelaxManager.shared.isWebSocketConnected {
+            if isErrorViewShowing && currentErrorType == .poor && bIsReCheck {
+                service?.reCheck()
+            }
         }
     }
     
@@ -342,7 +660,7 @@ class MeditationViewController: UIViewController {
     @IBAction func editBtnPressed(_ sender: UIButton) {
         if sender.titleLabel?.text == "编辑" {
             sender.setTitle("完成", for: .normal)
-            self.view.addSubview(dashboardIndexView)
+            self.drawerView.addSubview(dashboardIndexView)
             dashboardIndexView.snp.makeConstraints {
                 $0.left.right.equalToSuperview()
                 $0.height.equalTo(800)
@@ -358,22 +676,45 @@ class MeditationViewController: UIViewController {
     }
     
     @IBAction func dismissMeditation(_ sender: Any) {
-        let action = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        let okBtn = UIAlertAction(title: "确定", style: .default) { (action) in
-            self.finishMeditation()
+        for e in self.view.subviews {
+            if e.isKind(of: MeditateExit.classForCoder()) {
+                return
+            }
         }
-        if let times = service?.meditationModel.startTime,
-        Int(Date().timeIntervalSince(times)) > Preference.meditationTime  {
-            let alert = UIAlertController(title: "结束体验", message: "结束体验并获取分析报告", preferredStyle: .alert)
-            alert.addAction(action)
-            alert.addAction(okBtn)
-            self.present(alert, animated: true, completion: nil)
+
+        if countDownNum >= Double(Preference.meditationTime) {
+            if let bio = service, bio.bIsUseService {
+                if RelaxManager.shared.isWebSocketConnected && !bio.bIsQualityPoor {
+                    meditateExit = MeditateExit(frame: self.view.bounds, exitType: .finish)
+                } else {
+                    meditateExit = MeditateExit(frame: self.view.bounds, exitType: .disconnect)
+                }
+            } else {
+                meditateExit = MeditateExit(frame: self.view.bounds, exitType: .finish)
+            }
         } else {
-            let alert = UIAlertController(title: "结束体验", message: "体验时长不足无法生成报表,确定退出?", preferredStyle: .alert)
-            alert.addAction(action)
-            alert.addAction(okBtn)
-            self.present(alert, animated: true, completion: nil)
+            meditateExit = MeditateExit(frame: self.view.bounds, exitType: .early)
         }
+
+        meditateExit?.delegate = self
+        self.view.addSubview(meditateExit!)
+        meditateExit?.showView()
+//        let action = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+//        let okBtn = UIAlertAction(title: "确定", style: .default) { (action) in
+//            self.finishMeditation()
+//        }
+//        if let times = service?.meditationModel.startTime,
+//        Int(Date().timeIntervalSince(times)) > Preference.meditationTime  {
+//            let alert = UIAlertController(title: "结束体验", message: "结束体验并获取分析报告", preferredStyle: .alert)
+//            alert.addAction(action)
+//            alert.addAction(okBtn)
+//            self.present(alert, animated: true, completion: nil)
+//        } else {
+//            let alert = UIAlertController(title: "结束体验", message: "体验时长不足无法生成报表,确定退出?", preferredStyle: .alert)
+//            alert.addAction(action)
+//            alert.addAction(okBtn)
+//            self.present(alert, animated: true, completion: nil)
+//        }
             
     }
     
@@ -388,21 +729,21 @@ class MeditationViewController: UIViewController {
             if RelaxManager.shared.isWebSocketConnected {
                 RelaxManager.shared.close()
             }
-            
-            self.isEnd = true
+            SyncManager.shared.sync()
+            self.bIsEnd = true
+            let parentTabbarVC = self.navigationController?.presentingViewController
             self.navigationController?.dismiss(animated: true) {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
-
-                    let data = MeditationRepository.query(Preference.userID)
-                    if let data = data {
-                        let report = MainReportViewController()
-                        report.meditationDB = data.last
-                        report.hidesBottomBarWhenPushed = true
-                        UIViewController.currentViewController()?.navigationController?.pushViewController(report, animated: true)
+                    if let tabbarVC = parentTabbarVC as? UITabBarController {
+                        let navigationVC2 = tabbarVC.viewControllers![1] as? UINavigationController
+                        let report = navigationVC2?.viewControllers[0] as? Statistics2ViewController
+                        report?.isExample = false
+                        report?.listIndex = 0
+                        navigationVC2?.popToRootViewController(animated: true)
+                        tabbarVC.selectedIndex = 1
                     }
                 }
             }
-            
         }
     }
     
@@ -424,13 +765,43 @@ class MeditationViewController: UIViewController {
                 return
             }
             if currentErrorType == .poor {
+                bIsReCheck = true
                 let checkVC = SensorCheckViewController()
                 checkVC.state = .fix
                 self.navigationController?.pushViewController(checkVC, animated: true)
             }
             
         }
-        
-        
+    }
+    @IBAction func bleAction(_ sender: Any) {
+        connectMethod()
+    }
+    
+    @objc
+    private func enterForeground() {
+        self.brainView.restoreAnimation()
+        self.spectrumView.restoreAnimation()
+        self.heartView.restoreAnimation()
+        self.hrvView.restoreAnimation()
+        self.relaxationView.restoreAnimation()
+        self.pressureView.restoreAnimation()
+        self.attentionView.restoreAnimation()
+        self.arousalView.restoreAnimation()
+        self.coherenceView.restoreAnimation()
+        self.pleasureView.restoreAnimation()
+        checkTip?.waitAnimationView.play()
+        self.checkTip?.viewDot.layer.removeAllAnimations()
+        if let animate = self.checkTip?.scaleAnimation {
+            self.checkTip?.viewDot.layer.add(animate, forKey: "com.flowtime.scale")
+        }
+    }
+    
+    @objc
+    private func enterBackground() {
+        let y = drawerView.frame.origin.y
+        let offset = y - self.view.bounds.height
+        drawerView.snp.updateConstraints {
+            $0.top.equalTo(self.view.snp.bottom).offset(offset)
+        }
     }
 }

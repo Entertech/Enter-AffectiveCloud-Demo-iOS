@@ -62,7 +62,7 @@ class DeviceStatusView: UIView {
         }
         
         let title = UILabel()
-        title.text = "Device Status"
+        title.text = "设备状态"
         title.textColor = .white
         title.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         self.addSubview(title)
@@ -92,7 +92,7 @@ class DeviceStatusView: UIView {
         
         // 设置文字
         self.addSubview(connectingLabel)
-        connectingLabel.text = "connecting..."
+        connectingLabel.text = "正在连接..."
         connectingLabel.textColor = .white
         connectingLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         connectingLabel.snp.makeConstraints {
@@ -102,7 +102,7 @@ class DeviceStatusView: UIView {
         connectingLabel.isHidden = true
         
         self.addSubview(noDeviceLabel)
-        noDeviceLabel.text = "No device found"
+        noDeviceLabel.text = "未找到设备"
         noDeviceLabel.textColor = .white
         noDeviceLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         noDeviceLabel.snp.makeConstraints {
@@ -115,7 +115,7 @@ class DeviceStatusView: UIView {
         restoreBtn.layer.cornerRadius = 16
         restoreBtn.layer.masksToBounds = true
         restoreBtn.backgroundColor = Colors.btn2
-        restoreBtn.setTitle("Restore", for: .normal)
+        restoreBtn.setTitle("重新尝试", for: .normal)
         restoreBtn.setTitleColor(Colors.btn1, for: .normal)
         restoreBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         restoreBtn.snp.makeConstraints {

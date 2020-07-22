@@ -11,8 +11,8 @@ import UIKit
 struct BaseAPI {
     #if TEST || DEBUG
 //    static let host = "https://api.myflowtime.com"
-    static let host = "https://api.myflowtime.com"
+    static let host = "https://api-test.myflowtime.cn"
     #else
-    static let host = "https://api.myflowtime.com"
+    static let host = "https://api-test.myflowtime.cn"
     #endif
 }

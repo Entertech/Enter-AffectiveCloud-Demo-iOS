@@ -19,8 +19,12 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     private let userId = "\(Preference.userID)"
     private var suspendTime:[(Date, Bool)] = [] //(触发时间， 是否连接)
     private var suspendArray:[(Date, Date)]?
-    private var firstConnect: Bool = true
-    private var isGetAllReport = false
+    private var firstConnect: Bool = true //判断是否首次连接蓝牙
+    private var bIsGetAllReport = false  //判断是否获取所有报表
+    public var bIsUseService = false    //判断是否开启了情感云
+    private var sessionID: String?   //情感云的sessionID
+    public var countTimer: Timer?   //计数器，用来计算多久未收到数据，进行断连操作
+    var record = Record()
     
     public init(_ vc1: UIViewController) {
         meditationVC = vc1 as? MeditationViewController
@@ -28,7 +32,6 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
         if meditationModel.startTime == nil {
             meditationModel.startTime = Date()
         }
-        
     }
     
     private var qualityCount = 0
@@ -49,6 +52,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
         }
     }
     
+    /// 结束获取报表
     public func finish() {
         if self.meditationModel.finishTime == nil {
             self.meditationModel.finishTime = Date()
@@ -59,26 +63,34 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+10, execute: {
                 //  当情感云 report 有超时情况时，会丢失一些数据，
                 // 生成的 report 的文件不存丢失的标量或数组。
-                if !self.isGetAllReport {
+                if !self.bIsGetAllReport {
                     self.endup()
                 }
                 
             })
         }
     }
-    
+    private var isDisconnect = false
+    private var isFirstTimeDisconnect = true
     //MARK: - CSResponseDelegate methods
     func websocketState(client: AffectiveCloudClient, state: CSState) {
         switch state{
         case .connected:
             meditationVC?.dismissErrorView(.network)
             padVC?.dismissErrorView(.network)
+            if isDisconnect && bIsUseService {
+                self.playSuccessSound()
+            }
             //RelaxManager.shared.sessionCreate(userID: userId)
         case .disconnected:
-            suspendTime.append((Date(), false))
-            RelaxManager.shared.clearBLE()
-            meditationVC?.showErrorView(.network)
-            padVC?.showErrorView(.network)
+            isDisconnect = true
+            if isFirstTimeDisconnect && BLEService.shared.bleManager.state.isConnected {
+                isFirstTimeDisconnect = false
+                if !isInReconnect {
+                    RelaxManager.shared.clearBLE()
+                    self.reconnectWebsocket(times: 0)
+                }
+            }
         case .none:
             RelaxManager.shared.clearBLE()
             meditationVC?.showErrorView(.network)
@@ -90,23 +102,14 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
         Logger.shared.upload(event: "AffectiveCloud websocket connect complete", message: "")
     }
     
-    func websocketDisconnect(client: AffectiveCloudClient) {
-        Logger.shared.upload(event: "AffectiveCloud websocket disconnect", message: "")
+    func websocketDisconnect(client: AffectiveCloudClient, error: Error?) {
+        Logger.shared.upload(event: "AffectiveCloud websocket disconnect", message: error?.localizedDescription ?? "")
     }
     
     func sessionCreateAndAuthenticate(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         suspendTime.append((Date(), true))
         RelaxManager.shared.startCloudService()
-        meditationVC?.brainView.showProgress()
-        meditationVC?.spectrumView.showProgress()
-        meditationVC?.heartView.showProgress()
-        meditationVC?.attentionView.showProgress()
-        meditationVC?.relaxationView.showProgress()
-        meditationVC?.pressureView.showProgress()
-        meditationVC?.arousalView.showProgress()
-        meditationVC?.coherenceView.showProgress()
-        meditationVC?.pleasureView.showProgress()
-        meditationVC?.hrvView.showProgress()
+        self.showBioProgress(show: true)
         
         padVC?.brainView.showProgress()
         padVC?.spectrumView.showProgress()
@@ -118,21 +121,17 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
         padVC?.coherenceView.showProgress()
         padVC?.pleasureView.showProgress()
         padVC?.hrvView.showProgress()
+        
+        if let data = response.dataModel as? CSResponseDataJSONModel {
+            sessionID = data.sessionID
+        }
+        self.record.startTime = Date()
         Logger.shared.upload(event: "AffectiveCloud session create complete", message: "")
     }
     
     func sessionRestore(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         suspendTime.append((Date(), true))
-        meditationVC?.brainView.showProgress()
-        meditationVC?.spectrumView.showProgress()
-        meditationVC?.heartView.showProgress()
-        meditationVC?.attentionView.showProgress()
-        meditationVC?.relaxationView.showProgress()
-        meditationVC?.pressureView.showProgress()
-        meditationVC?.arousalView.showProgress()
-        meditationVC?.coherenceView.showProgress()
-        meditationVC?.pleasureView.showProgress()  
-        meditationVC?.hrvView.showProgress()
+        self.showBioProgress(show: true)
         
         padVC?.brainView.showProgress()
         padVC?.spectrumView.showProgress()
@@ -162,13 +161,19 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     func biodataServicesSubscribe(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {
         if let _ = response.dataModel as? CSResponseBiodataSubscribeJSONModel {
             RelaxManager.shared.setupBLE()
+            bIsUseService = true //开始启用服务
+            if self.countTimer == nil {
+                self.countTimer = Timer.init(timeInterval: 1, target: self, selector: #selector(countToDisconnectWebsocket), userInfo: nil, repeats: true)
+                RunLoop.current.add(self.countTimer!, forMode: .common)
+                countTimer?.fire()
+            }
             Logger.shared.upload(event: "AffectiveCloud biodata subscribe complete", message: "")
             return
         }
         
         if let data = response.dataModel as? CSBiodataProcessJSONModel {
             if let eeg = data.eeg {
-                
+                countNum = 0 //重启情感云计数器
                 if let quality = eeg.quality {
                     qualityArray.append(quality)
                     if quality < 2 {
@@ -187,17 +192,8 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
                             self.playSuccessSound()
                             DispatchQueue.main.async {
                                 self.meditationVC?.dismissErrorView(.poor)
-                                self.meditationVC?.brainView.showProgress()
-                                self.meditationVC?.spectrumView.showProgress()
-                                self.meditationVC?.heartView.showProgress()
-                                self.meditationVC?.attentionView.showProgress()
-                                self.meditationVC?.relaxationView.showProgress()
-                                self.meditationVC?.pressureView.showProgress()
-                                self.meditationVC?.arousalView.showProgress()
-                                self.meditationVC?.coherenceView.showProgress()
-                                self.meditationVC?.pleasureView.showProgress()
-                                self.meditationVC?.hrvView.showProgress()
                             }
+                            self.showBioProgress(show: true)
                         }
                         self.bIsPoorError = false
                         qualityCount = 0
@@ -410,8 +406,11 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
                     RelaxManager.shared.websocketConnect()
                 }
                 
+            } else {
+                RelaxManager.shared.setupBLE()
             }
             DispatchQueue.main.async {
+                
                 self.meditationVC?.dismissErrorView(.bluetooth)
                 self.padVC?.dismissErrorView(.bluetooth)
             }
@@ -421,15 +420,9 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             }
         } else {
             Logger.shared.upload(event: "Bluetooth disconnected", message: "")
-            DispatchQueue.main.async {
-                self.meditationVC?.showErrorView(.bluetooth)
-                self.padVC?.showErrorView(.bluetooth)
-                self.isPlayed = false
-                if state == .disconnected {
-                    self.playErrorSound()
-                }
+            if !self.isInRestoreBLE {
+                self.reconnectBLE(times: 0)
             }
-            RelaxManager.shared.websocketDisconnect()
         }
     }
     // MARK: - 佩戴检测delegate
@@ -461,17 +454,8 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             qualityCount = 0
             DispatchQueue.main.async {
                 self.meditationVC?.dismissErrorView(.poor)
-                self.meditationVC?.brainView.showProgress()
-                self.meditationVC?.spectrumView.showProgress()
-                self.meditationVC?.heartView.showProgress()
-                self.meditationVC?.attentionView.showProgress()
-                self.meditationVC?.relaxationView.showProgress()
-                self.meditationVC?.pressureView.showProgress()
-                self.meditationVC?.arousalView.showProgress()
-                self.meditationVC?.coherenceView.showProgress()
-                self.meditationVC?.pleasureView.showProgress()
-                self.meditationVC?.hrvView.showProgress()
             }
+            self.showBioProgress(show: true)
         }
     }
     
@@ -489,14 +473,20 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
         }
     }
     
+    private var startDate: Date = Date()
+    private var stopDate: Date = Date()
     private func endup() {
-        isGetAllReport = true
+        bIsGetAllReport = true
         if let scalars = reportModel?.scalars, let deigitals = reportModel?.digitals {
             
             let museReportData = EnterAffectiveCloudReportData(scalars: scalars, digitals: deigitals)
             
             let path = FTFileManager.shared.userReportURL(self.reportPath()).path
             ReportFileHander.createReportFile(path, museReportData)
+            if self.record.endTime == nil {
+                self.record.endTime = Date()
+                stopDate = Date()
+            }
             self.saveToDB()
         }
     }
@@ -524,7 +514,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
     private func reportPath() -> String {
 
         if let startTime = self.meditationModel.startTime {
-            return "\(Preference.userID)/42/121/\(startTime.string(custom: "yyyy-MM-dd HH:mm:ss"))"
+            return "\(Preference.userID)/1/1/\(startTime.string(custom: "yyyy-MM-dd HH:mm:ss"))"
         }
         return "0/0/0/sample"
     }
@@ -590,6 +580,131 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate, Check
             
         }
     }
+    
+    private var reconnectTimeArray = [5, 15, 30, 60]
+    private var isInReconnect = false
+    /// 递归重新连接
+    /// - Parameter times: 时间顺序
+    private func reconnectWebsocket(times: Int) {
+        if times > 3 {
+            DispatchQueue.main.async {
+                if !RelaxManager.shared.isWebSocketConnected {
+                    RelaxManager.shared.clearBLE()
+                    self.suspendTime.append((Date(), false))
+                    self.meditationVC?.showErrorView(.network)
+                    self.playErrorSound()
+                    self.isDisconnect = true
+                }
+            }
+            self.isInReconnect = false
+            return
+        }
+        let interval = DispatchTimeInterval.seconds(reconnectTimeArray[times])
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+interval) {
+            print("-----\(Date().timeIntervalSince1970)")
+            self.isInReconnect = true
+            if self.isDisconnect {
+                RelaxManager.shared.websocketConnect()
+                self.showBioProgress(show: true)
+                self.reconnectWebsocket(times: times+1)
+            } else {
+                self.isInReconnect = false
+            }
+        }
+    }
+    
+    private var isInRestoreBLE = false
+    /// 递归蓝牙重连
+    /// - Parameter times: 数组次序
+    private func reconnectBLE(times: Int) {
+        if times > 3 {
+            self.isInRestoreBLE = false
+            DispatchQueue.main.async {
+                self.meditationVC?.showErrorView(.bluetooth)
+                self.isPlayed = false
+                RelaxManager.shared.websocketDisconnect()
+            }
+            return
+        }
+        let interval = DispatchTimeInterval.seconds(reconnectTimeArray[times])
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+interval) {
+            if !BLEService.shared.bleManager.state.isConnected {
+                self.isInRestoreBLE = true
+                do {
+                    try BLEService.shared.bleManager.scanAndConnect { (flag) in
+                        if flag {
+                            print("connect success")
+                        } else {
+                            print("connect failed")
+                        }
+                    }
+                } catch {
+                    print("unknow error \(error)")
+                }
+                self.showBioProgress(show: true)
+                self.reconnectBLE(times: times+1)
+                
+            } else {
+                self.isInRestoreBLE = false
+            }
+        }
+    }
+    
+    
+    private let countUnit = 10 //到达这个数就重启
+    private var countNum = 0 //计数器
+    /// 通过定时器计数，当长时间未收到数据，断开情感云
+    @objc
+    private func countToDisconnectWebsocket() {
+        if bleState.isConnected { //蓝牙要连接
+            if bIsWear { //佩戴检测要通过
+                if RelaxManager.shared.isWebSocketConnected
+                    && sessionID != nil
+                    && bIsUseService { //情感云连接，并且session已经生成, 并且服务开启
+                    countNum += 1
+                    
+                    if countNum > 5 {
+                        showBioProgress(show: true)
+                    }
+                    
+                    if countNum > countUnit {
+                        countNum = 0
+                        RelaxManager.shared.clearBLE()
+                        RelaxManager.shared.websocketDisconnect()
+                    }
+                }
+            }
+        }
+    }
+    /// 实时数据等待动画
+    private func showBioProgress(show: Bool) {
+        DispatchQueue.main.async {
+            if show {
+                self.meditationVC?.brainView.showProgress()
+                self.meditationVC?.spectrumView.showProgress()
+                self.meditationVC?.heartView.showProgress()
+                self.meditationVC?.attentionView.showProgress()
+                self.meditationVC?.relaxationView.showProgress()
+                self.meditationVC?.pressureView.showProgress()
+                self.meditationVC?.arousalView.showProgress()
+                self.meditationVC?.coherenceView.showProgress()
+                self.meditationVC?.pleasureView.showProgress()
+                self.meditationVC?.hrvView.showProgress()
+            } else {
+                self.meditationVC?.brainView.dismissMask()
+                self.meditationVC?.spectrumView.dismissMask()
+                self.meditationVC?.heartView.dismissMask()
+                self.meditationVC?.attentionView.dismissMask()
+                self.meditationVC?.relaxationView.dismissMask()
+                self.meditationVC?.pressureView.dismissMask()
+                self.meditationVC?.arousalView.dismissMask()
+                self.meditationVC?.coherenceView.dismissMask()
+                self.meditationVC?.pleasureView.dismissMask()
+                self.meditationVC?.hrvView.dismissMask()
+            }
+        }
+
+    }
 }
 
 
@@ -602,6 +717,33 @@ extension MeditationService {
      */
     func saveToDB() {
         self.meditationToDB()
+        recordToDB()
+    }
+    
+    /*  写入 record 到数据库
+     *
+     *  1. 完善 record model
+     *  2. 写入 record
+     *  3. 写完 record 向上抛出通知
+     */
+    private func recordToDB(completion: EmptyBlock? = nil) {
+        self.record.id = -Int(Date().timeIntervalSince1970)
+        self.record.userID = Preference.userID
+        self.record.lessonID = 1
+        self.record.lessonName = "Unguided Meditation"
+        self.record.courseID = 1
+        self.record.courseName = "UNGUIDED"
+        self.record.courseImage = ""
+        if self.record.startTime == nil {
+            self.record.startTime = self.startDate
+        }
+        if self.record.endTime == nil {
+            self.record.endTime = self.stopDate
+        }
+        record.meditationID = self.meditationModel.id ?? -1
+        RecordRepository.create(self.record.mapperToDBRecord()) { (flag) in
+            completion?()
+        }
     }
 
     private func meditationToDB() {
@@ -620,6 +762,7 @@ extension MeditationService {
             self.meditationModel.attentionMin = reportModel.attentionMin ?? 0
             self.meditationModel.pressureAvg = reportModel.pressureAvg ?? 0
             self.meditationModel.coherenceAvg = reportModel.coherenceAvg ?? 0
+            self.meditationModel.sessionID = sessionID
         } else {
             self.meditationModel.hrAverage = 0
             self.meditationModel.hrMax = 0
@@ -633,6 +776,7 @@ extension MeditationService {
             self.meditationModel.attentionMin = 0
             self.meditationModel.pressureAvg = 0
             self.meditationModel.coherenceAvg = 0
+            self.meditationModel.sessionID = sessionID
         }
 
 

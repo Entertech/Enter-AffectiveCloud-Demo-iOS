@@ -8,6 +8,7 @@
 
 import UIKit
 import EnterBioModuleBLE
+import SafariServices
 
 class DeviceStatusViewController: UIViewController, BLEStateDelegate{
     
@@ -16,7 +17,7 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
     private let connectView = DeviceStatusView()
     private let guideView = GuideView()
     private let wearGuideView = WearGuideView()
-
+    private let connectGuideView = HowToConnectGuideView()
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -34,7 +35,7 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
             
             connectView.state = .suspend(isConnected: true)
             connectView.batteryView.power = ble.battery
-            RelaxManager.shared.setupBLE()
+            //RelaxManager.shared.setupBLE()
             wearGuideView.isHidden = false
         } else {
             if BluetoothContext.shared.manager.state != .poweredOn {
@@ -76,7 +77,7 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
         }
         
         let titleLabel = UILabel()
-        titleLabel.text = "Device Status"
+        titleLabel.text = "设备状态"
         titleLabel.textColor = Colors.textLv1
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         self.view.addSubview(titleLabel)
@@ -101,7 +102,7 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
         connectView.restoreBtn.addTarget(self, action: #selector(restoreAction), for: .touchUpInside)
         connectView.showInfoBtn.addTarget(self, action: #selector(pushAction), for: .touchUpInside)
         
-        guideView.message = "Check out the guide to learn how to use the headband to get a good signal."
+        guideView.message = "查看指南了解如何使用头环以获得良好信号。"
         self.view.addSubview(guideView)
         guideView.isHidden = Preference.deviceStatusGuide
         guideView.snp.makeConstraints {
@@ -137,6 +138,20 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
         wearGuideView.moreInfoBtn.addTarget(self, action: #selector(guideInfoAction), for: .touchUpInside)
         wearGuideView.isHidden = true
         //wearGuideView.sensorCheckView.checkValue = App.lastSensorState
+        
+        self.view.addSubview(connectGuideView)
+        connectGuideView.snp.makeConstraints {
+            $0.top.equalTo(self.connectView.snp.bottom).offset(16)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview().offset(-16)
+        }
+        connectGuideView.layer.cornerRadius = 8
+        connectGuideView.layer.shadowColor = UIColor.black.cgColor
+        connectGuideView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        connectGuideView.layer.shadowRadius = 8
+        connectGuideView.layer.shadowOpacity = 0.1
+        connectGuideView.moreInfoBtn.addTarget(self, action: #selector(connectGuideAction), for: .touchUpInside)
+        connectGuideView.isHidden = true
         
     }
 
@@ -179,9 +194,13 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
             first.isKind(of: SensorCheckViewController.classForCoder()) {
             self.navigationController?.popViewController(animated: true)
         } else {
-            self.navigationController?.popToRootViewController(animated: true)
+            if let first = self.navigationController?.viewControllers.first,
+                first.isKind(of: FlowtimeIntroductionViewController.classForCoder()) {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
-
     }
 
     @objc
@@ -221,7 +240,7 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
             //Logger.shared.upload(event: "Bluetooth connecting", message: "")
         case 3:
             state = .connected(0)
-            RelaxManager.shared.setupBLE()
+            //RelaxManager.shared.setupBLE()
             //Logger.shared.upload(event: "Bluetooth connect complete", message: "")
         default:
             break
@@ -245,6 +264,7 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
             }
             connectView.state = .connecting
             wearGuideView.isHidden = true
+            connectGuideView.isHidden = true
              guideView.isHidden = true
             timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: false, block: { (timer) in
                 BLEService.shared.bleManager.disconnect()
@@ -254,6 +274,7 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
             connectView.state = .suspend(isConnected: true)
             wearGuideView.isHidden = false
             guideView.isHidden = false
+            connectGuideView.isHidden = true
             if let timer = timer {
                 if timer.isValid {
                     timer.invalidate()
@@ -277,13 +298,11 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
                     
                 }
             })
-            
-
-            
         case .disconnected:
             connectView.state = .suspend(isConnected: false)
             wearGuideView.isHidden = true
             guideView.isHidden = true
+            connectGuideView.isHidden = false
             if let timer = timer {
                 if timer.isValid {
                     timer.invalidate()
@@ -302,5 +321,19 @@ class DeviceStatusViewController: UIViewController, BLEStateDelegate{
     func wearListen(wear: UInt8) {
         //wearGuideView.sensorCheckView.checkValue = wear
         //App.lastSensorState = wear
+    }
+    
+    @objc
+    func connectGuideAction() {
+        let urlStr = FTRemoteConfig.shared.getConfig(key: .cannotConnect)!
+        presentSafari(urlStr)
+    }
+    
+    /// Safari 显示网页
+    private func presentSafari(_ defaultKey: String) {
+        if let url = URL(string: defaultKey) {
+            let sf = SFSafariViewController(url: url)
+            present(sf, animated: true, completion: nil)
+        }
     }
 }
