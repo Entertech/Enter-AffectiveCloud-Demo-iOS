@@ -74,6 +74,7 @@ class Statistics2ViewController: UIViewController {
         self.reportVC.askForStartsView.laterBtn.addTarget(self, action: #selector(startsLater), for: .touchUpInside)
         self.reportVC.askForStartsView.likeBtn.addTarget(self, action: #selector(startsLike), for: .touchUpInside)
         self.shareCondition()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {

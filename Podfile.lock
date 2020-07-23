@@ -137,7 +137,7 @@ CHECKOUT OPTIONS:
     :commit: 6b9312c8a2e6c43cf9be7eb3e5f0b24232e5da85
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
-    :commit: 9e3b025b77f245ac9dd9c7616c2ce618b831d1d7
+    :commit: f3452a8a571929fdae4a3588f9581da48e42e624
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
     :commit: 9730ef1c6305c2edf5052762e4d152c7dd21a771

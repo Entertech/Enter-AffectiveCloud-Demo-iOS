@@ -72,6 +72,7 @@ class HRReportViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = item
         self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

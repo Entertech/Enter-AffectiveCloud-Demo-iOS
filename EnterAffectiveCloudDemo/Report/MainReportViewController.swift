@@ -63,6 +63,7 @@ class MainReportViewController: UIViewController {
                         Colors.yellowPrimary]
         view3.lineNumColor = Colors.yellow2
         view3.numberView.stateTextColor = Colors.yellow2
+        view3.numberView.language = .ch
         
         head4.image = #imageLiteral(resourceName: "icon_report_hrv")
         head4.titleText = "心率"
@@ -72,6 +73,7 @@ class MainReportViewController: UIViewController {
                         Colors.redPrimary]
         view4.lineNumColor = Colors.red2
         view4.numberView.stateTextColor = Colors.red2
+        view4.numberView.language = .ch
         
         head5.image = #imageLiteral(resourceName: "icon_report_relaxtion")
         head5.titleText = "放松度和注意力"
@@ -85,6 +87,8 @@ class MainReportViewController: UIViewController {
         view5.attentionStateTextColor = Colors.green2
         view5.relaxationCircleView.text = "放松度"
         view5.attentionCircleView.text = "注意力"
+        view5.attentionNumberView.language = .ch
+        view5.relaxationNumberView.language = .ch
         
         head6.image = #imageLiteral(resourceName: "icon_report_stress")
         head6.titleText = "压力值"
@@ -92,6 +96,7 @@ class MainReportViewController: UIViewController {
         view6.stateColor = Colors.red5
         view6.circleView.bgColor = Colors.lineLight
         view6.stateTextColor = Colors.red2
+        view6.language = .ch
         
         self.view.backgroundColor = Colors.bg2
         

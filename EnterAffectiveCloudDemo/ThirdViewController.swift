@@ -36,7 +36,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let sectionList = ["设置","","支持",""]
     let cellIconList = [[#imageLiteral(resourceName: "icon_me_reminder"),#imageLiteral(resourceName: "icon_apple_health")], [#imageLiteral(resourceName: "icon_me_appstore")],[#imageLiteral(resourceName: "icon_me_fb"),#imageLiteral(resourceName: "Stockholm-help"), #imageLiteral(resourceName: "Stockholm-Terms of Services"), #imageLiteral(resourceName: "Stockholm-Privacy")]]
-    let cellTitlelist = [["提醒", "Apple健康"],["给我们评价"],["反馈问题","帮助中心","使用条款","隐私政策"], ["退出登陆"]]
+    let cellTitlelist = [["提醒", "Apple健康"],["给我们评价"],["反馈问题","帮助中心","使用条款","隐私政策"], ["退出登录"]]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         sectionList.count
@@ -125,8 +125,21 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
             
         case (3, 0):
-            TokenHandle.shared.logout()
-            self.tabBarController?.dismiss(animated: true, completion: nil)
+            let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            let action =  UIAlertAction(title: "确定", style: UIAlertAction.Style.default) { (action) in
+                TokenHandle.shared.logout()
+                self.tabBarController?.dismiss(animated: true, completion: nil)
+            }
+            var alert: UIAlertController?
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                alert = UIAlertController.init(title: "提示", message: "退出不会删除数据。你依然可以使用此账号登录。", preferredStyle: .actionSheet)
+            } else {
+                alert = UIAlertController.init(title: "提示", message: "退出不会删除数据。你依然可以使用此账号登录。", preferredStyle: .actionSheet)
+            }
+            alert?.addAction(cancel)
+            alert?.addAction(action)
+            self.present(alert!, animated: true, completion: nil)
+
         default:
             presentSafari(FTRemoteConfig.shared.getConfig(key: .help)!)
         }
@@ -162,7 +175,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let facebookIcon = UIImageView()
         switch userModel.socialType {
         case SocialType.wechat:
-            facebookIcon.image = #imageLiteral(resourceName: "icon_auth_wechat")
+            facebookIcon.image = #imageLiteral(resourceName: "icon_auth_wechat-1")
         case SocialType.apple:
             facebookIcon.image = #imageLiteral(resourceName: "icon_apple")
         default:
