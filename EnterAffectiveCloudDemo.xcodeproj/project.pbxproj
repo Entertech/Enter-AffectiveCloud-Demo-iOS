@@ -63,6 +63,7 @@
 		FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B232381174C004E79B4 /* DBError.swift */; };
 		FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B242381174C004E79B4 /* MeditationRepository.swift */; };
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
+		FABC05E724CABE31000C16C9 /* firmware_1.1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = FABC05E624CABE31000C16C9 /* firmware_1.1.0.zip */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
 		FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BEE23CC5B7C00A92B0B /* Config.plist */; };
@@ -149,6 +150,7 @@
 		FAAE3B232381174C004E79B4 /* DBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		FAAE3B242381174C004E79B4 /* MeditationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
+		FABC05E624CABE31000C16C9 /* firmware_1.1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = firmware_1.1.0.zip; sourceTree = "<group>"; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
 		FAF16BEE23CC5B7C00A92B0B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FABC05E624CABE31000C16C9 /* firmware_1.1.0.zip */,
 				FAAE3B1D2381174C004E79B4 /* Database */,
 				FAF16BF623CC76D400A92B0B /* Report */,
 				FAF16BEE23CC5B7C00A92B0B /* Config.plist */,
@@ -527,6 +530,7 @@
 			files = (
 				FAF16C1E23CC76D400A92B0B /* BrainwaveViewController.xib in Resources */,
 				FAF16C2023CC76D400A92B0B /* RAndAViewController.xib in Resources */,
+				FABC05E724CABE31000C16C9 /* firmware_1.1.0.zip in Resources */,
 				FAF16C1A23CC76D400A92B0B /* HRReportViewController.xib in Resources */,
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
@@ -801,7 +805,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -811,9 +815,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.affectiveclouddemo;
 				PRODUCT_NAME = "心流";
-				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_dev;
+				PROVISIONING_PROFILE_SPECIFIER = HeartFlowDemo_dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -826,7 +830,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -836,9 +840,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.EnterAffectiveCloudDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.entertech.affectiveclouddemo;
 				PRODUCT_NAME = "心流";
-				PROVISIONING_PROFILE_SPECIFIER = HeartFlow_App;
+				PROVISIONING_PROFILE_SPECIFIER = HeartFlowDemo_app;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

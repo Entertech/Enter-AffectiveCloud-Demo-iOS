@@ -23,6 +23,7 @@ class HRReportViewController: UIViewController {
         aboutView.style = .hr
         aboutView.icon = .red
         aboutView.text = "通常，心率的变化是无序的。 通过长期训练，可以在冥想过程中以一定的周期性节律看到心率。 此时，呼吸和心跳达到协调状态。"
+        hrView.uploadCycle = UInt(Preference.kCloudServiceUploadCycle)
         hrView.setDataFromModel(hr: service?.fileModel.heartRate)
         if let avg = service?.fileModel.heartRateAvg {
             hrView.hrAvg = avg

@@ -21,6 +21,7 @@ class RelaxManager: BLEBioModuleDataSource {
     let ble = BLEService.shared.bleManager
     private init() {
         ble.dataSource = self
+        ble.uploadCycle = 3
     }
     
     var isWebSocketConnected: Bool {
@@ -72,7 +73,7 @@ class RelaxManager: BLEBioModuleDataSource {
     // start cloud services. such as .EEG and .HeartRate
     func startCloudService() {
         // 开启生物信号
-        self.client?.initBiodataServices(services: [.EEG, .HeartRate])
+        self.client?.initBiodataServices(services: [.EEG, .HeartRate], uploadCycle: UInt(Preference.kCloudServiceUploadCycle))
         
 
         // 开启情感数据
@@ -81,7 +82,7 @@ class RelaxManager: BLEBioModuleDataSource {
     }
     
     func bioDataSubscribe() {
-        self.client?.subscribeBiodataServices(services: [.eeg_all, .hr_all])
+        self.client?.subscribeBiodataServices(services: [.eeg, .hr])
     }
     
     func affectiveDataSubscribe() {

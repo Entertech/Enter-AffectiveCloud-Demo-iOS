@@ -19,8 +19,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.white
         tableView.backgroundColor = .white
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.contentInsetAdjustmentBehavior = .never
         //tableView.contentInset = UIEdgeInsets(top: CGFloat(tableviewOffset), left: 0, bottom: 0, right: 0)

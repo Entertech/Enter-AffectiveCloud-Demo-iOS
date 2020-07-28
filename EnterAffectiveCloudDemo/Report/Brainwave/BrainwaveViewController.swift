@@ -22,6 +22,7 @@ class BrainwaveViewController: UIViewController {
         aboutView.icon = .blue
         aboutView.text = "脑电波各频率比的变化反映了冥想时精神状态的变化。"
         aboutView.style = .brain
+        brainView.uploadCycle = UInt(Preference.kCloudServiceUploadCycle)
         if let alpha = service?.fileModel.alphaArray,  let beta = service?.fileModel.betaArray, let theta = service?.fileModel.thetaArray, let delta = service?.fileModel.deltaArray, let gama = service?.fileModel.gamaArray {
             brainView.setDataFromModel(gama: gama, delta: delta, theta: theta, alpha: alpha, beta: beta)
         }

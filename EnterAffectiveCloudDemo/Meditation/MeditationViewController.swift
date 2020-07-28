@@ -117,8 +117,10 @@ class MeditationViewController: UIViewController {
             hrvView.showTip()   
             isFirstTime = false
             
+            hrvView.uploadCycle = UInt(Preference.kCloudServiceUploadCycle)
             hrvView.observe()
             hrvView.cornerRadius = 8
+        
         }
         NotificationName.kFinishWithCloudServieDB.observe(sender: self, selector: #selector(self.finishWithCloudServiceHandle(_:)))
         if BLEService.shared.bleManager.state.isConnected {

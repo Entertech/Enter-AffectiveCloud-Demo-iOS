@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Preference.FLOWTIME_WS = keyValue?.object(forKey: "WebSocketAddress") as! String
         Preference.kCloudServiceAppKey = keyValue?.object(forKey: "AppKey") as! String
         Preference.kCloudServiceAppSecret = keyValue?.object(forKey: "AppSecret") as! String
-        
+        Preference.kCloudServiceUploadCycle = keyValue?.object(forKey: "UploadCycle") as! Int
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.custom)
         SVProgressHUD.setMaximumDismissTimeInterval(3.0)

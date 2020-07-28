@@ -22,6 +22,7 @@ class PressureReportViewController: UIViewController {
         aboutView.style = .pressure
         aboutView.icon = .red
         aboutView.text = "深呼吸训练可以有效地减轻压力，长期冥想训练可以提高压力的适应能力。\n\n压力和松弛图在物理和生理水平上反映您的松弛状态。"
+        pressureView.uploadCycle = UInt(Preference.kCloudServiceUploadCycle)
         pressureView.setDataFromModel(pressure: service?.fileModel.pressure)
         if let avg = service?.fileModel.pressureAvg {
             pressureView.pressureAvg = avg
