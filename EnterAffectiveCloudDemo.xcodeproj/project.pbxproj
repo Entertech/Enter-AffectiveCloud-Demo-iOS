@@ -39,14 +39,12 @@
 		FA3ADDAA246BE97900ADA921 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDA9246BE97900ADA921 /* BaseViewController.swift */; };
 		FA3ADDB8247262E900ADA921 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3ADDB5247262E900ADA921 /* libmtasdk.a */; };
 		FA3ADDBD2473AB9400ADA921 /* Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDBC2473AB9400ADA921 /* Hook.swift */; };
-		FA3ADDC02473BC4400ADA921 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDBF2473BC4400ADA921 /* RemoteConfig.swift */; };
 		FA3ADDC42473D0EB00ADA921 /* FileWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDC32473D0EB00ADA921 /* FileWebService.swift */; };
 		FA3ADDC62473D14700ADA921 /* FileWebProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDC52473D14700ADA921 /* FileWebProtocol.swift */; };
 		FA3ADDC92473E24700ADA921 /* FirmwareUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDC72473E24700ADA921 /* FirmwareUpdateViewController.xib */; };
 		FA3ADDCA2473E24700ADA921 /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDC82473E24700ADA921 /* FirmwareUpdateViewController.swift */; };
 		FA3ADDCF2473E3F900ADA921 /* bg_animation_premium.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDCD2473E3F900ADA921 /* bg_animation_premium.json */; };
 		FA3ADDD02473E3F900ADA921 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADDCE2473E3F900ADA921 /* loading.json */; };
-		FA3ADDD22474CEAD00ADA921 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ADDD12474CEAD00ADA921 /* Downloader.swift */; };
 		FA3B17522381393300D5192D /* sample.report in Resources */ = {isa = PBXBuildFile; fileRef = FA3B17512381393300D5192D /* sample.report */; };
 		FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12C92396620500E96B02 /* WebSocket.plist */; };
 		FA41B59724AACD1F009458E4 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59224AACD1F009458E4 /* SyncManager.swift */; };
@@ -55,7 +53,6 @@
 		FA41B59A24AACD1F009458E4 /* SyncRecordEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59524AACD1F009458E4 /* SyncRecordEvent.swift */; };
 		FA41B59D24AAD110009458E4 /* DBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59C24AAD110009458E4 /* DBRecord.swift */; };
 		FA41B59F24AAD39D009458E4 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59E24AAD39D009458E4 /* RecordModel.swift */; };
-		FA4C8A3124AADC2C0046065B /* Uploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A3024AADC2B0046065B /* Uploader.swift */; };
 		FA4C8A3F24AB1DA10046065B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A3D24AB1DA10046065B /* LoginViewController.swift */; };
 		FA4C8A4024AB1DA10046065B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8A3E24AB1DA10046065B /* LoginViewController.xib */; };
 		FA4C8A4324AB281A0046065B /* FlowtimeIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A4124AB281A0046065B /* FlowtimeIntroductionViewController.swift */; };
@@ -137,7 +134,6 @@
 		FA84F2942463E43100D480A6 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = FA84F2922463E43100D480A6 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA84F2972463E43100D480A6 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA84F2902463E43100D480A6 /* Networking.framework */; };
 		FA84F2982463E43100D480A6 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA84F2902463E43100D480A6 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FA84F2A22463E68E00D480A6 /* RxSwift+HandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2A12463E68E00D480A6 /* RxSwift+HandyJSON.swift */; };
 		FA84F2AA2463E9AC00D480A6 /* LogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2A92463E9AC00D480A6 /* LogModel.swift */; };
 		FA84F2AC2463EAD900D480A6 /* LogTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2AB2463EAD900D480A6 /* LogTokenModel.swift */; };
 		FA84F2B12463EBBC00D480A6 /* LogTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2AD2463EBBC00D480A6 /* LogTokenRequest.swift */; };
@@ -145,8 +141,6 @@
 		FA84F2B92463EBF200D480A6 /* LogTokenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2B52463EBF200D480A6 /* LogTokenProtocol.swift */; };
 		FA84F2BB2463EBF200D480A6 /* LogProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2B72463EBF200D480A6 /* LogProtocol.swift */; };
 		FA84F2C3246A367800D480A6 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C2246A367800D480A6 /* GuideView.swift */; };
-		FA84F2C5246A3B5100D480A6 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */; };
-		FA84F2C7246A3BB600D480A6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2C6246A3BB600D480A6 /* TokenManager.swift */; };
 		FA84F2CD246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA84F2C9246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib */; };
 		FA84F2CF246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84F2CB246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift */; };
 		FA84F2D2246A831200D480A6 /* checking.json in Resources */ = {isa = PBXBuildFile; fileRef = FA84F2D1246A831200D480A6 /* checking.json */; };
@@ -157,6 +151,13 @@
 		FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88F9B623D438A8008CD669 /* Pad.storyboard */; };
 		FA96A09F24B6B56D00C6A670 /* Boat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FA96A09E24B6B56D00C6A670 /* Boat.mp4 */; };
 		FA96A0A124B704F800C6A670 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96A0A024B704F800C6A670 /* LoginService.swift */; };
+		FA9A241824D10852009EDE2D /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A241724D10852009EDE2D /* RemoteConfig.swift */; };
+		FA9A241F24D11CE9009EDE2D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A241924D11CE8009EDE2D /* Downloader.swift */; };
+		FA9A242024D11CE9009EDE2D /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A241A24D11CE8009EDE2D /* BaseUrl.swift */; };
+		FA9A242124D11CE9009EDE2D /* ArchiveToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A241B24D11CE9009EDE2D /* ArchiveToken.swift */; };
+		FA9A242224D11CE9009EDE2D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A241C24D11CE9009EDE2D /* TokenManager.swift */; };
+		FA9A242324D11CE9009EDE2D /* RxSwift+HandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A241D24D11CE9009EDE2D /* RxSwift+HandyJSON.swift */; };
+		FA9A242424D11CE9009EDE2D /* Uploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A241E24D11CE9009EDE2D /* Uploader.swift */; };
 		FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1E2381174C004E79B4 /* DBOperation.swift */; };
 		FAAE3B272381174C004E79B4 /* DBMeditation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B202381174C004E79B4 /* DBMeditation.swift */; };
 		FAAE3B282381174C004E79B4 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B212381174C004E79B4 /* BaseRepository.swift */; };
@@ -167,7 +168,6 @@
 		FAB44AFE24A8432F00B321AA /* AuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44AFD24A8432F00B321AA /* AuthProtocol.swift */; };
 		FAB44B0024A843F500B321AA /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44AFF24A843F500B321AA /* AuthRequest.swift */; };
 		FAB44B0224A8445100B321AA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0124A8445100B321AA /* AuthModel.swift */; };
-		FAB44B0424A8484A00B321AA /* ArchiveToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0324A8484A00B321AA /* ArchiveToken.swift */; };
 		FAB44B1124A869C500B321AA /* CollectionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0524A869C400B321AA /* CollectionsProtocol.swift */; };
 		FAB44B1224A869C500B321AA /* DownloadFileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0624A869C400B321AA /* DownloadFileProtocol.swift */; };
 		FAB44B1324A869C500B321AA /* FirmwareUpdateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB44B0724A869C400B321AA /* FirmwareUpdateProtocol.swift */; };
@@ -292,14 +292,12 @@
 		FA3ADDB7247262E900ADA921 /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
 		FA3ADDBB2472640300ADA921 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		FA3ADDBC2473AB9400ADA921 /* Hook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hook.swift; sourceTree = "<group>"; };
-		FA3ADDBF2473BC4400ADA921 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		FA3ADDC32473D0EB00ADA921 /* FileWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWebService.swift; sourceTree = "<group>"; };
 		FA3ADDC52473D14700ADA921 /* FileWebProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWebProtocol.swift; sourceTree = "<group>"; };
 		FA3ADDC72473E24700ADA921 /* FirmwareUpdateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirmwareUpdateViewController.xib; sourceTree = "<group>"; };
 		FA3ADDC82473E24700ADA921 /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
 		FA3ADDCD2473E3F900ADA921 /* bg_animation_premium.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bg_animation_premium.json; sourceTree = "<group>"; };
 		FA3ADDCE2473E3F900ADA921 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
-		FA3ADDD12474CEAD00ADA921 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		FA3B17512381393300D5192D /* sample.report */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.report; sourceTree = "<group>"; };
 		FA3D12C92396620500E96B02 /* WebSocket.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WebSocket.plist; sourceTree = "<group>"; };
 		FA41B59224AACD1F009458E4 /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
@@ -308,7 +306,6 @@
 		FA41B59524AACD1F009458E4 /* SyncRecordEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncRecordEvent.swift; sourceTree = "<group>"; };
 		FA41B59C24AAD110009458E4 /* DBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRecord.swift; sourceTree = "<group>"; };
 		FA41B59E24AAD39D009458E4 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
-		FA4C8A3024AADC2B0046065B /* Uploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uploader.swift; sourceTree = "<group>"; };
 		FA4C8A3D24AB1DA10046065B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA4C8A3E24AB1DA10046065B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		FA4C8A4124AB281A0046065B /* FlowtimeIntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowtimeIntroductionViewController.swift; sourceTree = "<group>"; };
@@ -393,7 +390,6 @@
 		FA84F2902463E43100D480A6 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA84F2922463E43100D480A6 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		FA84F2932463E43100D480A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA84F2A12463E68E00D480A6 /* RxSwift+HandyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+HandyJSON.swift"; sourceTree = "<group>"; };
 		FA84F2A92463E9AC00D480A6 /* LogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogModel.swift; sourceTree = "<group>"; };
 		FA84F2AB2463EAD900D480A6 /* LogTokenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTokenModel.swift; sourceTree = "<group>"; };
 		FA84F2AD2463EBBC00D480A6 /* LogTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTokenRequest.swift; sourceTree = "<group>"; };
@@ -401,8 +397,6 @@
 		FA84F2B52463EBF200D480A6 /* LogTokenProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTokenProtocol.swift; sourceTree = "<group>"; };
 		FA84F2B72463EBF200D480A6 /* LogProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogProtocol.swift; sourceTree = "<group>"; };
 		FA84F2C2246A367800D480A6 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
-		FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
-		FA84F2C6246A3BB600D480A6 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		FA84F2C9246A3DFD00D480A6 /* FlowtimeConnectTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowtimeConnectTipViewController.xib; sourceTree = "<group>"; };
 		FA84F2CB246A3DFD00D480A6 /* FlowtimeConnectTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowtimeConnectTipViewController.swift; sourceTree = "<group>"; };
 		FA84F2D1246A831200D480A6 /* checking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checking.json; sourceTree = "<group>"; };
@@ -414,6 +408,13 @@
 		FA96A09E24B6B56D00C6A670 /* Boat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boat.mp4; sourceTree = "<group>"; };
 		FA96A0A024B704F800C6A670 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		FA96A0A524BBF8ED00C6A670 /* 心流.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "心流.entitlements"; sourceTree = "<group>"; };
+		FA9A241724D10852009EDE2D /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
+		FA9A241924D11CE8009EDE2D /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		FA9A241A24D11CE8009EDE2D /* BaseUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
+		FA9A241B24D11CE9009EDE2D /* ArchiveToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveToken.swift; sourceTree = "<group>"; };
+		FA9A241C24D11CE9009EDE2D /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		FA9A241D24D11CE9009EDE2D /* RxSwift+HandyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+HandyJSON.swift"; sourceTree = "<group>"; };
+		FA9A241E24D11CE9009EDE2D /* Uploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uploader.swift; sourceTree = "<group>"; };
 		FAAE3B1E2381174C004E79B4 /* DBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBOperation.swift; sourceTree = "<group>"; };
 		FAAE3B202381174C004E79B4 /* DBMeditation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMeditation.swift; sourceTree = "<group>"; };
 		FAAE3B212381174C004E79B4 /* BaseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
@@ -424,7 +425,6 @@
 		FAB44AFD24A8432F00B321AA /* AuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocol.swift; sourceTree = "<group>"; };
 		FAB44AFF24A843F500B321AA /* AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
 		FAB44B0124A8445100B321AA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
-		FAB44B0324A8484A00B321AA /* ArchiveToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveToken.swift; sourceTree = "<group>"; };
 		FAB44B0524A869C400B321AA /* CollectionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsProtocol.swift; sourceTree = "<group>"; };
 		FAB44B0624A869C400B321AA /* DownloadFileProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFileProtocol.swift; sourceTree = "<group>"; };
 		FAB44B0724A869C400B321AA /* FirmwareUpdateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateProtocol.swift; sourceTree = "<group>"; };
@@ -645,7 +645,7 @@
 		FA3ADDBE2473BC1F00ADA921 /* Remote Config */ = {
 			isa = PBXGroup;
 			children = (
-				FA3ADDBF2473BC4400ADA921 /* RemoteConfig.swift */,
+				FA9A241724D10852009EDE2D /* RemoteConfig.swift */,
 			);
 			path = "Remote Config";
 			sourceTree = "<group>";
@@ -987,12 +987,12 @@
 		FA84F2A02463E65D00D480A6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				FA84F2A12463E68E00D480A6 /* RxSwift+HandyJSON.swift */,
-				FA84F2C4246A3B5100D480A6 /* BaseUrl.swift */,
-				FA84F2C6246A3BB600D480A6 /* TokenManager.swift */,
-				FA3ADDD12474CEAD00ADA921 /* Downloader.swift */,
-				FAB44B0324A8484A00B321AA /* ArchiveToken.swift */,
-				FA4C8A3024AADC2B0046065B /* Uploader.swift */,
+				FA9A241B24D11CE9009EDE2D /* ArchiveToken.swift */,
+				FA9A241A24D11CE8009EDE2D /* BaseUrl.swift */,
+				FA9A241924D11CE8009EDE2D /* Downloader.swift */,
+				FA9A241D24D11CE9009EDE2D /* RxSwift+HandyJSON.swift */,
+				FA9A241C24D11CE9009EDE2D /* TokenManager.swift */,
+				FA9A241E24D11CE9009EDE2D /* Uploader.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1389,13 +1389,13 @@
 				FA534B9A24AF0638008B2E45 /* BrainwaveViewController.swift in Sources */,
 				FA4C8D2724AC5EAE0046065B /* ChildScrollView.swift in Sources */,
 				FAB44B8A24A8766E00B321AA /* CheckSensorViewController.swift in Sources */,
-				FA3ADDC02473BC4400ADA921 /* RemoteConfig.swift in Sources */,
 				FA4C8A4324AB281A0046065B /* FlowtimeIntroductionViewController.swift in Sources */,
 				FA534B9424AF0638008B2E45 /* HRVReportViewController.swift in Sources */,
 				FABC05AD24C58D01000C16C9 /* TimerViewController.swift in Sources */,
 				FA534B5B24AECEDA008B2E45 /* XibExtension.swift in Sources */,
 				FAB44B8424A8766E00B321AA /* TimerCustomView.swift in Sources */,
 				FA534B9824AF0638008B2E45 /* ReportModel.swift in Sources */,
+				FA9A241824D10852009EDE2D /* RemoteConfig.swift in Sources */,
 				FAB44B8924A8766E00B321AA /* WakeUpRingsViewController.swift in Sources */,
 				FAB44B8E24A878F000B321AA /* PickerView.swift in Sources */,
 				FA3ADDBD2473AB9400ADA921 /* Hook.swift in Sources */,
@@ -1417,7 +1417,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB44B0424A8484A00B321AA /* ArchiveToken.swift in Sources */,
 				FAB44B7624A86C7300B321AA /* UserModel.swift in Sources */,
 				FAB44B7824A86C7300B321AA /* UserStreakModel.swift in Sources */,
 				FA84F2B92463EBF200D480A6 /* LogTokenProtocol.swift in Sources */,
@@ -1432,14 +1431,15 @@
 				FAB44B3124A86A6E00B321AA /* AuthorRequest.swift in Sources */,
 				FAB44B6D24A86C5D00B321AA /* ErrorModel.swift in Sources */,
 				FA84F2AA2463E9AC00D480A6 /* LogModel.swift in Sources */,
+				FA9A242124D11CE9009EDE2D /* ArchiveToken.swift in Sources */,
 				FAB44B2C24A86A6E00B321AA /* CourseRequest.swift in Sources */,
 				FAB44B1C24A869C500B321AA /* LessonsProtocol.swift in Sources */,
 				FAB44B2B24A86A6E00B321AA /* CollectionRequest.swift in Sources */,
 				FAB44B2F24A86A6E00B321AA /* UserLessonRequest.swift in Sources */,
+				FA9A242324D11CE9009EDE2D /* RxSwift+HandyJSON.swift in Sources */,
 				FAB44B3224A86A6E00B321AA /* AwsResourceUrlRequest.swift in Sources */,
-				FA3ADDD22474CEAD00ADA921 /* Downloader.swift in Sources */,
 				FAB44B1924A869C500B321AA /* CoursesProtocol.swift in Sources */,
-				FA84F2A22463E68E00D480A6 /* RxSwift+HandyJSON.swift in Sources */,
+				FA9A242224D11CE9009EDE2D /* TokenManager.swift in Sources */,
 				FA84F2BB2463EBF200D480A6 /* LogProtocol.swift in Sources */,
 				FAB44B1524A869C500B321AA /* AwsResourceUrlProtocol.swift in Sources */,
 				FAB44B2824A86A6E00B321AA /* UserCourseRequest.swift in Sources */,
@@ -1456,18 +1456,18 @@
 				FAB44AFE24A8432F00B321AA /* AuthProtocol.swift in Sources */,
 				FAB44B1B24A869C500B321AA /* UserStreakProtocol.swift in Sources */,
 				FA3ADDC62473D14700ADA921 /* FileWebProtocol.swift in Sources */,
-				FA4C8A3124AADC2C0046065B /* Uploader.swift in Sources */,
-				FA84F2C7246A3BB600D480A6 /* TokenManager.swift in Sources */,
+				FA9A242424D11CE9009EDE2D /* Uploader.swift in Sources */,
 				FAB44B6924A86C5D00B321AA /* AuthorModel.swift in Sources */,
 				FA84F2B12463EBBC00D480A6 /* LogTokenRequest.swift in Sources */,
 				FAB44B6C24A86C5D00B321AA /* CourseModel.swift in Sources */,
 				FAB44B6E24A86C5D00B321AA /* FileDownload.swift in Sources */,
-				FA84F2C5246A3B5100D480A6 /* BaseUrl.swift in Sources */,
 				FAB44B1624A869C500B321AA /* UserCourses.swift in Sources */,
 				FAB44B2D24A86A6E00B321AA /* UserRequest.swift in Sources */,
 				FA84F2B42463EBBC00D480A6 /* LogSendRequest.swift in Sources */,
+				FA9A241F24D11CE9009EDE2D /* Downloader.swift in Sources */,
 				FAB44B1724A869C500B321AA /* UserLessons.swift in Sources */,
 				FAB44B7924A86C7300B321AA /* UserLessonModel.swift in Sources */,
+				FA9A242024D11CE9009EDE2D /* BaseUrl.swift in Sources */,
 				FAB44B6B24A86C5D00B321AA /* CollectionsModel.swift in Sources */,
 				FAB44B6A24A86C5D00B321AA /* LessonModel.swift in Sources */,
 				FAB44B0224A8445100B321AA /* AuthModel.swift in Sources */,
