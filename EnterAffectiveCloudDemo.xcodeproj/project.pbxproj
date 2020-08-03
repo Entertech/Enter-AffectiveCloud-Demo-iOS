@@ -54,6 +54,7 @@
 		FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC98237E47C700518D00 /* SoundPlayer.swift */; };
 		FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC9A237E493B00518D00 /* FTFileManager.swift */; };
 		FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88F9B623D438A8008CD669 /* Pad.storyboard */; };
+		FA9A248124D3B9B8009EDE2D /* dfutest0730-1.zip in Resources */ = {isa = PBXBuildFile; fileRef = FA9A248024D3B9B8009EDE2D /* dfutest0730-1.zip */; };
 		FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1923800515004E79B4 /* ReportViewController.swift */; };
 		FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAE3B1A23800515004E79B4 /* ReportViewController.xib */; };
 		FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1E2381174C004E79B4 /* DBOperation.swift */; };
@@ -63,7 +64,6 @@
 		FAAE3B2A2381174C004E79B4 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B232381174C004E79B4 /* DBError.swift */; };
 		FAAE3B2B2381174C004E79B4 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B242381174C004E79B4 /* MeditationRepository.swift */; };
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
-		FABC05E724CABE31000C16C9 /* firmware_1.1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = FABC05E624CABE31000C16C9 /* firmware_1.1.0.zip */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
 		FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BEE23CC5B7C00A92B0B /* Config.plist */; };
@@ -141,6 +141,7 @@
 		FA68EC98237E47C700518D00 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		FA68EC9A237E493B00518D00 /* FTFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTFileManager.swift; sourceTree = "<group>"; };
 		FA88F9B623D438A8008CD669 /* Pad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pad.storyboard; sourceTree = "<group>"; };
+		FA9A248024D3B9B8009EDE2D /* dfutest0730-1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "dfutest0730-1.zip"; sourceTree = "<group>"; };
 		FAAE3B1923800515004E79B4 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		FAAE3B1A23800515004E79B4 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		FAAE3B1E2381174C004E79B4 /* DBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBOperation.swift; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 		FAAE3B232381174C004E79B4 /* DBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		FAAE3B242381174C004E79B4 /* MeditationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
-		FABC05E624CABE31000C16C9 /* firmware_1.1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = firmware_1.1.0.zip; sourceTree = "<group>"; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
 		FAF16BEE23CC5B7C00A92B0B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
-				FABC05E624CABE31000C16C9 /* firmware_1.1.0.zip */,
+				FA9A248024D3B9B8009EDE2D /* dfutest0730-1.zip */,
 				FAAE3B1D2381174C004E79B4 /* Database */,
 				FAF16BF623CC76D400A92B0B /* Report */,
 				FAF16BEE23CC5B7C00A92B0B /* Config.plist */,
@@ -530,11 +530,11 @@
 			files = (
 				FAF16C1E23CC76D400A92B0B /* BrainwaveViewController.xib in Resources */,
 				FAF16C2023CC76D400A92B0B /* RAndAViewController.xib in Resources */,
-				FABC05E724CABE31000C16C9 /* firmware_1.1.0.zip in Resources */,
 				FAF16C1A23CC76D400A92B0B /* HRReportViewController.xib in Resources */,
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
+				FA9A248124D3B9B8009EDE2D /* dfutest0730-1.zip in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */,
 				FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */,
