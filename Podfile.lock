@@ -16,14 +16,14 @@ PODS:
     - RxSwift
     - SnapKit
   - EnterBioModuleBLE (1.2.8):
-    - FixedDFUService
+    - FixedDFUService (= 4.7.2)
     - PromiseKit
     - RxBluetoothKit
   - EnterBioModuleBLEUI (1.2.8):
     - EnterBioModuleBLE (= 1.2.8)
     - SnapKit
-  - FixedDFUService (4.1.2):
-    - Zip (~> 1.0)
+  - FixedDFUService (4.7.2):
+    - ZIPFoundation (= 0.9.11)
   - GzipSwift (5.1.1)
   - HandyJSON (5.0.2)
   - Moya/Core (14.0.0):
@@ -52,7 +52,7 @@ PODS:
   - Starscream (3.1.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
-  - Zip (1.1.0)
+  - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
   - EnterAffectiveCloud (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`, branch `develop_V2`)
@@ -64,7 +64,7 @@ DEPENDENCIES:
   - SVProgressHUD
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - Charts
     - FixedDFUService
@@ -80,7 +80,7 @@ SPEC REPOS:
     - Starscream
     - SVProgressHUD
     - SwiftyJSON
-    - Zip
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   EnterAffectiveCloud:
@@ -102,7 +102,7 @@ CHECKOUT OPTIONS:
     :commit: e69dfe89a7e1e39e16d6f0743a0a7d1250330eb0
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
-    :commit: c3599e05bf5c2266b9c8ac425ba5dfdfcc94a1ac
+    :commit: 7a465d2b633dc1a9b3e5ffce2b7393b0df6ada45
     :git: https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK.git
   EnterBioModuleBLEUI:
     :commit: ce0d39245f31e874a0874190d17424495948e138
@@ -113,9 +113,9 @@ SPEC CHECKSUMS:
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   EnterAffectiveCloud: 449ca0bf474a0ac1d0ed32f6ad430e3b070302e5
   EnterAffectiveCloudUI: aaf48df4c5d516b454c3825867094e6bfb89fea3
-  EnterBioModuleBLE: 8d2c0b7f8733fb43ae23ea36aff0590e13981ba2
+  EnterBioModuleBLE: 52f4de7411b121a9ac92963d3a95edbdfbae7d32
   EnterBioModuleBLEUI: 8f3ccea20af4700eab4baa6d0109714530a1208c
-  FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
+  FixedDFUService: a7768eab3e7a2d7c712f5aca4c7de03c6ff6fc93
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
@@ -128,8 +128,8 @@ SPEC CHECKSUMS:
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  Zip: 8877eede3dda76bcac281225c20e71c25270774c
+  ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 29c965e64b61ee572038b983be0cd82bddcb98d3
+PODFILE CHECKSUM: 3237750837e79c46db025a7dad1cd37443b90d33
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.3
