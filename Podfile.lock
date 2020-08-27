@@ -92,7 +92,7 @@ DEPENDENCIES:
   - WechatOpenSDK
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - Bugly
     - Charts
@@ -178,6 +178,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: bb76a9e7cff4a34ec7319c068622afe5bc18dc07
+PODFILE CHECKSUM: 97fccb4e69e761317336a38d8af32bd0184ad5a1
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.3

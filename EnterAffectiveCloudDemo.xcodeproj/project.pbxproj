@@ -53,6 +53,7 @@
 		FA41B59A24AACD1F009458E4 /* SyncRecordEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59524AACD1F009458E4 /* SyncRecordEvent.swift */; };
 		FA41B59D24AAD110009458E4 /* DBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59C24AAD110009458E4 /* DBRecord.swift */; };
 		FA41B59F24AAD39D009458E4 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41B59E24AAD39D009458E4 /* RecordModel.swift */; };
+		FA4B52D024EA6FF3003E1AFE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA4B52CF24EA6FF3003E1AFE /* Config.plist */; };
 		FA4C8A3F24AB1DA10046065B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A3D24AB1DA10046065B /* LoginViewController.swift */; };
 		FA4C8A4024AB1DA10046065B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C8A3E24AB1DA10046065B /* LoginViewController.xib */; };
 		FA4C8A4324AB281A0046065B /* FlowtimeIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C8A4124AB281A0046065B /* FlowtimeIntroductionViewController.swift */; };
@@ -224,7 +225,6 @@
 		FABC05B324C6C482000C16C9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABC05B224C6C482000C16C9 /* HealthKit.framework */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
-		FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BEE23CC5B7C00A92B0B /* Config.plist */; };
 		FAF16BF423CC737700A92B0B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF223CC737600A92B0B /* Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -306,6 +306,7 @@
 		FA41B59524AACD1F009458E4 /* SyncRecordEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncRecordEvent.swift; sourceTree = "<group>"; };
 		FA41B59C24AAD110009458E4 /* DBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRecord.swift; sourceTree = "<group>"; };
 		FA41B59E24AAD39D009458E4 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		FA4B52CF24EA6FF3003E1AFE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FA4C8A3D24AB1DA10046065B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA4C8A3E24AB1DA10046065B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		FA4C8A4124AB281A0046065B /* FlowtimeIntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowtimeIntroductionViewController.swift; sourceTree = "<group>"; };
@@ -483,7 +484,6 @@
 		FABC05B224C6C482000C16C9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
-		FAF16BEE23CC5B7C00A92B0B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FAF16BF223CC737600A92B0B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -831,7 +831,6 @@
 				FA84F2C1246A355200D480A6 /* GlobleView */,
 				FA84F2752463A66800D480A6 /* Connection */,
 				FAAE3B1D2381174C004E79B4 /* Database */,
-				FAF16BEE23CC5B7C00A92B0B /* Config.plist */,
 				FA2A0691237D298A00BEB75E /* Meditation */,
 				FA5F0AC6237BF1A400A21BF9 /* Tools */,
 				FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */,
@@ -845,6 +844,7 @@
 				FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */,
 				FA5F0AB8237A819B00A21BF9 /* Info.plist */,
 				FA3D12C92396620500E96B02 /* WebSocket.plist */,
+				FA4B52CF24EA6FF3003E1AFE /* Config.plist */,
 			);
 			path = EnterAffectiveCloudDemo;
 			sourceTree = "<group>";
@@ -1180,7 +1180,6 @@
 				FABC05A824C58D01000C16C9 /* TimerViewController.xib in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */,
-				FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */,
 				FA1B69D523EBE5BE00115FA1 /* P60-100A0-25.gif in Resources */,
 				FA1B69D423EBE5BE00115FA1 /* P22-45A75-100.gif in Resources */,
 				FA1B69CD23EBE5BE00115FA1 /* P0-40A0-25.gif in Resources */,
@@ -1200,6 +1199,7 @@
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
 				FAB44B8524A8766E00B321AA /* ChooseTimerViewController.xib in Resources */,
 				FA1B69CF23EBE5BE00115FA1 /* P78-100A75-100.gif in Resources */,
+				FA4B52D024EA6FF3003E1AFE /* Config.plist in Resources */,
 				FA4C8D2124AC1AD80046065B /* 风铃.mp3 in Resources */,
 				FA1B69D123EBE5BE00115FA1 /* P55-78A75-100.gif in Resources */,
 				FA1B69D823EBE5BE00115FA1 /* P40-60A0-25.gif in Resources */,

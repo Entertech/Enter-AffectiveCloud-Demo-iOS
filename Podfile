@@ -1,5 +1,6 @@
-source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
-source 'git@github.com:EnterTech/PodSpecs.git'
+#source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+#source 'git@github.com:EnterTech/PodSpecs.git'
+source 'https://cdn.cocoapods.org/'
 
 platform :ios, '11.2'
 use_frameworks!
