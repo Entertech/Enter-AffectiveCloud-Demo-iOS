@@ -96,8 +96,9 @@ class RelaxManager: BLEBioModuleDataSource {
         
         
         // 开启生物信号
-        self.client?.initBiodataServices(services: [.EEG, .HeartRate], tolerance: ["eeg": 4], sex: kSex, age: kAge, mode: kMode, cases: kCase)
+        self.client?.initBiodataServices(services: [.EEG, .HeartRate], tolerance: ["eeg": 2])
         
+        self.client?.initExperimentService(sex: kSex, age: kAge, mode: kMode, cases: kCase)
 
         // 开启情感数据
         self.client?.startAffectiveDataServices(services: [.attention, .relaxation, .pleasure, .pressure])
@@ -114,6 +115,7 @@ class RelaxManager: BLEBioModuleDataSource {
 
     //ble
     func setupBLE() {
+        self.clearBLE()
         ble.startEEG()
         ble.startHeartRate()
     }

@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (5.0.4)
-  - Bugly (2.5.2)
+  - Alamofire (5.2.2)
+  - Bugly (2.5.71)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
@@ -8,11 +8,11 @@ PODS:
     - GzipSwift
     - HandyJSON
     - Moya/RxSwift (~> 14.0.0)
-    - RxSwift (~> 5.0.0)
+    - RxSwift
     - Starscream (= 3.1.1)
     - SwiftyJSON
   - EnterAffectiveCloudUI (1.4.1):
-    - Charts
+    - Charts (= 3.4.0)
     - EnterAffectiveCloud (~> 1.4.1)
     - RxSwift
     - SnapKit
@@ -26,7 +26,7 @@ PODS:
   - FixedDFUService (4.1.2):
     - Zip (~> 1.0)
   - GzipSwift (5.1.1)
-  - HandyJSON (5.0.1)
+  - HandyJSON (5.0.2)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -62,8 +62,8 @@ PODS:
 
 DEPENDENCIES:
   - Bugly
-  - EnterAffectiveCloud (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
-  - EnterAffectiveCloudUI (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`)
+  - EnterAffectiveCloud (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`, branch `develop_test`)
+  - EnterAffectiveCloudUI (from `https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git`, branch `develop_test`)
   - "EnterBioModuleBLE (from `git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)"
   - "EnterBioModuleBLEUI (from `git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git`)"
   - RealmSwift
@@ -72,7 +72,7 @@ DEPENDENCIES:
   - SVProgressHUD
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - Bugly
     - Charts
@@ -95,8 +95,10 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   EnterAffectiveCloud:
+    :branch: develop_test
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
+    :branch: develop_test
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
@@ -105,10 +107,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EnterAffectiveCloud:
-    :commit: f824b969efc9148a86dc402cd93f76f31164eece
+    :commit: eb899d166e34c6b826500c384db0075155e95260
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
-    :commit: f824b969efc9148a86dc402cd93f76f31164eece
+    :commit: eb899d166e34c6b826500c384db0075155e95260
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
     :commit: 5bae15d1d3f5d866a57566155f58f7311d680e91
@@ -118,16 +120,16 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:Entertech/Enter-Biomodule-BLE-iOS-SDK.git"
 
 SPEC CHECKSUMS:
-  Alamofire: 0fe5fd24b4298dc377a6550da7d5f1b30e286fcb
-  Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  EnterAffectiveCloud: 449ca0bf474a0ac1d0ed32f6ad430e3b070302e5
-  EnterAffectiveCloudUI: 9e02d8c7d96f6e4f805105d44d9f980bd634d574
+  EnterAffectiveCloud: 023ddad9f00657dc587764bf6277207c997044a5
+  EnterAffectiveCloudUI: aaf48df4c5d516b454c3825867094e6bfb89fea3
   EnterBioModuleBLE: a926b959874a1a1425fc1662e2b3c95e8421ba44
   EnterBioModuleBLEUI: 6284919ea21699df9ff392052612b0288e241db0
   FixedDFUService: 5ef0cf653c846c5784c2d6e29e2c35b3820a6672
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
@@ -142,6 +144,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: b245d83e9b73bb2f4726995546e3c2c69b61a49a
+PODFILE CHECKSUM: e6a43d9e326b2bdce41cf595f607b47dce3d5db8
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.3

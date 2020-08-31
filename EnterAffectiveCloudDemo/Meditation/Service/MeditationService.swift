@@ -11,8 +11,7 @@ import EnterAffectiveCloud
 import EnterBioModuleBLE
 
 class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
-    
-    
+
     public var meditationModel = MeditationModel()
     public var reportModel: MeditationReportModel?
     public var meditationVC: MeditationViewController?
@@ -97,7 +96,8 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
 
     }
     
-    func websocketDisconnect(client: AffectiveCloudClient) {
+    func websocketDisconnect(client: AffectiveCloudClient, error: Error?) {
+        
     }
     
     func sessionCreateAndAuthenticate(client: AffectiveCloudClient, response: AffectiveCloudResponseJSONModel) {

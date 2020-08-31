@@ -2,11 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>AppKey</key>
-    <string></string>
-    <key>WebSocketAdderss</key>
-    <string>wss://server.affectivecloud.cn/ws/algorithm/v1/</string>
-    <key>AppSecret</key>
-    <string></string>
+	<key>AppKey</key>
+	<string></string>
+	<key>WebSocketAdderss</key>
+	<string>wss://server.affectivecloud.cn/ws/algorithm/v1/</string>
+	<key>ACHttpsAddress</key>
+	<string></string>
+	<key>AppSecret</key>
+	<string></string>
 </dict>
 </plist>

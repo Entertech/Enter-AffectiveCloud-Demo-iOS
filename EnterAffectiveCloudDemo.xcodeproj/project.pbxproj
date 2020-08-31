@@ -49,7 +49,6 @@
 		FA3B1757238150B700D5192D /* ReportViewSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */; };
 		FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B17582381512C00D5192D /* ReportTableViewCell.swift */; };
 		FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12C92396620500E96B02 /* WebSocket.plist */; };
-		FA3D12CD2397BBD900E96B02 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3D12CC2397BBD900E96B02 /* Config.plist */; };
 		FA3D12D02398D36E00E96B02 /* AcSettiingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D12CF2398D36E00E96B02 /* AcSettiingViewController.swift */; };
 		FA5F0AA9237A819A00A21BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */; };
 		FA5F0AAB237A819A00A21BF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F0AAA237A819A00A21BF9 /* SceneDelegate.swift */; };
@@ -60,6 +59,7 @@
 		FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */; };
 		FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC98237E47C700518D00 /* SoundPlayer.swift */; };
 		FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC9A237E493B00518D00 /* FTFileManager.swift */; };
+		FA7D325B24F761DB005792D3 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA7D325A24F761DB005792D3 /* Config.plist */; };
 		FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1923800515004E79B4 /* ReportViewController.swift */; };
 		FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAE3B1A23800515004E79B4 /* ReportViewController.xib */; };
 		FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1E2381174C004E79B4 /* DBOperation.swift */; };
@@ -119,7 +119,6 @@
 		FA3B1755238150B700D5192D /* ReportViewSortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewSortViewController.swift; sourceTree = "<group>"; };
 		FA3B17582381512C00D5192D /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		FA3D12C92396620500E96B02 /* WebSocket.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WebSocket.plist; sourceTree = "<group>"; };
-		FA3D12CC2397BBD900E96B02 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FA3D12CF2398D36E00E96B02 /* AcSettiingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcSettiingViewController.swift; sourceTree = "<group>"; };
 		FA5F0AA5237A819A00A21BF9 /* 心流实验.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "心流实验.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5F0AA8237A819A00A21BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		FA5F0AC5237BD3FE00A21BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		FA68EC98237E47C700518D00 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		FA68EC9A237E493B00518D00 /* FTFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTFileManager.swift; sourceTree = "<group>"; };
+		FA7D325A24F761DB005792D3 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FAAE3B1923800515004E79B4 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		FAAE3B1A23800515004E79B4 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		FAAE3B1E2381174C004E79B4 /* DBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBOperation.swift; sourceTree = "<group>"; };
@@ -357,6 +357,7 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FA7D325A24F761DB005792D3 /* Config.plist */,
 				FA3D12CE2398D2FD00E96B02 /* Experiment */,
 				FAC3D95D237FEA6D006CE2BC /* Report */,
 				FA2A0691237D298A00BEB75E /* Meditation */,
@@ -371,7 +372,6 @@
 				FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */,
 				FA5F0AB8237A819B00A21BF9 /* Info.plist */,
 				FA3D12C92396620500E96B02 /* WebSocket.plist */,
-				FA3D12CC2397BBD900E96B02 /* Config.plist */,
 				FAB14EFA23A223DA00B7A24E /* Enter-Bridging-header.h */,
 			);
 			path = EnterAffectiveCloudDemo;
@@ -491,8 +491,8 @@
 				FA19DFA5239FC7B90043F679 /* CheckTagViewController.xib in Resources */,
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
-				FA3D12CD2397BBD900E96B02 /* Config.plist in Resources */,
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
+				FA7D325B24F761DB005792D3 /* Config.plist in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA3D12CA2396620500E96B02 /* WebSocket.plist in Resources */,
 				FA5F0AB4237A819B00A21BF9 /* Assets.xcassets in Resources */,
@@ -751,7 +751,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
@@ -777,7 +777,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 5EVD5KXKJ4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EnterAffectiveCloudDemo/Info.plist;
