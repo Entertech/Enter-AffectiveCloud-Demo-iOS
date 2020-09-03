@@ -53,8 +53,8 @@
 		FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */; };
 		FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC98237E47C700518D00 /* SoundPlayer.swift */; };
 		FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC9A237E493B00518D00 /* FTFileManager.swift */; };
+		FA7D326A24FE194E005792D3 /* flowtime_1.1.0(20200803).zip in Resources */ = {isa = PBXBuildFile; fileRef = FA7D326924FE194E005792D3 /* flowtime_1.1.0(20200803).zip */; };
 		FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88F9B623D438A8008CD669 /* Pad.storyboard */; };
-		FA9A248124D3B9B8009EDE2D /* dfutest0730-1.zip in Resources */ = {isa = PBXBuildFile; fileRef = FA9A248024D3B9B8009EDE2D /* dfutest0730-1.zip */; };
 		FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1923800515004E79B4 /* ReportViewController.swift */; };
 		FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAE3B1A23800515004E79B4 /* ReportViewController.xib */; };
 		FAAE3B262381174C004E79B4 /* DBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1E2381174C004E79B4 /* DBOperation.swift */; };
@@ -140,8 +140,8 @@
 		FA5F0AC5237BD3FE00A21BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		FA68EC98237E47C700518D00 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		FA68EC9A237E493B00518D00 /* FTFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTFileManager.swift; sourceTree = "<group>"; };
+		FA7D326924FE194E005792D3 /* flowtime_1.1.0(20200803).zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "flowtime_1.1.0(20200803).zip"; sourceTree = "<group>"; };
 		FA88F9B623D438A8008CD669 /* Pad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pad.storyboard; sourceTree = "<group>"; };
-		FA9A248024D3B9B8009EDE2D /* dfutest0730-1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "dfutest0730-1.zip"; sourceTree = "<group>"; };
 		FAAE3B1923800515004E79B4 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		FAAE3B1A23800515004E79B4 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		FAAE3B1E2381174C004E79B4 /* DBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBOperation.swift; sourceTree = "<group>"; };
@@ -324,7 +324,6 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
-				FA9A248024D3B9B8009EDE2D /* dfutest0730-1.zip */,
 				FAAE3B1D2381174C004E79B4 /* Database */,
 				FAF16BF623CC76D400A92B0B /* Report */,
 				FAF16BEE23CC5B7C00A92B0B /* Config.plist */,
@@ -341,6 +340,7 @@
 				FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */,
 				FA5F0AB8237A819B00A21BF9 /* Info.plist */,
 				FA3D12C92396620500E96B02 /* WebSocket.plist */,
+				FA7D326924FE194E005792D3 /* flowtime_1.1.0(20200803).zip */,
 			);
 			path = EnterAffectiveCloudDemo;
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
-				FA9A248124D3B9B8009EDE2D /* dfutest0730-1.zip in Resources */,
+				FA7D326A24FE194E005792D3 /* flowtime_1.1.0(20200803).zip in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */,
 				FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */,

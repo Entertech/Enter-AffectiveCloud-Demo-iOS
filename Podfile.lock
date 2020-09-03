@@ -3,16 +3,16 @@ PODS:
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
-  - EnterAffectiveCloud (1.4.1):
+  - EnterAffectiveCloud (1.4.2):
     - GzipSwift
     - HandyJSON
     - Moya/RxSwift (~> 14.0.0)
-    - RxSwift (~> 5.0.0)
+    - RxSwift
     - Starscream (= 3.1.1)
     - SwiftyJSON
-  - EnterAffectiveCloudUI (1.4.1):
+  - EnterAffectiveCloudUI (1.4.2):
     - Charts (= 3.4.0)
-    - EnterAffectiveCloud (~> 1.4.1)
+    - EnterAffectiveCloud (~> 1.4.2)
     - RxSwift
     - SnapKit
   - EnterBioModuleBLE (1.2.8):
@@ -96,10 +96,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EnterAffectiveCloud:
-    :commit: 8ddef8ac323c9478fbec2031ba9e08875101d2c6
+    :commit: 728d336ea2cb3a60f888fe502815f3ad566a6488
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
-    :commit: e69dfe89a7e1e39e16d6f0743a0a7d1250330eb0
+    :commit: 984545a0c38629a6cb2f606cc86b4034f5ec649d
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterBioModuleBLE:
     :commit: 7a465d2b633dc1a9b3e5ffce2b7393b0df6ada45
@@ -111,8 +111,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  EnterAffectiveCloud: 449ca0bf474a0ac1d0ed32f6ad430e3b070302e5
-  EnterAffectiveCloudUI: aaf48df4c5d516b454c3825867094e6bfb89fea3
+  EnterAffectiveCloud: 1b20e9e7e94bff502325679d096112cd72d61694
+  EnterAffectiveCloudUI: 77d1e2768a1d2af190d4d8f43068609737cf5f0f
   EnterBioModuleBLE: 52f4de7411b121a9ac92963d3a95edbdfbae7d32
   EnterBioModuleBLEUI: 8f3ccea20af4700eab4baa6d0109714530a1208c
   FixedDFUService: a7768eab3e7a2d7c712f5aca4c7de03c6ff6fc93

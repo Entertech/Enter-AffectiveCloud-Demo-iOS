@@ -112,6 +112,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         meditationVC?.coherenceView.showProgress()
         meditationVC?.pleasureView.showProgress()
         meditationVC?.hrvView.showProgress()
+        meditationVC?.rightAndLeftSpectrumView.showProgress()
         
         padVC?.brainView.showProgress()
         padVC?.spectrumView.showProgress()
@@ -137,6 +138,7 @@ class MeditationService: AffectiveCloudResponseDelegate, BLEStateDelegate{
         meditationVC?.coherenceView.showProgress()
         meditationVC?.pleasureView.showProgress()  
         meditationVC?.hrvView.showProgress()
+        meditationVC?.rightAndLeftSpectrumView.showProgress()
         
         padVC?.brainView.showProgress()
         padVC?.spectrumView.showProgress()

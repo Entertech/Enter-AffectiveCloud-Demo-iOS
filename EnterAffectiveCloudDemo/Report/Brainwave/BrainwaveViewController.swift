@@ -18,7 +18,7 @@ class BrainwaveViewController: UIViewController {
     var service: ReportService?
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title  = "脑电波频谱"
+        navigationItem.title  = "脑电波节律"
         aboutView.icon = .blue
         aboutView.text = "脑电波各频率比的变化反映了冥想时精神状态的变化。"
         aboutView.style = .brain

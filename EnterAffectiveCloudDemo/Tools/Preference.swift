@@ -22,7 +22,7 @@ class Preference {
 }
 
 extension Preference {
-    static let userID = 1
+    static let userID = 2
     static let meditationTime = 60
 }
 

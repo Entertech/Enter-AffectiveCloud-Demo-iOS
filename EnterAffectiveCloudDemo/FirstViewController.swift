@@ -60,7 +60,7 @@ class FirstViewController: UIViewController {
         let ble = BLEService.shared.bleManager
         let connection = BLEConnectViewController(bleManager: ble)
 //        connection.firmwareVersion  = "2.2.2"
-//        connection.firmwareURL = Bundle.main.url(forResource: "dfutest0730-1", withExtension: "zip")
+//        connection.firmwareURL = Bundle.main.url(forResource: "flowtime_1.1.0(20200803)", withExtension: "zip")
 //        connection.firmwareUpdateLog = "1.请在此输入日志信息。\n2.更新内容1。\n3.更新内容2。"
         connection.cornerRadius = 6
         connection.mainColor = UIColor(red: 0, green: 100.0/255.0, blue: 1, alpha: 1)

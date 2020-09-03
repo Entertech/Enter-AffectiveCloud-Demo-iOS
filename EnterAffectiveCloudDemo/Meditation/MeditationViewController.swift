@@ -16,6 +16,7 @@ class MeditationViewController: UIViewController {
     @IBOutlet weak var coherenceView: RealtimeCoherenceView!
     @IBOutlet weak var pleasureView: RealtimePleasureView!
     
+    @IBOutlet weak var rightAndLeftSpectrumView: RealtimeLeftAndRightSpectrumView!
     @IBOutlet weak var hrvView: RealtimeHRVView!
     @IBOutlet weak var errorView: ErrorTipView!
     @IBOutlet weak var heartView: RealtimeHeartRateView!
@@ -69,6 +70,15 @@ class MeditationViewController: UIViewController {
             spectrumView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
             spectrumView.observe(with: (0.1, 0.28, 0.59, 0.02, 0.1))
             spectrumView.bgColor = .white
+            
+            rightAndLeftSpectrumView.bgColor = #colorLiteral(red: 0.9490196078, green: 0.9568627451, blue: 0.9843137255, alpha: 1)
+            rightAndLeftSpectrumView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
+            rightAndLeftSpectrumView.leftColor = #colorLiteral(red: 0.3725490196, green: 0.7764705882, blue: 0.5843137255, alpha: 1)
+            rightAndLeftSpectrumView.rightColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
+            rightAndLeftSpectrumView.title = "左右脑波节律"
+            rightAndLeftSpectrumView.observe()
+            rightAndLeftSpectrumView.bgColor = .white
+            
             
             heartView.bgColor = #colorLiteral(red: 1, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
             heartView.mainColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
@@ -362,7 +372,6 @@ class MeditationViewController: UIViewController {
                     }
                 }
             }
-            
         }
     }
     

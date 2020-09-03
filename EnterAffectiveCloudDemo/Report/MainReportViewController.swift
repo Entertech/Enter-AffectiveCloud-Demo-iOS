@@ -42,7 +42,7 @@ class MainReportViewController: UIViewController {
         super.viewDidLoad()
         
         head2.image = #imageLiteral(resourceName: "icon_report_brain")
-        head2.titleText = "脑电波频谱"
+        head2.titleText = "脑电波节律"
         btn2.addTarget(self, action: #selector(showBrain), for: .touchUpInside)
         
         head3.image = #imageLiteral(resourceName: "icon_report_heart")
