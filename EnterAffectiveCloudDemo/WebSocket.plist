@@ -5,7 +5,7 @@
 	<key>AppKey</key>
 	<string></string>
 	<key>WebSocketAddress</key>
-	<string>wss://server.affectivecloud.cn/ws/algorithm/v1/</string>
+	<string>wss://server.affectivecloud.cn/ws/algorithm/v2/</string>
 	<key>AppSecret</key>
 	<string></string>
 	<key>UploadCycle</key>

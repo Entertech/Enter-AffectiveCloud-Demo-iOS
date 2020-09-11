@@ -47,7 +47,7 @@ PODS:
     - Realm (= 4.3.2)
   - RxBluetoothKit (5.3.0):
     - RxSwift (~> 5.0)
-  - RxSwift (5.0.1)
+  - RxSwift (5.1.1)
   - SnapKit (5.0.1)
   - Starscream (3.1.1)
   - SVProgressHUD (2.2.5)
@@ -96,7 +96,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EnterAffectiveCloud:
-    :commit: 728d336ea2cb3a60f888fe502815f3ad566a6488
+    :commit: b9934c830fc796c92618b43d10e3d36c83fa30fc
     :git: https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK.git
   EnterAffectiveCloudUI:
     :commit: 984545a0c38629a6cb2f606cc86b4034f5ec649d
@@ -123,7 +123,7 @@ SPEC CHECKSUMS:
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   RxBluetoothKit: 0e781978e8a0df70ac3c611dcf44800b76c69f8a
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
