@@ -66,7 +66,6 @@
 		FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */; };
 		FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D939237E77E8006CE2BC /* error_tip.mp3 */; };
 		FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */; };
-		FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BEE23CC5B7C00A92B0B /* Config.plist */; };
 		FAF16BF423CC737700A92B0B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF223CC737600A92B0B /* Extension.swift */; };
 		FAF16C1123CC76D400A92B0B /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF16BF923CC76D400A92B0B /* ReportService.swift */; };
 		FAF16C1223CC76D400A92B0B /* PressureReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */; };
@@ -153,7 +152,6 @@
 		FAAE3B252381174C004E79B4 /* DBMigrateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMigrateHandle.swift; sourceTree = "<group>"; };
 		FAC3D939237E77E8006CE2BC /* error_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_tip.mp3; sourceTree = "<group>"; };
 		FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success_tip.mp3; sourceTree = "<group>"; };
-		FAF16BEE23CC5B7C00A92B0B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FAF16BF223CC737600A92B0B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FAF16BF923CC76D400A92B0B /* ReportService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		FAF16BFB23CC76D400A92B0B /* PressureReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PressureReportViewController.xib; sourceTree = "<group>"; };
@@ -326,7 +324,6 @@
 			children = (
 				FAAE3B1D2381174C004E79B4 /* Database */,
 				FAF16BF623CC76D400A92B0B /* Report */,
-				FAF16BEE23CC5B7C00A92B0B /* Config.plist */,
 				FAC3D95D237FEA6D006CE2BC /* ReportLast */,
 				FA2A0691237D298A00BEB75E /* Meditation */,
 				FA5F0AC6237BF1A400A21BF9 /* Tools */,
@@ -537,7 +534,6 @@
 				FA7D326A24FE194E005792D3 /* flowtime_1.1.0(20200803).zip in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */,
-				FAF16BEF23CC5B7C00A92B0B /* Config.plist in Resources */,
 				FA1B69D523EBE5BE00115FA1 /* P60-100A0-25.gif in Resources */,
 				FA1B69D423EBE5BE00115FA1 /* P22-45A75-100.gif in Resources */,
 				FA1B69CD23EBE5BE00115FA1 /* P0-40A0-25.gif in Resources */,

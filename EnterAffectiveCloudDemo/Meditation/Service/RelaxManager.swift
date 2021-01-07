@@ -21,7 +21,7 @@ class RelaxManager: BLEBioModuleDataSource {
     let ble = BLEService.shared.bleManager
     private init() {
         ble.dataSource = self
-        ble.uploadCycle = 3
+        ble.uploadCycle = UInt(Preference.kCloudServiceUploadCycle)
     }
     
     var isWebSocketConnected: Bool {

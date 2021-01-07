@@ -9,6 +9,6 @@
 	<key>AppSecret</key>
 	<string></string>
 	<key>UploadCycle</key>
-	<integer>3</integer>
+	<integer>1</integer>
 </dict>
 </plist>
