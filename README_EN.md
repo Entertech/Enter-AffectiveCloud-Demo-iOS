@@ -1,4 +1,3 @@
-[English Readme](/README_EN.md)
 # Enter Affective Cloud Demo
 
 - [Enter Affective Cloud Demo](#enter-affective-cloud-demo)
