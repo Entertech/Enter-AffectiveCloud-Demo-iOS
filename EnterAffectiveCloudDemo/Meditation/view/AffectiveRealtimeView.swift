@@ -101,7 +101,7 @@ class AffectiveRealtimeView: UIView {
     private var lines: [AffectiveType] = [.attention, .relaxation, .arousal, .pleasure, .pressure]
     private let chartView = UIView()
     private let colors: [UIColor] = [#colorLiteral(red: 0.368627451, green: 0.4588235294, blue: 0.9960784314, alpha: 1),#colorLiteral(red: 0.3215686275, green: 0.6352941176, blue: 0.4862745098, alpha: 1),#colorLiteral(red: 1, green: 0.7725490196, blue: 0.4352941176, alpha: 1),#colorLiteral(red: 0.4, green: 0.2823529412, blue: 1, alpha: 1),#colorLiteral(red: 1, green: 0.4, blue: 0.5098039216, alpha: 1)]
-    private let lineName: [String] = ["注意力", "放松度", "激活度", "愉悦度", "压力值"]
+    private let lineName: [String] = [lang("注意力"), lang("放松度"), lang("激活度"), lang("愉悦度"), lang("压力值")]
     private var height: CGFloat = 0
     private var width: CGFloat = 0
     private var minHeight: CGFloat = 0
@@ -139,7 +139,7 @@ class AffectiveRealtimeView: UIView {
         self.layer.cornerRadius = 8
         let titleLabel = UILabel()
         self.addSubview(titleLabel)
-        titleLabel.text = "情绪变化"
+        titleLabel.text = lang("情绪变化")
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.textColor = #colorLiteral(red: 0.137254902, green: 0.137254902, blue: 0.137254902, alpha: 1)
         titleLabel.snp.makeConstraints {
@@ -205,7 +205,7 @@ class AffectiveRealtimeView: UIView {
         
         let unitLabel = UILabel()
         self.addSubview(unitLabel)
-        unitLabel.text = "(秒)"
+        unitLabel.text = lang("(秒)")
         unitLabel.textAlignment = .center
         unitLabel.font = UIFont.systemFont(ofSize: 8)
         unitLabel.textColor = #colorLiteral(red: 0.137254902, green: 0.137254902, blue: 0.137254902, alpha: 1)

@@ -17,10 +17,10 @@ class RAndAViewController: UIViewController {
     var service: ReportService?
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "专注度&放松度"
+        navigationItem.title = lang("专注度&放松度")
         aboutView.style = .relaxation
         aboutView.icon = .blue
-        aboutView.text = "如果您没有长期的冥想训练，则您在特定大脑状态下的脑电波会集中。 当您聚焦时，“放松”值通常较低，而当您放松时，“关注”值较低。 注意和放松是互斥的。\n\n经过长期的冥想练习，脑电波的传播范围更加广泛甚至均匀。 您可以同时获得高分的注意力和放松度，从而放松身心并集中精力。 在这种状态下，更容易获得灵感和创造力。"
+        aboutView.text = lang("如果您没有长期的冥想训练，则您在特定大脑状态下的脑电波会集中。 当您聚焦时，“放松”值通常较低，而当您放松时，“关注”值较低。 注意和放松是互斥的。\n\n经过长期的冥想练习，脑电波的传播范围更加广泛甚至均匀。 您可以同时获得高分的注意力和放松度，从而放松身心并集中精力。 在这种状态下，更容易获得灵感和创造力。")
         
         chartView.setDataFromModel(array: service?.fileModel.attention, state: .attention)
         chartView.setDataFromModel(array: service?.fileModel.relaxation, state: .relaxation)

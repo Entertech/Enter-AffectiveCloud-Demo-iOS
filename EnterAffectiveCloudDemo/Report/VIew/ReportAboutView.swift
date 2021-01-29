@@ -66,14 +66,14 @@ class ReportAboutView: BaseView {
         self.addSubview(label)
         self.addSubview(btn)
         self.addSubview(header)
-        header.titleText = "关于"
+        header.titleText = lang("关于")
         header.barButton.isHidden = true
         
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         
-        btn.setTitle("了解更多", for: .normal)
+        btn.setTitle(lang("了解更多"), for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         btn.setTitleColor(UIColor.colorWithHexString(hexColor: "#4B5DCC"), for: .normal)
         btn.addTarget(self, action: #selector(showWeb), for: .touchUpInside)

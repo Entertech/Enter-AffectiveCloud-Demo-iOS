@@ -48,7 +48,7 @@ class FirstViewController: UIViewController {
 
     @IBAction func showMeditation(_ sender: Any) {
         if BLEService.shared.bleManager.state == .disconnected {
-            SVProgressHUD.showError(withStatus: "请先连接设备")
+            SVProgressHUD.showError(withStatus: lang("请先连接设备"))
         } else {
             let medition = MeditationViewController()
             medition.modalPresentationStyle = .fullScreen
@@ -59,6 +59,7 @@ class FirstViewController: UIViewController {
     @IBAction func connectBLE(_ sender: Any) {
         let ble = BLEService.shared.bleManager
         let connection = BLEConnectViewController(bleManager: ble)
+//        if you want to upgrade firmware
 //        connection.firmwareVersion  = "2.2.2"
 //        connection.firmwareURL = Bundle.main.url(forResource: "flowtime_1.1.0(20200803)", withExtension: "zip")
 //        connection.firmwareUpdateLog = "1.Update Log。"

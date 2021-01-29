@@ -42,23 +42,23 @@ class MainReportViewController: UIViewController {
         super.viewDidLoad()
         
         head2.image = #imageLiteral(resourceName: "icon_report_brain")
-        head2.titleText = "脑电波节律"
+        head2.titleText = lang("脑电波节律")
         btn2.addTarget(self, action: #selector(showBrain), for: .touchUpInside)
         
         head3.image = #imageLiteral(resourceName: "icon_report_heart")
-        head3.titleText = "心率变异性"
+        head3.titleText = lang("心率变异性")
         btn3.addTarget(self, action: #selector(showHrv), for: .touchUpInside)
         
         head4.image = #imageLiteral(resourceName: "icon_report_hrv")
-        head4.titleText = "心率"
+        head4.titleText = lang("心率")
         bt4.addTarget(self, action: #selector(showHr), for: .touchUpInside)
         
         head5.image = #imageLiteral(resourceName: "icon_report_relaxtion")
-        head5.titleText = "专注度&放松度"
+        head5.titleText = lang("专注度&放松度")
         btn5.addTarget(self, action: #selector(showAttention), for: .touchUpInside)
         
         head6.image = #imageLiteral(resourceName: "icon_report_stress")
-        head6.titleText = "压力值"
+        head6.titleText = lang("压力值")
         btn6.addTarget(self, action: #selector(showPressure), for: .touchUpInside)
         
         setShadow(view: bg2)

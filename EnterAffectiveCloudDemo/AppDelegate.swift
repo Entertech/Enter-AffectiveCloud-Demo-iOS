@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    /// search config 
     private func setup() {
         
         var path: String = ""
@@ -66,12 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Preference.kCloudServiceAppKey = keyValue?.object(forKey: "AppKey") as! String
         Preference.kCloudServiceAppSecret = keyValue?.object(forKey: "AppSecret") as! String
         Preference.kCloudServiceUploadCycle = keyValue?.object(forKey: "UploadCycle") as! Int
+        
+        
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.custom)
         SVProgressHUD.setMaximumDismissTimeInterval(3.0)
         SVProgressHUD.setMinimumSize(CGSize(width: 150, height: 120))
         SVProgressHUD.setBackgroundColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8))
         SVProgressHUD.setForegroundColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        
+        
         let realmURL = FTFileManager.shared.realmURL()
         if DBMigrateHandle.shouldMigrate(for: realmURL) {
             DBMigrateHandle.migrate(url: realmURL) {
@@ -80,6 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             DBOperation.config(realmURL, version: DBMigrateHandle.kShouldMigrateVersion)
         }
+        
+        Language.initLocale()
     }
 
 

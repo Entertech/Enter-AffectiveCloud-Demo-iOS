@@ -18,10 +18,10 @@ class HRVReportViewController: UIViewController {
     var service: ReportService?
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title  = "心率变异性（HRV）"
+        navigationItem.title  = lang("心率变异性")
         aboutView.style = .hrv  
         aboutView.icon = .yellow
-        aboutView.text = "HRV随冥想状态而变化。 在放松状态下，HRV通常较高。 通过长期的冥想练习，HRV的整体水平将提高。"
+        aboutView.text = lang("HRV随冥想状态而变化。 在放松状态下，HRV通常较高。 通过长期的冥想练习，HRV的整体水平将提高。")
         hrvView.uploadCycle = UInt(Preference.kCloudServiceUploadCycle)
         hrvView.setDataFromModel(hrv: service?.fileModel.heartRateVariability)
         if let avg = service?.fileModel.hrvAvg {

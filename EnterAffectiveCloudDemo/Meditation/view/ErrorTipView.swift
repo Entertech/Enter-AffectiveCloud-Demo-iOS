@@ -34,11 +34,11 @@ class ErrorTipView: UIView {
         
         
         titleLabel.textColor = #colorLiteral(red: 1, green: 0.4, blue: 0.5098039216, alpha: 1)
-        titleLabel.text = "网络连接错误"
+        titleLabel.text = lang("网络连接错误")
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         self.addSubview(titleLabel)
         
-        let attributedText = NSMutableAttributedString(string:"网络连接中断，数据分析已停止。请检查网络连接，然后尝试恢复分析。")
+        let attributedText = NSMutableAttributedString(string: lang("网络连接中断，数据分析已停止。请检查网络连接，然后尝试恢复分析。"))
         let style = NSMutableParagraphStyle()
         style.alignment = .left
         style.lineSpacing = 5
@@ -54,7 +54,7 @@ class ErrorTipView: UIView {
         tipLabel.font = UIFont.systemFont(ofSize: 14)
         self.addSubview(tipLabel)
         
-        fixBtn.setTitle("恢复", for: .normal)
+        fixBtn.setTitle(lang("恢复"), for: .normal)
         fixBtn.setTitleColor(#colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1), for: .normal)
         fixBtn.backgroundColor = .clear
         fixBtn.layer.borderWidth = 1
@@ -95,8 +95,8 @@ class ErrorTipView: UIView {
     func changeTipText(value: ErrorType) {
         switch value {
         case .network:
-            titleLabel.text = "网络连接错误"
-            let attributedText = NSMutableAttributedString(string:"网络连接中断，数据分析已停止。请检查网络连接，然后尝试恢复分析。")
+            titleLabel.text = lang("网络连接错误")
+            let attributedText = NSMutableAttributedString(string:lang("网络连接中断，数据分析已停止。请检查网络连接，然后尝试恢复分析。"))
             let style = NSMutableParagraphStyle()
             style.alignment = .left
             style.lineSpacing = 5
@@ -107,8 +107,8 @@ class ErrorTipView: UIView {
             
             tipLabel.attributedText = attributedText
         case .bluetooth:
-            titleLabel.text = "蓝牙连接断开"
-            let attributedText = NSMutableAttributedString(string:"蓝牙连接断开, 请靠近设备后点击重新连接")
+            titleLabel.text = lang("蓝牙连接断开")
+            let attributedText = NSMutableAttributedString(string: lang("蓝牙连接断开, 请靠近设备后点击重新连接"))
             let style = NSMutableParagraphStyle()
             style.alignment = .left
             style.lineSpacing = 5

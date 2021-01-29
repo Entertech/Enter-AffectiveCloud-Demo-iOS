@@ -14,7 +14,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "设置"
+        self.navigationItem.title = lang("设置")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.9764705882, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.9764705882, alpha: 1)
@@ -32,7 +32,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let sectionList = [""]
     let cellIconList = [[#imageLiteral(resourceName: "Stockholm-help"), #imageLiteral(resourceName: "Stockholm-Terms of Services"), #imageLiteral(resourceName: "Stockholm-Privacy")]]
-    let cellTitlelist = [["帮助中心", "使用条款", "隐私政策"]]
+    let cellTitlelist = [[lang("帮助中心"), lang("使用条款"), lang("隐私政策")]]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         sectionList.count

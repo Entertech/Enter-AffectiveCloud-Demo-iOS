@@ -1,0 +1,50 @@
+/* 
+  en.strings
+  EnterAffectiveCloudDemo
+
+  Created by Enter on 2021/1/28.
+  Copyright © 2021 Enter. All rights reserved.
+*/
+"请先连接设备" = "Please connect the device first";
+"分钟" = "min";
+"设置" = "Settings";
+"帮助中心" = "Help center";
+"使用条款" = "Terms";
+"隐私政策" = "Privacy Policy";
+"左右脑波节律" = "Left & Right Brainwave Rhythms";
+"正在生成报表" = "Geting Report";
+"体验时常过短,无报表生成" = "The practice is too short to have a report.";
+"编辑" = "Edit";
+"完成" = "Done";
+"取消" = "Cancel";
+"确定" = "OK";
+"结束体验" = "Leave now?";
+"结束体验并获取分析报告" = "Exit and you'll have the report.";
+"体验时长不足无法生成报表,确定退出?" = "The practice is too short to have a report.";
+"网络连接错误" = "Network Error";
+"网络连接中断，数据分析已停止。请检查网络连接，然后尝试恢复分析。" = "Please check the network connection. There will be no report if it ends now.";
+"恢复" = "Restore";
+"蓝牙连接断开" = "Device Not Connected";
+"蓝牙连接断开, 请靠近设备后点击重新连接" = "Connect the Flowtime Headband to show real-time biodata during meditation.";
+"心率" = "Heart Rate";
+"脑电波" = "Brainwave";
+"情绪" = "Emotion";
+"拖动来改变数据面板顺序" = "Drag and drop to recorder dashboard";
+"注意力" = "Attention";
+"放松度" = "Relaxation";
+"激活度" = "Arousal";
+"愉悦度" = "Pleasure";
+"压力值" = "Pressure";
+"情绪变化" = "Emotion changes";
+"(秒)" = "(sec)";
+"脑电波节律" = "Brainwave Rhythms";
+"心率变异性" = "HRV";
+"专注度&放松度" = "Attention & Relaxation";
+"压力值" = "Pressure";
+"如果您没有长期的冥想训练，则您在特定大脑状态下的脑电波会集中。 当您聚焦时，“放松”值通常较低，而当您放松时，“关注”值较低。 注意和放松是互斥的。\n\n经过长期的冥想练习，脑电波的传播范围更加广泛甚至均匀。 您可以同时获得高分的注意力和放松度，从而放松身心并集中精力。 在这种状态下，更容易获得灵感和创造力。" = "If you do not have long-term meditation training, your brainwaves in a specific brain state is concentrated. When you are focused, the Relaxation value is generally low, and when you are relaxed, the Attention value is low.  Attention and Relaxation are mutually exclusive.\n\nAfter long-term practice of meditation, brainwaves are spread more broadly and even. You can be relaxed and focused at the same time with a high score of both Attention and Relaxation. In this state, it is easier to have inspiration and creativity.";
+"脑电波各频率比的变化反映了冥想时精神状态的变化。" = "The change of the power ratio of the brainwaves reflects the change of mental state during meditation.";
+"通常，心率的变化是无序的。 通过长期训练，可以在冥想过程中以一定的周期性节律看到心率。 此时，呼吸和心跳达到协调状态。" = "In general, the change of heart rate is disordered. Through long-term training, the heart rate can be seen in a certain periodic rhythm during meditation. At this time, the breathing and heartbeat reach a coordinated state.";
+"HRV随冥想状态而变化。 在放松状态下，HRV通常较高。 通过长期的冥想练习，HRV的整体水平将提高。" = "HRV changes with the state of meditation. The HRV is generally higher in the relaxed state. With long-term meditation practice, the overall level of HRV will increase.";
+"深呼吸训练可以有效地减轻压力，长期冥想训练可以提高压力的适应能力。\n\n压力和松弛图在物理和生理水平上反映您的松弛状态。" = "Deep breathing training can effectively reduce stress, and long-term meditation training can improve stress resilience.\n\nPressure and relaxation graphs reflect your relaxation state on physical and phycological level.";
+"关于" = "About";
+"了解更多" = "More.";

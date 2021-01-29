@@ -53,7 +53,8 @@
 		FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */; };
 		FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC98237E47C700518D00 /* SoundPlayer.swift */; };
 		FA68EC9B237E493B00518D00 /* FTFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68EC9A237E493B00518D00 /* FTFileManager.swift */; };
-		FA7D326A24FE194E005792D3 /* flowtime_1.1.0(20200803).zip in Resources */ = {isa = PBXBuildFile; fileRef = FA7D326924FE194E005792D3 /* flowtime_1.1.0(20200803).zip */; };
+		FA849A0225C25E8500CBC971 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849A0125C25E8500CBC971 /* Language.swift */; };
+		FA849A0625C288FB00CBC971 /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA849A0525C288FB00CBC971 /* en.strings */; };
 		FA88F9B723D438A8008CD669 /* Pad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88F9B623D438A8008CD669 /* Pad.storyboard */; };
 		FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE3B1923800515004E79B4 /* ReportViewController.swift */; };
 		FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAE3B1A23800515004E79B4 /* ReportViewController.xib */; };
@@ -136,10 +137,11 @@
 		FA5F0AB3237A819B00A21BF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA5F0AB6237A819B00A21BF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA5F0AB8237A819B00A21BF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA5F0AC5237BD3FE00A21BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		FA68EC98237E47C700518D00 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		FA68EC9A237E493B00518D00 /* FTFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTFileManager.swift; sourceTree = "<group>"; };
-		FA7D326924FE194E005792D3 /* flowtime_1.1.0(20200803).zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "flowtime_1.1.0(20200803).zip"; sourceTree = "<group>"; };
+		FA849A0125C25E8500CBC971 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		FA849A0525C288FB00CBC971 /* en.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = en.strings; sourceTree = "<group>"; };
+		FA849A0C25C2AE3B00CBC971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		FA88F9B623D438A8008CD669 /* Pad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pad.storyboard; sourceTree = "<group>"; };
 		FAAE3B1923800515004E79B4 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		FAAE3B1A23800515004E79B4 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 		FA5F0AA7237A819A00A21BF9 /* EnterAffectiveCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FA8499FF25C25E2000CBC971 /* Source */,
 				FAAE3B1D2381174C004E79B4 /* Database */,
 				FAF16BF623CC76D400A92B0B /* Report */,
 				FAC3D95D237FEA6D006CE2BC /* ReportLast */,
@@ -333,11 +336,10 @@
 				FA5F0AAE237A819A00A21BF9 /* SecondViewController.swift */,
 				FA0404D623817D26008DB43C /* ThirdViewController.swift */,
 				FA5F0AB0237A819A00A21BF9 /* Main.storyboard */,
-				FA5F0AB3237A819B00A21BF9 /* Assets.xcassets */,
 				FA5F0AB5237A819B00A21BF9 /* LaunchScreen.storyboard */,
 				FA5F0AB8237A819B00A21BF9 /* Info.plist */,
 				FA3D12C92396620500E96B02 /* WebSocket.plist */,
-				FA7D326924FE194E005792D3 /* flowtime_1.1.0(20200803).zip */,
+				FA849A0525C288FB00CBC971 /* en.strings */,
 			);
 			path = EnterAffectiveCloudDemo;
 			sourceTree = "<group>";
@@ -345,16 +347,25 @@
 		FA5F0AC6237BF1A400A21BF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				FA1B69BF23EBE5BE00115FA1 /* gif */,
 				FAF16BF223CC737600A92B0B /* Extension.swift */,
-				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
-				FAC3D939237E77E8006CE2BC /* error_tip.mp3 */,
-				FA3B17512381393300D5192D /* sample.report */,
 				FA68EC9A237E493B00518D00 /* FTFileManager.swift */,
 				FA060793237E2FBD00D0BB30 /* Preference.swift */,
 				FA68EC98237E47C700518D00 /* SoundPlayer.swift */,
+				FA849A0125C25E8500CBC971 /* Language.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		FA8499FF25C25E2000CBC971 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B69BF23EBE5BE00115FA1 /* gif */,
+				FA3B17512381393300D5192D /* sample.report */,
+				FA5F0AB3237A819B00A21BF9 /* Assets.xcassets */,
+				FAC3D93B237E77F1006CE2BC /* success_tip.mp3 */,
+				FAC3D939237E77E8006CE2BC /* error_tip.mp3 */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		FAAE3B1D2381174C004E79B4 /* Database */ = {
@@ -531,7 +542,6 @@
 				FAC3D93C237E77F1006CE2BC /* success_tip.mp3 in Resources */,
 				FA3B17522381393300D5192D /* sample.report in Resources */,
 				FAAE3B1C23800515004E79B4 /* ReportViewController.xib in Resources */,
-				FA7D326A24FE194E005792D3 /* flowtime_1.1.0(20200803).zip in Resources */,
 				FA5F0AB7237A819B00A21BF9 /* LaunchScreen.storyboard in Resources */,
 				FA1B69CE23EBE5BE00115FA1 /* else.gif in Resources */,
 				FA1B69D523EBE5BE00115FA1 /* P60-100A0-25.gif in Resources */,
@@ -547,6 +557,7 @@
 				FA1B69D823EBE5BE00115FA1 /* P40-60A0-25.gif in Resources */,
 				FA1B69D223EBE5BE00115FA1 /* P0-40A25-50.gif in Resources */,
 				FA2A0695237D2A2500BEB75E /* MeditationViewController.xib in Resources */,
+				FA849A0625C288FB00CBC971 /* en.strings in Resources */,
 				FA5F0AB2237A819A00A21BF9 /* Main.storyboard in Resources */,
 				FAC3D93A237E77E8006CE2BC /* error_tip.mp3 in Resources */,
 				FA1B69D323EBE5BE00115FA1 /* P60-100A25-50.gif in Resources */,
@@ -630,6 +641,7 @@
 				FA2A069A237D433E00BEB75E /* DashboardIndexView.swift in Sources */,
 				FAAE3B1B23800515004E79B4 /* ReportViewController.swift in Sources */,
 				FA68EC99237E47C700518D00 /* SoundPlayer.swift in Sources */,
+				FA849A0225C25E8500CBC971 /* Language.swift in Sources */,
 				FA3B17592381512C00D5192D /* ReportTableViewCell.swift in Sources */,
 				FAAE3B2C2381174C004E79B4 /* DBMigrateHandle.swift in Sources */,
 				FA2A069C237D438400BEB75E /* TitleTableViewCell.swift in Sources */,
@@ -664,7 +676,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA5F0AB1237A819A00A21BF9 /* Base */,
-				FA5F0AC5237BD3FE00A21BF9 /* en */,
+				FA849A0C25C2AE3B00CBC971 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

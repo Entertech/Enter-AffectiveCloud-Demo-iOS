@@ -75,7 +75,7 @@ class MeditationViewController: UIViewController {
             rightAndLeftSpectrumView.mainColor = #colorLiteral(red: 0.2941176471, green: 0.3647058824, blue: 0.8, alpha: 1)
             rightAndLeftSpectrumView.leftColor = #colorLiteral(red: 0.3725490196, green: 0.7764705882, blue: 0.5843137255, alpha: 1)
             rightAndLeftSpectrumView.rightColor = #colorLiteral(red: 0.8, green: 0.3215686275, blue: 0.4078431373, alpha: 1)
-            rightAndLeftSpectrumView.title = "左右脑波节律"
+            rightAndLeftSpectrumView.title = lang("左右脑波节律")
             rightAndLeftSpectrumView.observe()
             rightAndLeftSpectrumView.bgColor = .white
             
@@ -295,11 +295,11 @@ class MeditationViewController: UIViewController {
         if RelaxManager.shared.isWebSocketConnected {
             if let times = service?.meditationModel.startTime,
                 Int(Date().timeIntervalSince(times)) > Preference.meditationTime  {
-                SVProgressHUD.show(withStatus: "正在生成报表")
+                SVProgressHUD.show(withStatus: lang("正在生成报表"))
                 service?.finish()
             } else {
                 self.dismiss(animated: true) {
-                    SVProgressHUD.showError(withStatus: "体验时常过短,无报表生成")
+                    SVProgressHUD.showError(withStatus: lang("体验时常过短,无报表生成"))
                 }
             }
         } else {
@@ -311,8 +311,8 @@ class MeditationViewController: UIViewController {
     }
 
     @IBAction func editBtnPressed(_ sender: UIButton) {
-        if sender.titleLabel?.text == "编辑" {
-            sender.setTitle("完成", for: .normal)
+        if sender.titleLabel?.text == lang("编辑") {
+            sender.setTitle(lang("完成"), for: .normal)
             self.view.addSubview(dashboardIndexView)
             dashboardIndexView.snp.makeConstraints {
                 $0.left.right.equalToSuperview()
@@ -320,7 +320,7 @@ class MeditationViewController: UIViewController {
                 $0.top.equalTo(self.editBtn.snp.bottom).offset(8)
             }
         } else {
-            sender.setTitle("编辑", for: .normal)
+            sender.setTitle(lang("编辑"), for: .normal)
             if let _ = dashboardIndexView.superview {
                 dashboardIndexView.removeFromSuperview()
                 setLayout() 
@@ -329,18 +329,18 @@ class MeditationViewController: UIViewController {
     }
     
     @IBAction func dismissMeditation(_ sender: Any) {
-        let action = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        let okBtn = UIAlertAction(title: "确定", style: .default) { (action) in
+        let action = UIAlertAction(title: lang("取消"), style: .cancel, handler: nil)
+        let okBtn = UIAlertAction(title: lang("确定"), style: .default) { (action) in
             self.finishMeditation()
         }
         if let times = service?.meditationModel.startTime,
         Int(Date().timeIntervalSince(times)) > Preference.meditationTime  {
-            let alert = UIAlertController(title: "结束体验", message: "结束体验并获取分析报告", preferredStyle: .alert)
+            let alert = UIAlertController(title: lang("结束体验"), message: lang("结束体验并获取分析报告"), preferredStyle: .alert)
             alert.addAction(action)
             alert.addAction(okBtn)
             self.present(alert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "结束体验", message: "体验时长不足无法生成报表,确定退出?", preferredStyle: .alert)
+            let alert = UIAlertController(title: lang("结束体验"), message: lang("体验时长不足无法生成报表,确定退出?"), preferredStyle: .alert)
             alert.addAction(action)
             alert.addAction(okBtn)
             self.present(alert, animated: true, completion: nil)

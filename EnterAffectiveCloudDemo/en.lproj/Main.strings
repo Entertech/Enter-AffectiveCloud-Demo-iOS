@@ -1,9 +1,30 @@
 
-/* Class = "UITabBarItem"; title = "我的"; ObjectID = "IOv-l4-ikl"; */
-"IOv-l4-ikl.title" = "我的";
+/* Class = "UILabel"; text = "根据脑电和心率数据，实时分析专注力、放松度、压力水平等情绪情感值。"; ObjectID = "EBE-Gw-fbV"; */
+"EBE-Gw-fbV.text" = "According to EEG and heart rate data, real-time analysis of emotional and emotional values such as concentration, relaxation, and stress level. ";
 
-/* Class = "UITabBarItem"; title = "首页"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "首页";
+/* Class = "UITabBarItem"; title = "我的"; ObjectID = "Gvu-4h-cqX"; */
+"Gvu-4h-cqX.title" = "Me";
 
-/* Class = "UITabBarItem"; title = "统计"; ObjectID = "cPa-gy-q4n"; */
-"cPa-gy-q4n.title" = "统计";
+/* Class = "UILabel"; text = "呈现体验过程中的脑电、心率、专注力、放松度和压力水平等值变化趋势。"; ObjectID = "HCw-I7-qmp"; */
+"HCw-I7-qmp.text" = "Shows the changing trend of brain electricity, heart rate, concentration, relaxation and stress level during the experience. ";
+
+/* Class = "UILabel"; text = "双通道脑电和心率"; ObjectID = "Ndj-et-XNt"; */
+"Ndj-et-XNt.text" = "Dual channel EEG and heart rate ";
+
+/* Class = "UITabBarItem"; title = "统计"; ObjectID = "bbb-Nb-Xm7"; */
+"bbb-Nb-Xm7.title" = "Statistics ";
+
+/* Class = "UILabel"; text = "多维度实时数据"; ObjectID = "f9X-cO-O8g"; */
+"f9X-cO-O8g.text" = "Multi-dimensional real-time data";
+
+/* Class = "UITabBarItem"; title = "首页"; ObjectID = "k85-B3-G5T"; */
+"k85-B3-G5T.title" = "Home";
+
+/* Class = "UIButton"; normalTitle = "开始"; ObjectID = "ntb-a5-0D8"; */
+"ntb-a5-0D8.normalTitle" = "Begin";
+
+/* Class = "UILabel"; text = "实时监测前额左右双通道脑电和心率，输出脑波节律和心率数据。"; ObjectID = "qrr-fn-sM6"; */
+"qrr-fn-sM6.text" = "Real-time monitoring of the forehead left and right dual-channel EEG and heart rate, and output brain wave rhythm and heart rate data. ";
+
+/* Class = "UILabel"; text = "双通道脑电和心率"; ObjectID = "xzv-gO-Bai"; */
+"xzv-gO-Bai.text" = "Dual channel EEG and heart rate ";

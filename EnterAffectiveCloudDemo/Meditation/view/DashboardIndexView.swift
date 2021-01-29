@@ -32,7 +32,7 @@ class DashboardIndexView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.backgroundColor = UIColor.white
         let titleLabel = UILabel(frame: CGRect(x: 16, y: 8, width: 243, height: 21))
         titleLabel.font = UIFont.systemFont(ofSize: 14)
-        titleLabel.text = "拖动来改变数据面板顺序"
+        titleLabel.text = lang("拖动来改变数据面板顺序")
         titleLabel.textColor = UIColor.gray
         self.addSubview(titleLabel)
         
@@ -109,7 +109,7 @@ class DashboardIndexView: UIView, UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = TitleTableViewCell(style: .default, reuseIdentifier: cellIdentify)
         }
-        cell?.titleLabel?.text = dashboardIndex[indexPath.row].rawValue
+        cell?.titleLabel?.text = lang(dashboardIndex[indexPath.row].rawValue)
         return cell!
     }
     

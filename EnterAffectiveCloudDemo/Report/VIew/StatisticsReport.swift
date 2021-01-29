@@ -16,7 +16,11 @@ class StatisticsReport: BaseView {
             case 1:
                 unit = "st"
             case 2:
-                unit = "nd"
+                if newValue == 12 {
+                    unit = "th"
+                } else {
+                    unit = "nd"
+                }
             case 3:
                 unit = "rd"
             default:
