@@ -14,7 +14,7 @@ This project is an integration of Emotion Cloud SDK and Bluetooth SDK, which rea
 ## Dependence
 
 - [Affective Cloud SDk](https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK/tree/master/EnterAffectiveCloud)
-- [Affective Cloud UI](https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK/tree/master/EnterAffectiveCloudUI)
+- [Affective Cloud UI](https://github.com/Entertech/Enter-AffectiveCloud-iOS-SDK/tree/master/UI)
 - [Enter Bluetooth SDK](https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK/tree/master/EnterBioModuleBLESDK)
 - [Enter Bluetooth UI](https://github.com/Entertech/Enter-Biomodule-BLE-iOS-SDK/tree/master/UI)
 
