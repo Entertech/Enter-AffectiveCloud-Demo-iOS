@@ -21,7 +21,6 @@ class RelaxManager: BLEBioModuleDataSource {
     let ble = BLEService.shared.bleManager
     private init() {
         ble.dataSource = self
-        ble.uploadCycle = UInt(Preference.kCloudServiceUploadCycle)
     }
     
     var isWebSocketConnected: Bool {
@@ -124,27 +123,10 @@ class RelaxManager: BLEBioModuleDataSource {
 
 
     private var startDate: Date?
-    private var lastEegMin: Int = 0
-    private var lastHrMin: Int = 0
     private var eegCount = 0
     private var hrCount = 0
     func bleHeartRateDataReceived(data: Data, bleManager: BLEManager) {
         self.client?.appendBiodata(hrData: data)
-        
-        if let start = startDate {
-            hrCount += 1
-            let current = Date()
-            let timeStamp = current.timeIntervalSince(start)
-            let min = timeStamp / 60
-
-            let formate = DateFormatter()
-            formate.dateFormat = "HH:mm:ss"
-            print("[Debug Upload HR]:  \(lastHrMin) 分钟第 \(hrCount) 个包 \(formate.string(from: current))")
-            if lastHrMin != Int(min) {
-                hrCount = 0
-                lastHrMin = Int(min)
-            }
-        }
     }
 
     // 接受脑波数据
@@ -165,7 +147,7 @@ class RelaxManager: BLEBioModuleDataSource {
                 self.countEegError = 0
             }
             
-            if self.countEegError > 2 {
+            if self.countEegError > 20 {
                 self.countEegError = 0
                 self.clearBLE()
                 DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+1) {
@@ -174,21 +156,6 @@ class RelaxManager: BLEBioModuleDataSource {
             }
         }
         self.client?.appendBiodata(eegData: data)
-        if let start = startDate {
-            eegCount += 1
-            let current = Date()
-            let timeStamp = current.timeIntervalSince(start)
-            let min = timeStamp / 60
-
-            let formate = DateFormatter()
-            formate.dateFormat = "HH:mm:ss"
-            
-            print("[Debug Upload EEG]: \(lastEegMin) 分钟第 \(eegCount) 个包 \(formate.string(from: current))")
-            if lastEegMin != Int(min) {
-                eegCount = 0
-                lastEegMin = Int(min)
-            }
-        }
     }
 }
 
