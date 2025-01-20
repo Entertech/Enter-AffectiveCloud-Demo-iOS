@@ -75,8 +75,7 @@ class RelaxManager: BLEBioModuleDataSource {
     // start cloud services. such as .EEG and .HeartRate
     func startCloudService() {
         // 开启生物信号
-        self.client?.initBiodataServices(services: [.EEG, .HeartRate], uploadCycle: UInt(Preference.kCloudServiceUploadCycle),
-                                         additional: ["eeg": ["channel_power_verbose"]])
+        self.client?.initBiodataServices(services: [.EEG, .HeartRateV2], uploadCycle: UInt(Preference.kCloudServiceUploadCycle), filterMode: .hard, powerMode: .rate)
         
 
         // 开启情感数据
@@ -85,7 +84,7 @@ class RelaxManager: BLEBioModuleDataSource {
     }
     
     func bioDataSubscribe() {
-        self.client?.subscribeBiodataServices(services: [.eeg, .hr])
+        self.client?.subscribeBiodataServices(services: [.eeg, .hr_v2])
     }
     
     func affectiveDataSubscribe() {
@@ -112,7 +111,7 @@ class RelaxManager: BLEBioModuleDataSource {
 
     func finish() {
         // 生成报表
-        self.client?.getBiodataReport(services: [.EEG, .HeartRate])
+        self.client?.getBiodataReport(services: [.EEG, .HeartRateV2])
         self.client?.getAffectiveDataReport(services: [.relaxation, .attention, .pressure, .pleasure])
     }
     

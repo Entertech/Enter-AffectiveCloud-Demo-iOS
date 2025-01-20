@@ -64,8 +64,10 @@ public extension Language {
     /// - Parameter language: 语言类别，默认为 Language.default 类
     private static func _refresh(_ language: Language = .default) {
         let fileName = Bundle.main.path(forResource: language.rawValue, ofType: "strings")
-        let dic = NSDictionary(contentsOfFile: fileName!)
-        self._strings = dic as! [String: String]
+        if let fileName = fileName {
+            let dic = NSDictionary(contentsOfFile: fileName)
+            self._strings = dic as! [String: String]
+        }
     }
 }
 
